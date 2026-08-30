@@ -1,0 +1,170 @@
+import type { Projeto } from "@/types";
+import { links } from "@/data/links";
+
+/**
+ * Projetos reais. Descrições baseadas no escopo efetivamente trabalhado.
+ * Sem métricas ou resultados numéricos não comprovados — os campos
+ * `resultado` são qualitativos de propósito.
+ */
+export const projetos: Projeto[] = [
+  {
+    slug: "conciliacao-bancaria-itau",
+    titulo: "Conciliação Bancária Itaú",
+    categoria: "Integração bancária · BankingProtheus",
+    destaque: true,
+    resumo:
+      "Integração bancária com as APIs do Itaú (OAuth2 + mTLS) que automatiza a conciliação de contas, extratos, recebimentos e pagamentos contra os registros internos, com controle de acesso e rastreabilidade.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "SQL",
+      "APIs Itaú",
+      "OAuth2",
+      "mTLS",
+    ],
+    detalhe: {
+      contexto:
+        "A operação financeira precisava conciliar as movimentações bancárias do Itaú (contas, extratos, recebimentos e pagamentos) com os registros internos, num volume que tornava a conferência manual inviável e pouco rastreável. É um projeto que combina conhecimento financeiro, análise de sistemas, integração bancária, desenvolvimento e segurança.",
+      problema:
+        "Processo manual, lento e sujeito a erro, sem trilha clara de divergências. O acesso às APIs do Itaú exige autenticação OAuth2 (client_credentials) sobre canal mTLS, com certificados e credenciais que precisam ser guardados com segurança e renovados sem interromper a operação.",
+      participacao:
+        "Atuei do levantamento à entrega: modelei os dados no PostgreSQL, implementei a autenticação OAuth2 client_credentials com mTLS, os adapters das APIs do Itaú, as regras de conciliação, o painel em React + TypeScript e o controle de permissões de acesso.",
+      solucao:
+        "Serviço em Node.js que autentica via OAuth2 client_credentials sobre mTLS, coleta contas, extratos, recebimentos e pagamentos, normaliza os lançamentos e concilia contra os registros internos. Gestão de certificados e credenciais com rastreabilidade dos acessos. Painel em React + TypeScript para status, divergências e histórico, com acesso controlado por permissões.",
+      arquitetura:
+        "Autenticação OAuth2 client_credentials + mTLS → adapters por endpoint do Itaú → serviço de normalização e regras de conciliação → PostgreSQL como fonte de verdade dos lançamentos → API interna com permissões → frontend React. Trilha de auditoria dos acessos e das renovações de credenciais.",
+      desafios: [
+        "Autenticação bancária com OAuth2 client_credentials sobre mTLS: gestão segura de certificados e credenciais e sua renovação.",
+        "Conciliar formatos e estados distintos de extratos, recebimentos e pagamentos.",
+        "Idempotência no processamento para reprocessar períodos sem duplicar lançamentos.",
+        "Rastreabilidade: registrar quem acessou o quê e o que a integração executou.",
+      ],
+      resultado:
+        "A conciliação passou de tarefa manual recorrente para um fluxo automatizado, com divergências visíveis em painel, acesso controlado por permissões e trilha de auditoria dos acessos e das credenciais.",
+    },
+  },
+  {
+    slug: "portal-rh",
+    titulo: "Portal de RH",
+    categoria: "IA aplicada · Recrutamento",
+    destaque: true,
+    resumo:
+      "Plataforma de apoio ao recrutamento que usa IA para ler, classificar e triar currículos, reduzindo o trabalho manual da etapa inicial.",
+    stack: ["Python", "IA / LLMs", "React", "PostgreSQL"],
+    detalhe: {
+      contexto:
+        "A triagem inicial de currículos consumia muito tempo do time de RH: leitura individual, comparação com a vaga e classificação manual dos candidatos.",
+      problema:
+        "Volume alto de currículos em formatos heterogêneos, critérios de triagem aplicados de forma inconsistente e pouca rastreabilidade sobre por que um candidato avançou ou não.",
+      participacao:
+        "Desenvolvi o pipeline de processamento de currículos e a lógica de classificação assistida por IA, além da integração com o fluxo de processos da empresa.",
+      solucao:
+        "Serviço em Python que extrai o conteúdo dos currículos, estrutura as informações e usa modelos de linguagem para classificar e pontuar candidatos frente aos requisitos da vaga. O resultado alimenta a triagem, com justificativa associada a cada classificação. Integração com processos internos e, quando aplicável, com dados do TOTVS Protheus.",
+      arquitetura:
+        "Ingestão de currículos → extração e estruturação → camada de IA (classificação e scoring) → persistência em PostgreSQL → interface de triagem em React. Integração com sistemas internos via contratos definidos.",
+      desafios: [
+        "Padronizar dados vindos de currículos com formatos e qualidade muito variados.",
+        "Manter a classificação explicável, com motivo registrado para cada decisão.",
+        "Controlar custo e latência das chamadas aos modelos de linguagem.",
+        "Respeitar as fronteiras de integração com o Protheus, sem acoplamento indevido.",
+      ],
+      resultado:
+        "A etapa de triagem passou a ser assistida por IA, com critérios mais consistentes e uma fila de candidatos já pré-classificada para o time de RH revisar.",
+    },
+  },
+  {
+    slug: "portal-engenharia",
+    titulo: "Portal de Engenharia",
+    categoria: "Sistema corporativo · Engenharia & Obras",
+    destaque: true,
+    resumo:
+      "Aplicação corporativa em produção para gestão de obras, chamados, fornecedores, cotações, documentos e dashboards — com autenticação, RBAC e auditoria.",
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "APIs REST"],
+    detalhe: {
+      contexto:
+        "A área de engenharia/obras acompanhava obras, chamados, fornecedores e cotações em planilhas e e-mail, sem visão consolidada, sem controle de acesso e sem histórico confiável.",
+      problema:
+        "Informação fragmentada e difícil de auditar, sem controle claro de quem pode ver ou fazer o quê e sem indicadores para acompanhar obras e cotações.",
+      participacao:
+        "Participei do desenvolvimento full stack: levantamento de regras de negócio, modelagem de dados com Prisma, APIs REST em Node.js, frontend em React + TypeScript, autenticação, RBAC e trilha de auditoria.",
+      solucao:
+        "Aplicação web para gerir obras, abrir e acompanhar chamados, cadastrar fornecedores, conduzir cotações, anexar documentos e acompanhar dashboards e relatórios. Autenticação com autorização baseada em papéis (RBAC), deny-by-default e auditoria das ações.",
+      arquitetura:
+        "Backend Node.js modular (obras, chamados, fornecedores, cotações) com Prisma sobre PostgreSQL → APIs REST → frontend React com dashboards. Autorização por papéis centralizada no backend; registro de auditoria das operações.",
+      desafios: [
+        "Modelar obras, cotações e fornecedores de forma flexível sem cair num formulário genérico.",
+        "RBAC aplicado de forma consistente no backend, com deny-by-default.",
+        "Dashboards e relatórios úteis à gestão sem sobrecarregar o banco.",
+      ],
+      resultado:
+        "Obras, chamados, fornecedores e cotações passaram a viver num único sistema em produção, com acesso controlado por papéis, histórico auditável e dashboards de acompanhamento.",
+    },
+  },
+  {
+    slug: "importnfe",
+    titulo: "ImportNFe",
+    categoria: "Processamento fiscal · XML NFe",
+    resumo:
+      "Ferramenta para importar XML de NFe, organizar fornecedores e empresas e gerar planilhas Excel a partir de templates.",
+    stack: ["Python", "FastAPI", "SQLAlchemy", "React", "PostgreSQL"],
+    detalhe: {
+      contexto:
+        "A extração de dados de notas fiscais eletrônicas para planilhas era feita manualmente, abrindo XMLs e copiando informações campo a campo.",
+      problema:
+        "Trabalho repetitivo e propenso a erro, sem cadastro estruturado de fornecedores e empresas e sem padronização das planilhas geradas.",
+      participacao:
+        "Desenvolvi a aplicação full stack: API em FastAPI, modelagem com SQLAlchemy, migrations com Alembic, autenticação JWT e o frontend em React + TypeScript.",
+      solucao:
+        "Backend em FastAPI que faz o parsing do XML da NFe, valida e persiste os dados, mantém cadastros de fornecedores e empresas e gera arquivos Excel a partir de templates configuráveis. Frontend em React para upload, conferência e download. Autenticação via JWT.",
+      arquitetura:
+        "FastAPI + SQLAlchemy sobre PostgreSQL, migrations versionadas com Alembic → parsing de XML NFe → serviço de geração de Excel por template → frontend React + TypeScript. Autenticação JWT.",
+      desafios: [
+        "Tratar variações do layout do XML da NFe e campos opcionais.",
+        "Manter os cadastros de fornecedores e empresas consistentes ao importar em lote.",
+        "Templates de Excel configuráveis sem exigir alteração de código a cada ajuste.",
+      ],
+      resultado:
+        "A importação de NFe e a geração de planilhas passaram a ser feitas pela ferramenta, com cadastros estruturados e saída padronizada por template.",
+    },
+  },
+  {
+    slug: "les",
+    titulo: "Lecino Lucas Engineering Standard (LES)",
+    categoria: "Padrão de engenharia · Open source",
+    destaque: true,
+    resumo:
+      "Padrão versionado de engenharia e UX para desenvolvimento assistido por IA, distribuído como CLI npm que faz bootstrap do contrato do projeto.",
+    stack: ["TypeScript", "Node.js", "CLI npm", "Governança"],
+    links: [
+      { rotulo: "GitHub", href: links.les.github },
+      { rotulo: "npm", href: links.les.npm },
+    ],
+    detalhe: {
+      contexto:
+        "Cada novo projeto recomeçava as mesmas discussões: arquitetura, segurança, padrões de frontend, governança e Definition of Done. Com desenvolvimento assistido por IA, essa falta de contrato explícito gera resultados inconsistentes.",
+      problema:
+        "Decisões de engenharia repetidas do zero a cada projeto, sem uma fonte de verdade que agentes de IA e pessoas pudessem seguir da mesma forma.",
+      participacao:
+        "Autor e mantenedor. Defini o padrão, escrevi a documentação normativa e desenvolvi a CLI que o aplica.",
+      solucao:
+        "Um padrão versionado (AGENTS.md como contrato normativo, CLAUDE.md como ponto de entrada para agentes, docs de arquitetura e manifesto de metadados) somado a uma CLI npm — `@lecinolucas/les` — com `init` para bootstrap, `check` como quality gate determinístico e `audit` para conformidade arquitetural. Cobre arquitetura (Modular Monolith first), frontend foundation, segurança deny-by-default, testes, observabilidade e governança por ADRs, com suporte a diferentes stacks.",
+      arquitetura:
+        "CLI em Node.js/TypeScript sem dependências de runtime → detecção de cenário e stack → geração dos arquivos de governança → checks determinísticos e auditoria. O projeto passa a seguir suas próprias regras locais versionadas.",
+      desafios: [
+        "Ser prescritivo o suficiente para orientar um agente de IA, sem virar burocracia que trava o desenvolvimento.",
+        "Checks determinísticos que agreguem valor sem emitir notas especulativas.",
+        "Suportar stacks diferentes mantendo um núcleo de princípios estável e versionado.",
+      ],
+      resultado:
+        "Este portfólio também utiliza o LES como contrato de engenharia e UX: foi inicializado e é governado pelo padrão (`les init`, `les check`, `les audit`), servindo como aplicação real dele.",
+    },
+  },
+];
+
+export const projetosDestaque = projetos.filter((p) => p.destaque);
+
+export function projetoPorSlug(slug: string): Projeto | undefined {
+  return projetos.find((p) => p.slug === slug);
+}

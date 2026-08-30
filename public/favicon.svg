@@ -1,0 +1,5 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lecino Lucas">
+  <rect width="64" height="64" rx="14" fill="#2f5fd6" />
+  <path d="M18 15h7v25h15v7H18V15Z" fill="#ffffff" />
+  <path d="M39 15h7v18.5c0 3.6 2.1 5.8 5.6 5.8 1.2 0 2.3-.2 3.4-.7v6.8c-1.6.6-3.4.9-5.4.9-6.9 0-11-4.3-11-11.4V15Z" fill="#ffffff" fill-opacity="0.62" />
+</svg>

@@ -1,0 +1,12 @@
+{
+  "name": "Lecino Lucas — Portfólio",
+  "short_name": "Lecino Lucas",
+  "description": "Analista de Sistemas & Desenvolvedor Full Stack",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111318",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

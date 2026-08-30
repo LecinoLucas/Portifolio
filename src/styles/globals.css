@@ -1,0 +1,195 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+/* Inter — apenas eixo de peso (sem itálico / optical size). Os subconjuntos
+   por idioma têm unicode-range: o navegador baixa só o latino para pt-BR. */
+@import "@fontsource-variable/inter/wght.css";
+
+/* ==========================================================================
+   Design Tokens — Lecino Lucas Engineering Standard (LES)
+   Estilização estritamente via variáveis semânticas. Zero cor hardcoded.
+   Light Mode é a referência; Dark Mode é equivalente.
+   ========================================================================== */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.994 0 0);
+  --foreground: oklch(0.21 0.02 261);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0.02 261);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0.02 261);
+
+  --primary: oklch(0.52 0.16 260);
+  --primary-foreground: oklch(0.985 0 0);
+
+  --secondary: oklch(0.968 0.004 261);
+  --secondary-foreground: oklch(0.27 0.02 261);
+
+  --muted: oklch(0.968 0.004 261);
+  --muted-foreground: oklch(0.53 0.015 261);
+
+  --accent: oklch(0.955 0.012 260);
+  --accent-foreground: oklch(0.27 0.02 261);
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --success: oklch(0.6 0.13 155);
+
+  --border: oklch(0.922 0.004 261);
+  --input: oklch(0.922 0.004 261);
+  --ring: oklch(0.52 0.16 260);
+
+  --radius: 0.7rem;
+}
+
+.dark {
+  --background: oklch(0.19 0.014 264);
+  --foreground: oklch(0.96 0.003 261);
+
+  --card: oklch(0.225 0.016 264);
+  --card-foreground: oklch(0.96 0.003 261);
+
+  --popover: oklch(0.225 0.016 264);
+  --popover-foreground: oklch(0.96 0.003 261);
+
+  --primary: oklch(0.7 0.14 258);
+  --primary-foreground: oklch(0.17 0.02 264);
+
+  --secondary: oklch(0.27 0.017 264);
+  --secondary-foreground: oklch(0.96 0.003 261);
+
+  --muted: oklch(0.27 0.017 264);
+  --muted-foreground: oklch(0.71 0.015 261);
+
+  --accent: oklch(0.3 0.02 264);
+  --accent-foreground: oklch(0.96 0.003 261);
+
+  --destructive: oklch(0.66 0.19 25);
+  --destructive-foreground: oklch(0.96 0.003 261);
+
+  --success: oklch(0.72 0.14 158);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --ring: oklch(0.7 0.14 258);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --container-8xl: 90rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklch, var(--primary) 22%, transparent);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Reveal on scroll — desligado sob prefers-reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.5s ease,
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Fundo sutil do Hero — puramente decorativo, baixíssimo contraste */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
+  opacity: 0.5;
+}

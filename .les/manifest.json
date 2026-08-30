@@ -1,0 +1,16 @@
+{
+  "versaoLes": "2.2.0",
+  "tipoProjeto": "NOVO",
+  "nomeProjeto": "Portifolio",
+  "dataInicializacao": "2026-08-29T23:44:19.854Z",
+  "stack": {
+    "linguagem": "TypeScript",
+    "build": "Vite",
+    "frontend": "React + Vite + Tailwind CSS v4 + shadcn/ui + Lucide",
+    "backend": "N/A (SPA estática — ver docs/decisoes/0001-spa-estatica-sem-backend.md)",
+    "banco": "N/A",
+    "orm": "N/A",
+    "testes": "Vitest + Testing Library"
+  },
+  "modulos": ["perfil", "experiencias", "projetos", "tecnologias", "les"]
+}

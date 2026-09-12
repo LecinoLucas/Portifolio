@@ -60,7 +60,7 @@ export function WhatsAppFloatingButton() {
   return (
     <aside
       aria-label="Ação rápida de contato"
-      className="fixed bottom-5 right-5 z-40 pb-[env(safe-area-inset-bottom)] sm:bottom-6 sm:right-6"
+      className="hidden lg:block fixed bottom-6 right-6 z-40"
     >
       <a
         href={links.whatsapp.href}

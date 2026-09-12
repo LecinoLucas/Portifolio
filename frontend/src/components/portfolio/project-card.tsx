@@ -83,7 +83,7 @@ export function ProjectCard({ projeto }: { projeto: Projeto }) {
         </div>
 
         {/* Título com transição de hover */}
-        <h3 className="mt-3.5 text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
+        <h3 className="mt-3.5 text-lg font-bold tracking-tight text-foreground transition-colors group-hover:text-primary break-words">
           <Link
             to={`/projetos/${projeto.slug}`}
             className="focus-visible:outline-none focus-visible:underline"
@@ -110,13 +110,13 @@ export function ProjectCard({ projeto }: { projeto: Projeto }) {
         </div>
 
         {/* Rodapé de Ações: Estudo Completo vs Prévia Rápida */}
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-border/50 pt-4">
+        <div className="mt-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-t border-border/50 pt-4">
           <Link
             to={`/projetos/${projeto.slug}`}
             className={classesBotao({
               variante: "primario",
               tamanho: "sm",
-              className: "gap-1.5 font-semibold text-xs",
+              className: "w-full sm:w-auto justify-center min-h-[42px] sm:min-h-[36px] gap-1.5 font-semibold text-xs",
             })}
           >
             Explorar Estudo de Caso
@@ -129,7 +129,7 @@ export function ProjectCard({ projeto }: { projeto: Projeto }) {
               className={classesBotao({
                 variante: "contorno",
                 tamanho: "sm",
-                className: "gap-1.5 text-xs text-muted-foreground hover:text-foreground",
+                className: "w-full sm:w-auto justify-center min-h-[42px] sm:min-h-[36px] gap-1.5 text-xs font-semibold text-foreground hover:bg-muted/70 cursor-pointer border-border/80 shadow-2xs",
               })}
               aria-label={`Abrir prévia rápida do projeto ${projeto.titulo}`}
             >

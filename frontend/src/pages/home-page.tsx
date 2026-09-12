@@ -27,7 +27,7 @@ export function HomePage() {
             {/* Coluna Esquerda: Apresentação, Foco Dual & Ações */}
             <div className="space-y-6 lg:col-span-6 xl:col-span-6">
               {/* Status operacional e posicionamento */}
-              <div className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-xl sm:rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary shadow-xs">
+              <div className="inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 rounded-xl sm:rounded-full border border-primary/30 bg-primary/10 px-3.5 py-2 sm:py-1.5 text-xs font-medium text-primary shadow-xs">
                 <span className="size-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                 <span className="leading-snug break-words">{perfil.posicionamento}</span>
                 <span className="hidden sm:inline text-border">|</span>
@@ -35,10 +35,10 @@ export function HomePage() {
               </div>
 
               <div className="space-y-2">
-                <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl xl:text-6xl">
+                <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl xl:text-6xl break-words">
                   {perfil.nome}
                 </h1>
-                <p className="text-lg sm:text-xl font-bold bg-gradient-to-r from-primary via-tech-cyan to-tech-violet bg-clip-text text-transparent">
+                <p className="text-lg sm:text-xl font-bold bg-gradient-to-r from-primary via-tech-cyan to-tech-violet bg-clip-text text-transparent break-words">
                   {perfil.titulo}
                 </p>
               </div>

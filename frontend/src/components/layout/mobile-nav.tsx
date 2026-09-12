@@ -40,7 +40,7 @@ export function MobileNav() {
 
       <SheetContent
         lado="right"
-        className="w-72"
+        className="w-[85vw] max-w-xs flex flex-col justify-between overflow-y-auto"
         rotuloFechar="Fechar menu"
         aria-describedby={undefined}
       >

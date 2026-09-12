@@ -44,19 +44,20 @@ Este documento reúne os registros visuais reais da aplicação após a **segund
 
 ---
 
-## 3. Mobile (375 × 812)
+## 3. Mobile Real (375 × 812 — Emulado via Chrome DevTools Protocol)
 
-### 3.1 Página Inicial / Hero
-![Página Inicial no Mobile](screenshots/375x812-home.png)
+> **Métricas Reais Verificadas**:  
+> `window.innerWidth = 375` | `window.innerHeight = 812` | `window.devicePixelRatio = 2`  
+> `document.documentElement.scrollWidth = 375` (Zero rolagem horizontal).
 
-### 3.2 Menu Mobile Aberto (Sheet / Radix)
-![Menu Mobile](screenshots/375x812-menu-mobile.png)
+### 3.1 Página Inicial / Hero (Mobile Real)
+![Página Inicial no Mobile Real](screenshots/375x812-home-real.png)
 
-### 3.3 Projetos em Cards Verticais
-![Projetos no Mobile](screenshots/375x812-projetos.png)
+### 3.2 Menu Mobile Gaveta Aberto (85vw / Ações Roláveis)
+![Menu Mobile Real](screenshots/375x812-menu-real.png)
 
-### 3.4 Detalhes do Projeto no Mobile
-![Detalhes do Projeto no Mobile](screenshots/375x812-projeto-detalhe.png)
+### 3.3 Catálogo de Módulos (Coluna Única / Touch Target 42px)
+![Projetos no Mobile Real](screenshots/375x812-projetos-real.png)
 
-### 3.5 Formulário de Contato no Mobile
-![Contato no Mobile](screenshots/375x812-contato.png)
+### 3.4 Formulário de Contato Direto (Sem Botão Flutuante Sobreposto)
+![Contato no Mobile Real](screenshots/375x812-contato-real.png)

@@ -1,144 +1,219 @@
-import { Database, Network, Server, ArrowRight, ShieldCheck, Cpu } from "lucide-react";
+import {
+  Database,
+  Network,
+  Server,
+  ShieldCheck,
+  Cpu,
+  ArrowRight,
+  Activity,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function SystemsDiagram() {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/60 p-4 sm:p-8 backdrop-blur-sm">
-      {/* Linhas e nós decorativos de fundo */}
+    <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/75 p-5 sm:p-7 backdrop-blur-md shadow-xl transition-all">
+      {/* Luz ambiente temática interna */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-40 tech-grid-bg"
+        className="pointer-events-none absolute -top-24 -right-24 size-64 rounded-full bg-tech-violet/15 blur-3xl"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-24 -left-24 size-64 rounded-full bg-primary/15 blur-3xl"
       />
 
-      {/* Header do Diagrama de Sistemas */}
-      <div className="relative flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/60 pb-5">
-        <div className="flex items-center gap-2.5">
-          <span className="flex size-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-          <span className="text-xs font-semibold uppercase tracking-[0.14em] text-tech-cyan">
+      {/* Header do Mapa de Sistemas */}
+      <div className="relative flex flex-wrap items-center justify-between gap-3 border-b border-border/60 pb-4">
+        <div className="flex items-center gap-2">
+          <span className="relative flex size-2.5">
+            <span className="motion-safe:animate-ping absolute inline-flex size-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex size-2.5 rounded-full bg-emerald-500" />
+          </span>
+          <span className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
+            Mapa de Sistemas Conectados
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="rounded-full border border-tech-cyan/30 bg-tech-cyan/10 px-2.5 py-0.5 text-[11px] font-semibold text-tech-cyan">
             Arquitetura de Conexão Integrada
           </span>
         </div>
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <ShieldCheck className="size-3.5 text-primary shrink-0" />
-          <span className="text-[11px] sm:text-xs">mTLS · OAuth2 · REST · PostgreSQL</span>
-        </div>
       </div>
 
-      {/* Mensagem Central Unificadora */}
-      <div className="relative mt-6 text-center">
-        <p className="mx-auto max-w-xl text-xs font-semibold uppercase tracking-[0.1em] text-primary">
-          Princípio Unificador
+      {/* Núcleo Central: Barramento & Integração */}
+      <div className="relative my-5 rounded-xl border border-primary/40 bg-primary/10 p-4 text-center shadow-inner">
+        <div className="flex items-center justify-center gap-2 text-xs font-extrabold uppercase tracking-widest text-primary">
+          <Activity className="size-4 motion-safe:animate-pulse text-tech-cyan" />
+          <span>Núcleo de Integração &amp; Dados</span>
+        </div>
+        <p className="mt-1 text-xs sm:text-sm font-medium text-foreground">
+          Sinergia entre processos corporativos e arquiteturas modernas de software
         </p>
-        <blockquote className="mt-1 text-base font-medium tracking-tight text-foreground sm:text-lg">
-          “Experiência em sistemas corporativos aplicada ao desenvolvimento de soluções completas.”
-        </blockquote>
-      </div>
-
-      {/* Grid de 3 polos conectados */}
-      <div className="relative mt-8 grid gap-4 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-        {/* POLO 1: Sistemas Corporativos & ERP */}
-        <div className="rounded-xl border border-tech-violet/30 bg-card p-5 shadow-xs transition-all hover:border-tech-violet/60">
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-tech-violet">
-              <Server className="size-4" />
-              ERP &amp; Negócio
-            </span>
-            <span className="rounded-full bg-tech-violet/10 px-2.5 py-0.5 text-[11px] font-medium text-tech-violet">
-              TOTVS Protheus P12
-            </span>
-          </div>
-
-          <h3 className="mt-3 text-sm font-semibold text-foreground">
-            Analista de Sistemas / Protheus
-          </h3>
-          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-            Módulos Financeiro, Fiscal, Contábil e TMS. Diagnóstico analítico de dados via SQL e alinhamento com processos operacionais.
-          </p>
-
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {["SIGAFIN", "SIGACTB", "SIGAFIS", "SQL Server"].map((item) => (
-              <span
-                key={item}
-                className="rounded bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <Link
-            to="/competencias"
-            className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-tech-violet hover:underline"
-          >
-            Ver especialidades <ArrowRight className="size-3" />
-          </Link>
-        </div>
-
-        {/* NÓ CENTRAL: Conector / Barramento de Integração */}
-        <div className="flex flex-col items-center justify-center py-2 lg:px-2">
-          <div className="flex size-10 items-center justify-center rounded-full border border-primary/40 bg-primary/10 text-primary shadow-xs">
-            <Network className="size-5 animate-pulse" />
-          </div>
-          <div className="mt-2 hidden text-center lg:block">
-            <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-              APIs &amp; Dados
-            </span>
-          </div>
-        </div>
-
-        {/* POLO 2: Desenvolvimento Full Stack & APIs */}
-        <div className="rounded-xl border border-tech-cyan/30 bg-card p-5 shadow-xs transition-all hover:border-tech-cyan/60">
-          <div className="flex items-center justify-between">
-            <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-tech-cyan">
-              <Cpu className="size-4" />
-              Software &amp; Web
-            </span>
-            <span className="rounded-full bg-tech-cyan/10 px-2.5 py-0.5 text-[11px] font-medium text-tech-cyan">
-              React 19 + Node.js
-            </span>
-          </div>
-
-          <h3 className="mt-3 text-sm font-semibold text-foreground">
-            Desenvolvedor Full Stack Júnior
-          </h3>
-          <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-            Aplicações em produção, APIs REST seguras (deny-by-default), integração bancária Itaú mTLS e padrão LES com testes.
-          </p>
-
-          <div className="mt-4 flex flex-wrap gap-1.5">
-            {["TypeScript", "Express MVC", "PostgreSQL", "Prisma"].map((item) => (
-              <span
-                key={item}
-                className="rounded bg-muted px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-
-          <Link
-            to="/projetos"
-            className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-tech-cyan hover:underline"
-          >
-            Ver estudos de caso <ArrowRight className="size-3" />
-          </Link>
+        <div className="mt-2.5 flex flex-wrap items-center justify-center gap-1.5 text-[10px] font-medium text-muted-foreground">
+          <span className="rounded bg-background/80 px-2 py-0.5 border border-border">mTLS Itaú</span>
+          <span className="rounded bg-background/80 px-2 py-0.5 border border-border">OAuth2</span>
+          <span className="rounded bg-background/80 px-2 py-0.5 border border-border">RESTful</span>
+          <span className="rounded bg-background/80 px-2 py-0.5 border border-border">PostgreSQL</span>
         </div>
       </div>
 
-      {/* Rodapé de Tecnologias Conectadas */}
-      <div className="relative mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-4 text-xs text-muted-foreground">
-        <div className="flex items-center gap-2">
-          <Database className="size-3.5 text-tech-orange" />
-          <span>Banco Relacional: PostgreSQL &amp; SQL Server</span>
+      {/* Grid com os 4 Nós Conectados em Órbita */}
+      <div className="relative grid gap-3.5 sm:grid-cols-2">
+        {/* NÓ 1: ERP & Negócio (Violeta) */}
+        <div className="group rounded-xl border border-tech-violet/35 bg-background/60 p-4 transition-all hover:border-tech-violet/70 hover:shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex size-7 items-center justify-center rounded-lg bg-tech-violet/15 text-tech-violet">
+                <Server className="size-3.5" />
+              </div>
+              <span className="text-xs font-bold text-tech-violet uppercase tracking-wider">
+                ERP &amp; Negócio
+              </span>
+            </div>
+            <span className="rounded bg-tech-violet/10 px-1.5 py-0.5 text-[10px] font-semibold text-tech-violet">
+              P12
+            </span>
+          </div>
+
+          <h4 className="mt-2 text-sm font-semibold text-foreground">
+            TOTVS Protheus &amp; SQL
+          </h4>
+          <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
+            Financeiro, Fiscal, Contábil e TMS. Diagnóstico analítico de dados via queries estruturadas.
+          </p>
+
+          <div className="mt-2.5 flex flex-wrap gap-1">
+            {["SIGAFIN", "SIGAFIS", "SIGACTB", "SQL"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded bg-tech-violet/5 px-1.5 py-0.5 text-[10px] font-medium text-tech-violet border border-tech-violet/20"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
-        <div className="flex items-center gap-3">
-          <Link
-            to="/experiencia"
-            className="font-medium text-primary hover:underline"
-          >
-            Linha do tempo corporativa →
-          </Link>
+
+        {/* NÓ 2: APIs Bancárias & Conexões (Magenta / Ciano) */}
+        <div className="group rounded-xl border border-tech-magenta/35 bg-background/60 p-4 transition-all hover:border-tech-magenta/70 hover:shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex size-7 items-center justify-center rounded-lg bg-tech-magenta/15 text-tech-magenta">
+                <Network className="size-3.5" />
+              </div>
+              <span className="text-xs font-bold text-tech-magenta uppercase tracking-wider">
+                APIs Bancárias
+              </span>
+            </div>
+            <span className="rounded bg-tech-magenta/10 px-1.5 py-0.5 text-[10px] font-semibold text-tech-magenta">
+              mTLS
+            </span>
+          </div>
+
+          <h4 className="mt-2 text-sm font-semibold text-foreground">
+            BankingProtheus Itaú
+          </h4>
+          <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
+            Automação de conciliação bancária, extratos e remessas com certificados digitais e OAuth2.
+          </p>
+
+          <div className="mt-2.5 flex flex-wrap gap-1">
+            {["OAuth2", "mTLS", "Webhooks", "REST"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded bg-tech-magenta/5 px-1.5 py-0.5 text-[10px] font-medium text-tech-magenta border border-tech-magenta/20"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
         </div>
+
+        {/* NÓ 3: Aplicações Web & Full Stack (Azul Elétrico) */}
+        <div className="group rounded-xl border border-primary/35 bg-background/60 p-4 transition-all hover:border-primary/70 hover:shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex size-7 items-center justify-center rounded-lg bg-primary/15 text-primary">
+                <Cpu className="size-3.5" />
+              </div>
+              <span className="text-xs font-bold text-primary uppercase tracking-wider">
+                Full Stack &amp; Web
+              </span>
+            </div>
+            <span className="rounded bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary">
+              React 19
+            </span>
+          </div>
+
+          <h4 className="mt-2 text-sm font-semibold text-foreground">
+            Portal de Engenharia &amp; RH
+          </h4>
+          <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
+            Sistemas em produção para ~500 usuários corporativos com Node.js MVC e TypeScript.
+          </p>
+
+          <div className="mt-2.5 flex flex-wrap gap-1">
+            {["Node.js", "Express", "PostgreSQL", "Prisma"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded bg-primary/5 px-1.5 py-0.5 text-[10px] font-medium text-primary border border-primary/20"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* NÓ 4: Segurança & Governança (Ciano / Laranja) */}
+        <div className="group rounded-xl border border-tech-cyan/35 bg-background/60 p-4 transition-all hover:border-tech-cyan/70 hover:shadow-sm">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="flex size-7 items-center justify-center rounded-lg bg-tech-cyan/15 text-tech-cyan">
+                <ShieldCheck className="size-3.5" />
+              </div>
+              <span className="text-xs font-bold text-tech-cyan uppercase tracking-wider">
+                Governança &amp; LES
+              </span>
+            </div>
+            <span className="rounded bg-tech-cyan/10 px-1.5 py-0.5 text-[10px] font-semibold text-tech-cyan">
+              v2.2.0
+            </span>
+          </div>
+
+          <h4 className="mt-2 text-sm font-semibold text-foreground">
+            Engenharia &amp; Qualidade
+          </h4>
+          <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
+            Padrão versionado de engenharia de software com pirâmide de testes e segurança deny-by-default.
+          </p>
+
+          <div className="mt-2.5 flex flex-wrap gap-1">
+            {["RBAC", "Auditoria", "Vitest", "Zero Secrets"].map((tag) => (
+              <span
+                key={tag}
+                className="rounded bg-tech-cyan/5 px-1.5 py-0.5 text-[10px] font-medium text-tech-cyan border border-tech-cyan/20"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Rodapé de Persistência & Navegação Rápida */}
+      <div className="relative mt-4 flex flex-wrap items-center justify-between gap-2.5 border-t border-border/60 pt-3 text-xs text-muted-foreground">
+        <div className="flex items-center gap-1.5">
+          <Database className="size-3.5 text-tech-orange shrink-0" />
+          <span className="text-[11px]">Bancos: PostgreSQL &amp; SQL Server</span>
+        </div>
+
+        <Link
+          to="/competencias"
+          className="inline-flex items-center gap-1 text-[11px] font-semibold text-primary hover:underline"
+        >
+          Ver matriz detalhada <ArrowRight className="size-3" />
+        </Link>
       </div>
     </div>
   );

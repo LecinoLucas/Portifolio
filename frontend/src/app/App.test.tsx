@@ -32,9 +32,10 @@ describe("<App /> e Navegação por Rotas", () => {
 
   it("mostra os projetos em destaque e atalhos na rota inicial", () => {
     render(<App />);
-    expect(
-      screen.getByRole("heading", { name: /BankingProtheus/i }),
-    ).toBeInTheDocument();
+    const headingsBanking = screen.getAllByRole("heading", {
+      name: /BankingProtheus/i,
+    });
+    expect(headingsBanking.length).toBeGreaterThan(0);
     expect(
       screen.getByText(/Arquitetura de Conexão Integrada/i),
     ).toBeInTheDocument();
@@ -66,7 +67,7 @@ describe("<App /> e Navegação por Rotas", () => {
   it("renderiza a página /projetos e lista os projetos", () => {
     renderComRota("/projetos");
     expect(
-      screen.getByRole("heading", { name: /projetos & estudos de caso/i }),
+      screen.getByRole("heading", { name: /(módulos tecnológicos|projetos) & estudos de caso/i }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Portal de Engenharia/i)).toBeInTheDocument();
   });
@@ -87,13 +88,17 @@ describe("<App /> e Navegação por Rotas", () => {
     expect(screen.getByText(/Analista de Sistemas \/ TOTVS Protheus/i)).toBeInTheDocument();
   });
 
-  it("renderiza a página /contato com o canal WhatsApp e formulário", () => {
+  it("renderiza a página /contato com o canal WhatsApp e formulário, sem botão flutuante duplicado", () => {
     renderComRota("/contato");
     expect(
       screen.getByRole("heading", { name: /contato & propostas/i }),
     ).toBeInTheDocument();
     expect(screen.getByText(/WhatsApp Profissional/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Seu nome \*/i)).toBeInTheDocument();
+    // O botão flutuante é ocultado na rota /contato para evitar redundância
+    expect(
+      screen.queryByLabelText(/Conversar via WhatsApp com Lecino Lucas/i),
+    ).not.toBeInTheDocument();
   });
 
   it("renderiza página 404 em rota inexistente", () => {

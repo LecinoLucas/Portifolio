@@ -28,17 +28,17 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between gap-4">
         <Link
           to="/"
-          className="group flex items-center gap-2 rounded-md text-sm font-bold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="group flex items-center gap-2 rounded-md text-sm font-bold tracking-tight whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
-          <span className="flex size-2 rounded-full bg-primary transition-transform group-hover:scale-125" />
+          <span className="flex size-2 rounded-full bg-primary transition-transform group-hover:scale-125 shrink-0" />
           <span className="text-foreground">Lecino Lucas</span>
-          <span className="ml-1.5 hidden rounded border border-border bg-muted/50 px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground sm:inline">
+          <span className="ml-1.5 hidden rounded border border-primary/30 bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary xl:inline">
             Sistemas &amp; Full Stack
           </span>
         </Link>
 
         <nav
-          className="hidden items-center gap-1 md:flex"
+          className="hidden items-center gap-1 lg:flex"
           aria-label="Navegação principal por rotas"
         >
           {itensNav.map((item) => (

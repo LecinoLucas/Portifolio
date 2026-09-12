@@ -3,7 +3,12 @@
 > **Padrão**: Lucas Engineering Standard (LES) v2.2.0  
 > **Status**: Capturas reais da Central Tecnológica, Rotas SPA e Integração WhatsApp
 
-Este documento reúne os registros visuais reais da aplicação após a implementação da nova identidade visual tecnológica, navegação real baseada em rotas (`react-router-dom`), integração oficial com WhatsApp e design responsivo normativo (Desktop 1440×900, Tablet 768×1024 e Mobile 375×812).
+Este documento reúne os registros visuais reais da aplicação após a **segunda passagem visual**, destacando:
+- **Hero em 2 colunas na primeira dobra (Desktop)**: apresentação profissional à esquerda e o **Mapa de Sistemas Conectados** interativo à direita sem rolagem.
+- **Identidade cromática enriquecida**: integração equilibrada de violeta, ciano, magenta, azul elétrico e laranja, com iluminação ambiente e contraste em dark e light mode.
+- **Catálogo Modular de Projetos**: identificadores visuais `MOD-01` a `MOD-04`, bordas coloridas com glow suave temático e botões de ação diferenciados (*Explorar Estudo de Caso* vs *Prévia Rápida* com ícone `Eye`).
+- **Responsividade refinada no Tablet (768px)**: breakpoint desktop elevado para `lg` (1024px) e menu compacto/gaveta ativado no tablet, eliminando esmagamento do logo "Lecino Lucas".
+- **Eliminação de redundância do WhatsApp**: botão flutuante ocultado automaticamente na rota `/contato`, respeitando o bloco prioritário de atendimento.
 
 ---
 

@@ -31,7 +31,7 @@ export function MobileNav() {
         <Button
           variante="contorno"
           tamanho="icone"
-          className="md:hidden"
+          className="lg:hidden"
           aria-label="Abrir menu de navegação"
         >
           <Menu className="size-4" />

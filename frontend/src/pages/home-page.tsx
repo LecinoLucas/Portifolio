@@ -17,70 +17,90 @@ export function HomePage() {
       {/* Background sutil tecnológico */}
       <div aria-hidden="true" className="hero-grid absolute inset-0 -z-10" />
 
-      {/* 1. APRESENTAÇÃO PRINCIPAL / HERO DA CENTRAL */}
-      <section className="py-16 sm:py-24 lg:py-28">
+      {/* 1. CENTRAL TECNOLÓGICA / HERO EM DUAS COLUNAS NA PRIMEIRA DOBRA */}
+      <section className="relative py-10 sm:py-16 lg:py-20">
+        {/* Luz ambiente de fundo no topo */}
+        <div aria-hidden="true" className="hero-ambient pointer-events-none absolute inset-0 -z-10" />
+
         <Container>
-          <div className="max-w-4xl space-y-6">
-            {/* Status operacional e posicionamento */}
-            <div className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-xl sm:rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary shadow-xs">
-              <span className="size-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-              <span className="leading-snug break-words">{perfil.posicionamento}</span>
-              <span className="hidden sm:inline text-border">|</span>
-              <span className="text-muted-foreground text-[11px] sm:text-xs">{perfil.disponibilidade}</span>
-            </div>
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            {/* Coluna Esquerda: Apresentação, Foco Dual & Ações */}
+            <div className="space-y-6 lg:col-span-6 xl:col-span-6">
+              {/* Status operacional e posicionamento */}
+              <div className="inline-flex max-w-full flex-wrap items-center gap-2 rounded-xl sm:rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 text-xs font-medium text-primary shadow-xs">
+                <span className="size-2 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span className="leading-snug break-words">{perfil.posicionamento}</span>
+                <span className="hidden sm:inline text-border">|</span>
+                <span className="text-muted-foreground text-[11px] sm:text-xs">{perfil.disponibilidade}</span>
+              </div>
 
-            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              {perfil.nome}
-            </h1>
+              <div className="space-y-2">
+                <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl xl:text-6xl">
+                  {perfil.nome}
+                </h1>
+                <p className="text-lg sm:text-xl font-bold bg-gradient-to-r from-primary via-tech-cyan to-tech-violet bg-clip-text text-transparent">
+                  {perfil.titulo}
+                </p>
+              </div>
 
-            <p className="text-xl font-semibold text-primary sm:text-2xl">
-              {perfil.titulo}
-            </p>
+              <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+                {perfil.headline}
+              </p>
 
-            <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-              {perfil.headline}
-            </p>
+              {/* Badges rápidos dos dois focos profissionais */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-tech-violet/30 bg-tech-violet/10 px-2.5 py-1 text-xs font-medium text-tech-violet">
+                  <span className="size-1.5 rounded-full bg-tech-violet" />
+                  ERP TOTVS Protheus &amp; SQL
+                </span>
+                <span className="inline-flex items-center gap-1.5 rounded-lg border border-tech-cyan/30 bg-tech-cyan/10 px-2.5 py-1 text-xs font-medium text-tech-cyan">
+                  <span className="size-1.5 rounded-full bg-tech-cyan" />
+                  Full Stack: React 19 + Node.js
+                </span>
+              </div>
 
-            {/* Ações principais, WhatsApp e Redes */}
-            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
-              <Link to="/projetos" className={classesBotao({ tamanho: "lg", className: "w-full sm:w-auto" })}>
-                Ver estudos de caso
-                <ArrowRight className="size-4" />
-              </Link>
+              {/* Ações principais e WhatsApp */}
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
+                <Link to="/projetos" className={classesBotao({ tamanho: "lg", className: "w-full sm:w-auto" })}>
+                  Ver estudos de caso
+                  <ArrowRight className="size-4" />
+                </Link>
 
-              <WhatsAppInline
-                variante="destaque"
-                texto="Conversar no WhatsApp"
-                className="w-full sm:w-auto justify-center"
-              />
+                <WhatsAppInline
+                  variante="destaque"
+                  texto="Conversar no WhatsApp"
+                  className="w-full sm:w-auto justify-center"
+                />
 
-              <a
-                href={links.curriculo}
-                download
-                title="Baixar currículo original em PDF"
-                className={classesBotao({ variante: "contorno", tamanho: "lg", className: "w-full sm:w-auto justify-center" })}
-              >
-                <Download className="size-4" />
-                Currículo Geral (PDF)
-              </a>
+                <a
+                  href={links.curriculo}
+                  download
+                  title="Baixar currículo original em PDF"
+                  className={classesBotao({ variante: "contorno", tamanho: "lg", className: "w-full sm:w-auto justify-center" })}
+                >
+                  <Download className="size-4" />
+                  Currículo Geral (PDF)
+                </a>
+              </div>
 
-              <div className="flex items-center gap-3 pt-1 sm:pt-0">
+              {/* Redes e canais */}
+              <div className="flex items-center gap-3 pt-1 text-xs text-muted-foreground">
                 <a
                   href={links.github}
                   target="_blank"
                   rel="noreferrer"
-                  className={classesBotao({ variante: "fantasma", tamanho: "lg" })}
+                  className="inline-flex items-center gap-1.5 font-medium hover:text-foreground transition-colors"
                 >
                   <Github className="size-4" />
                   GitHub
                 </a>
-
+                <span>·</span>
                 {links.linkedin ? (
                   <a
                     href={links.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    className={classesBotao({ variante: "fantasma", tamanho: "lg" })}
+                    className="inline-flex items-center gap-1.5 font-medium hover:text-foreground transition-colors"
                   >
                     <Linkedin className="size-4" />
                     LinkedIn
@@ -88,14 +108,12 @@ export function HomePage() {
                 ) : null}
               </div>
             </div>
-          </div>
-        </Container>
-      </section>
 
-      {/* 2. COMPOSIÇÃO VISUAL DE SISTEMAS CONECTADOS */}
-      <section className="py-8">
-        <Container>
-          <SystemsDiagram />
+            {/* Coluna Direita: O Mapa de Sistemas Conectados na primeira dobra */}
+            <div className="lg:col-span-6 xl:col-span-6">
+              <SystemsDiagram />
+            </div>
+          </div>
         </Container>
       </section>
 

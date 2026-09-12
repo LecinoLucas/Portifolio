@@ -18,7 +18,7 @@ export function PageContainer({
   className,
 }: PropsPageContainer) {
   return (
-    <div className={cn("relative min-h-[calc(100vh-4rem)] py-10 sm:py-16", className)}>
+    <div className={cn("relative min-h-[calc(100vh-4rem)] pt-8 pb-24 sm:pt-14 sm:pb-28", className)}>
       <Container>
         {/* Header da Página */}
         <header className="mb-10 max-w-3xl space-y-3">

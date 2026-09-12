@@ -258,9 +258,62 @@
   border: 1px solid color-mix(in oklch, var(--tech-orange) 25%, transparent);
 }
 
+.tech-badge-magenta {
+  background-color: color-mix(in oklch, var(--tech-magenta) 12%, transparent);
+  color: var(--tech-magenta);
+  border: 1px solid color-mix(in oklch, var(--tech-magenta) 25%, transparent);
+}
+
+.tech-badge-success {
+  background-color: color-mix(in oklch, var(--success) 12%, transparent);
+  color: var(--success);
+  border: 1px solid color-mix(in oklch, var(--success) 25%, transparent);
+}
+
 .tech-grid-bg {
   background-image:
     radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0);
   background-size: 28px 28px;
+}
+
+/* Fundo ambiente sutil com profundidade tecnológica */
+.hero-ambient {
+  background:
+    radial-gradient(ellipse 55% 45% at 75% 25%, color-mix(in oklch, var(--tech-violet) 15%, transparent) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 15% 35%, color-mix(in oklch, var(--primary) 15%, transparent) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 35% at 55% 85%, color-mix(in oklch, var(--tech-cyan) 12%, transparent) 0%, transparent 65%);
+}
+
+/* Identidades visuais específicas para o catálogo de módulos */
+.tech-module-portal {
+  border-color: color-mix(in oklch, var(--primary) 30%, var(--border));
+}
+.tech-module-portal:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 28px -6px color-mix(in oklch, var(--primary) 30%, transparent);
+}
+
+.tech-module-banking {
+  border-color: color-mix(in oklch, var(--tech-violet) 35%, var(--border));
+}
+.tech-module-banking:hover {
+  border-color: var(--tech-violet);
+  box-shadow: 0 0 28px -6px color-mix(in oklch, var(--tech-magenta) 30%, transparent);
+}
+
+.tech-module-rh {
+  border-color: color-mix(in oklch, var(--tech-cyan) 35%, var(--border));
+}
+.tech-module-rh:hover {
+  border-color: var(--tech-cyan);
+  box-shadow: 0 0 28px -6px color-mix(in oklch, var(--success) 30%, transparent);
+}
+
+.tech-module-les {
+  border-color: color-mix(in oklch, var(--tech-violet) 30%, var(--border));
+}
+.tech-module-les:hover {
+  border-color: var(--tech-orange);
+  box-shadow: 0 0 28px -6px color-mix(in oklch, var(--tech-orange) 30%, transparent);
 }
 

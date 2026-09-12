@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { MessageCircle } from "lucide-react";
 import { links } from "@/data/links";
 import { cn } from "@/lib/utils";
@@ -49,6 +50,13 @@ export function WhatsAppInline({
  * - Sem sobrepor botões ou textos principais.
  */
 export function WhatsAppFloatingButton() {
+  const location = useLocation();
+
+  // Na página de contato já existe um bloco prioritário de WhatsApp; ocultamos para evitar redundância
+  if (location.pathname === "/contato") {
+    return null;
+  }
+
   return (
     <aside
       aria-label="Ação rápida de contato"

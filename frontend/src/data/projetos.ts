@@ -7,6 +7,52 @@ import { links } from "@/data/links";
  */
 export const projetos: Projeto[] = [
   {
+    slug: "banking-protheus",
+    titulo: "BankingProtheus — Conciliação Bancária, CNAB & DDA",
+    categoria: "Integração Bancária & ERP TOTVS Protheus",
+    focoPerfil: "analista",
+    destaque: true,
+    resumo:
+      "Aplicação de conciliação bancária que cruza extratos, CNAB 240/400 e boletos eletrônicos DDA com títulos a pagar do Protheus (SE2), integrando APIs Itaú com autenticação OAuth2 e mTLS.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "SQL",
+      "CNAB 240/400",
+      "DDA",
+      "APIs Itaú",
+      "mTLS",
+      "TOTVS Protheus",
+    ],
+    links: [
+      { rotulo: "Abrir laboratório interativo", href: "/projetos/banking-protheus/demo" },
+    ],
+    detalhe: {
+      contexto:
+        "A operação financeira enfrentava lentidão na conferência de extratos bancários contra títulos a pagar no Protheus, além da necessidade de capturar e agendar boletos de fornecedores via DDA.",
+      problema:
+        "Processo manual sujeito a erros de digitação, juros não identificados a tempo e complexidade para consumir APIs bancárias seguras do Itaú com mTLS e certificados digitais.",
+      participacao:
+        "Desenvolvi a solução full stack: modelagem de dados no PostgreSQL, integração com APIs Itaú mTLS (OAuth2 Client Credentials), leitura/normalização de extratos e CNAB, e painel interativo em React.",
+      solucao:
+        "Serviço em Node.js com canal mTLS seguro para consulta de contas e extratos, rotinas de matching automático por código de barras/valor/data, identificação de divergências e painel DDA.",
+      arquitetura:
+        "Backend Node.js/TypeScript em camadas → canal mTLS com certificados X.509 → normalização de CNAB e extratos → matching contra títulos SE2 do Protheus → interface em React.",
+      desafios: [
+        "Implementar autenticação OAuth2 Client Credentials com mTLS no canal seguro com o Itaú.",
+        "Tratar divergências de juros, multas e descontos entre o título no Protheus e o débito real.",
+        "Idempotência na conciliação para evitar baixa duplicada de lançamentos financeiros.",
+      ],
+      resultado:
+        "Redução substancial do tempo de conferência financeira diária, com rastreabilidade total de cada título conciliado e detecção imediata de inconsistências.",
+      seguranca:
+        "Canal criptografado de ponta a ponta com certificados mTLS, rotação segura de credenciais e auditoria estrita de todas as operações financeiras.",
+      usuariosOuEscala: "Solução voltada à tesouraria corporativa e contas a pagar multiempresa.",
+    },
+  },
+  {
     slug: "portal-engenharia",
     titulo: "Portal de Engenharia",
     categoria: "Sistema corporativo · Engenharia & Obras",
@@ -41,104 +87,58 @@ export const projetos: Projeto[] = [
       desafios: [
         "Modelar obras, cotações e fornecedores de forma flexível sem comprometer a integridade referencial.",
         "Implementar controle de acesso RBAC estrito aplicado em cada endpoint do backend.",
-        "Estruturar agregações analíticas de custos, desvios e orçamentos garantindo desempenho e consistência transacional.",
+        "Estruturar estrutura analítica de projeto (EAP) com controle físico-financeiro rigoroso.",
       ],
       resultado:
         "Obras, chamados, fornecedores e cotações passaram a ser geridos em uma plataforma unificada, com rastreabilidade de aprovações e integridade de dados.",
       seguranca:
-        "Controle de acesso granular (RBAC) com deny-by-default, autenticação segura, proteção contra injeção SQL via Prisma e registro de log de auditoria para todas as mutações financeiras e de fornecedores.",
+        "Controle de acesso granular (RBAC) com deny-by-default, autenticação segura, proteção contra injeção SQL via Prisma e registro de log de auditoria.",
       usuariosOuEscala:
         "Arquitetura multiempresa e multifilial com controle estrito de permissões (RBAC) e alçadas de aprovação.",
     },
   },
   {
-    slug: "conciliacao-bancaria-itau",
-    titulo: "BankingProtheus — Conciliação Bancária Itaú",
-    categoria: "Integração bancária · BankingProtheus",
+    slug: "import-nfe",
+    titulo: "ImportNFe & Gestão Fiscal Protheus",
+    categoria: "Fiscal, Compras & Reforma Tributária",
     focoPerfil: "analista",
     destaque: true,
     resumo:
-      "Integração bancária com as APIs do Itaú (OAuth2 Client Credentials + mTLS) que automatiza a conciliação de contas, extratos, recebimentos e pagamentos contra os registros internos e ERP, com controle de acesso e rastreabilidade.",
+      "Solução inteligente para importação de XMLs de NF-e, normalização de produtos com de-para/aliases, conferência contra pedidos de compras (SC7) e preparação sistêmica para a Reforma Tributária (IBS/CBS).",
     stack: [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "SQL",
-      "APIs Itaú",
-      "OAuth2",
-      "mTLS",
       "TOTVS Protheus",
-    ],
-    detalhe: {
-      contexto:
-        "A operação financeira precisava conciliar as movimentações bancárias do Itaú (contas, extratos, recebimentos e pagamentos) com os registros internos e ERP, num volume que tornava a conferência manual inviável e pouco rastreável.",
-      problema:
-        "Processo manual, lento e sujeito a erro, sem trilha clara de divergências. O acesso às APIs do Itaú exige autenticação OAuth2 (client_credentials) sobre canal mTLS, com certificados e credenciais que precisam ser guardados com segurança e renovados sem interromper a operação.",
-      participacao:
-        "Atuei do levantamento à entrega: modelei os dados no PostgreSQL, implementei a autenticação OAuth2 client_credentials com mTLS, os adapters das APIs do Itaú, as regras de conciliação, o painel em React + TypeScript e o controle de permissões de acesso.",
-      solucao:
-        "Serviço em Node.js que autentica via OAuth2 client_credentials sobre mTLS, coleta contas, extratos, recebimentos e pagamentos, normaliza os lançamentos e concilia contra os registros internos. Gestão de certificados e credenciais com rastreabilidade dos acessos. Painel em React + TypeScript para status, divergências e histórico, com acesso controlado por permissões.",
-      arquitetura:
-        "Autenticação OAuth2 client_credentials + mTLS → adapters por endpoint do Itaú → serviço de normalização e regras de conciliação → PostgreSQL como fonte de verdade dos lançamentos → API interna com permissões → frontend React. Trilha de auditoria dos acessos e das renovações de credenciais.",
-      desafios: [
-        "Autenticação bancária com OAuth2 client_credentials sobre mTLS: gestão segura de certificados e credenciais e sua renovação.",
-        "Conciliar formatos e estados distintos de extratos, recebimentos e pagamentos.",
-        "Idempotência no processamento para reprocessar períodos sem duplicar lançamentos.",
-        "Rastreabilidade: registrar quem acessou o quê e o que a integração executou.",
-      ],
-      resultado:
-        "A conciliação passou de tarefa manual recorrente para um fluxo automatizado, com divergências visíveis em painel, acesso controlado por permissões e trilha de auditoria dos acessos e das credenciais.",
-      seguranca:
-        "Canal criptografado de ponta a ponta com certificados mTLS, rotação segura de credenciais, logs de auditoria sem exposição de chaves privadas ou dados bancários sensíveis.",
-      usuariosOuEscala: "Processamento automatizado de conciliação financeira recorrente.",
-    },
-  },
-  {
-    slug: "portal-rh",
-    titulo: "Portal de RH",
-    categoria: "IA aplicada · Recrutamento",
-    focoPerfil: "fullstack",
-    destaque: true,
-    resumo:
-      "Sistema de recrutamento e seleção com gestão de vagas, pipeline Kanban, análise de aderência e apoio de IA aos fluxos de RH.",
-    stack: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Python",
-      "FastAPI",
-      "PostgreSQL",
-      "Vitest",
-      "Playwright",
-      "APIs REST",
+      "NF-e / CT-e",
+      "XML Parser",
+      "Compras (SIGACOM)",
+      "Fiscal (SIGAFIS)",
+      "Reforma Tributária",
+      "SQL",
+      "Python / Node.js",
     ],
     links: [
-      { rotulo: "Ver código no GitHub", href: links.portalRh.github },
-      { rotulo: "Abrir demonstração interativa", href: "/projetos/portal-rh/demo" },
+      { rotulo: "Explorar laboratório Protheus", href: "/processos-erp" },
     ],
     detalhe: {
       contexto:
-        "Ambiente de atração e seleção que demandava organização estruturada de vagas, acompanhamento visual dos candidatos por estágios em Kanban e critérios consistentes de avaliação.",
+        "O recebimento de mercadorias e a entrada fiscal exigiam conferência manual dos itens das notas fiscais dos fornecedores com os pedidos de compra cadastrados no ERP.",
       problema:
-        "Dificuldade em acompanhar o avanço dos candidatos entre múltiplas etapas seletivas, falta de visibilidade centralizada por vaga e triagem heterogênea sem rastreabilidade de critérios.",
+        "Descrições divergentes entre o XML do fornecedor e o cadastro interno no Protheus, retrabalho na classificação fiscal e a urgência de preparar os fluxos para o split payment da Reforma Tributária.",
       participacao:
-        "Projeto desenvolvido para demonstrar arquitetura de sistemas, automação de processos de RH e integração entre frontend, backend e análise de dados.",
+        "Atuação na especificação de regras de negócio, desenvolvimento de rotinas de normalização e cruzamento de dados de compras/fiscal e modelagem de de-para inteligente de produtos.",
       solucao:
-        "Aplicação completa com frontend React e TypeScript, estilização em Tailwind CSS, backend FastAPI em Python com APIs REST documentadas, gestão de vagas estruturadas, pipeline Kanban com movimentação de candidatos e análise de aderência por competências.",
+        "Plataforma de importação de NF-e com motor de normalização e aprendizado de aliases, conferência automática com pedidos de compras e painel de análise de alíquotas e impostos.",
       arquitetura:
-        "Frontend SPA React 18 com TypeScript, React Router e Tailwind CSS → APIs REST em Python com FastAPI → pipeline Kanban com estados de transição de candidatos e testes automatizados com Vitest e Playwright.",
+        "Parser de XML estruturado → motor de normalização e de-para de produtos → validação contra pedidos Protheus (SC7) → conferência de impostos e manifesto do destinatário.",
       desafios: [
-        "Implementar pipeline Kanban interativo com múltiplos estágios e transições consistentes de candidatos.",
-        "Estruturar modelagem de vagas com critérios essenciais, diferenciais e eliminatórios.",
-        "Garantir cobertura com testes automatizados unitários e de ponta a ponta (Vitest e Playwright).",
+        "Normalizar automaticamente milhares de variações textuais de produtos de fornecedores distintos.",
+        "Garantir consistência tributária na amarração fiscal de TES antes da escrituração.",
+        "Estruturar os fluxos financeiros para o modelo de liquidação com split payment da Reforma Tributária.",
       ],
       resultado:
-        "Gestão de vagas e candidatos unificada em uma interface moderna com pipeline visual em Kanban, triagem por competências e validação por testes automatizados.",
+        "Agilidade na entrada física e fiscal de mercadorias, eliminação de divergências cadastrais e governança no cumprimento das obrigações fiscais.",
       seguranca:
-        "Proteção de dados dos candidatos com controle de acesso por perfis, validação estrita de esquemas em APIs REST e isolamento de informações sensíveis.",
-      usuariosOuEscala:
-        "Demonstração arquitetural full stack com pipeline Kanban e testes automatizados.",
+        "Validação de chaves de acesso com certificado digital e consulta de autenticidade direta junto à SEFAZ.",
+      usuariosOuEscala: "Operação fiscal e de suprimentos integrada ao ERP corporativo.",
     },
   },
   {
@@ -148,32 +148,63 @@ export const projetos: Projeto[] = [
     focoPerfil: "ambos",
     destaque: true,
     resumo:
-      "Padrão versionado de engenharia e UX para desenvolvimento assistido por IA, distribuído como CLI npm que faz bootstrap do contrato do projeto.",
-    stack: ["TypeScript", "Node.js", "CLI npm", "Governança"],
+      "Padrão versionado de engenharia e UX para desenvolvimento assistido por IA, distribuído como CLI npm que faz bootstrap do contrato de governança, limites e segurança do projeto.",
+    stack: ["TypeScript", "Node.js", "CLI npm", "Governança", "Vitest", "Git Hooks"],
     links: [
       { rotulo: "GitHub", href: links.les.github },
       { rotulo: "npm", href: links.les.npm },
     ],
     detalhe: {
       contexto:
-        "Cada novo projeto recomeçava as mesmas discussões: arquitetura, segurança, padrões de frontend, governança e Definition of Done. Com desenvolvimento assistido por IA, essa falta de contrato explícito gera resultados inconsistentes.",
+        "A proliferação de ferramentas de IA e promessas de low-code gera código desordenado e dependência de ferramentas frágeis sem contratos claros de arquitetura e segurança.",
       problema:
-        "Decisões de engenharia repetidas do zero a cada projeto, sem uma fonte de verdade que agentes de IA e pessoas pudessem seguir da mesma forma.",
+        "Projetos desenvolvidos sem método acumulam dívida técnica rápida, arquivos gigantes e falta de testes determinísticos.",
       participacao:
-        "Autor e mantenedor. Defini o padrão, escrevi a documentação normativa e desenvolvi a CLI que o aplica.",
+        "Autor e mantenedor. Desenvolvi a especificação normativa v2.2.0, a CLI npm `@lecinolucas/les` e os templates de fundação de frontend e backend.",
       solucao:
-        "Um padrão versionado (AGENTS.md como contrato normativo, CLAUDE.md como ponto de entrada para agentes, docs de arquitetura e manifesto de metadados) somado a uma CLI npm — `@lecinolucas/les` — com `init` para bootstrap, `check` como quality gate determinístico e `audit` para conformidade arquitetural. Cobre arquitetura (Modular Monolith first), frontend foundation, segurança deny-by-default, testes, observabilidade e governança por ADRs, com suporte a diferentes stacks.",
+        "Suíte de governança que impõe contratos estritos (AGENTS.md, CLAUDE.md), limite saudável de código (< 300 linhas), segurança deny-by-default e checagens automáticas de conformidade.",
       arquitetura:
-        "CLI em Node.js/TypeScript sem dependências de runtime → detecção de cenário e stack → geração dos arquivos de governança → checks determinísticos e auditoria. O projeto passa a seguir suas próprias regras locais versionadas.",
+        "CLI em Node.js/TypeScript sem dependências de runtime → analisadores de código estático → geradores de contratos e templates reutilizáveis.",
       desafios: [
-        "Ser prescritivo o suficiente para orientar um agente de IA, sem virar burocracia que trava o desenvolvimento.",
-        "Checks determinísticos que agreguem valor sem emitir notas especulativas.",
-        "Suportar stacks diferentes mantendo um núcleo de princípios estável e versionado.",
+        "Equilibrar disciplina de engenharia com velocidade de desenvolvimento.",
+        "Garantir que tanto humanos quanto modelos de IA sigam as mesmas invariantes arquiteturais.",
       ],
       resultado:
-        "Este portfólio também utiliza o LES como contrato de engenharia e UX: foi inicializado e é governado pelo padrão (`les init`, `les check`, `les audit`), servindo como aplicação real dele.",
+        "Padronização e previsibilidade em todos os projetos, com auditorias instantâneas de conformidade.",
       seguranca:
-        "Regra mandatória de segredos zero em repositórios, validação deny-by-default e checagem de vulnerabilidades automatizada.",
+        "Regra mandatória de segredos zero, validação deny-by-default e checagem automatizada de vulnerabilidades.",
+    },
+  },
+  {
+    slug: "portal-rh",
+    titulo: "Portal de RH",
+    categoria: "IA aplicada · Recrutamento",
+    focoPerfil: "fullstack",
+    destaque: false,
+    resumo:
+      "Sistema de recrutamento e seleção com gestão de vagas, pipeline Kanban, análise de aderência e apoio de IA aos fluxos de RH.",
+    stack: ["React", "TypeScript", "Tailwind CSS", "Python", "FastAPI", "PostgreSQL"],
+    links: [
+      { rotulo: "Ver código no GitHub", href: links.portalRh.github },
+      { rotulo: "Abrir demonstração interativa", href: "/projetos/portal-rh/demo" },
+    ],
+    detalhe: {
+      contexto:
+        "Ambiente de atração e seleção que demandava organização estruturada de vagas e acompanhamento visual dos candidatos por estágios em Kanban.",
+      problema:
+        "Dificuldade em acompanhar o avanço dos candidatos entre múltiplas etapas seletivas e falta de critérios consistentes de avaliação.",
+      participacao:
+        "Projeto full stack conectando frontend React/TypeScript, backend FastAPI e pipeline Kanban com testes automatizados.",
+      solucao:
+        "Aplicação completa com pipeline visual Kanban, movimentação de candidatos e análise de aderência por competências.",
+      arquitetura:
+        "Frontend SPA React 18 com TypeScript e Tailwind CSS → APIs REST em Python com FastAPI → pipeline Kanban.",
+      desafios: [
+        "Implementar pipeline Kanban interativo com múltiplos estágios e transições consistentes.",
+      ],
+      resultado:
+        "Gestão de vagas e candidatos unificada em uma interface moderna com pipeline visual em Kanban.",
+      seguranca: "Validação estrita de esquemas em APIs REST e isolamento de informações sensíveis.",
     },
   },
 ];
@@ -181,5 +212,8 @@ export const projetos: Projeto[] = [
 export const projetosDestaque = projetos.filter((p) => p.destaque);
 
 export function projetoPorSlug(slug: string): Projeto | undefined {
-  return projetos.find((p) => p.slug === slug);
+  return (
+    projetos.find((p) => p.slug === slug) ||
+    (slug === "conciliacao-bancaria-itau" ? projetos.find((p) => p.slug === "banking-protheus") : undefined)
+  );
 }

@@ -2,28 +2,108 @@ import type { Perfil } from "@/types";
 
 export const perfil: Perfil = {
   nome: "Lecino Lucas",
-  posicionamento: "Lecino Lucas — Sistemas, Integrações e Desenvolvimento",
-  titulo: "Analista de Sistemas & Desenvolvedor Full Stack Júnior",
+  posicionamento: "Lecino Lucas — Sistemas, Processos e Automação",
+  titulo: "Analista de T.I. | Sistemas, Processos e Automação",
 
   headline:
-    "Base sólida em análise de sistemas corporativos e ERP, ampliada pelo desenvolvimento de aplicações reais em produção. Conecto negócio, dados e tecnologia para resolver problemas concretos.",
+    "Mais de 4 anos conectando usuários, regras de negócio, ERP e integrações corporativas. Experiência prática no desenvolvimento de aplicações reais em produção com React, TypeScript, Node.js e orquestração de IA com rigor de engenharia.",
 
-  localizacao: "Goiás · Brasil",
+  localizacao: "Goiânia - GO · Brasil",
   disponibilidade: "Disponível para novas oportunidades",
+  telefone: "(62) 99656-4756",
+  email: "lecinolucas5@gmail.com",
+
+  resumoProfissional:
+    "Analista de Sistemas com mais de 4 anos de experiência acumulada em TI, principalmente em suporte técnico, implantação e sustentação de sistemas corporativos. Atuação conectando usuários, regras de negócio, ERP, dados e integrações. Em programação e desenvolvimento de software, possui aproximadamente 6 meses de experiência prática, com participação em aplicações reais em produção utilizando React, TypeScript, Node.js, PostgreSQL e APIs REST. Experiência com TOTVS Protheus, SQL, integrações bancárias, levantamento de requisitos, testes, homologação e análise de causa raiz.",
+
+  cartoesImpacto: [
+    {
+      rotulo: "+4 ANOS EM TI",
+      subtitulo: "Sistemas Corporativos",
+      descricao: "Suporte técnico, implantação e sustentação de ERP e processos empresariais.",
+    },
+    {
+      rotulo: "~6 MESES EM PROGRAMAÇÃO",
+      subtitulo: "Desenvolvimento Real",
+      descricao: "Experiência prática em aplicações full stack reais em produção.",
+    },
+    {
+      rotulo: "ERP + SQL + APIs",
+      subtitulo: "Integração & Dados",
+      descricao: "TOTVS Protheus P12, PostgreSQL, mTLS bancário e automação de regras de negócio.",
+    },
+    {
+      rotulo: "IA APLICADA",
+      subtitulo: "Engenharia & Aceleração",
+      descricao: "Apoio ao desenvolvimento, análise e documentação com governança arquitetural.",
+    },
+  ],
+
+  competenciasCategorizadas: [
+    {
+      categoria: "Processos e Requisitos",
+      itens: [
+        "Levantamento de requisitos",
+        "Regras de negócio",
+        "Testes e homologação",
+        "Documentação técnica",
+        "Treinamento de usuários",
+        "Análise de causa raiz",
+      ],
+    },
+    {
+      categoria: "Sistemas Corporativos",
+      itens: [
+        "TOTVS Protheus P12",
+        "Financeiro (SIGAFIN)",
+        "Contábil (SIGACTB)",
+        "Fiscal (SIGAFIS)",
+        "Compras (SIGACOM)",
+        "Contas a Pagar e Receber",
+        "CNAB 240 / 400 & DDA",
+        "Conferência de Caixa",
+        "Documentos Fiscais (NF-e/CT-e)",
+        "Reforma Tributária (IBS/CBS)",
+        "TMS / SIGATMS",
+      ],
+    },
+    {
+      categoria: "Dados e Integrações",
+      itens: [
+        "SQL & PostgreSQL",
+        "APIs REST",
+        "Integrações bancárias (Itaú, Santander, Sicoob, Votorantim)",
+        "OAuth2 Client Credentials",
+        "mTLS (Mutual TLS)",
+        "Certificados digitais X.509",
+      ],
+    },
+    {
+      categoria: "Desenvolvimento",
+      itens: [
+        "React & TypeScript",
+        "JavaScript & Node.js",
+        "Python & FastAPI",
+        "Git & GitHub",
+        "Docker",
+        "IA generativa aplicada com governança",
+      ],
+    },
+  ],
 
   bio: [
-    "Sou Analista de Sistemas com base em sistemas corporativos, TOTVS Protheus, processos de negócio, SQL e integrações. Minha principal força está na combinação de negócio + sistemas empresariais + suporte/implantação + dados + desenvolvimento.",
-    "Minha trajetória começou em suporte técnico, passou por implantação de sistemas e evoluiu para análise de sistemas corporativos. Mais recentemente, ampliei minha atuação para o desenvolvimento de software, participando da construção e entrega de aplicações corporativas utilizadas em produção.",
-    "Tenho experiência prática em desenvolvimento de sistemas corporativos entregues com arquitetura em camadas: Portal de Engenharia (EAP, orçamentos e RBAC) e BankingProtheus (APIs Itaú mTLS). Entender a regra de negócio antes de escrever código é o que orienta o meu trabalho.",
+    "Sou Analista de T.I. com sólida vivência em suporte, implantação e sustentação de sistemas corporativos e ERP TOTVS Protheus P12. Minha principal competência está em conectar regras de negócio, usuários, banco de dados e integrações críticas.",
+    "No desenvolvimento de software, acumulo aproximadamente 6 meses de experiência prática participando de aplicações reais em produção (React, TypeScript, Node.js, PostgreSQL). Desenvolvi soluções como o BankingProtheus (conciliação bancária, CNAB, DDA e APIs Itaú com mTLS) e participei do Portal de Engenharia corporativo.",
+    "Tenho um posicionamento claro sobre Inteligência Artificial: ferramentas low-code e IA amadora prometem atalhos, mas falham gravemente em sistemas corporativos de missão crítica (bancário, fiscal e contábil). Meu diferencial é dominar o processo e a regra de negócio antes de codificar, sabendo exatamente o que pedir à IA, como arquitetar e como auditar cada linha de código.",
   ],
 
   fatos: [
-    { rotulo: "Posicionamento", valor: "Sistemas, Integrações e Desenvolvimento" },
-    { rotulo: "ERP Corporativo", valor: "TOTVS Protheus P12 (Financeiro, Contábil, Fiscal, Compras, TMS)" },
-    { rotulo: "Bancos e Dados", valor: "PostgreSQL · SQL Server · modelagem relacional · diagnóstico de inconsistências" },
-    { rotulo: "Integrações", valor: "APIs REST · APIs bancárias Itaú · OAuth2 · mTLS · Webhooks" },
-    { rotulo: "Desenvolvimento", valor: "React · TypeScript · Node.js · Express · Prisma · Tailwind CSS" },
-    { rotulo: "Engenharia & IA", valor: "LES (Padrão de Engenharia) · IA aplicada a triagem de documentos" },
+    { rotulo: "Posicionamento", valor: "Sistemas, Processos e Automação" },
+    { rotulo: "ERP Corporativo", valor: "TOTVS Protheus P12 (Financeiro, Fiscal, Compras, Caixa, TMS)" },
+    { rotulo: "Bancário & CNAB", valor: "Conciliação bancária, DDA, CNAB 240/400, APIs Itaú mTLS" },
+    { rotulo: "Fiscal & Reforma", valor: "NF-e, CT-e, importação XML e preparação para IBS/CBS" },
+    { rotulo: "Desenvolvimento", valor: "React, TypeScript, Node.js, PostgreSQL, APIs REST (~6 meses)" },
+    { rotulo: "Engenharia & IA", valor: "Governança por construção (LES) — domínio de regras e arquitetura" },
   ],
 
   perfis: {
@@ -33,43 +113,43 @@ export const perfil: Perfil = {
       headline:
         "Especialista em traduzir requisitos complexos de negócio em soluções de software e fluxos eficientes dentro do ecossistema corporativo.",
       destaques: [
-        "Domínio de módulos-chave do TOTVS Protheus P12: Financeiro (SIGAFIN), Contábil (SIGACTB), Fiscal (SIGAFIS), Compras (SIGACOM) e TMS (SIGATMS).",
-        "Diagnóstico analítico de divergências de dados via queries SQL complexas e modelagem relacional.",
-        "Integração de processos bancários (BankingProtheus) automatizando conciliações de contas, extratos e recebimentos.",
-        "Levantamento direto de requisitos com usuários-chave, mapeamento de fluxos e especificações funcionais claras.",
+        "Domínio de rotinas no TOTVS Protheus P12: Financeiro, Contábil, Fiscal, Compras, Caixa e TMS.",
+        "Diagnóstico de inconsistências em CNAB, boletos, títulos e documentos fiscais com queries SQL.",
+        "Experiência com integrações bancárias via API e VAN (Itaú, Santander, Sicoob, Votorantim).",
+        "Conferência de caixa, compras com entrada de NF-e e visão prática da transição da Reforma Tributária.",
       ],
       competencias: [
         "TOTVS Protheus P12",
-        "SQL & Modelagem de Dados",
-        "Regras de Negócio Corporativas",
-        "Conciliação Financeira",
-        "Integrações de ERP via APIs",
-        "Mapeamento de Processos (BPMN)",
+        "CNAB 240 / 400 & DDA",
+        "Conferência de Caixa",
+        "Notas Fiscais (NF-e / CT-e)",
+        "Reforma Tributária (IBS/CBS)",
+        "SQL & Diagnóstico de Causa Raiz",
       ],
       aplicacaoReal:
-        "Condução técnica da integração bancária Itaú com Protheus e suporte/evolução de rotinas corporativas de alto impacto operacional.",
+        "Suporte funcional e técnico de alto impacto na Rede Marajó e desenvolvimento do aplicativo de conciliação BankingProtheus.",
     },
     fullstack: {
-      titulo: "Desenvolvedor Full Stack Júnior",
-      subtitulo: "Aplicações web modernas, APIs REST resilientes, TypeScript e arquitetura em camadas",
+      titulo: "Desenvolvedor Full Stack (~6 Meses)",
+      subtitulo: "Aplicações web modernas, APIs REST resilientes, TypeScript e arquitetura limpa",
       headline:
-        "Foco em criar software limpo, seguro por padrão (deny-by-default) e com experiência fluida para o usuário final.",
+        "Foco em criar software limpo, seguro por padrão (deny-by-default) e com governança estrita no uso de IA.",
       destaques: [
-        "Desenvolvimento do Portal de Engenharia, com gestão de obras, EAP, aprovação de orçamentos e governança RBAC multifilial.",
-        "Backend em Node.js com Express, TypeScript e Prisma, seguindo o padrão MVC e princípios de separação de responsabilidades.",
-        "Frontend moderno em React 19 + TypeScript + Vite, estilizado com Tailwind CSS e componentes acessíveis.",
-        "Criação e manutenção do padrão LES (Lucas Engineering Standard), com governança de código, testes automatizados e segurança.",
+        "Solução BankingProtheus para conciliação bancária, leitura de extratos/DDA e integração com APIs Itaú mTLS.",
+        "Desenvolvimento full stack no Portal de Engenharia corporativo com controle de obras, EAP e RBAC.",
+        "Arquitetura em camadas MVC com Node.js, Express, TypeScript, Prisma ORM e PostgreSQL.",
+        "Criação e aplicação do padrão LES (Lucas Engineering Standard) para manter código modular (< 300 linhas) e auditável.",
       ],
       competencias: [
-        "React 19 & TypeScript",
+        "React & TypeScript",
         "Node.js & Express (MVC)",
         "PostgreSQL & Prisma ORM",
-        "Tailwind CSS & shadcn/ui",
         "APIs REST, OAuth2 & mTLS",
+        "IA Generativa com Arquitetura",
         "Testes com Vitest & Supertest",
       ],
       aplicacaoReal:
-        "Construção de ponta a ponta do Portal de Engenharia e da suíte de ferramentas do padrão de engenharia LES.",
+        "Construção de ponta a ponta do BankingProtheus e participação ativa no Portal de Engenharia corporativo.",
     },
   },
 };

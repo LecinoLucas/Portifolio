@@ -1,42 +1,44 @@
 import type { Experiencia } from "@/types";
 
-/** Experiência profissional real, em ordem cronológica inversa. */
+/** Experiência profissional real, em ordem cronológica inversa (conforme currículo oficial). */
 export const experiencias: Experiencia[] = [
   {
     tipo: "direcao",
-    cargo: "Engenharia de software + IA aplicada",
-    organizacao: "Direção de evolução profissional — não é um cargo",
-    periodo: "Em andamento",
+    cargo: "Desenvolvimento Full Stack & IA com Arquitetura",
+    organizacao: "~6 meses de experiência prática em projetos corporativos reais",
+    periodo: "Nov/2025 — Atual",
     resumo:
-      "Direção atual da carreira: aprofundar engenharia de software (arquitetura, testes e segurança) e IA aplicada a problemas de negócio, partindo da base em análise de sistemas corporativos.",
+      "Desenvolvimento de aplicações full stack em produção conectando ERP, banco de dados e APIs bancárias. Foco em arquitetura limpa, testes automatizados e orquestração madura de IA.",
     destaques: [
-      "Projetos próprios de software e o Lecino Lucas Engineering Standard (LES) como prática de engenharia.",
-      "IA aplicada a fluxos reais: triagem e classificação de documentos.",
+      "Desenvolvimento da solução BankingProtheus (React, TypeScript, Node.js, PostgreSQL, APIs Itaú mTLS, CNAB e DDA).",
+      "Participação no desenvolvimento full stack do Portal de Engenharia corporativo (EAP, orçamentos, RBAC e PostgreSQL).",
+      "Criação e manutenção do padrão LES (Lucas Engineering Standard) para governança e segurança em projetos assistidos por IA.",
     ],
-    tags: ["Arquitetura", "Testes", "Segurança", "IA aplicada", "LES"],
+    tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "APIs REST", "mTLS", "LES"],
   },
   {
     cargo: "Analista de Sistemas / Sistemas Corporativos",
     organizacao: "Rede Marajó",
-    periodo: "mai/2025 — ago/2026",
+    periodo: "mai/2025 — atual",
     atual: true,
     resumo:
-      "Atuação em sistemas corporativos e TOTVS Protheus, conectando usuários, processos de negócio e tecnologia. Análise de incidentes, suporte técnico e funcional N1/N2, investigação de dados com SQL e apoio à implantação e evolução de soluções internas.",
+      "Atuação em sistemas corporativos e TOTVS Protheus P12, conectando usuários, regras de negócio, ERP, dados e integrações críticas de negócio.",
     destaques: [
-      "TOTVS Protheus P12: análise funcional e suporte N1/N2 nos módulos financeiro, contábil, fiscal, compras, contas a pagar e contas a receber.",
-      "TMS / SIGATMS, CNAB e boletos: análise de processos, parâmetros e inconsistências.",
-      "Investigação de dados e regras de negócio com SQL para diagnóstico de incidentes.",
-      "Apoio à implantação e evolução de soluções internas: testes, homologação, documentação e orientação a usuários.",
+      "Suporte técnico e funcional N1/N2 a usuários e áreas de negócio, atuando em triagem, investigação de causa raiz e resolução estruturada de demandas.",
+      "Atuação com TOTVS Protheus P12 em rotinas Financeiras, Contábeis, Fiscais, Compras, Contas a Pagar/Receber e TMS/SIGATMS.",
+      "Investigação de inconsistências com SQL em CNAB, boletos, títulos, documentos fiscais, integrações e movimentações, validando dados para identificar causa e impacto.",
+      "Configuração e parametrização do Protheus, além de análise de regras de negócio e apoio à evolução de processos e sistemas.",
+      "Experiência com integrações bancárias via API e VAN, envolvendo Itaú, Santander, Sicoob e Votorantim; validação de requisições, retornos, credenciais, certificados e falhas de comunicação.",
     ],
     tags: [
       "TOTVS Protheus P12",
+      "Financeiro & Contábil",
+      "Fiscal & Compras",
+      "Conferência de Caixa",
+      "CNAB & DDA",
+      "Integrações Bancárias",
       "SQL",
-      "Financeiro",
-      "Contábil",
-      "Fiscal",
-      "Compras",
-      "TMS",
-      "CNAB",
+      "TMS/SIGATMS",
     ],
   },
   {
@@ -44,24 +46,23 @@ export const experiencias: Experiencia[] = [
     organizacao: "I5 Sistemas",
     periodo: "abr/2022 — nov/2022",
     resumo:
-      "Implantação e suporte de sistemas desktop e web, acompanhando configuração, testes, validação, treinamento e entrada em operação junto aos usuários.",
+      "Implantação e sustentação de sistemas desktop e web, acompanhando configuração, testes, validações e entrada em operação.",
     destaques: [
-      "Implantação e configuração de sistemas junto às áreas de negócio.",
-      "Testes, validação e treinamento de usuários até a entrada em operação.",
-      "Suporte N1, análise de regras de negócio e troubleshooting pós-implantação.",
+      "Implantação de sistemas desktop e web, com configuração, testes, validações e acompanhamento de usuários na entrada em operação.",
+      "Suporte técnico e funcional N1, tratamento de dúvidas e incidentes, levantamento de regras de negócio e treinamento de usuários.",
     ],
-    tags: ["Implantação", "Suporte N1", "Treinamento", "Troubleshooting"],
+    tags: ["Implantação", "Sistemas Desktop & Web", "Suporte N1", "Treinamento", "Regras de Negócio"],
   },
   {
     cargo: "Operador Técnico / Suporte",
-    organizacao: "Atento — Operação Vivo",
+    organizacao: "Atento SA",
     periodo: "abr/2016 — ago/2018",
     resumo:
-      "Início da trajetória em tecnologia, com suporte técnico, diagnóstico de falhas e resolução estruturada de problemas de conectividade.",
+      "Suporte técnico a clientes com problemas de conectividade, configuração e utilização de serviços de internet e dados.",
     destaques: [
-      "Atendimento e diagnóstico de falhas de conectividade.",
-      "Resolução estruturada de problemas e registro consistente dos atendimentos.",
+      "Suporte técnico a clientes com problemas de conectividade e utilização de serviços de internet e dados.",
+      "Diagnóstico de falhas e orientação para configuração de modem, roteador e acesso à internet, com foco em troubleshooting e resolução estruturada.",
     ],
-    tags: ["Suporte técnico", "Diagnóstico", "Atendimento"],
+    tags: ["Suporte Técnico", "Conectividade", "Troubleshooting", "Diagnóstico Estruturado"],
   },
 ];

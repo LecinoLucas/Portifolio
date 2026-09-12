@@ -44,6 +44,12 @@ const CONFIG_MODULOS: Record<string, ConfigModulo> = {
     corNumero: "text-tech-violet border-tech-violet/30 bg-tech-violet/10",
     corBadge: "text-tech-orange border-tech-orange/30 bg-tech-orange/10",
   },
+  "import-nfe": {
+    numero: "MOD-05",
+    classeCard: "tech-module-portal",
+    corNumero: "text-tech-cyan border-tech-cyan/30 bg-tech-cyan/10",
+    corBadge: "text-tech-cyan border-tech-cyan/30 bg-tech-cyan/10",
+  },
 };
 
 export function ProjectCard({ projeto }: { projeto: Projeto }) {

@@ -11,6 +11,17 @@ export interface CompetenciaPerfil {
   aplicacaoReal: string;
 }
 
+export interface CartaoImpacto {
+  rotulo: string;
+  subtitulo: string;
+  descricao: string;
+}
+
+export interface CompetenciaCategoria {
+  categoria: string;
+  itens: string[];
+}
+
 export interface Perfil {
   nome: string;
   posicionamento: string;
@@ -18,6 +29,11 @@ export interface Perfil {
   headline: string;
   localizacao: string;
   disponibilidade: string;
+  telefone?: string;
+  email?: string;
+  resumoProfissional?: string;
+  cartoesImpacto?: CartaoImpacto[];
+  competenciasCategorizadas?: CompetenciaCategoria[];
   bio: string[];
   fatos: { rotulo: string; valor: string }[];
   perfis: {

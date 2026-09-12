@@ -1,9 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import {
   ArrowLeft,
-  ArrowRight,
   ArrowUpRight,
-  ExternalLink,
   ShieldCheck,
   Users,
   CheckCircle2,
@@ -11,8 +9,8 @@ import {
 import { PageContainer } from "@/components/layout/page-container";
 import { Badge } from "@/components/ui/badge";
 import { classesBotao } from "@/components/ui/button-variants";
+import { ProjectDemoBanner } from "@/components/portfolio/project-demo-banner";
 import { projetoPorSlug } from "@/data/projetos";
-import { links } from "@/data/links";
 
 export function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -58,83 +56,8 @@ export function ProjectDetailPage() {
           </Link>
         </div>
 
-        {/* Bloco de Demonstração Interativa Destacada (Portal RH) */}
-        {projeto.slug === "portal-rh" ? (
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-tech-cyan/40 bg-tech-cyan/10 p-5 sm:p-6 shadow-sm">
-            <div className="space-y-1">
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-tech-cyan">
-                <span className="size-2 rounded-full bg-tech-cyan animate-pulse" />
-                Demonstração Interativa Disponível
-              </div>
-              <h3 className="text-base font-bold text-foreground">
-                Explore a visão da vaga e o quadro Kanban de candidatos
-              </h3>
-              <p className="text-xs text-muted-foreground">
-                Demonstração interativa local com dados mockados, sem necessidade de backend.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
-              <Link
-                to="/projetos/portal-rh/demo"
-                className={classesBotao({
-                  variante: "primario",
-                  tamanho: "md",
-                  className: "gap-2 font-bold justify-center shadow-xs",
-                })}
-              >
-                Abrir demonstração interativa
-                <ArrowRight className="size-4" />
-              </Link>
-
-              <a
-                href={links.portalRh.github}
-                target="_blank"
-                rel="noreferrer noopener"
-                className={classesBotao({
-                  variante: "contorno",
-                  tamanho: "md",
-                  className: "gap-1.5 justify-center text-xs",
-                })}
-              >
-                <span>Ver código no GitHub</span>
-                <ExternalLink className="size-3.5" />
-              </a>
-            </div>
-          </div>
-        ) : null}
-
-        {/* Bloco de Demonstração Interativa Destacada (Portal de Engenharia) */}
-        {projeto.slug === "portal-engenharia" ? (
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-tech-cyan/40 bg-tech-cyan/10 p-5 sm:p-6 shadow-sm">
-            <div className="space-y-1">
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-tech-cyan">
-                <span className="size-2 rounded-full bg-tech-cyan animate-pulse" />
-                Demonstração Interativa Disponível
-              </div>
-              <h3 className="text-base font-bold text-foreground">
-                Explore o painel de obras e a EAP com aprovação de etapas
-              </h3>
-              <p className="text-xs text-muted-foreground">
-                Demonstração interativa local com dados mockados, sem necessidade de backend.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
-              <Link
-                to="/projetos/portal-engenharia/demo"
-                className={classesBotao({
-                  variante: "primario",
-                  tamanho: "md",
-                  className: "gap-2 font-bold justify-center shadow-xs",
-                })}
-              >
-                Abrir demonstração interativa
-                <ArrowRight className="size-4" />
-              </Link>
-            </div>
-          </div>
-        ) : null}
+        {/* Bloco de Demonstração Interativa ou Laboratório */}
+        <ProjectDemoBanner slug={projeto.slug} />
 
         {/* Escala e Usuários */}
         {detalhe.usuariosOuEscala ? (

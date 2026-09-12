@@ -14,6 +14,8 @@ import { PortalRhDemoPage } from "@/pages/portal-rh-demo-page";
 import { PortalEngenhariaDemoProvider } from "@/context/portal-engenharia-demo-context";
 import { PortalEngenhariaDemoPage } from "@/pages/portal-engenharia-demo-page";
 import { PortalEngenhariaObraPage } from "@/pages/portal-engenharia-obra-page";
+import BankingDemoPage from "@/pages/banking-demo-page";
+import ProtheusLabPage from "@/pages/protheus-lab-page";
 import { SkillsPage } from "@/pages/skills-page";
 import { ContactPage } from "@/pages/contact-page";
 import { NotFoundPage } from "@/pages/not-found-page";
@@ -47,6 +49,10 @@ export function AppContent() {
           <Route path="/sobre" element={<AboutPage />} />
           <Route path="/experiencia" element={<ExperiencePage />} />
           <Route path="/projetos" element={<ProjectsPage />} />
+          <Route path="/projetos/banking-protheus/demo" element={<BankingDemoPage />} />
+          <Route path="/conciliacao-bancaria" element={<BankingDemoPage />} />
+          <Route path="/processos-erp" element={<ProtheusLabPage />} />
+          <Route path="/laboratorio-protheus" element={<ProtheusLabPage />} />
           <Route path="/projetos/portal-rh/demo" element={<PortalRhDemoPage />} />
           <Route path="/projetos/portal-engenharia/demo" element={<PortalEngenhariaDemoLayout />}>
             <Route index element={<PortalEngenhariaDemoPage />} />

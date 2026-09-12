@@ -84,8 +84,10 @@ export class ContatoServico {
     if (this.emailServico) {
       try {
         await this.emailServico.enviarNotificacaoContato(resultado);
-      } catch (err) {
-        console.warn("[Contato] Falha no disparo de notificação por e-mail, mas a mensagem foi salva com sucesso.");
+      } catch {
+        console.warn(
+          "[Contato] Falha no disparo de notificação por e-mail, mas a mensagem foi salva com sucesso.",
+        );
       }
     }
 

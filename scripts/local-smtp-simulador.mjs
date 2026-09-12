@@ -1,6 +1,7 @@
-// scripts/local-mailpit.mjs
-// Servidor SMTP (1025) e Interface Web (8025) local compatível com Mailpit em Node.js puro.
-// Permite visualizar todas as notificações de e-mail enviadas pelo formulário de contato.
+// scripts/local-smtp-simulador.mjs
+// Simulador SMTP local (porta 1025) e interface Web (porta 8025) em Node.js puro para desenvolvimento e testes locais sem dependência de Docker.
+// Caso possua Docker instalado, a alternativa com o Mailpit oficial está documentada e disponível via docker-compose.yml.
+// Permite visualizar todas as notificações de e-mail disparadas pelo formulário de contato.
 
 import net from "node:net";
 import http from "node:http";
@@ -10,13 +11,13 @@ const WEB_PORT = 8025;
 
 const mensagens = [];
 
-// 1. Servidor SMTP local (porta 1025)
+// 1. Servidor SMTP local simulado (porta 1025)
 const smtpServer = net.createServer((socket) => {
   socket.setEncoding("utf8");
   socket.on("error", () => {
     // Ignora conexões fechadas abruptamente pelo cliente
   });
-  socket.write("220 localhost Mailpit-Node ESMTP ready\r\n");
+  socket.write("220 localhost Simulador-SMTP-Node ready\r\n");
 
   let estado = "INIT";
   let bufferData = "";
@@ -49,7 +50,7 @@ const smtpServer = net.createServer((socket) => {
         };
 
         mensagens.unshift(novaMensagem);
-        console.log(`[Mailpit Local] 📩 Novo e-mail recebido: "${assunto}"`);
+        console.log(`[Simulador SMTP Local] 📩 Novo e-mail recebido: "${assunto}"`);
 
         socket.write("250 2.0.0 OK: message queued\r\n");
         estado = "INIT";
@@ -87,7 +88,7 @@ const smtpServer = net.createServer((socket) => {
 });
 
 smtpServer.listen(SMTP_PORT, () => {
-  console.log(`📫 Servidor SMTP do Mailpit ouvindo em localhost:${SMTP_PORT}`);
+  console.log(`📫 Servidor do simulador SMTP local ouvindo em localhost:${SMTP_PORT}`);
 });
 
 // 2. Servidor Web de visualização dos e-mails (porta 8025)
@@ -98,12 +99,12 @@ const webServer = http.createServer((req, res) => {
     return;
   }
 
-  // Interface Web elegante para recrutadores e desenvolvimento local
+  // Interface Web elegante para desenvolvimento local
   const html = `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Mailpit Local — Notificações de E-mail</title>
+  <title>Simulador SMTP Local — Notificações de E-mail</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0f172a; color: #f8fafc; margin: 0; padding: 20px; }
     .header { display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #334155; padding-bottom: 15px; margin-bottom: 20px; }
@@ -123,7 +124,7 @@ const webServer = http.createServer((req, res) => {
 </head>
 <body>
   <div class="header">
-    <h1>📬 Mailpit Local — Caixa de Entrada de Testes</h1>
+    <h1>📬 Simulador SMTP Local — Caixa de Entrada de Desenvolvimento</h1>
     <div class="status">SMTP: localhost:1025 | Web: localhost:8025 (${mensagens.length} mensagens)</div>
   </div>
   <div class="container">
@@ -176,5 +177,5 @@ const webServer = http.createServer((req, res) => {
 });
 
 webServer.listen(WEB_PORT, () => {
-  console.log(`🌐 Interface Web do Mailpit rodando em http://localhost:${WEB_PORT}`);
+  console.log(`🌐 Interface Web do simulador SMTP local rodando em http://localhost:${WEB_PORT}`);
 });

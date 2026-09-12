@@ -6,7 +6,6 @@ import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
 import { classesBotao } from "@/components/ui/button-variants";
 import { perfil } from "@/data/perfil";
-import { links } from "@/data/links";
 
 export function Specializations() {
   const [perfilAtivo, setPerfilAtivo] = useState<"analista" | "fullstack" | "ambos">("ambos");
@@ -119,14 +118,21 @@ export function Specializations() {
               </div>
 
               <div className="mt-8 border-t border-border pt-6">
-                <a
-                  href={links.curriculoAnalista}
-                  download
-                  className={classesBotao({ variante: "contorno", className: "w-full justify-center" })}
+                <button
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  className={classesBotao({
+                    variante: "contorno",
+                    className: "w-full justify-center gap-2",
+                  })}
                 >
-                  <Download className="size-4" />
-                  Baixar Currículo Analista de Sistemas (PDF)
-                </a>
+                  <Download className="size-4 opacity-50" />
+                  <span>Currículo Analista de Sistemas</span>
+                  <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
+                    Em breve
+                  </span>
+                </button>
               </div>
             </Reveal>
           </div>
@@ -188,14 +194,21 @@ export function Specializations() {
               </div>
 
               <div className="mt-8 border-t border-border pt-6">
-                <a
-                  href={links.curriculoFullstack}
-                  download
-                  className={classesBotao({ variante: "contorno", className: "w-full justify-center" })}
+                <button
+                  type="button"
+                  disabled
+                  aria-disabled="true"
+                  className={classesBotao({
+                    variante: "contorno",
+                    className: "w-full justify-center gap-2",
+                  })}
                 >
-                  <Download className="size-4" />
-                  Baixar Currículo Full Stack (PDF)
-                </a>
+                  <Download className="size-4 opacity-50" />
+                  <span>Currículo Full Stack</span>
+                  <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
+                    Em breve
+                  </span>
+                </button>
               </div>
             </Reveal>
           </div>

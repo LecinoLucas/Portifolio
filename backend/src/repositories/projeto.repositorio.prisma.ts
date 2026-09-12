@@ -3,7 +3,7 @@ import type { ProjetoEntidade } from "../models/entidades.js";
 import type { FiltroProjetos } from "../validators/projeto.validator.js";
 import { obterPrisma } from "./prisma.cliente.js";
 import { PROJETOS_INICIAIS } from "./projeto.repositorio.js";
-import type { FocoPerfil, DetalheProjetoDTO } from "@portfolio/contracts";
+import type { FocoPerfil } from "@portfolio/contracts";
 
 export class ProjetoRepositorioPrisma implements IProjetoRepositorio {
   async listar(filtros?: FiltroProjetos): Promise<ProjetoEntidade[]> {

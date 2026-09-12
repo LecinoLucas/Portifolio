@@ -3,13 +3,14 @@ import { ProjetoRepositorioPrisma } from "../src/repositories/projeto.repositori
 import { obterPrisma } from "../src/repositories/prisma.cliente.js";
 
 async function seed() {
+  const prisma = obterPrisma();
   console.log("🌱 Iniciando seed de projetos oficiais do portfólio no PostgreSQL...");
+
   const repo = new ProjetoRepositorioPrisma();
   await repo.salvarEmLote(PROJETOS_INICIAIS);
   console.log(
     `✅ Seed concluído com sucesso. Total: ${PROJETOS_INICIAIS.length} projetos persistidos no banco.`,
   );
-  const prisma = obterPrisma();
   await prisma.$disconnect();
 }
 

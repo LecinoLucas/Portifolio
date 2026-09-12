@@ -5,7 +5,12 @@ import { EmailServicoMock } from "../src/services/email.servico.js";
 import { ContatoRepositorioMemoria } from "../src/repositories/contato.repositorio.js";
 import { ProjetoRepositorioMemoria } from "../src/repositories/projeto.repositorio.js";
 
-const app = criarApp();
+// Garantia de isolamento estrito: testes utilizam repositórios em memória e mock de e-mail sem poluir o banco
+const app = criarApp({
+  projetoRepo: new ProjetoRepositorioMemoria(),
+  contatoRepo: new ContatoRepositorioMemoria(),
+  emailServico: new EmailServicoMock(),
+});
 
 describe("Endpoints da API Backend (LES v2.2.0)", () => {
   describe("GET /health", () => {

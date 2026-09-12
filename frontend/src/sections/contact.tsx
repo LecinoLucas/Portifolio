@@ -68,30 +68,47 @@ export function Contact() {
           />
 
           <Reveal className="mt-8 space-y-4">
-            {/* Espaço preparado para os currículos */}
+            {/* Currículo original preservado e futuros botões desabilitados com Em breve */}
             <div className="flex flex-col gap-2.5 sm:flex-row">
               <a
-                href={links.curriculoAnalista}
+                href={links.curriculo}
                 download
                 className={classesBotao({
                   variante: "contorno",
                   className: "flex-1 justify-between",
                 })}
               >
-                <span>Currículo Analista (PDF)</span>
+                <span>Currículo Geral (PDF)</span>
                 <Download className="size-4" />
               </a>
-              <a
-                href={links.curriculoFullstack}
-                download
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
                 className={classesBotao({
                   variante: "contorno",
                   className: "flex-1 justify-between",
                 })}
               >
-                <span>Currículo Full Stack (PDF)</span>
-                <Download className="size-4" />
-              </a>
+                <span>Currículo Analista</span>
+                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
+                  Em breve
+                </span>
+              </button>
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                className={classesBotao({
+                  variante: "contorno",
+                  className: "flex-1 justify-between",
+                })}
+              >
+                <span>Currículo Full Stack</span>
+                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
+                  Em breve
+                </span>
+              </button>
             </div>
 
             <div className="grid gap-2.5 sm:grid-cols-2">

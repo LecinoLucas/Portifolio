@@ -147,14 +147,14 @@ Todas as respostas seguem o padrão normativo da `Biblioteca_PadraoIA`:
    npm run dev:all
    ```
    *Este comando inicia simultaneamente:*
-   - 🌐 **Frontend React 19**: [http://localhost:5173](http://localhost:5173)
-   - 🚀 **Backend REST API**: [http://localhost:3001](http://localhost:3001) (Health check: `/health`)
-   - 📬 **Mailpit (Notificações)**: Interface Web em [http://localhost:8025](http://localhost:8025) e SMTP em `localhost:1025`
+    - 🌐 **Frontend React 19**: [http://localhost:5173](http://localhost:5173)
+    - 🚀 **Backend REST API**: [http://localhost:3001](http://localhost:3001) (Health check: `/health`)
+    - 📬 **Simulador SMTP Local**: Interface Web em [http://localhost:8025](http://localhost:8025) e SMTP em `localhost:1025` (ou Mailpit oficial via `docker compose up -d mailpit`)
 
 > **Execução isolada de serviços (opcional)**:
 > - `npm run dev:frontend` — Apenas o frontend Vite
 > - `npm run dev:backend` — Apenas a API Express
-> - `npm run mailpit` — Apenas o servidor SMTP/Web Mailpit local
+> - `npm run smtp:simulador` — Servidor SMTP local (1025) e Web UI (8025) simulados em Node.js puro
 
 ---
 
@@ -162,14 +162,15 @@ Todas as respostas seguem o padrão normativo da `Biblioteca_PadraoIA`:
 
 | Comando | Ação |
 | :--- | :--- |
-| `npm run dev:all` | Inicia Frontend, Backend e Mailpit simultaneamente |
+| `npm run dev:all` | Inicia Frontend, Backend e Simulador SMTP simultaneamente |
 | `npm run build` | Compilação estrita de todos os workspaces (contracts, frontend e backend) |
 | `npm run test` | Execução dos testes automatizados (Vitest + Testing Library + Supertest) |
 | `npm run typecheck` | Verificação estrita de tipagem TypeScript em todo o monorepo |
 | `npm run lint` | Validação de qualidade de código com ESLint 9 |
 | `npm run prisma:generate` | Gera o cliente tipado do Prisma ORM |
-| `npm run prisma:seed` | Popula o banco com os 4 projetos e estudos de caso oficiais |
-| `npm run mailpit` | Servidor SMTP local (1025) e Web UI (8025) para testes de e-mail |
+| `npm run prisma:migrate` | Executa migrations pendentes do Prisma |
+| `npm run prisma:seed` | Popula o banco com os 4 projetos oficiais e limpa mensagens de teste |
+| `npm run smtp:simulador` | Simulador SMTP local (1025) e Web UI (8025) para testes sem Docker |
 | `npm run set-domain -- <url>` | Atualização automática do domínio nos metadados de SEO (apenas no deploy) |
 
 ---

@@ -55,27 +55,45 @@ export function Hero() {
               <ArrowRight className="size-4" />
             </a>
 
-            {/* Espaço preparado para os dois currículos */}
+            {/* Currículo original preservado e futuros botões desabilitados com Em breve */}
             <div className="flex flex-wrap items-center gap-2">
               <a
-                href={links.curriculoAnalista}
+                href={links.curriculo}
                 download
-                title="Baixar currículo com foco em Análise de Sistemas e TOTVS Protheus"
+                title="Baixar currículo original em PDF"
                 className={classesBotao({ variante: "contorno", tamanho: "lg" })}
               >
                 <Download className="size-4" />
-                Currículo Analista
+                Currículo Geral (PDF)
               </a>
 
-              <a
-                href={links.curriculoFullstack}
-                download
-                title="Baixar currículo com foco em Desenvolvimento Full Stack"
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                title="Currículo especializado para Analista de Sistemas em elaboração"
                 className={classesBotao({ variante: "contorno", tamanho: "lg" })}
               >
-                <Download className="size-4" />
-                Currículo Full Stack
-              </a>
+                <Download className="size-4 opacity-50" />
+                <span>Currículo Analista</span>
+                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
+                  Em breve
+                </span>
+              </button>
+
+              <button
+                type="button"
+                disabled
+                aria-disabled="true"
+                title="Currículo especializado para Full Stack em elaboração"
+                className={classesBotao({ variante: "contorno", tamanho: "lg" })}
+              >
+                <Download className="size-4 opacity-50" />
+                <span>Currículo Full Stack</span>
+                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
+                  Em breve
+                </span>
+              </button>
             </div>
 
             <a

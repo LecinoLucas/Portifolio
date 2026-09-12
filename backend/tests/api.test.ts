@@ -1,6 +1,9 @@
 import { describe, it, expect } from "vitest";
 import request from "supertest";
 import { criarApp } from "../src/app.js";
+import { EmailServicoMock } from "../src/services/email.servico.js";
+import { ContatoRepositorioMemoria } from "../src/repositories/contato.repositorio.js";
+import { ProjetoRepositorioMemoria } from "../src/repositories/projeto.repositorio.js";
 
 const app = criarApp();
 
@@ -74,7 +77,14 @@ describe("Endpoints da API Backend (LES v2.2.0)", () => {
   });
 
   describe("POST /api/v1/contact", () => {
-    it("deve aceitar mensagem válida, sanitizar entrada e retornar 201", async () => {
+    it("deve aceitar mensagem válida, sanitizar entrada, enviar notificação e retornar 201", async () => {
+      const emailMock = new EmailServicoMock();
+      const customApp = criarApp({
+        projetoRepo: new ProjetoRepositorioMemoria(),
+        contatoRepo: new ContatoRepositorioMemoria(),
+        emailServico: emailMock,
+      });
+
       const payload = {
         nome: "Recrutador <b>Tech</b>",
         email: "recrutador@empresa.com",
@@ -82,13 +92,43 @@ describe("Endpoints da API Backend (LES v2.2.0)", () => {
         mensagem: "Olá Lecino, vimos seu portfólio e seus projetos com Protheus e React. Gostaríamos de conversar!",
       };
 
-      const res = await request(app).post("/api/v1/contact").send(payload);
+      const res = await request(customApp).post("/api/v1/contact").send(payload);
 
       expect(res.status).toBe(201);
       expect(res.body.sucesso).toBe(true);
       expect(res.body.dados.id).toBeTruthy();
       expect(res.body.dados.nome).toBe("Recrutador Tech"); // tags HTML sanitizadas
       expect(res.body.dados.email).toBe("recrutador@empresa.com");
+
+      // Verifica envio para o Mailpit / Mock
+      expect(emailMock.emailsEnviados.length).toBe(1);
+      expect(emailMock.emailsEnviados[0].assunto).toBe("Oportunidade Analista / Full Stack");
+    });
+
+    it("deve salvar a mensagem e retornar 201 mesmo se o envio de e-mail falhar", async () => {
+      const emailComFalha = {
+        async enviarNotificacaoContato() {
+          throw new Error("SMTP_CONNECTION_REFUSED");
+        },
+      };
+
+      const customApp = criarApp({
+        projetoRepo: new ProjetoRepositorioMemoria(),
+        contatoRepo: new ContatoRepositorioMemoria(),
+        emailServico: emailComFalha,
+      });
+
+      const payload = {
+        nome: "Gestor de TI",
+        email: "gestor@corporativo.com",
+        mensagem: "Gostaria de agendar uma reunião técnica sobre sistemas corporativos.",
+      };
+
+      const res = await request(customApp).post("/api/v1/contact").send(payload);
+
+      expect(res.status).toBe(201);
+      expect(res.body.sucesso).toBe(true);
+      expect(res.body.dados.id).toBeTruthy();
     });
 
     it("deve rejeitar e classificar como spam caso o honeypot seja preenchido", async () => {

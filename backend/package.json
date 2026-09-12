@@ -21,6 +21,7 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "helmet": "^8.0.0",
+    "nodemailer": "^10.0.9",
     "uuid": "^11.1.0",
     "zod": "^3.24.2"
   },
@@ -28,6 +29,7 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.5",
+    "@types/nodemailer": "^8.0.1",
     "@types/supertest": "^6.0.2",
     "@types/uuid": "^10.0.0",
     "prisma": "^6.4.1",

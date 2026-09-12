@@ -4,10 +4,13 @@ import helmet from "helmet";
 import { configAmbiente } from "./config/ambiente.js";
 import { middlewareCorrelationId } from "./middlewares/correlation-id.middleware.js";
 import { middlewareErroGlobal, AppErro } from "./middlewares/erro-global.middleware.js";
-import { criarRoteador } from "./routes/index.js";
+import { criarRoteador, type OpcoesRoteador } from "./routes/index.js";
 
-export function criarApp(): express.Application {
+export function criarApp(opcoes?: OpcoesRoteador): express.Application {
   const app = express();
+
+  // Requisito de ambiente de produção e proxies reversos
+  app.set("trust proxy", true);
 
   // Segurança e parsing
   app.use(helmet());
@@ -24,7 +27,7 @@ export function criarApp(): express.Application {
   app.use(middlewareCorrelationId);
 
   // Rotas da aplicação
-  app.use(criarRoteador());
+  app.use(criarRoteador(opcoes));
 
   // Rota não encontrada (404)
   app.use((req, _res, next) => {

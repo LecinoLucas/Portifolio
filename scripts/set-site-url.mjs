@@ -1,16 +1,15 @@
-// Troca o domínio placeholder por um domínio real em todos os locais de SEO.
-// Uso:  node scripts/set-site-url.mjs https://seudominio.com
-// Sem dependências — apenas Node.js nativo.
+// Troca o domínio local/placeholder por um domínio real em todos os locais de SEO no momento do deploy.
+// Uso:  node scripts/set-site-url.mjs https://dominio-confirmado.com
+// Sem dependências externas — apenas Node.js nativo.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
-const PLACEHOLDER = "https://example.com";
 const ALVOS = ["frontend/index.html", "frontend/public/robots.txt", "frontend/public/sitemap.xml"];
 
 const bruto = process.argv[2];
 if (!bruto) {
-  console.error("Uso: node scripts/set-site-url.mjs https://seudominio.com");
+  console.error("Uso: node scripts/set-site-url.mjs https://dominio-confirmado.com");
   process.exit(1);
 }
 
@@ -27,8 +26,9 @@ let total = 0;
 for (const rel of ALVOS) {
   const caminho = resolve(process.cwd(), rel);
   const antes = readFileSync(caminho, "utf8");
-  const depois = antes.split(PLACEHOLDER).join(base);
-  const n = (antes.match(new RegExp(PLACEHOLDER.replace(/[.]/g, "\\."), "g")) || []).length;
+  // Substitui http://localhost:5173 pela nova URL pública
+  const depois = antes.split("http://localhost:5173").join(base);
+  const n = (antes.match(/http:\/\/localhost:5173/g) || []).length;
   if (n > 0) {
     writeFileSync(caminho, depois);
     console.log(`  ${rel}: ${n} ocorrência(s) atualizada(s)`);
@@ -38,9 +38,4 @@ for (const rel of ALVOS) {
   }
 }
 
-if (total === 0) {
-  console.log(`\nNenhum "${PLACEHOLDER}" encontrado. O domínio já foi definido?`);
-} else {
-  console.log(`\nPronto: ${total} ocorrência(s) → ${base}`);
-  console.log("Revise o <lastmod> em public/sitemap.xml e rode `npm run build`.");
-}
+console.log(`\nPronto: ${total} ocorrência(s) → ${base}`);

@@ -112,34 +112,49 @@ Todas as respostas seguem o padrão normativo da `Biblioteca_PadraoIA`:
 ### Pré-requisitos
 - Node.js >= 20.x
 - npm >= 10.x
+- PostgreSQL local ou Docker (opcional)
 
-### Passos
+### Passo a Passo
 
-1. Clone o repositório:
+1. **Clone o repositório e instale as dependências**:
    ```bash
    git clone https://github.com/LecinoLucas/Portifolio.git
    cd Portifolio
-   ```
-
-2. Instale as dependências de todos os workspaces:
-   ```bash
    npm install
    ```
 
-3. Crie os arquivos de ambiente locais:
+2. **Configure as variáveis de ambiente locais**:
    ```bash
-   cp .env.example .env
    cp backend/.env.example backend/.env
    ```
 
-4. Compile os contratos compartilhados:
+3. **Banco de Dados (PostgreSQL)**:
+   - *Via Docker Compose*:
+     ```bash
+     docker compose up -d
+     ```
+   - *Ou via PostgreSQL local já instalado na máquina*:
+     Basta apontar a `DATABASE_URL` no `backend/.env` para a sua instância local.
+
+4. **Sincronize o schema e popule os projetos (Seed)**:
    ```bash
-   npm run build --workspace=@portfolio/contracts
+   npm run prisma:generate
+   npm run prisma:seed
    ```
 
-5. Inicie as aplicações em desenvolvimento:
-   - **Frontend**: `npm run dev:frontend` (disponível em `http://localhost:5173`)
-   - **Backend**: `npm run dev:backend` (disponível em `http://localhost:3001`)
+5. **Inicie o ecossistema completo com 1 único comando**:
+   ```bash
+   npm run dev:all
+   ```
+   *Este comando inicia simultaneamente:*
+   - 🌐 **Frontend React 19**: [http://localhost:5173](http://localhost:5173)
+   - 🚀 **Backend REST API**: [http://localhost:3001](http://localhost:3001) (Health check: `/health`)
+   - 📬 **Mailpit (Notificações)**: Interface Web em [http://localhost:8025](http://localhost:8025) e SMTP em `localhost:1025`
+
+> **Execução isolada de serviços (opcional)**:
+> - `npm run dev:frontend` — Apenas o frontend Vite
+> - `npm run dev:backend` — Apenas a API Express
+> - `npm run mailpit` — Apenas o servidor SMTP/Web Mailpit local
 
 ---
 
@@ -147,11 +162,15 @@ Todas as respostas seguem o padrão normativo da `Biblioteca_PadraoIA`:
 
 | Comando | Ação |
 | :--- | :--- |
-| `npm run build` | Compilação de todos os workspaces (contracts, frontend e backend) |
-| `npm run test` | Execução de toda a suíte de testes (Vitest + Testing Library + Supertest) |
+| `npm run dev:all` | Inicia Frontend, Backend e Mailpit simultaneamente |
+| `npm run build` | Compilação estrita de todos os workspaces (contracts, frontend e backend) |
+| `npm run test` | Execução dos testes automatizados (Vitest + Testing Library + Supertest) |
 | `npm run typecheck` | Verificação estrita de tipagem TypeScript em todo o monorepo |
 | `npm run lint` | Validação de qualidade de código com ESLint 9 |
-| `npm run set-domain -- <url>` | Atualização automática do domínio nos metadados de SEO |
+| `npm run prisma:generate` | Gera o cliente tipado do Prisma ORM |
+| `npm run prisma:seed` | Popula o banco com os 4 projetos e estudos de caso oficiais |
+| `npm run mailpit` | Servidor SMTP local (1025) e Web UI (8025) para testes de e-mail |
+| `npm run set-domain -- <url>` | Atualização automática do domínio nos metadados de SEO (apenas no deploy) |
 
 ---
 

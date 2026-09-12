@@ -10,6 +10,8 @@
     "dev": "npm run dev --workspace=@portfolio/frontend",
     "dev:frontend": "npm run dev --workspace=@portfolio/frontend",
     "dev:backend": "npm run dev --workspace=@portfolio/backend",
+    "dev:all": "concurrently -k -n \"mailpit,backend,frontend\" -c \"magenta,blue,green\" \"npm run mailpit\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "mailpit": "node scripts/local-mailpit.mjs",
     "build": "npm run build --workspaces --if-present",
     "build:frontend": "npm run build --workspace=@portfolio/frontend",
     "build:backend": "npm run build --workspace=@portfolio/backend",
@@ -18,6 +20,12 @@
     "test:backend": "npm run test --workspace=@portfolio/backend",
     "lint": "npm run lint --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
+    "prisma:generate": "npm run prisma:generate --workspace=@portfolio/backend",
+    "prisma:migrate": "npm run prisma:migrate --workspace=@portfolio/backend",
+    "prisma:seed": "npm run prisma:seed --workspace=@portfolio/backend",
     "set-domain": "node scripts/set-site-url.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
   }
 }

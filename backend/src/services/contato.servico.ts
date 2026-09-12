@@ -1,10 +1,14 @@
 import crypto from "node:crypto";
 import type { IContatoRepositorio } from "../repositories/contato.repositorio.interface.js";
 import type { CriarContatoDTO, ContatoRegistrado } from "@portfolio/contracts";
+import type { IEmailServico } from "./email.servico.js";
 import { AppErro } from "../middlewares/erro-global.middleware.js";
 
 export class ContatoServico {
-  constructor(private readonly contatoRepositorio: IContatoRepositorio) {}
+  constructor(
+    private readonly contatoRepositorio: IContatoRepositorio,
+    private readonly emailServico?: IEmailServico,
+  ) {}
 
   /**
    * Remove tags HTML e caracteres maliciosos para evitar injeções ou ataques XSS
@@ -19,7 +23,7 @@ export class ContatoServico {
   }
 
   /**
-   * Gera hash unidirecional do IP para fins de auditoria e limitação sem armazenar dados pessoais diretos (LGPD)
+   * Gera hash unidirecional do IP para fins de auditoria sem armazenar dados pessoais diretos (LGPD)
    */
   private anonimizarIp(ip: string): string {
     return crypto.createHash("sha256").update(ip).digest("hex").substring(0, 16);
@@ -31,7 +35,6 @@ export class ContatoServico {
   ): Promise<ContatoRegistrado> {
     // 1. Proteção Anti-Spam (Honeypot)
     if (dados.honeypot && dados.honeypot.trim().length > 0) {
-      // Bots preenchem campos ocultos automaticamente
       throw new AppErro(
         "SPAM_DETECTADO",
         "A requisição foi identificada como spam automatizado.",
@@ -68,7 +71,7 @@ export class ContatoServico {
       `[Contato] Mensagem registrada com sucesso. ID=${salvo.id}, Assunto="${salvo.assunto}", Tamanho=${salvo.mensagem.length} chars.`,
     );
 
-    return {
+    const resultado: ContatoRegistrado = {
       id: salvo.id,
       nome: salvo.nome,
       email: salvo.email,
@@ -76,5 +79,16 @@ export class ContatoServico {
       mensagem: salvo.mensagem,
       criadoEm: salvo.criadoEm.toISOString(),
     };
+
+    // 5. Envio de notificação para o Mailpit (resiliente: falha no e-mail não perde o registro)
+    if (this.emailServico) {
+      try {
+        await this.emailServico.enviarNotificacaoContato(resultado);
+      } catch (err) {
+        console.warn("[Contato] Falha no disparo de notificação por e-mail, mas a mensagem foi salva com sucesso.");
+      }
+    }
+
+    return resultado;
   }
 }

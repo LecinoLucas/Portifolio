@@ -30,14 +30,13 @@ describe("<App /> e Navegação por Rotas", () => {
     ).toBeInTheDocument();
   });
 
-  it("mostra os projetos em destaque e atalhos na rota inicial", () => {
+  it("mostra o Mapa de Atuação e posicionamento central na rota inicial", () => {
     render(<App />);
-    const headingsBanking = screen.getAllByRole("heading", {
-      name: /BankingProtheus/i,
-    });
-    expect(headingsBanking.length).toBeGreaterThan(0);
     expect(
-      screen.getByText(/Arquitetura de Conexão Integrada/i),
+      screen.getByRole("heading", { name: /qual desafio sua empresa precisa resolver\?/i })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/Eu transformo processos reais em sistemas bem estruturados\./i)
     ).toBeInTheDocument();
   });
 

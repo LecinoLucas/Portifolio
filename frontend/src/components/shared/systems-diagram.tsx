@@ -150,7 +150,7 @@ export function SystemsDiagram() {
             Portal de Engenharia &amp; RH
           </h4>
           <p className="mt-1 text-[11px] leading-relaxed text-muted-foreground">
-            Sistemas em produção para ~500 usuários corporativos com Node.js MVC e TypeScript.
+            Sistemas corporativos estruturados com Node.js MVC, Prisma e TypeScript.
           </p>
 
           <div className="mt-2.5 flex flex-wrap gap-1">

@@ -8,12 +8,12 @@ import { links } from "@/data/links";
 export const projetos: Projeto[] = [
   {
     slug: "banking-protheus",
-    titulo: "BankingProtheus — Conciliação Bancária, CNAB & DDA",
-    categoria: "Integração Bancária & ERP TOTVS Protheus",
+    titulo: "Central de Integrações Bancárias — Itaú e Protheus",
+    categoria: "Integração Bancária, mTLS & APIs",
     focoPerfil: "analista",
     destaque: true,
     resumo:
-      "Aplicação de conciliação bancária que cruza extratos, CNAB 240/400 e boletos eletrônicos DDA com títulos a pagar do Protheus (SE2), integrando APIs Itaú com autenticação OAuth2 e mTLS.",
+      "Desenvolvimento de sistema para centralizar integrações com APIs do Itaú, autenticação mTLS e OAuth2, validação de certificados digitais X.509, consulta de extratos, emissão de boletos e apoio aos fluxos de conciliação do Protheus.",
     stack: [
       "React",
       "TypeScript",
@@ -31,25 +31,25 @@ export const projetos: Projeto[] = [
     ],
     detalhe: {
       contexto:
-        "A operação financeira enfrentava lentidão na conferência de extratos bancários contra títulos a pagar no Protheus, além da necessidade de capturar e agendar boletos de fornecedores via DDA.",
+        "Necessidade de centralizar a comunicação segura com APIs do Itaú Unibanco, gerenciando credenciais e certificados digitais para apoio às rotinas financeiras do ERP.",
       problema:
-        "Processo manual sujeito a erros de digitação, juros não identificados a tempo e complexidade para consumir APIs bancárias seguras do Itaú com mTLS e certificados digitais.",
+        "Complexidade na validação e renovação de certificados digitais mTLS, testes de autenticação e homologação das APIs bancárias de extratos e boletos.",
       participacao:
-        "Desenvolvi a solução full stack: modelagem de dados no PostgreSQL, integração com APIs Itaú mTLS (OAuth2 Client Credentials), leitura/normalização de extratos e CNAB, e painel interativo em React.",
+        "Desenvolvimento da solução de integração: testes de conectividade e autenticação mTLS, gestão segura de certificados digitais X.509, consumo de APIs REST e conexão com processos do ERP.",
       solucao:
-        "Serviço em Node.js com canal mTLS seguro para consulta de contas e extratos, rotinas de matching automático por código de barras/valor/data, identificação de divergências e painel DDA.",
+        "Central de integrações com canal mTLS, fluxo OAuth2 Client Credentials, testes de API de extratos e boletos e tratamento seguro de dados sem exposição de credenciais.",
       arquitetura:
-        "Backend Node.js/TypeScript em camadas → canal mTLS com certificados X.509 → normalização de CNAB e extratos → matching contra títulos SE2 do Protheus → interface em React.",
+        "Node.js / TypeScript em camadas → canal mTLS seguro com certificados digitais → consumo de endpoints Itaú → validação de respostas para conciliação e processos financeiros.",
       desafios: [
-        "Implementar autenticação OAuth2 Client Credentials com mTLS no canal seguro com o Itaú.",
-        "Tratar divergências de juros, multas e descontos entre o título no Protheus e o débito real.",
-        "Idempotência na conciliação para evitar baixa duplicada de lançamentos financeiros.",
+        "Implementar canal mTLS mútuo com certificados X.509 conforme padrão bancário.",
+        "Validação e renovação segura de certificados sem interrupção de conectividade.",
+        "Tratamento seguro de credenciais e tokens Bearer temporários.",
       ],
       resultado:
-        "Redução substancial do tempo de conferência financeira diária, com rastreabilidade total de cada título conciliado e detecção imediata de inconsistências.",
+        "Integração centralizada e segura com APIs bancárias, validação confiável de certificados e apoio robusto aos processos de contas a pagar, receber e conciliação.",
       seguranca:
         "Canal criptografado de ponta a ponta com certificados mTLS, rotação segura de credenciais e auditoria estrita de todas as operações financeiras.",
-      usuariosOuEscala: "Solução voltada à tesouraria corporativa e contas a pagar multiempresa.",
+      usuariosOuEscala: "Sistema voltado a operações financeiras e tesouraria multiempresa.",
     },
   },
   {

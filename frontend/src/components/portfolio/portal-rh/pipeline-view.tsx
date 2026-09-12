@@ -125,6 +125,7 @@ export function PipelineView({
                     {etapa.rotulo}
                   </span>
                   <span
+                    data-testid={`contador-${etapa.id}`}
                     className={cn(
                       "rounded-full px-2 py-0.5 text-[11px] font-mono font-bold border",
                       etapa.corBadge

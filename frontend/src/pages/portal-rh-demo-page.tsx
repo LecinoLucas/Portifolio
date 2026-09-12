@@ -38,7 +38,9 @@ export function PortalRhDemoPage() {
   const reiniciarDemo = () => {
     setCandidatos(CANDIDATOS_INICIAIS);
     setOrdenacao("padrao");
+    setMostrarAderencia(true);
     setReprovadosAberto(false);
+    setTelaAtiva("vaga");
   };
 
   const candidatosPorEtapa = useMemo(() => {

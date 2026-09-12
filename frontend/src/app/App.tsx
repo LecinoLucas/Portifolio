@@ -1,19 +1,24 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProvedorTema } from "@/app/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
-import { Hero } from "@/sections/hero";
-import { Specializations } from "@/sections/specializations";
-import { About } from "@/sections/about";
-import { Experience } from "@/sections/experience";
-import { Projects } from "@/sections/projects";
-import { Les } from "@/sections/les";
-import { Principles } from "@/sections/principles";
-import { TechStack } from "@/sections/tech-stack";
-import { Contact } from "@/sections/contact";
+import { ScrollToTopAndFocus } from "@/components/shared/scroll-to-top";
+import { WhatsAppFloatingButton } from "@/components/shared/whatsapp-button";
 
-export function App() {
+import { HomePage } from "@/pages/home-page";
+import { AboutPage } from "@/pages/about-page";
+import { ExperiencePage } from "@/pages/experience-page";
+import { ProjectsPage } from "@/pages/projects-page";
+import { ProjectDetailPage } from "@/pages/project-detail-page";
+import { SkillsPage } from "@/pages/skills-page";
+import { ContactPage } from "@/pages/contact-page";
+import { NotFoundPage } from "@/pages/not-found-page";
+
+export function AppContent() {
   return (
-    <ProvedorTema>
+    <div className="relative min-h-screen flex flex-col overflow-x-hidden bg-background text-foreground">
+      <ScrollToTopAndFocus />
+
       <a
         href="#conteudo"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
@@ -23,19 +28,32 @@ export function App() {
 
       <Header />
 
-      <main id="conteudo">
-        <Hero />
-        <Specializations />
-        <About />
-        <Experience />
-        <Projects />
-        <Les />
-        <Principles />
-        <TechStack />
-        <Contact />
+      <main id="conteudo" className="flex-1 focus:outline-none">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/sobre" element={<AboutPage />} />
+          <Route path="/experiencia" element={<ExperiencePage />} />
+          <Route path="/projetos" element={<ProjectsPage />} />
+          <Route path="/projetos/:slug" element={<ProjectDetailPage />} />
+          <Route path="/competencias" element={<SkillsPage />} />
+          <Route path="/contato" element={<ContactPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
 
+      <WhatsAppFloatingButton />
+
       <Footer />
+    </div>
+  );
+}
+
+export function App() {
+  return (
+    <ProvedorTema>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
     </ProvedorTema>
   );
 }

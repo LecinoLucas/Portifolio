@@ -1,9 +1,9 @@
 # Revisão Visual da Aplicação
 
 > **Padrão**: Lucas Engineering Standard (LES) v2.2.0  
-> **Status**: Capturas de tela reais do estado atual pré-reformulação
+> **Status**: Capturas reais da Central Tecnológica, Rotas SPA e Integração WhatsApp
 
-Este documento reúne os registros visuais reais da aplicação em três resoluções normativas (Desktop 1440×900, Tablet 768×1024 e Mobile 375×812), cobrindo temas claro e escuro, navegação, estudos de caso e formulário de contato.
+Este documento reúne os registros visuais reais da aplicação após a implementação da nova identidade visual tecnológica, navegação real baseada em rotas (`react-router-dom`), integração oficial com WhatsApp e design responsivo normativo (Desktop 1440×900, Tablet 768×1024 e Mobile 375×812).
 
 ---
 

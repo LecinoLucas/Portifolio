@@ -8,6 +8,13 @@ export const links = {
   email: "lecinolucas5@gmail.com",
   emailHref: "mailto:lecinolucas5@gmail.com",
 
+  whatsapp: {
+    numero: "(62) 99656-4756",
+    numeroLimpo: "5562996564756",
+    mensagemPadrao: "Olá, Lecino. Conheci seu trabalho pelo portfólio e gostaria de conversar.",
+    href: "https://wa.me/5562996564756?text=Ol%C3%A1%2C%20Lecino.%20Conheci%20seu%20trabalho%20pelo%20portf%C3%B3lio%20e%20gostaria%20de%20conversar.",
+  },
+
   // Currículo principal existente
   curriculo: "/curriculo-lecino-lucas.pdf",
   curriculoGeral: "/curriculo-lecino-lucas.pdf",

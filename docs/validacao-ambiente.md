@@ -45,7 +45,7 @@ O schema do banco de dados é gerenciado exclusivamente via **Prisma Migrate** c
    ```bash
    npm run prisma:seed --workspace=@portfolio/backend
    ```
-   > O script de seed limpa registros de testes manuais da tabela `contatos` e persiste os 4 estudos de caso oficiais de produção.
+   > O script de seed popula ou atualiza de maneira idempotente os 4 estudos de caso oficiais de produção na tabela `projetos` sem alterar nem remover mensagens da tabela `contatos`.
 
 3. **Verificar status das migrations**:
    ```bash

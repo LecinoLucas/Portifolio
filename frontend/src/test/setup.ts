@@ -34,3 +34,6 @@ if (!window.IntersectionObserver) {
   window.IntersectionObserver =
     IntersectionObserverFalso as unknown as typeof IntersectionObserver;
 }
+
+// jsdom não implementa scrollTo
+window.scrollTo = vi.fn();

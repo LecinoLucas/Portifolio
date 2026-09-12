@@ -10,6 +10,7 @@ const variantesBadge = cva(
         neutro: "border-transparent bg-secondary text-secondary-foreground",
         contorno: "border-border text-muted-foreground",
         primario: "border-transparent bg-primary/10 text-primary",
+        sucesso: "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
       },
     },
     defaultVariants: { variante: "neutro" },

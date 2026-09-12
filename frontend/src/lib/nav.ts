@@ -1,15 +1,14 @@
-/** Itens de navegação do Header. O `id` corresponde ao ancoramento da seção. */
+/** Itens de navegação baseados em rotas reais SPA. */
 export interface ItemNav {
-  id: string;
+  path: string;
   rotulo: string;
 }
 
 export const itensNav: ItemNav[] = [
-  { id: "atuacao", rotulo: "Especialidades" },
-  { id: "sobre", rotulo: "Sobre" },
-  { id: "experiencia", rotulo: "Experiência" },
-  { id: "projetos", rotulo: "Projetos" },
-  { id: "les", rotulo: "LES" },
-  { id: "tecnologias", rotulo: "Tecnologias" },
-  { id: "contato", rotulo: "Contato" },
+  { path: "/", rotulo: "Central" },
+  { path: "/sobre", rotulo: "Sobre" },
+  { path: "/experiencia", rotulo: "Experiência" },
+  { path: "/projetos", rotulo: "Projetos" },
+  { path: "/competencias", rotulo: "Competências" },
+  { path: "/contato", rotulo: "Contato" },
 ];

@@ -13,14 +13,18 @@ import {
 } from "@/app/theme-context";
 
 function lerTemaInicial(): Tema {
-  if (typeof window === "undefined") return "light";
+  if (typeof window === "undefined") return "dark";
   try {
+    const params = new URLSearchParams(window.location.search);
+    const paramTema = params.get("tema");
+    if (paramTema === "light" || paramTema === "dark") return paramTema;
+
     const armazenado = window.localStorage.getItem(CHAVE_TEMA);
     if (armazenado === "light" || armazenado === "dark") return armazenado;
   } catch {
-    /* localStorage indisponível — segue para preferência do SO */
+    /* localStorage indisponível */
   }
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "dark";
 }
 
 export function ProvedorTema({ children }: { children: ReactNode }) {

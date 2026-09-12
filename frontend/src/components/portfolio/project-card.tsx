@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -29,10 +30,19 @@ export function ProjectCard({ projeto }: { projeto: Projeto }) {
           ))}
         </div>
 
-        <SheetTrigger className="mt-5 inline-flex items-center gap-1.5 self-start rounded-md text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          Ver detalhes
-          <ArrowRight className="size-4" />
-        </SheetTrigger>
+        <div className="mt-5 flex flex-wrap items-center gap-3 pt-3 border-t border-border/40">
+          <Link
+            to={`/projetos/${projeto.slug}`}
+            className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+          >
+            Estudo completo
+            <ArrowRight className="size-3.5" />
+          </Link>
+
+          <SheetTrigger className="inline-flex items-center gap-1 rounded-md text-xs font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+            (Prévia rápida)
+          </SheetTrigger>
+        </div>
       </Card>
 
       <ProjectDetail projeto={projeto} />

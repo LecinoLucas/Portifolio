@@ -118,13 +118,14 @@ describe("Demonstração Mockada do Portal de Engenharia", () => {
     ).toBeInTheDocument();
   });
 
-  it("renderiza a tela de detalhamento com indicadores, responsável fictício e 3 de 4 aprovadas", () => {
+  it("renderiza a tela de detalhamento com indicadores, responsável fictício e indicador único 3/4", () => {
     renderDemoApp("/projetos/portal-engenharia/demo/obra/edificio-horizonte-sul");
 
     expect(screen.getByText(/OBR-2026-01/i)).toBeInTheDocument();
     expect(screen.getByText(/Eng\. Carlos Eduardo \(Fictício\)/i)).toBeInTheDocument();
-    expect(screen.getByText(/3 de 4/i)).toBeInTheDocument();
+    expect(screen.getByText("Macro-etapas aprovadas:")).toBeInTheDocument();
     expect(screen.getByText("3/4")).toBeInTheDocument();
+    expect(screen.queryByText(/3 de 4/i)).not.toBeInTheDocument();
     // Saldo calculado: R$ 1.940.000
     expect(screen.getByText(/1\.940\.000/i)).toBeInTheDocument();
   });
@@ -150,10 +151,13 @@ describe("Demonstração Mockada do Portal de Engenharia", () => {
     expect(screen.queryByText(/Instalações provisórias, tapumes e ligações/i)).not.toBeInTheDocument();
   });
 
-  it("permite cancelar a aprovação de macro-etapa sem alterar o estado (mantém 3/4)", () => {
+  it("permite cancelar a aprovação de macro-etapa sem alterar o estado (mantém indicador único 3/4)", () => {
     renderDemoApp("/projetos/portal-engenharia/demo/obra/edificio-horizonte-sul");
 
+    // Valida o indicador único sem duplicação
+    expect(screen.getByText("Macro-etapas aprovadas:")).toBeInTheDocument();
     expect(screen.getByText("3/4")).toBeInTheDocument();
+    expect(screen.queryByText(/3 de 4/i)).not.toBeInTheDocument();
 
     // Clica no botão 'Aprovar etapa' da etapa pendente (Instalações)
     const botaoAprovar = screen.getByRole("button", { name: /Aprovar etapa/i });
@@ -169,32 +173,38 @@ describe("Demonstração Mockada do Portal de Engenharia", () => {
     const botaoCancelar = screen.getByRole("button", { name: /Cancelar/i });
     fireEvent.click(botaoCancelar);
 
-    // Modal fecha e continua 3/4
+    // Modal fecha e continua com indicador único 3/4
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     expect(screen.getByText("3/4")).toBeInTheDocument();
+    expect(screen.queryByText(/3 de 4/i)).not.toBeInTheDocument();
   });
 
-  it("confirma aprovação de macro-etapa, atualiza para 4/4 e permite reiniciar a demo", () => {
+  it("confirma aprovação de macro-etapa, atualiza indicador único para 4/4 e permite reiniciar a demo", () => {
     renderDemoApp("/projetos/portal-engenharia/demo/obra/edificio-horizonte-sul");
 
+    // Indicador único inicial
+    expect(screen.getByText("Macro-etapas aprovadas:")).toBeInTheDocument();
     expect(screen.getByText("3/4")).toBeInTheDocument();
+    expect(screen.queryByText(/3 de 4/i)).not.toBeInTheDocument();
 
     // Abre modal e confirma
     fireEvent.click(screen.getByRole("button", { name: /Aprovar etapa/i }));
     fireEvent.click(screen.getByRole("button", { name: /Confirmar Aprovação/i }));
 
-    // Atualizado para 4 de 4 / 4/4
-    expect(screen.getByText(/4 de 4/i)).toBeInTheDocument();
+    // Atualizado exclusivamente para 4/4 (sem duplicar texto)
     expect(screen.getByText("4/4")).toBeInTheDocument();
+    expect(screen.queryByText("3/4")).not.toBeInTheDocument();
+    expect(screen.queryByText(/4 de 4/i)).not.toBeInTheDocument();
     expect(screen.getByText(/Macro-etapa aprovada com sucesso/i)).toBeInTheDocument();
 
     // Clica em reiniciar demonstração
     const botaoReiniciar = screen.getByRole("button", { name: /Reiniciar demonstração/i });
     fireEvent.click(botaoReiniciar);
 
-    // Restaura para 3 de 4 / 3/4
-    expect(screen.getByText(/3 de 4/i)).toBeInTheDocument();
+    // Restaura para indicador único 3/4
     expect(screen.getByText("3/4")).toBeInTheDocument();
+    expect(screen.queryByText("4/4")).not.toBeInTheDocument();
+    expect(screen.queryByText(/3 de 4/i)).not.toBeInTheDocument();
   });
 
   it("garante ausência de requisições de rede externa e de persistência no storage", () => {

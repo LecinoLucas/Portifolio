@@ -73,7 +73,7 @@ export function PortalEngenhariaDemoPage() {
       </div>
 
       {/* 2. Conteúdo Principal da Tela 1 (Painel Executivo de Obras) */}
-      <Container className="pt-6 space-y-6">
+      <Container className="pt-4 sm:pt-6 space-y-4 sm:space-y-6">
         {/* Título da Seção */}
         <div>
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-foreground">

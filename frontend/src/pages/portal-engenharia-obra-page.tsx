@@ -111,7 +111,7 @@ export function PortalEngenhariaObraPage() {
       </div>
 
       {/* 2. Conteúdo Principal da Tela 2 (Detalhamento da Obra) */}
-      <Container className="pt-6 space-y-6">
+      <Container className="pt-4 sm:pt-6 space-y-4 sm:space-y-6">
         {/* Banner de Feedback de Sucesso */}
         {feedbackSucesso ? (
           <div className="flex items-center justify-between gap-3 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 text-xs font-semibold text-emerald-500 dark:text-emerald-400 animate-in fade-in-50">
@@ -130,7 +130,7 @@ export function PortalEngenhariaObraPage() {
         ) : null}
 
         {/* Cabeçalho da Obra */}
-        <div className="rounded-xl border border-border/80 bg-card/70 p-5 sm:p-6 shadow-xs backdrop-blur-xs space-y-4">
+        <div className="rounded-xl border border-border/80 bg-card/70 p-4 sm:p-6 shadow-xs backdrop-blur-xs space-y-3 sm:space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div className="flex items-center gap-2.5">
               <span className="rounded border border-primary/30 bg-primary/10 px-2.5 py-1 font-mono text-xs font-bold text-primary">
@@ -150,15 +150,12 @@ export function PortalEngenhariaObraPage() {
             <div className="flex items-center gap-2 rounded-lg border border-border/80 bg-background/60 px-3 py-1.5 text-xs">
               <Layers className="size-4 text-tech-cyan" />
               <span className="text-muted-foreground">Macro-etapas aprovadas:</span>
-              <span className="font-mono font-bold text-foreground">
-                {etapasAprovadas} de {totalEtapas}
-              </span>
               <span
                 className={cn(
-                  "ml-1 rounded px-1.5 py-0.2 text-[10px] font-bold",
+                  "font-mono font-bold px-1.5 py-0.5 rounded text-xs",
                   etapasAprovadas === totalEtapas
-                    ? "bg-emerald-500/10 text-emerald-500"
-                    : "bg-amber-500/10 text-amber-500"
+                    ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/30"
+                    : "bg-amber-500/10 text-amber-500 border border-amber-500/30"
                 )}
               >
                 {etapasAprovadas}/{totalEtapas}
@@ -195,54 +192,54 @@ export function PortalEngenhariaObraPage() {
         </div>
 
         {/* Grade de Indicadores Financeiros da Obra */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
           {/* Orçamento Total */}
-          <div className="rounded-xl border border-border/80 bg-card/60 p-4 shadow-xs">
+          <div className="rounded-xl border border-border/80 bg-card/60 p-3 sm:p-4 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                 Orçamento Total
               </span>
-              <DollarSign className="size-4 text-tech-violet" />
+              <DollarSign className="size-3.5 sm:size-4 text-tech-violet" />
             </div>
-            <div className="mt-2">
-              <span className="text-xl sm:text-2xl font-black text-foreground block">
+            <div className="mt-1 sm:mt-2 flex items-baseline justify-between sm:block">
+              <span className="text-base sm:text-2xl font-black text-foreground tracking-tight whitespace-nowrap block">
                 {formatarMoeda(obra.orcado)}
               </span>
-              <span className="text-[11px] text-muted-foreground">planejamento da obra</span>
+              <span className="text-[10px] sm:text-[11px] text-muted-foreground">planejamento da obra</span>
             </div>
           </div>
 
           {/* Realizado Acumulado */}
-          <div className="rounded-xl border border-border/80 bg-card/60 p-4 shadow-xs">
+          <div className="rounded-xl border border-border/80 bg-card/60 p-3 sm:p-4 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                 Realizado Acumulado
               </span>
-              <Wallet className="size-4 text-emerald-500" />
+              <Wallet className="size-3.5 sm:size-4 text-emerald-500" />
             </div>
-            <div className="mt-2">
-              <span className="text-xl sm:text-2xl font-black text-emerald-500 dark:text-emerald-400 block">
+            <div className="mt-1 sm:mt-2 flex items-baseline justify-between sm:block">
+              <span className="text-base sm:text-2xl font-black text-emerald-500 dark:text-emerald-400 tracking-tight whitespace-nowrap block">
                 {formatarMoeda(obra.realizado)}
               </span>
-              <span className="text-[11px] text-muted-foreground">
+              <span className="text-[10px] sm:text-[11px] text-muted-foreground">
                 {obra.progresso}% executado financeiramente
               </span>
             </div>
           </div>
 
           {/* Saldo Calculado */}
-          <div className="rounded-xl border border-border/80 bg-card/60 p-4 shadow-xs">
+          <div className="rounded-xl border border-border/80 bg-card/60 p-3 sm:p-4 shadow-xs">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+              <span className="text-[11px] sm:text-xs font-semibold text-muted-foreground uppercase tracking-wider">
                 Saldo Disponível
               </span>
-              <CheckCircle2 className="size-4 text-tech-cyan" />
+              <CheckCircle2 className="size-3.5 sm:size-4 text-tech-cyan" />
             </div>
-            <div className="mt-2">
-              <span className="text-xl sm:text-2xl font-black text-tech-cyan block">
+            <div className="mt-1 sm:mt-2 flex items-baseline justify-between sm:block">
+              <span className="text-base sm:text-2xl font-black text-tech-cyan tracking-tight whitespace-nowrap block">
                 {formatarMoeda(saldoCalculado)}
               </span>
-              <span className="text-[11px] text-muted-foreground">saldo a realizar</span>
+              <span className="text-[10px] sm:text-[11px] text-muted-foreground">saldo a realizar</span>
             </div>
           </div>
         </div>

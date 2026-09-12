@@ -1,6 +1,6 @@
 /**
  * Links externos centralizados. Ajuste aqui sem tocar em componentes.
- * O PDF do currículo vive em `public/curriculo-lecino-lucas.pdf`.
+ * Os PDFs dos currículos vivem em `public/`.
  */
 export const links = {
   github: "https://github.com/LecinoLucas",
@@ -8,6 +8,10 @@ export const links = {
   email: "lecinolucas5@gmail.com",
   emailHref: "mailto:lecinolucas5@gmail.com",
 
+  // Currículos específicos preparados para os dois posicionamentos
+  curriculoAnalista: "/curriculo-analista-sistemas.pdf",
+  curriculoFullstack: "/curriculo-fullstack.pdf",
+  curriculoGeral: "/curriculo-lecino-lucas.pdf",
   curriculo: "/curriculo-lecino-lucas.pdf",
 
   les: {

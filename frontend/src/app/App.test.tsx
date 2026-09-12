@@ -12,7 +12,7 @@ describe("<App />", () => {
 
   it("expõe as seções-âncora esperadas", () => {
     const { container } = render(<App />);
-    for (const id of ["sobre", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
+    for (const id of ["atuacao", "sobre", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
       expect(container.querySelector(`#${id}`), id).not.toBeNull();
     }
   });
@@ -26,8 +26,7 @@ describe("<App />", () => {
 
   it("mostra os títulos dos projetos em destaque", () => {
     render(<App />);
-    expect(screen.getByText("Conciliação Bancária Itaú")).toBeInTheDocument();
-    // Aparece no card e no cabeçalho da seção LES — basta existir.
+    expect(screen.getByText(/Conciliação Bancária Itaú/i)).toBeInTheDocument();
     expect(
       screen.getAllByText(/Lecino Lucas Engineering Standard \(LES\)/).length,
     ).toBeGreaterThan(0);

@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO(lecino): trocar "example.com" pelo domínio real após o deploy.
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://lecinolucas.dev/sitemap.xml

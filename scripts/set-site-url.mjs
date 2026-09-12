@@ -6,7 +6,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const PLACEHOLDER = "https://example.com";
-const ALVOS = ["index.html", "public/robots.txt", "public/sitemap.xml"];
+const ALVOS = ["frontend/index.html", "frontend/public/robots.txt", "frontend/public/sitemap.xml"];
 
 const bruto = process.argv[2];
 if (!bruto) {

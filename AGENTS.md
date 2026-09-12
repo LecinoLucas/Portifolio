@@ -12,16 +12,17 @@ Este documento estabelece as diretrizes normativas de engenharia, arquitetura, s
 ## 1. Projeto
 - **Nome**: Portifolio — Portfolio profissional de Lecino Lucas (Analista de Sistemas & Desenvolvedor Full Stack).
 - **Tipo**: Novo Sistema (Greenfield).
-- **Objetivo**: Aplicacao web estatica, leve e profissional, para uso em curriculo, LinkedIn, GitHub e processos seletivos. Aparencia de produto SaaS / engenharia de software — o conteudo tecnico e mais importante que o efeito visual.
-- **Escopo H1**: Frontend estatico, sem backend, sem banco, sem autenticacao. Conteudo tipado em `src/data/*`. Build estatico compativel com deploy gratuito (Cloudflare Pages).
+- **Objetivo**: Aplicacao web moderna e profissional, para uso em curriculo, LinkedIn, GitHub e processos seletivos. Aparencia de produto SaaS / engenharia de software — o conteudo tecnico e mais importante que o efeito visual.
+- **Escopo H2**: Full Stack desacoplado com Frontend React 19 + Vite e Backend Node.js em camadas MVC com Prisma e PostgreSQL. Build estatico compativel com Cloudflare Pages e backend compativel com Render.
 
 ## 2. Stack
-- **Linguagem**: TypeScript.
-- **Build/Bundler**: Vite.
-- **Frontend**: React + Vite + Tailwind CSS v4 + shadcn/ui (fundacao) + Lucide Icons.
+- **Linguagem**: TypeScript (modo estrito).
+- **Build/Bundler**: Vite 6 (Frontend) + tsc/tsx (Backend).
+- **Frontend**: React 19 + Vite + Tailwind CSS v4 + shadcn/ui (fundacao) + Lucide Icons.
+- **Backend**: Node.js + Express + Prisma ORM + PostgreSQL.
 - **Acessibilidade de overlays**: Radix (`@radix-ui/react-dialog`) para Drawer/Modal/menu mobile.
-- **Testes**: Vitest + Testing Library (unitarios/render). Playwright fica para H2, se houver fluxos interativos que justifiquem E2E.
-- **Backend / Banco / ORM**: N/A nesta fase (ver ADR 0001). Quando houver necessidade real (formulario de contato com persistencia, integracao com API do GitHub), aplicam-se as diretrizes de Modular Monolith, PostgreSQL e migrations das secoes 3 e 6.
+- **Testes**: Vitest + Testing Library + Supertest (unitarios e integracao).
+- **Contratos**: `@portfolio/contracts` compartilhado via npm workspaces.
 
 ## 3. Arquitetura
 - **Padrao**: **Modular Monolith** (Monolito Modular com isolamento logico estrito).
@@ -38,38 +39,41 @@ Este documento estabelece as diretrizes normativas de engenharia, arquitetura, s
 ## 4. Estrutura
 ```text
 Portifolio/
-├── src/
-│   ├── app/              # App shell + provider de tema
-│   ├── components/
-│   │   ├── ui/           # Primitivos estilo shadcn/ui (Button, Badge, Card, Sheet...)
-│   │   ├── layout/       # Header, MobileNav, Footer, Container, Section
-│   │   ├── portfolio/    # Componentes de dominio (ProjectCard, ExperienceItem...)
-│   │   └── shared/       # ThemeToggle, SectionHeading, Reveal
-│   ├── sections/         # Composicao de cada secao da pagina
-│   ├── data/             # Conteudo tipado (perfil, projetos, experiencias, tecnologias...)
-│   ├── hooks/            # useMediaQuery, useScrollSpy, useReveal
-│   ├── lib/              # utils (cn), nav
-│   ├── types/            # Tipos de dominio
-│   ├── styles/           # globals.css — Design Tokens
-│   └── test/             # setup do Vitest
-├── public/               # Estaticos (favicon, currículo PDF, og-image)
+├── frontend/             # SPA React 19 + Vite 6 + Tailwind CSS v4
+│   ├── src/
+│   │   ├── app/          # App shell + provider de tema
+│   │   ├── components/   # ui (shadcn) > layout > portfolio > shared (estados LES)
+│   │   ├── sections/     # Composicao das secoes (hero, atuacao, sobre, projetos...)
+│   │   ├── data/         # Conteudo tipado (perfil, projetos, experiencias, links...)
+│   │   └── services/     # Cliente HTTP resiliente com fallback offline
+│   └── public/           # Estaticos (favicon, curriculos PDF, og-image, sitemap)
+├── backend/              # API REST em camadas MVC (Node.js + TypeScript + Express)
+│   ├── src/
+│   │   ├── config/       # Variaveis de ambiente validadas (Zod)
+│   │   ├── controllers/  # Controllers HTTP
+│   │   ├── services/     # Regras de negocio e sanitizacao
+│   │   ├── repositories/ # Padrão Repository (Prisma e memoria)
+│   │   ├── models/       # Entidades de dominio
+│   │   ├── routes/       # Rotas versionadas (/api/v1/...)
+│   │   ├── validators/   # Schemas Zod de entrada
+│   │   └── middlewares/  # Correlation-id, erro canonico LES, rate-limit
+│   ├── prisma/           # Schema PostgreSQL e seeds
+│   └── tests/            # Testes de integracao com Vitest e Supertest
+├── packages/
+│   └── contracts/        # DTOs e contrato canonico de erro LES compartilhado
 ├── docs/                 # Documentacao tecnica viva e decisoes (ADRs)
 ├── AGENTS.md             # Este contrato
 └── CLAUDE.md             # Ponto de entrada Claude Code
 ```
 
 ## 5. Modulos / Dominios de conteudo
-Sendo uma SPA estatica, nao ha modulos de backend nesta fase. Os "dominios" sao
-blocos de conteudo, cada um com seus dados isolados em `src/data/*` e sua
-composicao em `src/sections/*`:
-  - `perfil` — identidade e posicionamento
-  - `experiencias` — trajetoria profissional
-  - `projetos` — projetos em destaque (com detalhamento em Drawer)
-  - `tecnologias` — stack por dominio
-  - `les` — Lecino Lucas Engineering Standard
-- **Regra de Fronteira**: componentes de dominio consomem dados via os modulos de
-  `src/data/*`; nao ha acesso cruzado a estado global. Quando um backend for
-  introduzido (H2+), vale a regra de fronteira por contratos publicos (`index.ts`).
+O projeto opera em monorepo com contratos canonicos em `@portfolio/contracts`.
+Os dominios de negocio e conteudo contemplam:
+  - `perfil` — posicionamento dual (Analista de Sistemas / Protheus e Desenvolvedor Full Stack)
+  - `projetos` — estudos de caso em producao (Portal de Engenharia ~500 usuarios, BankingProtheus Itaú mTLS, Portal de RH IA, LES)
+  - `contato` — servico seguro de mensagens com persistencia, sanitizacao e rate-limiting
+  - `les` — Lecino Lucas Engineering Standard e Biblioteca_PadraoIA
+- **Regra de Fronteira**: componentes de frontend consomem a API atraves do client `services/api.ts` com tipagem de `@portfolio/contracts`.
 
 ## 6. Banco de Dados
 - Migrations versionadas obrigatorias para toda alteracao de schema.

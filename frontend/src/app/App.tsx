@@ -2,6 +2,7 @@ import { ProvedorTema } from "@/app/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/sections/hero";
+import { Specializations } from "@/sections/specializations";
 import { About } from "@/sections/about";
 import { Experience } from "@/sections/experience";
 import { Projects } from "@/sections/projects";
@@ -24,6 +25,7 @@ export function App() {
 
       <main id="conteudo">
         <Hero />
+        <Specializations />
         <About />
         <Experience />
         <Projects />

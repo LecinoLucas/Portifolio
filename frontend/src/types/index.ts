@@ -1,13 +1,29 @@
-/** Tipos de domínio do portfólio. Conteúdo real vive em `src/data/*`. */
+/** Tipos de domínio do portfólio. Conteúdo real vive em `src/data/*` e `@portfolio/contracts`. */
+
+export type FocoPerfil = "analista" | "fullstack" | "ambos";
+
+export interface CompetenciaPerfil {
+  titulo: string;
+  subtitulo: string;
+  headline: string;
+  destaques: string[];
+  competencias: string[];
+  aplicacaoReal: string;
+}
 
 export interface Perfil {
   nome: string;
+  posicionamento: string;
   titulo: string;
   headline: string;
   localizacao: string;
   disponibilidade: string;
   bio: string[];
   fatos: { rotulo: string; valor: string }[];
+  perfis: {
+    analista: CompetenciaPerfil;
+    fullstack: CompetenciaPerfil;
+  };
 }
 
 export interface LinkExterno {
@@ -23,12 +39,15 @@ export interface DetalheProjeto {
   arquitetura: string;
   desafios: string[];
   resultado: string;
+  seguranca?: string;
+  usuariosOuEscala?: string;
 }
 
 export interface Projeto {
   slug: string;
   titulo: string;
   categoria: string;
+  focoPerfil?: FocoPerfil;
   resumo: string;
   stack: string[];
   destaque?: boolean;

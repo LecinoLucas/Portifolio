@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Users } from "lucide-react";
 import {
   SheetContent,
   SheetDescription,
@@ -26,7 +26,7 @@ function Bloco({ titulo, children }: PropsBlocoTexto) {
   );
 }
 
-/** Conteúdo do Drawer de detalhe. Renderizado dentro de <Sheet>. */
+/** Conteúdo do Drawer de detalhe do estudo de caso. Renderizado dentro de <Sheet>. */
 export function ProjectDetail({ projeto }: { projeto: Projeto }) {
   const { detalhe } = projeto;
 
@@ -45,11 +45,30 @@ export function ProjectDetail({ projeto }: { projeto: Projeto }) {
       </SheetHeader>
 
       <div className="flex-1 space-y-6 overflow-y-auto p-6">
+        {detalhe.usuariosOuEscala ? (
+          <div className="flex items-center gap-2.5 rounded-lg border border-primary/20 bg-primary/5 p-3 text-xs font-medium text-primary">
+            <Users className="size-4 shrink-0" />
+            <span>{detalhe.usuariosOuEscala}</span>
+          </div>
+        ) : null}
+
         <Bloco titulo="Contexto">{detalhe.contexto}</Bloco>
         <Bloco titulo="Problema">{detalhe.problema}</Bloco>
         <Bloco titulo="Minha participação">{detalhe.participacao}</Bloco>
         <Bloco titulo="Solução">{detalhe.solucao}</Bloco>
         <Bloco titulo="Arquitetura">{detalhe.arquitetura}</Bloco>
+
+        {detalhe.seguranca ? (
+          <div className="space-y-1.5 rounded-lg border border-border bg-muted/40 p-3.5">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-primary">
+              <ShieldCheck className="size-4" />
+              <span>Segurança &amp; Conformidade</span>
+            </div>
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              {detalhe.seguranca}
+            </p>
+          </div>
+        ) : null}
 
         <Bloco titulo="Desafios técnicos">
           <ul className="list-disc space-y-1.5 pl-4">
@@ -65,7 +84,7 @@ export function ProjectDetail({ projeto }: { projeto: Projeto }) {
 
         <div className="space-y-2">
           <h4 className="text-xs font-semibold uppercase tracking-[0.12em] text-primary">
-            Stack
+            Tecnologias utilizadas
           </h4>
           <div className="flex flex-wrap gap-1.5">
             {projeto.stack.map((tec) => (

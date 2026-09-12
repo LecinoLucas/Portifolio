@@ -5,6 +5,7 @@ export interface ItemNav {
 }
 
 export const itensNav: ItemNav[] = [
+  { id: "atuacao", rotulo: "Especialidades" },
   { id: "sobre", rotulo: "Sobre" },
   { id: "experiencia", rotulo: "Experiência" },
   { id: "projetos", rotulo: "Projetos" },

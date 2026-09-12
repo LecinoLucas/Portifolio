@@ -70,7 +70,7 @@ Portifolio/
 O projeto opera em monorepo com contratos canonicos em `@portfolio/contracts`.
 Os dominios de negocio e conteudo contemplam:
   - `perfil` — posicionamento dual (Analista de Sistemas / Protheus e Desenvolvedor Full Stack)
-  - `projetos` — estudos de caso em producao (Portal de Engenharia ~500 usuarios, BankingProtheus Itaú mTLS, Portal de RH IA, LES)
+  - `projetos` — estudos de caso em producao (Portal de Engenharia EAP & RBAC, BankingProtheus Itaú mTLS, Portal de RH IA, LES)
   - `contato` — servico seguro de mensagens com persistencia, sanitizacao e rate-limiting
   - `les` — Lecino Lucas Engineering Standard e Biblioteca_PadraoIA
 - **Regra de Fronteira**: componentes de frontend consomem a API atraves do client `services/api.ts` com tipagem de `@portfolio/contracts`.

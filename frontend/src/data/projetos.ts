@@ -13,7 +13,7 @@ export const projetos: Projeto[] = [
     focoPerfil: "fullstack",
     destaque: true,
     resumo:
-      "Aplicação corporativa em produção para gestão de obras, chamados, fornecedores, cotações, documentos e dashboards — com autenticação, RBAC e auditoria utilizada por cerca de 500 usuários.",
+      "Sistema corporativo desenvolvido para centralizar a gestão de obras, orçamento, fornecedores, documentos e fluxos de aprovação, com arquitetura multiempresa, RBAC e auditoria.",
     stack: [
       "React",
       "TypeScript",
@@ -23,6 +23,9 @@ export const projetos: Projeto[] = [
       "APIs REST",
       "RBAC",
       "Auditoria",
+    ],
+    links: [
+      { rotulo: "Abrir demonstração interativa", href: "/projetos/portal-engenharia/demo" },
     ],
     detalhe: {
       contexto:
@@ -38,13 +41,14 @@ export const projetos: Projeto[] = [
       desafios: [
         "Modelar obras, cotações e fornecedores de forma flexível sem comprometer a integridade referencial.",
         "Implementar controle de acesso RBAC estrito aplicado em cada endpoint do backend.",
-        "Otimizar consultas e agregações para dashboards e relatórios para atender a cerca de 500 usuários sem sobrecarregar o banco.",
+        "Estruturar agregações analíticas de custos, desvios e orçamentos garantindo desempenho e consistência transacional.",
       ],
       resultado:
-        "Obras, chamados, fornecedores e cotações passaram a viver num único sistema em produção, com acesso controlado por papéis, histórico auditável e dashboards de acompanhamento.",
+        "Obras, chamados, fornecedores e cotações passaram a ser geridos em uma plataforma unificada, com rastreabilidade de aprovações e integridade de dados.",
       seguranca:
         "Controle de acesso granular (RBAC) com deny-by-default, autenticação segura, proteção contra injeção SQL via Prisma e registro de log de auditoria para todas as mutações financeiras e de fornecedores.",
-      usuariosOuEscala: "Utilizado por cerca de 500 usuários corporativos em produção.",
+      usuariosOuEscala:
+        "Arquitetura multiempresa e multifilial com controle estrito de permissões (RBAC) e alçadas de aprovação.",
     },
   },
   {

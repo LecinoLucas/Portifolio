@@ -14,7 +14,7 @@ export const perfil: Perfil = {
   bio: [
     "Sou Analista de Sistemas com base em sistemas corporativos, TOTVS Protheus, processos de negócio, SQL e integrações. Minha principal força está na combinação de negócio + sistemas empresariais + suporte/implantação + dados + desenvolvimento.",
     "Minha trajetória começou em suporte técnico, passou por implantação de sistemas e evoluiu para análise de sistemas corporativos. Mais recentemente, ampliei minha atuação para o desenvolvimento de software, participando da construção e entrega de aplicações corporativas utilizadas em produção.",
-    "Tenho cerca de 6 meses de experiência prática em desenvolvimento, com 2 sistemas corporativos entregues em produção: Portal de Engenharia (~500 usuários) e BankingProtheus (APIs Itaú mTLS). Entender a regra de negócio antes de escrever código é o que orienta o meu trabalho.",
+    "Tenho experiência prática em desenvolvimento de sistemas corporativos entregues com arquitetura em camadas: Portal de Engenharia (EAP, orçamentos e RBAC) e BankingProtheus (APIs Itaú mTLS). Entender a regra de negócio antes de escrever código é o que orienta o meu trabalho.",
   ],
 
   fatos: [
@@ -55,7 +55,7 @@ export const perfil: Perfil = {
       headline:
         "Foco em criar software limpo, seguro por padrão (deny-by-default) e com experiência fluida para o usuário final.",
       destaques: [
-        "Desenvolvimento do Portal de Engenharia em produção, atendendo a cerca de 500 usuários corporativos com controle RBAC.",
+        "Desenvolvimento do Portal de Engenharia, com gestão de obras, EAP, aprovação de orçamentos e governança RBAC multifilial.",
         "Backend em Node.js com Express, TypeScript e Prisma, seguindo o padrão MVC e princípios de separação de responsabilidades.",
         "Frontend moderno em React 19 + TypeScript + Vite, estilizado com Tailwind CSS e componentes acessíveis.",
         "Criação e manutenção do padrão LES (Lucas Engineering Standard), com governança de código, testes automatizados e segurança.",

@@ -88,3 +88,29 @@ Este documento reúne os registros visuais reais da aplicação após a **segund
 ### 4.4 Pipeline de Candidatos (Kanban) — Mobile Real (375 × 812)
 ![Portal RH — Pipeline Kanban no Mobile](screenshots/375x812-portal-rh-pipeline-real.png)
 
+---
+
+## 5. Demonstração Interativa Mockada — Portal de Engenharia (MOD-01)
+
+> **Métricas Desktop (1440 × 900)**:  
+> `window.innerWidth = 1440` | `window.innerHeight = 900` | `devicePixelRatio = 1`  
+> `document.documentElement.scrollWidth = 1425` (Zero rolagem horizontal global).  
+>
+> **Métricas Mobile Real (375 × 812 — CDP Emulation)**:  
+> `window.innerWidth = 375` | `window.innerHeight = 812` | `devicePixelRatio = 2`  
+> `document.documentElement.scrollWidth = 375` (Zero rolagem horizontal global, viewport nativo 375px).  
+>
+> **Regras de Isolamento**: 100% dos dados são fictícios e matematicamente consistentes (`portal-engenharia-demo-data.ts`), sem persistência de backend, sem `localStorage`/`sessionStorage`, com aviso permanente em banner de dados fictícios, transição in-memory preservada durante a navegação entre telas e ação de "Reiniciar demonstração".
+
+### 5.1 Painel Executivo de Obras — Desktop (1440 × 900)
+![Portal de Engenharia — Painel Executivo no Desktop](screenshots/1440x900-portal-engenharia-painel.png)
+
+### 5.2 Detalhamento da Obra com EAP e Aprovação — Desktop (1440 × 900)
+![Portal de Engenharia — Detalhamento da Obra no Desktop](screenshots/1440x900-portal-engenharia-obra.png)
+
+### 5.3 Painel Executivo de Obras — Mobile Real (375 × 812)
+![Portal de Engenharia — Painel Executivo no Mobile](screenshots/375x812-portal-engenharia-painel-real.png)
+
+### 5.4 Detalhamento da Obra com EAP e Aprovação — Mobile Real (375 × 812)
+![Portal de Engenharia — Detalhamento da Obra no Mobile](screenshots/375x812-portal-engenharia-obra-real.png)
+

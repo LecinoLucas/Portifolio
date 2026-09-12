@@ -11,9 +11,21 @@ import { ExperiencePage } from "@/pages/experience-page";
 import { ProjectsPage } from "@/pages/projects-page";
 import { ProjectDetailPage } from "@/pages/project-detail-page";
 import { PortalRhDemoPage } from "@/pages/portal-rh-demo-page";
+import { PortalEngenhariaDemoProvider } from "@/context/portal-engenharia-demo-context";
+import { PortalEngenhariaDemoPage } from "@/pages/portal-engenharia-demo-page";
+import { PortalEngenhariaObraPage } from "@/pages/portal-engenharia-obra-page";
 import { SkillsPage } from "@/pages/skills-page";
 import { ContactPage } from "@/pages/contact-page";
 import { NotFoundPage } from "@/pages/not-found-page";
+import { Outlet } from "react-router-dom";
+
+function PortalEngenhariaDemoLayout() {
+  return (
+    <PortalEngenhariaDemoProvider>
+      <Outlet />
+    </PortalEngenhariaDemoProvider>
+  );
+}
 
 export function AppContent() {
   return (
@@ -36,6 +48,10 @@ export function AppContent() {
           <Route path="/experiencia" element={<ExperiencePage />} />
           <Route path="/projetos" element={<ProjectsPage />} />
           <Route path="/projetos/portal-rh/demo" element={<PortalRhDemoPage />} />
+          <Route path="/projetos/portal-engenharia/demo" element={<PortalEngenhariaDemoLayout />}>
+            <Route index element={<PortalEngenhariaDemoPage />} />
+            <Route path="obra/:id" element={<PortalEngenhariaObraPage />} />
+          </Route>
           <Route path="/projetos/:slug" element={<ProjectDetailPage />} />
           <Route path="/competencias" element={<SkillsPage />} />
           <Route path="/contato" element={<ContactPage />} />

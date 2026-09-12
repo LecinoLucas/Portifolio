@@ -104,6 +104,38 @@ export function ProjectDetailPage() {
           </div>
         ) : null}
 
+        {/* Bloco de Demonstração Interativa Destacada (Portal de Engenharia) */}
+        {projeto.slug === "portal-engenharia" ? (
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 rounded-xl border border-tech-cyan/40 bg-tech-cyan/10 p-5 sm:p-6 shadow-sm">
+            <div className="space-y-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-tech-cyan">
+                <span className="size-2 rounded-full bg-tech-cyan animate-pulse" />
+                Demonstração Interativa Disponível
+              </div>
+              <h3 className="text-base font-bold text-foreground">
+                Explore o painel de obras e a EAP com aprovação de etapas
+              </h3>
+              <p className="text-xs text-muted-foreground">
+                Demonstração interativa local com dados mockados, sem necessidade de backend.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
+              <Link
+                to="/projetos/portal-engenharia/demo"
+                className={classesBotao({
+                  variante: "primario",
+                  tamanho: "md",
+                  className: "gap-2 font-bold justify-center shadow-xs",
+                })}
+              >
+                Abrir demonstração interativa
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          </div>
+        ) : null}
+
         {/* Escala e Usuários */}
         {detalhe.usuariosOuEscala ? (
           <div className="flex items-center gap-3 rounded-xl border border-primary/30 bg-primary/10 p-4 text-sm font-semibold text-primary">

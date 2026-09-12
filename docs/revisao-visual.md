@@ -61,3 +61,30 @@ Este documento reúne os registros visuais reais da aplicação após a **segund
 
 ### 3.4 Formulário de Contato Direto (Sem Botão Flutuante Sobreposto)
 ![Contato no Mobile Real](screenshots/375x812-contato-real.png)
+
+---
+
+## 4. Demonstração Interativa Mockada — Portal RH (MOD-03)
+
+> **Métricas Desktop (1440 × 900)**:  
+> `window.innerWidth = 1440` | `window.innerHeight = 900` | `devicePixelRatio = 1`  
+> `document.documentElement.scrollWidth = 1425` (Zero rolagem horizontal global).  
+>
+> **Métricas Mobile Real (375 × 812 — CDP Emulation)**:  
+> `window.innerWidth = 375` | `window.innerHeight = 812` | `devicePixelRatio = 2`  
+> `document.documentElement.scrollWidth = 375` (Zero rolagem horizontal global, viewport nativo 375px).  
+>
+> **Regras de Isolamento**: 100% dos dados são fictícios e locais (`portal-rh-demo-data.ts`), sem persistência de backend, com aviso permanente em banner e navegação acessível por teclado/touch/drag-and-drop.
+
+### 4.1 Visão da Vaga — Desktop (1440 × 900)
+![Portal RH — Visão da Vaga no Desktop](screenshots/1440x900-portal-rh-vaga.png)
+
+### 4.2 Pipeline de Candidatos (Kanban) — Desktop (1440 × 900)
+![Portal RH — Pipeline Kanban no Desktop](screenshots/1440x900-portal-rh-pipeline.png)
+
+### 4.3 Visão da Vaga — Mobile Real (375 × 812)
+![Portal RH — Visão da Vaga no Mobile](screenshots/375x812-portal-rh-vaga-real.png)
+
+### 4.4 Pipeline de Candidatos (Kanban) — Mobile Real (375 × 812)
+![Portal RH — Pipeline Kanban no Mobile](screenshots/375x812-portal-rh-pipeline-real.png)
+

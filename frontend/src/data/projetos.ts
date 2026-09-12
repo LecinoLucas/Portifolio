@@ -97,29 +97,44 @@ export const projetos: Projeto[] = [
     focoPerfil: "fullstack",
     destaque: true,
     resumo:
-      "Plataforma de apoio ao recrutamento que usa IA para ler, classificar e triar currículos, reduzindo o trabalho manual da etapa inicial com integração aos fluxos corporativos.",
-    stack: ["Python", "IA / LLMs", "React", "PostgreSQL", "APIs REST"],
+      "Sistema de recrutamento e seleção com gestão de vagas, pipeline Kanban, análise de aderência e apoio de IA aos fluxos de RH.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "Vitest",
+      "Playwright",
+      "APIs REST",
+    ],
+    links: [
+      { rotulo: "Ver código no GitHub", href: links.portalRh.github },
+      { rotulo: "Abrir demonstração interativa", href: "/projetos/portal-rh/demo" },
+    ],
     detalhe: {
       contexto:
-        "A triagem inicial de currículos consumia muito tempo do time de RH: leitura individual, comparação com a vaga e classificação manual dos candidatos.",
+        "Ambiente de atração e seleção que demandava organização estruturada de vagas, acompanhamento visual dos candidatos por estágios em Kanban e critérios consistentes de avaliação.",
       problema:
-        "Volume alto de currículos em formatos heterogêneos, critérios de triagem aplicados de forma inconsistente e pouca rastreabilidade sobre por que um candidato avançou ou não.",
+        "Dificuldade em acompanhar o avanço dos candidatos entre múltiplas etapas seletivas, falta de visibilidade centralizada por vaga e triagem heterogênea sem rastreabilidade de critérios.",
       participacao:
-        "Desenvolvi o pipeline de processamento de currículos e a lógica de classificação assistida por IA, além da integração com o fluxo de processos da empresa.",
+        "Projeto desenvolvido para demonstrar arquitetura de sistemas, automação de processos de RH e integração entre frontend, backend e análise de dados.",
       solucao:
-        "Serviço em Python que extrai o conteúdo dos currículos, estrutura as informações e usa modelos de linguagem para classificar e pontuar candidatos frente aos requisitos da vaga. O resultado alimenta a triagem, com justificativa associada a cada classificação. Integração com processos internos e, quando aplicável, com dados do TOTVS Protheus.",
+        "Aplicação completa com frontend React e TypeScript, estilização em Tailwind CSS, backend FastAPI em Python com APIs REST documentadas, gestão de vagas estruturadas, pipeline Kanban com movimentação de candidatos e análise de aderência por competências.",
       arquitetura:
-        "Ingestão de currículos → extração e estruturação → camada de IA (classificação e scoring) → persistência em PostgreSQL → interface de triagem em React. Integração com sistemas internos via contratos definidos.",
+        "Frontend SPA React 18 com TypeScript, React Router e Tailwind CSS → APIs REST em Python com FastAPI → pipeline Kanban com estados de transição de candidatos e testes automatizados com Vitest e Playwright.",
       desafios: [
-        "Padronizar dados vindos de currículos com formatos e qualidade muito variados.",
-        "Manter a classificação explicável, com motivo registrado para cada decisão.",
-        "Controlar custo e latência das chamadas aos modelos de linguagem.",
-        "Respeitar as fronteiras de integração com o Protheus, sem acoplamento indevido.",
+        "Implementar pipeline Kanban interativo com múltiplos estágios e transições consistentes de candidatos.",
+        "Estruturar modelagem de vagas com critérios essenciais, diferenciais e eliminatórios.",
+        "Garantir cobertura com testes automatizados unitários e de ponta a ponta (Vitest e Playwright).",
       ],
       resultado:
-        "A etapa de triagem passou a ser assistida por IA, com critérios mais consistentes e uma fila de candidatos já pré-classificada para o time de RH revisar.",
+        "Gestão de vagas e candidatos unificada em uma interface moderna com pipeline visual em Kanban, triagem por competências e validação por testes automatizados.",
       seguranca:
-        "Tratamento de dados pessoais em conformidade com as diretrizes da LGPD, anonimização prévia antes de processamento por modelos e controle de acesso aos currículos.",
+        "Proteção de dados dos candidatos com controle de acesso por perfis, validação estrita de esquemas em APIs REST e isolamento de informações sensíveis.",
+      usuariosOuEscala:
+        "Demonstração arquitetural full stack com pipeline Kanban e testes automatizados.",
     },
   },
   {

@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { ArrowUpRight, ShieldCheck, Users } from "lucide-react";
 import {
+  SheetClose,
   SheetContent,
   SheetDescription,
   SheetHeader,
@@ -97,18 +99,30 @@ export function ProjectDetail({ projeto }: { projeto: Projeto }) {
 
         {projeto.links && projeto.links.length > 0 ? (
           <div className="flex flex-wrap gap-3 pt-1">
-            {projeto.links.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
-              >
-                {link.rotulo}
-                <ArrowUpRight className="size-3.5" />
-              </a>
-            ))}
+            {projeto.links.map((link) =>
+              link.href.startsWith("/") ? (
+                <SheetClose asChild key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="inline-flex items-center gap-1 text-sm font-semibold text-primary underline-offset-4 hover:underline"
+                  >
+                    {link.rotulo}
+                    <ArrowUpRight className="size-3.5" />
+                  </Link>
+                </SheetClose>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-sm font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  {link.rotulo}
+                  <ArrowUpRight className="size-3.5" />
+                </a>
+              )
+            )}
           </div>
         ) : null}
       </div>

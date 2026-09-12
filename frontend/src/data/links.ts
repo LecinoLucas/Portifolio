@@ -27,4 +27,8 @@ export const links = {
     github: "https://github.com/LecinoLucas/LecinoLucas-engineering-standard",
     npm: "https://www.npmjs.com/package/@lecinolucas/les",
   },
+
+  portalRh: {
+    github: "https://github.com/LecinoLucas/Portal_RH",
+  },
 } as const;

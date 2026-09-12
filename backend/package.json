@@ -1,0 +1,39 @@
+{
+  "name": "@portfolio/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "API REST Backend em camadas MVC seguindo LES v2.2.0 e Biblioteca_PadraoIA",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@portfolio/contracts": "*",
+    "@prisma/client": "^6.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.5",
+    "@types/supertest": "^6.0.2",
+    "@types/uuid": "^10.0.0",
+    "prisma": "^6.4.1",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "~5.7.3",
+    "vitest": "^3.0.5"
+  }
+}

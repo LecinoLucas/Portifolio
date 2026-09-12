@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Projeto {
+  id               String   @id @default(uuid())
+  slug             String   @unique
+  titulo           String
+  categoria        String
+  focoPerfil       String   // "analista" | "fullstack" | "ambos"
+  destaque         Boolean  @default(false)
+  resumo           String   @db.Text
+  stack            String[]
+  contexto         String   @db.Text
+  problema         String   @db.Text
+  participacao     String   @db.Text
+  solucao          String   @db.Text
+  arquitetura      String   @db.Text
+  desafios         String[]
+  resultado        String   @db.Text
+  seguranca        String?  @db.Text
+  usuariosOuEscala String?  @db.Text
+  links            Json?
+  criadoEm         DateTime @default(now())
+  atualizadoEm     DateTime @updatedAt
+
+  @@map("projetos")
+}
+
+model Contato {
+  id         String   @id @default(uuid())
+  nome       String
+  email      String
+  assunto    String
+  mensagem   String   @db.Text
+  ipHash     String
+  respondido Boolean  @default(false)
+  criadoEm   DateTime @default(now())
+
+  @@map("contatos")
+}

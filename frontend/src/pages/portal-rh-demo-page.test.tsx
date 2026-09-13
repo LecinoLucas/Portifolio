@@ -30,8 +30,8 @@ describe("Demonstração Interativa do Portal RH (/projetos/portal-rh/demo)", ()
       screen.getByText(/Demonstração interativa — todos os dados são fictícios/i)
     ).toBeInTheDocument();
 
-    // Indicador MOD-03
-    expect(screen.getByText(/MOD-03/i)).toBeInTheDocument();
+    // Indicador de Demonstração Interativa
+    expect(screen.getByText(/^Demonstração Interativa$/i)).toBeInTheDocument();
   });
 
   it("apresenta link correto para o repositório público no GitHub", () => {

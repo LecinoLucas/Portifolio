@@ -16,7 +16,7 @@ export function Footer() {
           </p>
           <p>
             © {ano} · Construído com React 19, TypeScript e Node.js sob o{" "}
-            <Link to="/competencias" className="underline underline-offset-4 hover:text-primary">
+            <Link to="/projetos/les" className="underline underline-offset-4 hover:text-primary">
               Lucas Engineering Standard (LES)
             </Link>
             .

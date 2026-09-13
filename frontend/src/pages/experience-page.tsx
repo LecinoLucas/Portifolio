@@ -8,9 +8,9 @@ import { experiencias } from "@/data/experiencias";
 export function ExperiencePage() {
   return (
     <PageContainer
-      rotulo="Histórico Profissional"
-      titulo="Experiência &amp; Atuação Corporativa"
-      subtitulo="Trajetória real em sistemas corporativos, TOTVS Protheus, implantação, diagnóstico de dados com SQL e desenvolvimento de aplicações empresariais."
+      rotulo="Trajetória Profissional"
+      titulo="Da Operação à Arquitetura de Software"
+      subtitulo="Evolução factual: do atendimento ao cliente e suporte operacional ao domínio de regras de negócio, Protheus Core/TMS, automações fiscais e desenvolvimento de software."
     >
       <div className="relative border-l-2 border-primary/25 pl-6 sm:pl-8 space-y-10">
         {experiencias.map((exp) => (

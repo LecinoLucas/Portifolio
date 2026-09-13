@@ -5,10 +5,8 @@ export interface ItemNav {
 }
 
 export const itensNav: ItemNav[] = [
-  { path: "/", rotulo: "Central" },
-  { path: "/sobre", rotulo: "Sobre" },
-  { path: "/experiencia", rotulo: "Experiência" },
-  { path: "/projetos", rotulo: "Projetos" },
-  { path: "/competencias", rotulo: "Competências" },
+  { path: "/", rotulo: "Currículo" },
+  { path: "/experiencia", rotulo: "Trajetória" },
+  { path: "/projetos", rotulo: "Casos reais" },
   { path: "/contato", rotulo: "Contato" },
 ];

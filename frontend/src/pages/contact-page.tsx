@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Download, Github, Linkedin, Mail, Send, Loader2, MessageCircle } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Loader2, MessageCircle } from "lucide-react";
 import { PageContainer } from "@/components/layout/page-container";
 import { Button } from "@/components/ui/button";
 import { classesBotao } from "@/components/ui/button-variants";
@@ -95,52 +95,14 @@ export function ContactPage() {
             />
           </div>
 
-          {/* Currículos */}
-          <div className="tech-card p-6 space-y-3">
+          {/* Currículo Oficial */}
+          <div className="tech-card p-6 space-y-2 text-xs text-muted-foreground">
             <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
-              Currículo para Download
+              Currículo em PDF
             </h3>
-            <div className="space-y-2">
-              <a
-                href={links.curriculo}
-                download
-                title="Baixar currículo original em PDF"
-                className={classesBotao({
-                  variante: "contorno",
-                  className: "w-full justify-between text-xs",
-                })}
-              >
-                <span>Currículo Geral (PDF)</span>
-                <Download className="size-4" />
-              </a>
-
-              <div className="grid grid-cols-2 gap-2 pt-1">
-                <button
-                  type="button"
-                  disabled
-                  aria-disabled="true"
-                  className={classesBotao({
-                    variante: "contorno",
-                    className: "justify-center gap-1.5 text-[11px] cursor-not-allowed opacity-75",
-                  })}
-                >
-                  <Download className="size-3.5 opacity-50" />
-                  <span>Analista (Em breve)</span>
-                </button>
-                <button
-                  type="button"
-                  disabled
-                  aria-disabled="true"
-                  className={classesBotao({
-                    variante: "contorno",
-                    className: "justify-center gap-1.5 text-[11px] cursor-not-allowed opacity-75",
-                  })}
-                >
-                  <Download className="size-3.5 opacity-50" />
-                  <span>Full Stack (Em breve)</span>
-                </button>
-              </div>
-            </div>
+            <p className="leading-relaxed">
+              Currículo em PDF será disponibilizado após a publicação do endereço oficial.
+            </p>
           </div>
 
           {/* E-mail, LinkedIn, GitHub */}

@@ -94,16 +94,16 @@ export const perfil: Perfil = {
   bio: [
     "Sou Analista de T.I. com sólida vivência em suporte, implantação e sustentação de sistemas corporativos e ERP TOTVS Protheus P12. Minha principal competência está em conectar regras de negócio, usuários, banco de dados e integrações críticas.",
     "No desenvolvimento de software, acumulo aproximadamente 6 meses de experiência prática participando de aplicações reais em produção (React, TypeScript, Node.js, PostgreSQL). Desenvolvi soluções como o BankingProtheus (conciliação bancária, CNAB, DDA e APIs Itaú com mTLS) e participei do Portal de Engenharia corporativo.",
-    "Tenho um posicionamento claro sobre Inteligência Artificial: ferramentas low-code e IA amadora prometem atalhos, mas falham gravemente em sistemas corporativos de missão crítica (bancário, fiscal e contábil). Meu diferencial é dominar o processo e a regra de negócio antes de codificar, sabendo exatamente o que pedir à IA, como arquitetar e como auditar cada linha de código.",
+    "Utilizo IA como ferramenta de desenvolvimento para explorar alternativas, apoiar a implementação, revisar código, testar cenários e documentar decisões. O entendimento do processo, o levantamento dos requisitos, a arquitetura, a segurança e a validação final permanecem sob responsabilidade profissional.",
   ],
 
   fatos: [
-    { rotulo: "Posicionamento", valor: "Sistemas, Processos e Automação" },
+    { rotulo: "Posicionamento", valor: "Processos, Integrações e Desenvolvimento" },
     { rotulo: "ERP Corporativo", valor: "TOTVS Protheus P12 (Financeiro, Fiscal, Compras, Caixa, TMS)" },
-    { rotulo: "Bancário & CNAB", valor: "Conciliação bancária, DDA, CNAB 240/400, APIs Itaú mTLS" },
-    { rotulo: "Fiscal & Reforma", valor: "NF-e, CT-e, importação XML e preparação para IBS/CBS" },
+    { rotulo: "Bancário & CNAB", valor: "APIs Itaú mTLS, DDA, CNAB, extratos e boletos" },
+    { rotulo: "Fiscal & Processos", valor: "NF-e, CT-e, LMC, conciliação de notas e reforma tributária" },
     { rotulo: "Desenvolvimento", valor: "React, TypeScript, Node.js, PostgreSQL, APIs REST (~6 meses)" },
-    { rotulo: "Engenharia & IA", valor: "Governança por construção (LES) — domínio de regras e arquitetura" },
+    { rotulo: "Engenharia & IA", valor: "Apoio de IA guiado por requisitos, arquitetura e validação humana" },
   ],
 
   perfis: {

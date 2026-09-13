@@ -57,6 +57,28 @@ export interface DetalheProjeto {
   resultado: string;
   seguranca?: string;
   usuariosOuEscala?: string;
+  visaoRapida?: {
+    problema: string;
+    participacao: string;
+    solucao: string;
+  };
+  regraDeNegocio?: {
+    comoFuncionava: string;
+    areasEnvolvidas: string[];
+    relevancia: string;
+  };
+  evidenciaTecnica?: {
+    integracoes: string[];
+    tabelas: string[];
+    arquitetura: string;
+    seguranca: string;
+    testes: string;
+    demonstracao?: {
+      rotulo: string;
+      href: string;
+      avisoFicticio: string;
+    };
+  };
 }
 
 export interface Projeto {

@@ -77,8 +77,8 @@ export function PortalEngenhariaObraPage() {
                 <span>Voltar ao painel de obras</span>
               </Link>
               <span className="text-border">|</span>
-              <span className="rounded border border-tech-cyan/40 bg-tech-cyan/10 px-2 py-0.5 font-mono text-[11px] font-bold text-tech-cyan">
-                MOD-01
+              <span className="rounded border border-primary/40 bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                Demonstração Interativa
               </span>
               <span className="text-xs font-bold uppercase tracking-wider text-foreground">
                 Portal de Engenharia

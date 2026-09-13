@@ -19,13 +19,13 @@ export const ROTULOS_NIVEL: Record<NivelConhecimento, { rotulo: string; classe: 
 export const curriculoDigital: CurriculoDigitalData = {
   perfil: {
     nome: "Lecino Lucas",
-    tituloProfissional: "Analista de Sistemas | TOTVS Protheus | Processos, Integrações e Desenvolvimento",
+    tituloProfissional: "Analista de Sistemas & Desenvolvedor Full Stack",
     conceitoPrincipal: "Da operação à arquitetura",
-    mensagemCentral: "Eu transformo processos reais em sistemas bem estruturados.",
+    mensagemCentral: "Conheço a operação, entendo a regra de negócio e transformo problemas reais em suporte, integrações, automações e sistemas bem estruturados.",
     descricaoTrajetoria:
-      "Minha trajetória começou no atendimento e na operação, passou pela gestão de vendas, suporte, implantação e TOTVS Protheus, e chegou ao desenvolvimento de sistemas, automações e integrações.",
+      "Minha trajetória passou pelo atendimento, implantação de sistemas, rotinas administrativas, gestão de vendas, suporte N1 e N2, TOTVS Protheus e desenvolvimento de soluções corporativas. Essa experiência me ajuda a compreender o processo antes de propor a tecnologia.",
     papelDaIA:
-      "Utilizo IA como ferramenta de desenvolvimento. Minha responsabilidade é compreender o processo, levantar requisitos, definir a arquitetura, orientar a implementação e validar a entrega com testes.",
+      "A inteligência artificial amplia a produtividade de quem domina arquitetura, engenharia e regras de negócio. Meu papel é entender o problema, desenhar a solução e garantir governança e segurança na entrega.",
     localizacao: "Goiânia - GO, Brasil",
     email: "lecinolucas5@gmail.com",
     telefone: "(62) 98177-3801",
@@ -34,16 +34,16 @@ export const curriculoDigital: CurriculoDigitalData = {
   desafiosAtuacao: {
     protheus: {
       id: "protheus",
-      rotuloCurto: "Protheus & Processos",
+      rotuloCurto: "Protheus & Backoffice",
       tituloDesafio: "Organizar processos no Protheus",
       perguntaOrientadora: "Como alinhar as rotinas corporativas às regras do ERP com governança e controle?",
       resumoAbordagem:
         "Atuação focada nas rotinas operacionais e gerenciais do TOTVS Protheus P12, garantindo consistência entre a movimentação física/financeira e os registros contábeis e fiscais.",
       competencias: [
         {
-          nome: "TOTVS Protheus P12 (Módulos Core)",
+          nome: "TOTVS Protheus P12 (Módulos Core & TMS)",
           nivel: "experiencia_pratica",
-          evidencia: "Atuação no Financeiro (SIGAFIN), Compras (SIGACOM), Fiscal (SIGAFIS) e Contábil (SIGACTB).",
+          evidencia: "Atuação no Financeiro (SIGAFIN), Compras (SIGACOM), Fiscal (SIGAFIS), Contábil (SIGACTB) e TMS.",
           moduloOuArea: "ERP Core",
         },
         {
@@ -93,8 +93,8 @@ export const curriculoDigital: CurriculoDigitalData = {
 
     fiscal: {
       id: "fiscal",
-      rotuloCurto: "Fiscal & Divergências",
-      tituloDesafio: "Investigar divergências fiscais e financeiras",
+      rotuloCurto: "Automação & IA Aplicada",
+      tituloDesafio: "Automatizar auditoria fiscal e rotinas com IA",
       perguntaOrientadora: "Como auditar documentos fiscais e assegurar conformidade com a SEFAZ e o ERP?",
       resumoAbordagem:
         "Identificação metódica de inconsistências cadastrais, fiscais e financeiras, conferindo documentos eletrônicos e amarrações no Protheus.",
@@ -143,7 +143,7 @@ export const curriculoDigital: CurriculoDigitalData = {
           "Sistema concebido e desenvolvido pelo profissional para realizar o acompanhamento automatizado de documentos fiscais emitidos contra a organização, garantindo que nenhuma nota permaneça desacompanhada de registro no ERP.",
         pontosChave: [
           "Consultas automatizadas à SEFAZ em intervalos programados de aproximadamente uma hora.",
-          "Abrangência informada de 51 filiais da rede corporativa.",
+          "Abrangência focada nas 51 filiais do Grupo 2 da rede corporativa.",
           "Comparação direta entre documentos obtidos na SEFAZ e as tabelas fiscais SF3 (Livros Fiscais) e SFT (Itens de Livros) do Protheus.",
           "Identificação imediata de divergências: notas emitidas e não escrituradas, ou inconsistências de valores e cancelamentos.",
           "Análise assistida por IA para apoiar a investigação das divergências encontradas, sem substituir o analista fiscal.",
@@ -155,7 +155,7 @@ export const curriculoDigital: CurriculoDigitalData = {
 
     integracoes: {
       id: "integracoes",
-      rotuloCurto: "Integrações Bancárias",
+      rotuloCurto: "Integrações & APIs",
       tituloDesafio: "Integrar bancos, APIs e certificados",
       perguntaOrientadora: "Como conectar o ERP ao ecossistema bancário com criptografia, mTLS e segurança?",
       resumoAbordagem:
@@ -216,7 +216,7 @@ export const curriculoDigital: CurriculoDigitalData = {
 
     desenvolvimento: {
       id: "desenvolvimento",
-      rotuloCurto: "Desenvolvimento & Software",
+      rotuloCurto: "Engenharia de Software",
       tituloDesafio: "Transformar requisitos em software",
       perguntaOrientadora: "Como traduzir regras de negócio complexas em código limpo, testado e sustentável?",
       resumoAbordagem:

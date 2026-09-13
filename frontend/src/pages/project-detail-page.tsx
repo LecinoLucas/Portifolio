@@ -59,6 +59,59 @@ export function ProjectDetailPage() {
         {/* Bloco de Demonstração Interativa ou Laboratório */}
         <ProjectDemoBanner slug={projeto.slug} />
 
+        {/* 3 Níveis de Leitura Estruturados */}
+        {detalhe.visaoRapida ? (
+          <div className="tech-card p-5 sm:p-6 space-y-4">
+            <div className="border-b border-border/60 pb-3">
+              <span className="text-xs font-bold uppercase tracking-wider text-primary">
+                Estrutura por Evidências Factuais (3 Níveis de Leitura)
+              </span>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3">
+              {/* Nível 1: Visão Rápida */}
+              <div className="rounded-xl border border-border/70 bg-muted/20 p-4 space-y-2">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                  1. Visão Rápida (30s)
+                </h3>
+                <div className="space-y-1.5 text-xs text-muted-foreground">
+                  <p><strong className="text-foreground">Problema:</strong> {detalhe.visaoRapida.problema}</p>
+                  <p><strong className="text-foreground">Participação:</strong> {detalhe.visaoRapida.participacao}</p>
+                  <p><strong className="text-foreground">Entregue:</strong> {detalhe.visaoRapida.solucao}</p>
+                </div>
+              </div>
+
+              {/* Nível 2: Regra de Negócio */}
+              {detalhe.regraDeNegocio ? (
+                <div className="rounded-xl border border-border/70 bg-muted/20 p-4 space-y-2">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                    2. Regra de Negócio (1m)
+                  </h3>
+                  <div className="space-y-1.5 text-xs text-muted-foreground">
+                    <p><strong className="text-foreground">Processo:</strong> {detalhe.regraDeNegocio.comoFuncionava}</p>
+                    <p><strong className="text-foreground">Áreas:</strong> {detalhe.regraDeNegocio.areasEnvolvidas.join(", ")}</p>
+                    <p><strong className="text-foreground">Relevância:</strong> {detalhe.regraDeNegocio.relevancia}</p>
+                  </div>
+                </div>
+              ) : null}
+
+              {/* Nível 3: Evidência Técnica */}
+              {detalhe.evidenciaTecnica ? (
+                <div className="rounded-xl border border-border/70 bg-muted/20 p-4 space-y-2">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+                    3. Evidência Técnica
+                  </h3>
+                  <div className="space-y-1.5 text-xs text-muted-foreground">
+                    <p><strong className="text-foreground">Arquitetura:</strong> {detalhe.evidenciaTecnica.arquitetura}</p>
+                    <p><strong className="text-foreground">Segurança:</strong> {detalhe.evidenciaTecnica.seguranca}</p>
+                    <p><strong className="text-foreground">Testes:</strong> {detalhe.evidenciaTecnica.testes}</p>
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          </div>
+        ) : null}
+
         {/* Escala e Usuários */}
         {detalhe.usuariosOuEscala ? (
           <div className="flex items-center gap-3 rounded-xl border border-primary/30 bg-primary/10 p-4 text-sm font-semibold text-primary">
@@ -170,18 +223,29 @@ export function ProjectDetailPage() {
 
           {projeto.links && projeto.links.length > 0 ? (
             <div className="flex flex-wrap gap-3 pt-3 border-t border-border">
-              {projeto.links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
-                >
-                  {link.rotulo}
-                  <ArrowUpRight className="size-4" />
-                </a>
-              ))}
+              {projeto.links.map((link) =>
+                link.href.startsWith("/") ? (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                  >
+                    {link.rotulo}
+                    <ArrowUpRight className="size-4" />
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+                  >
+                    {link.rotulo}
+                    <ArrowUpRight className="size-4" />
+                  </a>
+                )
+              )}
             </div>
           ) : null}
         </div>

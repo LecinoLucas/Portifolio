@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, MessageCircle, Download } from "lucide-react";
+import { Menu, MessageCircle } from "lucide-react";
 import {
   Sheet,
   SheetClose,
@@ -10,7 +10,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { classesBotao } from "@/components/ui/button-variants";
 import { itensNav } from "@/lib/nav";
 import { links } from "@/data/links";
 import { cn } from "@/lib/utils";
@@ -81,15 +80,9 @@ export function MobileNav() {
             <MessageCircle className="size-4" />
             <span>Falar no WhatsApp</span>
           </a>
-
-          <a
-            href={links.curriculo}
-            download
-            className={classesBotao({ variante: "contorno", className: "w-full justify-center text-xs" })}
-          >
-            <Download className="size-3.5" />
-            <span>Baixar currículo (PDF)</span>
-          </a>
+          <p className="text-[11px] text-center text-muted-foreground pt-1">
+            Currículo em PDF será disponibilizado após a publicação do endereço oficial.
+          </p>
         </div>
       </SheetContent>
     </Sheet>

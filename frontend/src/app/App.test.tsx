@@ -36,7 +36,7 @@ describe("<App /> e Navegação por Rotas", () => {
       screen.getByRole("heading", { name: /qual desafio sua empresa precisa resolver\?/i })
     ).toBeInTheDocument();
     expect(
-      screen.getByText(/Eu transformo processos reais em sistemas bem estruturados\./i)
+      screen.getByText(/Conheço a operação, entendo a regra de negócio e transformo problemas reais/i)
     ).toBeInTheDocument();
   });
 
@@ -49,24 +49,24 @@ describe("<App /> e Navegação por Rotas", () => {
     expect(linksWhatsApp[0]).toHaveAttribute("href", links.whatsapp.href);
   });
 
-  it("renderiza a página /sobre corretamente", () => {
+  it("redireciona a rota legada /sobre para /experiencia com preservação de conteúdo", () => {
     renderComRota("/sobre");
     expect(
-      screen.getByRole("heading", { name: /sobre lecino lucas/i }),
+      screen.getByRole("heading", { name: /da operação à arquitetura de software/i }),
     ).toBeInTheDocument();
   });
 
-  it("renderiza a página /experiencia corretamente", () => {
+  it("renderiza a página /experiencia com a trajetória da operação à arquitetura", () => {
     renderComRota("/experiencia");
     expect(
-      screen.getByRole("heading", { name: /experiência & atuação corporativa/i }),
+      screen.getByRole("heading", { name: /da operação à arquitetura de software/i }),
     ).toBeInTheDocument();
   });
 
-  it("renderiza a página /projetos e lista os projetos", () => {
+  it("renderiza a página /projetos e lista os casos reais e evidências", () => {
     renderComRota("/projetos");
     expect(
-      screen.getByRole("heading", { name: /(módulos tecnológicos|projetos) & estudos de caso/i }),
+      screen.getByRole("heading", { name: /casos reais & evidências de software/i }),
     ).toBeInTheDocument();
     expect(screen.getByText(/Portal de Engenharia/i)).toBeInTheDocument();
   });
@@ -79,12 +79,11 @@ describe("<App /> e Navegação por Rotas", () => {
     expect(screen.getByText(/Contexto do Negócio/i)).toBeInTheDocument();
   });
 
-  it("renderiza a página /competencias com os módulos especializados", () => {
+  it("redireciona a rota legada /competencias para a página inicial com foco no Protheus", () => {
     renderComRota("/competencias");
     expect(
-      screen.getByRole("heading", { name: /especialidades & stack tecnológica/i }),
+      screen.getByRole("heading", { name: /qual desafio sua empresa precisa resolver\?/i }),
     ).toBeInTheDocument();
-    expect(screen.getByText(/Analista de Sistemas \/ TOTVS Protheus/i)).toBeInTheDocument();
   });
 
   it("renderiza a página /contato com o canal WhatsApp e formulário, sem botão flutuante duplicado", () => {

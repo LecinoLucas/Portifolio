@@ -4,22 +4,30 @@ import { Container } from "@/components/layout/container";
 import { classesBotao } from "@/components/ui/button-variants";
 import { WhatsAppInline } from "@/components/shared/whatsapp-button";
 import { CurriculoHeroSection } from "@/sections/curriculo-hero-section";
+import { ResumoProfissionalSection } from "@/sections/resumo-profissional-section";
 import { MapaAtuacaoSection } from "@/components/portfolio/mapa-atuacao/mapa-atuacao-section";
-import { CurriculoTrajetoriaSection } from "@/sections/curriculo-trajetoria-section";
+import { TrajetoriaCondensadaSection } from "@/sections/trajetoria-condensada-section";
+import { EvidenciasDestaqueSection } from "@/sections/evidencias-destaque-section";
 
 export function HomePage() {
   return (
     <div className="relative overflow-hidden pb-16 space-y-4">
-      {/* 1. Cabeçalho Executivo e Posicionamento Factual */}
+      {/* 1. Apresentação & Posicionamento Oficial */}
       <CurriculoHeroSection />
 
-      {/* 2. Mapa de Atuação Interativo: “Qual desafio sua empresa precisa resolver?” */}
+      {/* 2. Resumo Profissional Compacto */}
+      <ResumoProfissionalSection />
+
+      {/* 3. Mapa de Atuação nos 4 Eixos */}
       <MapaAtuacaoSection />
 
-      {/* 3. Evolução Profissional: Da Operação à Arquitetura */}
-      <CurriculoTrajetoriaSection />
+      {/* 4. Visão Curta da Trajetória (com botão para ver completa) */}
+      <TrajetoriaCondensadaSection />
 
-      {/* 4. Chamada Final para Contato Profissional */}
+      {/* 5. Evidências em Destaque (4 Casos Reais + LES Secundário) */}
+      <EvidenciasDestaqueSection />
+
+      {/* 6. Chamada Final para Contato Profissional */}
       <section className="py-12">
         <Container>
           <div className="rounded-2xl border border-border/80 bg-card/60 relative overflow-hidden p-6 sm:p-10 shadow-xs backdrop-blur-xs">

@@ -1,74 +1,80 @@
-import type { ExperienciaTrajetoria, CursoCertificacao } from "@/types/curriculo";
+import type { ExperienciaTrajetoria, CursoOuCertificacao } from "@/types/curriculo";
 
 export const TRAJETORIA_PROFISSIONAL: ExperienciaTrajetoria[] = [
   {
     id: "atento",
     empresa: "Atento S.A.",
-    cargo: "Suporte Técnico",
-    resumoAtuacao: "Atendimento e diagnóstico de conectividade, redes e suporte a clientes corporativos.",
+    cargo: "Atendimento e Suporte Técnico",
+    resumoAtuacao:
+      "Atendimento e suporte técnico a usuários em conectividade, configuração e acesso à rede.",
     atividades: [
-      "Diagnóstico de conectividade, configuração de roteadores e resolução de incidentes de rede.",
-      "Comunicação clara com clientes para identificação e solução rápida de falhas técnicas.",
-      "Registro estruturado de chamados e cumprimento rigoroso de SLAs de atendimento.",
+      "Atendimento ao usuário com comunicação clara e resolução de problemas.",
+      "Diagnóstico de conectividade de rede.",
+      "Configuração e validação de modem, roteador e acesso à internet.",
+      "Orientação passo a passo ao usuário na resolução de incidentes.",
     ],
-    competenciasAplicadas: ["Suporte Técnico", "Diagnóstico de Redes", "Comunicação Humanizada", "SLA"],
+    competenciasAplicadas: ["Suporte Técnico", "Diagnóstico de Redes", "Comunicação", "Orientação ao Usuário"],
   },
   {
     id: "i5",
     empresa: "I5 Sistemas",
-    cargo: "Suporte N1 & Implantação",
-    resumoAtuacao: "Atendimento N1, implantação de sistemas de gestão e treinamento presencial e remoto de usuários.",
+    cargo: "Suporte N1 & Implantação de Sistemas",
+    resumoAtuacao:
+      "Implantação de sistemas desktop e web, suporte a incidentes e capacitação de usuários.",
     atividades: [
-      "Implantação de sistemas comerciais e treinamento operacional de usuários-chave.",
-      "Suporte diário a dúvidas de processos de vendas, estoque e movimentação de caixa.",
-      "Acompanhamento presencial no go-live para garantir transição suave de sistemas.",
+      "Implantação de sistemas desktop e web, abrangendo configuração, testes e validação.",
+      "Acompanhamento de usuários e levantamento de necessidades operacionais.",
+      "Suporte técnico N1 e tratamento de incidentes cotidianos de sistemas.",
+      "Treinamento operacional para capacitação de usuários.",
     ],
-    competenciasAplicadas: ["Implantação de Sistemas", "Treinamento de Usuários", "Suporte N1", "Processos Comerciais"],
+    competenciasAplicadas: ["Implantação", "Sistemas Desktop & Web", "Suporte N1", "Treinamento", "Levantamento de Necessidades"],
   },
   {
     id: "pioneira",
     empresa: "Pioneira Colchões",
     cargo: "Auxiliar Administrativo → Gerente de Vendas",
     resumoAtuacao:
-      "Evolução profissional interna: início no suporte administrativo e financeiro, avançando para liderança de equipe de vendas, negociação e operação de loja.",
+      "Evolução profissional de aproximadamente dois anos como auxiliar administrativo e cerca de um ano e meio como gerente de vendas.",
     atividades: [
-      "Início com rotinas administrativas, conferência de movimentação de caixa e controle de documentos.",
-      "Promoção a Gerente de Vendas, coordenando atendimento, fechamento de metas e rotinas operacionais.",
-      "Negociação direta com clientes e fornecedores, desenvolvendo profunda visão de pessoas e comércio.",
+      "Execução de rotinas administrativas e conferência de caixa.",
+      "Atendimento comercial e negociação com clientes.",
+      "Comunicação, liderança de equipe de vendas e relacionamento com pessoas.",
+      "Responsabilidade comercial com foco e resolução de problemas.",
     ],
-    competenciasAplicadas: ["Gestão de Pessoas", "Liderança de Vendas", "Conferência Financeira", "Operação de Varejo"],
+    competenciasAplicadas: ["Rotinas Administrativas", "Conferência de Caixa", "Negociação", "Liderança", "Comunicação"],
   },
   {
     id: "marajo",
     empresa: "Rede Marajó",
-    cargo: "Analista de Sistemas / Suporte N1 e N2",
+    cargo: "Suporte N1 → Suporte N2 & Integrações",
     resumoAtuacao:
-      "Atendimento a 51 filiais em processos de TOTVS Protheus P12, rotinas financeiras, contábeis, fiscais, compras e integrações de dados.",
+      "Evolução de Suporte N1 para Suporte N2 e atuação conjunta com desenvolvimento, automações e integrações no TOTVS Protheus P12.",
     atividades: [
-      "Suporte aos módulos SIGAFIN, SIGACOM, SIGAFIS e SIGACTB do TOTVS Protheus P12.",
-      "Investigação analítica com SQL para rastreamento de divergências de caixa, estoques e lançamentos.",
-      "Apoio operacional em conciliação bancária, fechamentos de caixa, remessas CNAB e rotinas de DDA.",
-      "Parametrização e personalização de lançamentos padrão (LP) contábeis e homologação junto aos usuários.",
+      "Suporte N1 e N2 a usuários no ERP TOTVS Protheus P12 nos módulos Financeiro, Contábil, Fiscal, Compras, Contas a Pagar, Contas a Receber e TMS.",
+      "Atendimento aos grupos empresariais confirmados: Grupo 1 (2 filiais), Grupo 2 (51 filiais), Grupo 4 (6 filiais), Grupo 6 (6 filiais) e Grupo 7 (6 filiais).",
+      "Consultas SQL estruturadas para análise aprofundada e diagnóstico de inconsistências de dados.",
+      "Parâmetros e configurações do Protheus, personalização de LPs contábeis e levantamento de requisitos junto a usuários.",
+      "Conferência de caixa, sangria, suprimento, rotinas de CNAB, DDA e apoio a integrações corporativas.",
     ],
-    competenciasAplicadas: ["TOTVS Protheus P12", "SQL", "SIGAFIN", "SIGAFIS", "SIGACTB", "Suporte N1/N2", "51 Filiais"],
+    competenciasAplicadas: ["TOTVS Protheus P12", "Suporte N1 → N2", "SQL", "TMS", "Financeiro & Fiscal", "Filiais Corporativas"],
   },
   {
-    id: "dev-sistemas",
-    empresa: "Desenvolvimento de Sistemas & Automações",
-    cargo: "Desenvolvedor de Software & Integrações",
+    id: "desenvolvimento",
+    empresa: "Evolução Profissional",
+    cargo: "Desenvolvimento de Software & Integrações",
     resumoAtuacao:
-      "Aplicação prática de ~6 meses no desenvolvimento de sistemas web, integrações bancárias (Itaú mTLS) e automações fiscais com apoio de IA.",
+      "A experiência com suporte, usuários e regras de negócio levou ao desenvolvimento de integrações e sistemas voltados a problemas que eu já conhecia na operação. Dedicação prática de aproximadamente seis meses ao desenvolvimento.",
     atividades: [
-      "Desenvolvimento da Central de Integrações Bancárias com APIs Itaú, canal mTLS e OAuth2.",
-      "Criação do Analista Fiscal Automatizado para consulta periódica à SEFAZ e conferência com o Protheus.",
-      "Desenvolvimento web com React, TypeScript, Node.js, Python, PostgreSQL e testes automatizados.",
-      "Uso de IA guiado por levantamento prévio de processos, arquitetura em camadas e validação técnica.",
+      "Desenvolvimento da Central de Integrações Bancárias com APIs do Itaú, canal mTLS, OAuth2, boletos e extratos.",
+      "Desenvolvimento do Analista Fiscal Automatizado para consultas à SEFAZ e conferência com tabelas SF3 e SFT do Protheus.",
+      "Desenvolvimento de aplicações com React, TypeScript, Node.js, Python, PostgreSQL e testes determinísticos.",
+      "Uso responsável de IA como ferramenta de desenvolvimento, mantendo levantamento de requisitos, arquitetura e validação humana.",
     ],
-    competenciasAplicadas: ["React", "TypeScript", "Node.js", "Python", "PostgreSQL", "mTLS", "APIs REST", "IA Aplicada"],
+    competenciasAplicadas: ["React & TypeScript", "Node.js", "Python", "mTLS & APIs", "PostgreSQL", "Testes", "IA com Arquitetura"],
   },
 ];
 
-export const CURSOS_E_CERTIFICACOES: CursoCertificacao[] = [
+export const CURSOS_E_CERTIFICACOES: CursoOuCertificacao[] = [
   {
     id: "graduacao",
     nome: "Análise e Desenvolvimento de Sistemas",

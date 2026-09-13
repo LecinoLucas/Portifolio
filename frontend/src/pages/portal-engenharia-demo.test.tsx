@@ -36,7 +36,7 @@ describe("Demonstração Mockada do Portal de Engenharia", () => {
     expect(
       screen.getByText(/Demonstração interativa — todos os dados são fictícios/i)
     ).toBeInTheDocument();
-    expect(screen.getByText(/MOD-01/i)).toBeInTheDocument();
+    expect(screen.getByText(/^Demonstração Interativa$/i)).toBeInTheDocument();
   });
 
   it("calcula dinamicamente e exibe corretamente todos os KPIs a partir dos dados", () => {

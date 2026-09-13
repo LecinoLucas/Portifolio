@@ -2,15 +2,18 @@ import {
   MapPin,
   Phone,
   Mail,
-  FileClock,
   Github,
   Linkedin,
   Sparkles,
+  ArrowRight,
+  Briefcase,
+  Layers,
+  MessageSquare,
+  Info,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Container } from "@/components/layout/container";
 import { classesBotao } from "@/components/ui/button-variants";
-import { WhatsAppInline } from "@/components/shared/whatsapp-button";
 import { curriculoDigital } from "@/data/curriculo-digital";
 import { links } from "@/data/links";
 
@@ -20,7 +23,7 @@ export function CurriculoHeroSection() {
   return (
     <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 border-b border-border/80 bg-gradient-to-b from-card/40 to-background">
       <Container className="space-y-8">
-        {/* Bloco Superior: Identidade, Contatos e Redes */}
+        {/* Bloco Superior: Identidade e Mensagem Central */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
           <div className="space-y-3 max-w-3xl">
             {/* Tag de Posicionamento Oficial */}
@@ -33,12 +36,12 @@ export function CurriculoHeroSection() {
               {perfil.nome}
             </h1>
 
-            <p className="text-lg sm:text-xl font-bold text-foreground/90 tracking-tight">
+            <p className="text-lg sm:text-xl font-bold text-foreground/90 tracking-tight leading-snug">
               “{perfil.mensagemCentral}”
             </p>
 
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed pt-1">
-              {perfil.descricaoTrajetoria}
+            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed pt-1 max-w-2xl">
+              <strong>Da operação à arquitetura:</strong> {perfil.descricaoTrajetoria}
             </p>
 
             {/* Metadados de Contato Rápido */}
@@ -66,71 +69,94 @@ export function CurriculoHeroSection() {
             </div>
           </div>
 
-          {/* Ações Rápidas do Cabeçalho */}
-          <div className="flex flex-col sm:flex-row lg:flex-col items-stretch sm:items-center lg:items-end gap-3 shrink-0">
-            {/* Botão do Currículo PDF desabilitado temporariamente */}
-            <button
-              type="button"
-              disabled
-              title="O currículo oficial em PDF está sendo atualizado com as novas informações factuais"
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-border/80 bg-muted/50 px-4 py-2 text-xs font-semibold text-muted-foreground cursor-not-allowed opacity-75 shadow-2xs"
+          {/* Links Secundários de Perfis Técnicos */}
+          <div className="flex items-center gap-2 lg:pt-2 shrink-0">
+            <a
+              href={links.github}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={classesBotao({
+                variante: "contorno",
+                tamanho: "sm",
+                className: "gap-1.5 text-xs font-semibold",
+              })}
             >
-              <FileClock className="size-4" />
-              <span>Currículo atualizado em preparação</span>
-            </button>
+              <Github className="size-3.5" />
+              <span>GitHub</span>
+            </a>
 
-            <div className="flex items-center gap-2">
+            {links.linkedin ? (
               <a
-                href={links.github}
+                href={links.linkedin}
                 target="_blank"
                 rel="noreferrer noopener"
                 className={classesBotao({
                   variante: "contorno",
                   tamanho: "sm",
-                  className: "gap-1.5 text-xs",
+                  className: "gap-1.5 text-xs font-semibold text-blue-500 hover:text-blue-600",
                 })}
               >
-                <Github className="size-3.5" />
-                <span>GitHub</span>
+                <Linkedin className="size-3.5" />
+                <span>LinkedIn</span>
               </a>
-
-              {links.linkedin ? (
-                <a
-                  href={links.linkedin}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className={classesBotao({
-                    variante: "contorno",
-                    tamanho: "sm",
-                    className: "gap-1.5 text-xs",
-                  })}
-                >
-                  <Linkedin className="size-3.5 text-blue-500" />
-                  <span>LinkedIn</span>
-                </a>
-              ) : null}
-            </div>
+            ) : null}
           </div>
         </div>
 
-        {/* Bloco de Filosofia de Trabalho: Papel da IA como Competência Técnica */}
-        <div className="rounded-xl border border-border/80 bg-card/60 p-4 sm:p-5 shadow-xs backdrop-blur-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="space-y-1 max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-              <Sparkles className="size-3.5 text-primary" />
-              <span>Como utilizo Inteligência Artificial na Engenharia</span>
-            </div>
-            <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
-              “{perfil.papelDaIA}”
-            </p>
-          </div>
+        {/* 3 Ações Principais Obrigatórias */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+          <Link
+            to="/experiencia"
+            className={classesBotao({
+              variante: "primario",
+              className: "gap-2 font-semibold shadow-xs",
+            })}
+          >
+            <Briefcase className="size-4" />
+            <span>Conhecer minha trajetória</span>
+            <ArrowRight className="size-3.5" />
+          </Link>
 
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0">
-            <WhatsAppInline variante="destaque" texto="Falar no WhatsApp" />
-            <Link to="/contato" className={classesBotao({ variante: "contorno", tamanho: "sm" })}>
-              Enviar mensagem
-            </Link>
+          <Link
+            to="/projetos"
+            className={classesBotao({
+              variante: "contorno",
+              className: "gap-2 font-semibold",
+            })}
+          >
+            <Layers className="size-4 text-primary" />
+            <span>Ver casos reais</span>
+          </Link>
+
+          <Link
+            to="/contato"
+            className={classesBotao({
+              variante: "contorno",
+              className: "gap-2 font-semibold",
+            })}
+          >
+            <MessageSquare className="size-4 text-emerald-500" />
+            <span>Entrar em contato</span>
+          </Link>
+        </div>
+
+        {/* Nota discreta sobre o currículo oficial em PDF */}
+        <div className="flex items-start gap-2.5 rounded-lg border border-border/60 bg-muted/30 px-3.5 py-2 text-xs text-muted-foreground max-w-3xl">
+          <Info className="size-4 shrink-0 text-primary mt-0.5" />
+          <p className="leading-relaxed">
+            <strong>Nota informativa:</strong> O currículo oficial em PDF está sendo atualizado para refletir esta nova organização profissional por evidências. Este portfólio digital já contém todas as informações completas e auditadas.
+          </p>
+        </div>
+
+        {/* Bloco de Filosofia de Trabalho: Papel da IA como Competência Técnica */}
+        <div className="rounded-xl border border-border/80 bg-card/60 p-4 sm:p-5 shadow-xs backdrop-blur-xs space-y-2">
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
+            <Sparkles className="size-3.5 text-primary" />
+            <span>Inteligência Artificial &amp; Engenharia de Software</span>
           </div>
+          <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
+            “{perfil.papelDaIA}”
+          </p>
         </div>
       </Container>
     </section>

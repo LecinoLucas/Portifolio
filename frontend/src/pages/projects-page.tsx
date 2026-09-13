@@ -7,64 +7,71 @@ import type { FocoPerfil } from "@/types";
 export function ProjectsPage() {
   const [filtro, setFiltro] = useState<FocoPerfil | "todos">("todos");
 
+  // Filtra projetos excluindo aliases redundantes (import-nfe e conciliacao-bancaria-itau)
+  const casosUnicos = useMemo(() => {
+    return projetos.filter(
+      (p) => p.slug !== "import-nfe" && p.slug !== "conciliacao-bancaria-itau"
+    );
+  }, []);
+
   const projetosFiltrados = useMemo(() => {
-    if (filtro === "todos") return projetos;
-    return projetos.filter((p) => p.focoPerfil === filtro || p.focoPerfil === "ambos");
-  }, [filtro]);
+    if (filtro === "todos") return casosUnicos;
+    return casosUnicos.filter((p) => p.focoPerfil === filtro || p.focoPerfil === "ambos");
+  }, [filtro, casosUnicos]);
 
   return (
     <PageContainer
-      rotulo="Catálogo de Módulos em Produção"
-      titulo="Módulos Tecnológicos &amp; Estudos de Caso"
-      subtitulo="Aplicações corporativas reais comprovando atuação em regras de negócio, APIs bancárias com mTLS, ERP e arquiteturas escaláveis."
+      rotulo="Casos reais e evidências"
+      titulo="Casos Reais &amp; Evidências de Software"
+      subtitulo="Soluções desenvolvidas para solucionar problemas operacionais, integrações com mTLS, auditoria de notas SEFAZ e sistemas de gestão corporativa."
     >
-      {/* Barra de Filtros e Status do Catálogo */}
+      {/* Barra de Filtros Úteis para Recrutadores e Gestores */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/60 pb-5">
         <div className="flex flex-wrap items-center gap-2">
           <button
             type="button"
             onClick={() => setFiltro("todos")}
-            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
+            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
               filtro === "todos"
-                ? "border border-primary/40 bg-primary text-primary-foreground shadow-sm"
+                ? "border border-primary/40 bg-primary text-primary-foreground shadow-xs"
                 : "border border-border bg-card/70 text-muted-foreground hover:text-foreground hover:border-foreground/30"
             }`}
           >
-            Todos os módulos ({projetos.length})
+            Todos os casos ({casosUnicos.length})
           </button>
 
           <button
             type="button"
             onClick={() => setFiltro("analista")}
-            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
+            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
               filtro === "analista"
-                ? "border border-tech-violet/40 bg-tech-violet text-white shadow-sm"
-                : "border border-border bg-card/70 text-muted-foreground hover:text-foreground hover:border-tech-violet/40"
+                ? "border border-primary/40 bg-primary text-primary-foreground shadow-xs"
+                : "border border-border bg-card/70 text-muted-foreground hover:text-foreground hover:border-foreground/30"
             }`}
           >
-            Analista &amp; Protheus
+            Protheus &amp; Backoffice
           </button>
 
           <button
             type="button"
             onClick={() => setFiltro("fullstack")}
-            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all ${
+            className={`rounded-lg px-3.5 py-1.5 text-xs font-semibold transition-all cursor-pointer ${
               filtro === "fullstack"
-                ? "border border-tech-cyan/40 bg-tech-cyan text-foreground shadow-sm"
-                : "border border-border bg-card/70 text-muted-foreground hover:text-foreground hover:border-tech-cyan/40"
+                ? "border border-primary/40 bg-primary text-primary-foreground shadow-xs"
+                : "border border-border bg-card/70 text-muted-foreground hover:text-foreground hover:border-foreground/30"
             }`}
           >
-            Full Stack &amp; Web
+            Integrações &amp; Software
           </button>
         </div>
 
         <div className="text-xs text-muted-foreground font-mono">
-          Exibindo {projetosFiltrados.length} de {projetos.length} módulos
+          Exibindo {projetosFiltrados.length} de {casosUnicos.length} casos reais
         </div>
       </div>
 
-      {/* Grid do Catálogo de Módulos */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
+      {/* Grid de Casos Reais */}
+      <div className="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
         {projetosFiltrados.map((projeto) => (
           <ProjectCard key={projeto.slug} projeto={projeto} />
         ))}

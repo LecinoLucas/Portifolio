@@ -1,68 +1,94 @@
 import type { Experiencia } from "@/types";
 
-/** Experiência profissional real, em ordem cronológica inversa (conforme currículo oficial). */
+/**
+ * Experiência profissional real e factual, organizada em ordem cronológica de evolução.
+ * Alinhada estritamente com os relatos e a base factual confirmada.
+ */
 export const experiencias: Experiencia[] = [
   {
     tipo: "direcao",
-    cargo: "Desenvolvimento Full Stack & IA com Arquitetura",
-    organizacao: "~6 meses de experiência prática em projetos corporativos reais",
-    periodo: "Nov/2025 — Atual",
+    cargo: "Desenvolvimento de Software & Integrações",
+    organizacao: "Evolução Profissional & Soluções Corporativas",
+    periodo: "Nov/2025 — Atual (~6 meses de dedicação prática)",
     resumo:
-      "Desenvolvimento de aplicações full stack em produção conectando ERP, banco de dados e APIs bancárias. Foco em arquitetura limpa, testes automatizados e orquestração madura de IA.",
+      "A experiência com suporte, usuários e regras de negócio levou ao desenvolvimento de integrações e sistemas voltados a problemas que eu já conhecia na operação corporativa. Foco em arquitetura limpa, segurança e uso responsável de IA guiado por requisitos.",
     destaques: [
-      "Desenvolvimento da solução BankingProtheus (React, TypeScript, Node.js, PostgreSQL, APIs Itaú mTLS, CNAB e DDA).",
-      "Participação no desenvolvimento full stack do Portal de Engenharia corporativo (EAP, orçamentos, RBAC e PostgreSQL).",
-      "Criação e manutenção do padrão LES (Lucas Engineering Standard) para governança e segurança em projetos assistidos por IA.",
+      "Desenvolvimento da Central de Integrações Bancárias com APIs do Itaú, canal mTLS, OAuth2, boletos e extratos conectados ao Protheus.",
+      "Desenvolvimento do Analista Fiscal Automatizado com consultas horárias à SEFAZ e conferência com tabelas SF3 e SFT do Protheus.",
+      "Desenvolvimento de aplicações com React, TypeScript, Node.js, Python, PostgreSQL e testes determinísticos.",
+      "Uso de IA como ferramenta de desenvolvimento, mantendo levantamento de requisitos, arquitetura e validação humana.",
     ],
-    tags: ["React", "TypeScript", "Node.js", "PostgreSQL", "APIs REST", "mTLS", "LES"],
+    tags: ["React & TypeScript", "Node.js", "Python", "mTLS & APIs", "PostgreSQL", "Testes", "IA com Arquitetura"],
   },
   {
-    cargo: "Analista de Sistemas / Sistemas Corporativos",
+    cargo: "Suporte N1 → Suporte N2 & Integrações",
     organizacao: "Rede Marajó",
     periodo: "mai/2025 — atual",
     atual: true,
     resumo:
-      "Atuação em sistemas corporativos e TOTVS Protheus P12, conectando usuários, regras de negócio, ERP, dados e integrações críticas de negócio.",
+      "Evolução profissional de Suporte N1 para Suporte N2 e atuação conjunta com desenvolvimento, automações e integrações no ERP TOTVS Protheus P12.",
     destaques: [
-      "Suporte técnico e funcional N1/N2 a usuários e áreas de negócio, atuando em triagem, investigação de causa raiz e resolução estruturada de demandas.",
-      "Atuação com TOTVS Protheus P12 em rotinas Financeiras, Contábeis, Fiscais, Compras, Contas a Pagar/Receber e TMS/SIGATMS.",
-      "Investigação de inconsistências com SQL em CNAB, boletos, títulos, documentos fiscais, integrações e movimentações, validando dados para identificar causa e impacto.",
-      "Configuração e parametrização do Protheus, além de análise de regras de negócio e apoio à evolução de processos e sistemas.",
-      "Experiência com integrações bancárias via API e VAN, envolvendo Itaú, Santander, Sicoob e Votorantim; validação de requisições, retornos, credenciais, certificados e falhas de comunicação.",
+      "Suporte N1 e N2 a usuários no TOTVS Protheus P12 nos módulos Financeiro, Contábil, Fiscal, Compras, Contas a Pagar, Contas a Receber e TMS.",
+      "Atendimento aos grupos empresariais confirmados: Grupo 1 (2 filiais), Grupo 2 (51 filiais), Grupo 4 (6 filiais), Grupo 6 (6 filiais) e Grupo 7 (6 filiais).",
+      "Consultas SQL estruturadas para análise aprofundada de inconsistências de dados e conferência de rotinas.",
+      "Parametrização e configurações do Protheus, personalização de LPs contábeis e levantamento de requisitos com usuários.",
+      "Conferência de caixa, sangria, suprimento, rotinas de remessa/retorno CNAB, DDA e apoio a integrações corporativas.",
     ],
     tags: [
       "TOTVS Protheus P12",
-      "Financeiro & Contábil",
-      "Fiscal & Compras",
-      "Conferência de Caixa",
+      "Suporte N1 → N2",
+      "SQL Analítico",
+      "TMS",
+      "Financeiro & Fiscal",
+      "Filiais Corporativas",
       "CNAB & DDA",
-      "Integrações Bancárias",
-      "SQL",
-      "TMS/SIGATMS",
     ],
   },
   {
-    cargo: "Analista de Suporte de TI / Implantação de Sistemas",
+    cargo: "Auxiliar Administrativo → Gerente de Vendas",
+    organizacao: "Pioneira Colchões",
+    periodo: "2018 — 2021 (~3 anos e meio no total)",
+    resumo:
+      "Evolução interna de aproximadamente dois anos como auxiliar administrativo e cerca de um ano e meio como gerente de vendas.",
+    destaques: [
+      "Início com rotinas administrativas, controle de documentos e conferência de caixa.",
+      "Promoção a Gerente de Vendas, coordenando atendimento comercial, fechamento de loja e rotinas operacionais.",
+      "Atendimento e negociação direta com clientes e fornecedores, desenvolvendo comunicação e resolução de problemas.",
+      "Liderança de equipe comercial, foco em metas de atendimento e relacionamento com pessoas.",
+    ],
+    tags: [
+      "Rotinas Administrativas",
+      "Conferência de Caixa",
+      "Negociação Comercial",
+      "Liderança de Vendas",
+      "Comunicação",
+    ],
+  },
+  {
+    cargo: "Suporte N1 & Implantação de Sistemas",
     organizacao: "I5 Sistemas",
     periodo: "abr/2022 — nov/2022",
     resumo:
-      "Implantação e sustentação de sistemas desktop e web, acompanhando configuração, testes, validações e entrada em operação.",
+      "Implantação e sustentação de sistemas desktop e web, acompanhando configuração, testes, validações e treinamento de usuários.",
     destaques: [
-      "Implantação de sistemas desktop e web, com configuração, testes, validações e acompanhamento de usuários na entrada em operação.",
-      "Suporte técnico e funcional N1, tratamento de dúvidas e incidentes, levantamento de regras de negócio e treinamento de usuários.",
+      "Implantação de sistemas comerciais desktop e web, com configuração de parâmetros, testes e validação.",
+      "Acompanhamento de usuários na operação diária e levantamento de necessidades de processos.",
+      "Suporte técnico e funcional N1, triagem e tratamento de dúvidas e incidentes cotidianos de sistemas.",
+      "Treinamento operacional para capacitação de usuários nos módulos do sistema.",
     ],
-    tags: ["Implantação", "Sistemas Desktop & Web", "Suporte N1", "Treinamento", "Regras de Negócio"],
+    tags: ["Implantação", "Sistemas Desktop & Web", "Suporte N1", "Treinamento", "Levantamento de Necessidades"],
   },
   {
-    cargo: "Operador Técnico / Suporte",
-    organizacao: "Atento SA",
+    cargo: "Atendimento e Suporte Técnico",
+    organizacao: "Atento S.A.",
     periodo: "abr/2016 — ago/2018",
     resumo:
-      "Suporte técnico a clientes com problemas de conectividade, configuração e utilização de serviços de internet e dados.",
+      "Atendimento e suporte técnico a usuários em conectividade, configuração de roteadores e acesso à internet.",
     destaques: [
-      "Suporte técnico a clientes com problemas de conectividade e utilização de serviços de internet e dados.",
-      "Diagnóstico de falhas e orientação para configuração de modem, roteador e acesso à internet, com foco em troubleshooting e resolução estruturada.",
+      "Atendimento técnico com foco em comunicação clara, escuta ativa e resolução estruturada de problemas.",
+      "Diagnóstico de conectividade de rede e identificação de falhas de sinal.",
+      "Orientação passo a passo a usuários para configuração e validação de modem, roteador e acesso à internet.",
     ],
-    tags: ["Suporte Técnico", "Conectividade", "Troubleshooting", "Diagnóstico Estruturado"],
+    tags: ["Suporte Técnico", "Conectividade", "Diagnóstico de Redes", "Comunicação", "Orientação ao Usuário"],
   },
 ];

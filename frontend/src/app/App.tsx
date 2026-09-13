@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ProvedorTema } from "@/app/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -6,7 +6,6 @@ import { ScrollToTopAndFocus } from "@/components/shared/scroll-to-top";
 import { WhatsAppFloatingButton } from "@/components/shared/whatsapp-button";
 
 import { HomePage } from "@/pages/home-page";
-import { AboutPage } from "@/pages/about-page";
 import { ExperiencePage } from "@/pages/experience-page";
 import { ProjectsPage } from "@/pages/projects-page";
 import { ProjectDetailPage } from "@/pages/project-detail-page";
@@ -16,7 +15,6 @@ import { PortalEngenhariaDemoPage } from "@/pages/portal-engenharia-demo-page";
 import { PortalEngenhariaObraPage } from "@/pages/portal-engenharia-obra-page";
 import BankingDemoPage from "@/pages/banking-demo-page";
 import ProtheusLabPage from "@/pages/protheus-lab-page";
-import { SkillsPage } from "@/pages/skills-page";
 import { ContactPage } from "@/pages/contact-page";
 import { NotFoundPage } from "@/pages/not-found-page";
 import { Outlet } from "react-router-dom";
@@ -46,7 +44,7 @@ export function AppContent() {
       <main id="conteudo" className="flex-1 focus:outline-none">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/sobre" element={<AboutPage />} />
+          <Route path="/sobre" element={<Navigate to="/experiencia" replace />} />
           <Route path="/experiencia" element={<ExperiencePage />} />
           <Route path="/projetos" element={<ProjectsPage />} />
           <Route path="/projetos/banking-protheus/demo" element={<BankingDemoPage />} />
@@ -59,7 +57,7 @@ export function AppContent() {
             <Route path="obra/:id" element={<PortalEngenhariaObraPage />} />
           </Route>
           <Route path="/projetos/:slug" element={<ProjectDetailPage />} />
-          <Route path="/competencias" element={<SkillsPage />} />
+          <Route path="/competencias" element={<Navigate to="/?foco=protheus" replace />} />
           <Route path="/contato" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

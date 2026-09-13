@@ -32,7 +32,7 @@ export function PortalEngenhariaDemoPage() {
       <div className="border-b border-border/80 bg-card/60 backdrop-blur-md">
         <Container className="py-4">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            {/* Navegação de retorno e identificador MOD-01 */}
+            {/* Navegação de retorno e identificador da demonstração */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-3">
               <Link
                 to="/projetos/portal-engenharia"
@@ -42,8 +42,8 @@ export function PortalEngenhariaDemoPage() {
                 <span>Voltar ao estudo de caso</span>
               </Link>
               <span className="text-border">|</span>
-              <span className="rounded border border-tech-cyan/40 bg-tech-cyan/10 px-2 py-0.5 font-mono text-[11px] font-bold text-tech-cyan">
-                MOD-01
+              <span className="rounded border border-primary/40 bg-primary/10 px-2 py-0.5 text-[11px] font-semibold text-primary">
+                Demonstração Interativa
               </span>
               <span className="text-xs font-bold uppercase tracking-wider text-foreground">
                 Portal de Engenharia

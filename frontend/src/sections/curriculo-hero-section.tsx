@@ -144,15 +144,15 @@ export function CurriculoHeroSection() {
         <div className="flex items-start gap-2.5 rounded-lg border border-border/60 bg-muted/30 px-3.5 py-2 text-xs text-muted-foreground max-w-3xl">
           <Info className="size-4 shrink-0 text-primary mt-0.5" />
           <p className="leading-relaxed">
-            <strong>Nota informativa:</strong> O currículo oficial em PDF está sendo atualizado para refletir esta nova organização profissional por evidências. Este portfólio digital já contém todas as informações completas e auditadas.
+            <strong>Currículo impresso / PDF:</strong> O documento formatado é disponibilizado mediante solicitação ou atualizado para cada processo seletivo. Este currículo digital reúne todas as informações completas e auditadas.
           </p>
         </div>
 
-        {/* Bloco de Filosofia de Trabalho: Papel da IA como Competência Técnica */}
+        {/* Bloco de Filosofia de Trabalho: Papel da IA com Responsabilidade Humana */}
         <div className="rounded-xl border border-border/80 bg-card/60 p-4 sm:p-5 shadow-xs backdrop-blur-xs space-y-2">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
             <Sparkles className="size-3.5 text-primary" />
-            <span>Inteligência Artificial &amp; Engenharia de Software</span>
+            <span>Apoio de Inteligência Artificial com Responsabilidade Técnica</span>
           </div>
           <p className="text-xs sm:text-sm text-foreground/90 leading-relaxed font-medium">
             “{perfil.papelDaIA}”

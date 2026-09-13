@@ -19,13 +19,13 @@ export const ROTULOS_NIVEL: Record<NivelConhecimento, { rotulo: string; classe: 
 export const curriculoDigital: CurriculoDigitalData = {
   perfil: {
     nome: "Lecino Lucas",
-    tituloProfissional: "Analista de Sistemas & Desenvolvedor Full Stack",
+    tituloProfissional: "Analista de Sistemas | TOTVS Protheus | Processos, Integrações e Desenvolvimento",
     conceitoPrincipal: "Da operação à arquitetura",
     mensagemCentral: "Conheço a operação, entendo a regra de negócio e transformo problemas reais em suporte, integrações, automações e sistemas bem estruturados.",
     descricaoTrajetoria:
       "Minha trajetória passou pelo atendimento, implantação de sistemas, rotinas administrativas, gestão de vendas, suporte N1 e N2, TOTVS Protheus e desenvolvimento de soluções corporativas. Essa experiência me ajuda a compreender o processo antes de propor a tecnologia.",
     papelDaIA:
-      "A inteligência artificial amplia a produtividade de quem domina arquitetura, engenharia e regras de negócio. Meu papel é entender o problema, desenhar a solução e garantir governança e segurança na entrega.",
+      "Utilizo IA como ferramenta de apoio ao desenvolvimento, à revisão e aos testes. As decisões sobre requisitos, regras de negócio, arquitetura, segurança e validação continuam sob minha responsabilidade.",
     localizacao: "Goiânia - GO, Brasil",
     email: "lecinolucas5@gmail.com",
     telefone: "(62) 98177-3801",
@@ -34,14 +34,14 @@ export const curriculoDigital: CurriculoDigitalData = {
   desafiosAtuacao: {
     protheus: {
       id: "protheus",
-      rotuloCurto: "Protheus & Backoffice",
-      tituloDesafio: "Organizar processos no Protheus",
+      rotuloCurto: "Protheus e processos",
+      tituloDesafio: "Organizar rotinas no TOTVS Protheus",
       perguntaOrientadora: "Como alinhar as rotinas corporativas às regras do ERP com governança e controle?",
       resumoAbordagem:
         "Atuação focada nas rotinas operacionais e gerenciais do TOTVS Protheus P12, garantindo consistência entre a movimentação física/financeira e os registros contábeis e fiscais.",
       competencias: [
         {
-          nome: "TOTVS Protheus P12 (Módulos Core & TMS)",
+          nome: "TOTVS Protheus e TMS",
           nivel: "experiencia_pratica",
           evidencia: "Atuação no Financeiro (SIGAFIN), Compras (SIGACOM), Fiscal (SIGAFIS), Contábil (SIGACTB) e TMS.",
           moduloOuArea: "ERP Core",
@@ -67,8 +67,8 @@ export const curriculoDigital: CurriculoDigitalData = {
         {
           nome: "Lançamento Padrão — LP",
           nivel: "experiencia_pratica",
-          evidencia: "Parametrização e personalização de alguns lançamentos padrão para contabilização automática de rotinas.",
-          moduloOuArea: "SIGACTB",
+          evidencia: "Compreensão da estrutura de LPs e personalização de alguns deles para atendimento de rotinas do sistema.",
+          moduloOuArea: "TOTVS Protheus",
         },
         {
           nome: "Investigação com SQL",
@@ -93,46 +93,64 @@ export const curriculoDigital: CurriculoDigitalData = {
 
     fiscal: {
       id: "fiscal",
-      rotuloCurto: "Automação & IA Aplicada",
-      tituloDesafio: "Automatizar auditoria fiscal e rotinas com IA",
-      perguntaOrientadora: "Como auditar documentos fiscais e assegurar conformidade com a SEFAZ e o ERP?",
+      rotuloCurto: "Fiscal",
+      tituloDesafio: "Rotinas fiscais, notas e auditoria",
+      perguntaOrientadora: "Como conferir documentos fiscais e assegurar conformidade com a SEFAZ e o ERP?",
       resumoAbordagem:
-        "Identificação metódica de inconsistências cadastrais, fiscais e financeiras, conferindo documentos eletrônicos e amarrações no Protheus.",
+        "Conferência de documentos fiscais, análise de inconsistências cadastrais e tributárias, rotina de notas e adequações da reforma tributária.",
       competencias: [
         {
-          nome: "Emissão e Entrada de NF-e",
+          nome: "Emissão de NF-e",
           nivel: "experiencia_pratica",
-          evidencia: "Entrada de notas fiscais de fornecedores, amarração com pedidos de compra e conferência de itens.",
+          evidencia: "Emissão de notas fiscais eletrônicas de saída e acompanhamento de autorizações.",
           moduloOuArea: "SIGAFIS",
         },
         {
-          nome: "Análise de CFOP e Tributação",
+          nome: "Nota fiscal de entrada",
           nivel: "experiencia_pratica",
-          evidencia: "Conferência de CFOPs de entrada/saída, validação de regras de devolução e remessa para troca.",
+          evidencia: "Entrada de notas fiscais de fornecedores, amarração com pedidos de compra e conferência de itens.",
+          moduloOuArea: "SIGACOM / SIGAFIS",
+        },
+        {
+          nome: "CFOP",
+          nivel: "experiencia_pratica",
+          evidencia: "Classificação fiscal de operações, validação de regras de entrada, saída e devoluções.",
           moduloOuArea: "Fiscal",
         },
         {
-          nome: "Conferência de Informações Fiscais no Protheus",
+          nome: "Nota de devolução",
           nivel: "experiencia_pratica",
-          evidencia: "Investigação de divergências cadastrais e fiscais entre o documento físico/XML e os livros do ERP.",
-          moduloOuArea: "SIGAFIS",
+          evidencia: "Emissão e conferência de notas fiscais de devolução de mercadorias e estorno.",
+          moduloOuArea: "Fiscal",
         },
         {
-          nome: "Adequações da Reforma Tributária",
-          nivel: "participacao",
-          evidencia: "Atividades relacionadas aos impactos das mudanças tributárias e análise de preparação de regras fiscais.",
+          nome: "Remessa para troca",
+          nivel: "experiencia_pratica",
+          evidencia: "Emissão e controle de notas de remessa para troca, conserto e garantias.",
+          moduloOuArea: "Fiscal",
+        },
+        {
+          nome: "Análise de inconsistências",
+          nivel: "experiencia_pratica",
+          evidencia: "Identificação de divergências cadastrais, tributárias e alíquotas entre XML e ERP.",
+          moduloOuArea: "Auditoria Fiscal",
+        },
+        {
+          nome: "Participação em atividades da reforma tributária",
+          nivel: "experiencia_pratica",
+          evidencia: "Participação em atividades práticas relacionadas aos impactos e adaptações da reforma tributária.",
           moduloOuArea: "Tributário",
         },
         {
           nome: "Conhecimento de CT-e",
           nivel: "conhecimento_inicial",
-          evidencia: "Conhecimento conceitual e estrutural sobre Conhecimento de Transporte Eletrônico e fretes.",
+          evidencia: "Conhecimento inicial sobre Conhecimento de Transporte Eletrônico e regras de frete no TMS.",
           moduloOuArea: "Transporte",
         },
         {
-          nome: "LMC — Livro de Movimentação de Combustíveis",
+          nome: "LMC (Livro de Movimentação de Combustíveis)",
           nivel: "conhecimento_inicial",
-          evidencia: "Rotina de controle fiscal e operacional de combustíveis, com escrituração diária de estoques e perdas.",
+          evidencia: "Conhecimento inicial sobre escrituração diária de combustíveis, controle de estoques e perdas.",
           moduloOuArea: "Controle Operacional",
         },
       ],
@@ -142,11 +160,11 @@ export const curriculoDigital: CurriculoDigitalData = {
         descricao:
           "Sistema concebido e desenvolvido pelo profissional para realizar o acompanhamento automatizado de documentos fiscais emitidos contra a organização, garantindo que nenhuma nota permaneça desacompanhada de registro no ERP.",
         pontosChave: [
-          "Consultas automatizadas à SEFAZ em intervalos programados de aproximadamente uma hora.",
+          "Consultas automatizadas à SEFAZ em intervalos programados de hora em hora.",
           "Abrangência focada nas 51 filiais do Grupo 2 da rede corporativa.",
           "Comparação direta entre documentos obtidos na SEFAZ e as tabelas fiscais SF3 (Livros Fiscais) e SFT (Itens de Livros) do Protheus.",
-          "Identificação imediata de divergências: notas emitidas e não escrituradas, ou inconsistências de valores e cancelamentos.",
-          "Análise assistida por IA para apoiar a investigação das divergências encontradas, sem substituir o analista fiscal.",
+          "Identificação imediata de divergências entre notas emitidas e registros no ERP.",
+          "Análise assistida por IA com validação indispensável do profissional fiscal.",
         ],
         notaSegurancaOuAviso:
           "Os dados apresentados são estruturais e conceituais. Chaves de acesso, dados corporativos e números de notas reais são rigorosamente preservados.",
@@ -155,8 +173,8 @@ export const curriculoDigital: CurriculoDigitalData = {
 
     integracoes: {
       id: "integracoes",
-      rotuloCurto: "Integrações & APIs",
-      tituloDesafio: "Integrar bancos, APIs e certificados",
+      rotuloCurto: "Integrações",
+      tituloDesafio: "Integrar bancos, APIs e certificados digitais",
       perguntaOrientadora: "Como conectar o ERP ao ecossistema bancário com criptografia, mTLS e segurança?",
       resumoAbordagem:
         "Estruturação de canais de comunicação seguros entre aplicações corporativas e instituições financeiras, gerenciando autenticação e tráfego de dados.",
@@ -168,9 +186,9 @@ export const curriculoDigital: CurriculoDigitalData = {
           moduloOuArea: "Integrações",
         },
         {
-          nome: "Canal mTLS e Certificados Digitais X.509",
+          nome: "Canal mTLS e Certificados Digitais",
           nivel: "experiencia_pratica",
-          evidencia: "Testes de autenticação mútua, validação e processo de renovação/gestão segura de certificados.",
+          evidencia: "Testes de autenticação mútua, validação e processo de renovação e gestão de certificados.",
           moduloOuArea: "Segurança",
         },
         {
@@ -186,13 +204,13 @@ export const curriculoDigital: CurriculoDigitalData = {
           moduloOuArea: "APIs Bancárias",
         },
         {
-          nome: "API de Emissão e Registro de Boletos",
+          nome: "Certificado para Emissão de Boletos",
           nivel: "experiencia_pratica",
           evidencia: "Gestão do certificado digital utilizado na emissão de boletos e comunicação com o banco.",
           moduloOuArea: "Cobrança",
         },
         {
-          nome: "Apoio a Processos de CNAB, DDA e Conciliação",
+          nome: "Apoio a Processos de CNAB, DDA, Contas a Pagar/Receber e Conciliação",
           nivel: "experiencia_pratica",
           evidencia: "Alinhamento das APIs e arquivos aos fluxos de contas a pagar, contas a receber e tesouraria.",
           moduloOuArea: "Processos Financeiros",
@@ -216,8 +234,8 @@ export const curriculoDigital: CurriculoDigitalData = {
 
     desenvolvimento: {
       id: "desenvolvimento",
-      rotuloCurto: "Engenharia de Software",
-      tituloDesafio: "Transformar requisitos em software",
+      rotuloCurto: "Desenvolvimento",
+      tituloDesafio: "Desenvolvimento de software e automações",
       perguntaOrientadora: "Como traduzir regras de negócio complexas em código limpo, testado e sustentável?",
       resumoAbordagem:
         "Aproximadamente seis meses de experiência prática em desenvolvimento de software, combinando compreensão profunda de processos de negócio com engenharia moderna assistida por IA.",
@@ -249,7 +267,7 @@ export const curriculoDigital: CurriculoDigitalData = {
         {
           nome: "Testes Automatizados (Vitest / Unitários)",
           nivel: "experiencia_pratica",
-          evidencia: "Escrita de suítes de testes determinísticos para validação de regras de negócio e interfaces.",
+          evidencia: "Escrita de testes automatizados para validação de regras de negócio e interfaces.",
           moduloOuArea: "Qualidade",
         },
         {
@@ -271,9 +289,9 @@ export const curriculoDigital: CurriculoDigitalData = {
         descricao:
           "O diferencial de atuação não é apenas a sintaxe de código, mas a capacidade de sentar com quem opera o negócio, compreender a necessidade real e transformá-la em uma solução técnica estável.",
         pontosChave: [
-          "Aproximadamente 6 meses de experiência prática em desenvolvimento full stack.",
+          "Aproximadamente 6 meses de experiência prática em desenvolvimento de software e integrações.",
           "Foco em código sustentável, modular e com responsabilidade única.",
-          "Adoção de IA como ferramenta de produtividade guiada por arquitetura e validação contínua.",
+          "Adoção de IA como ferramenta de apoio técnico guiada por requisitos e validação contínua.",
           "Documentação clara e padrões de engenharia que facilitam manutenção futura.",
         ],
       },

@@ -46,7 +46,7 @@ export const projetos: Projeto[] = [
         "Tratamento seguro de credenciais e tokens temporários de autenticação.",
       ],
       resultado:
-        "Integração centralizada e segura com APIs bancárias, validação confiável de certificados e apoio robusto a contas a pagar, receber, DDA e conciliação.",
+        "Integração centralizada e segura com APIs bancárias, validação confiável de certificados e apoio prático a contas a pagar, receber, DDA e conciliação.",
       seguranca:
         "Criptografia de ponta a ponta via mTLS, rotação segura de credenciais e tratamento estrito de dados financeiros.",
       usuariosOuEscala: "Operações financeiras e tesouraria multiempresa integradas ao ERP.",
@@ -201,7 +201,7 @@ export const projetos: Projeto[] = [
         demonstracao: {
           rotulo: "Abrir demonstração parcial",
           href: "/projetos/portal-rh/demo",
-          avisoFicticio: "Reconstrução parcial com dados fictícios de vaga e pipeline para demonstração visual.",
+          avisoFicticio: "Reconstrução parcial simulada (2 telas) com dados fictícios para demonstração do fluxo de recrutamento.",
         },
       },
     },
@@ -289,7 +289,7 @@ export const projetos: Projeto[] = [
       contexto:
         "A proliferação de código gerado sem método acumula dívida técnica, arquivos gigantes e ausência de contratos claros de arquitetura e segurança.",
       problema:
-        "Projetos sem disciplina de engenharia enfrentam instabilidade, falta de testes determinísticos e vulnerabilidades.",
+        "Projetos sem disciplina de engenharia enfrentam instabilidade, falta de testes automatizados e vulnerabilidades.",
       participacao:
         "Autor e mantenedor. Desenvolvi a especificação normativa v2.2.0, a CLI npm @lecinolucas/les e templates reutilizáveis.",
       solucao:
@@ -307,7 +307,7 @@ export const projetos: Projeto[] = [
       visaoRapida: {
         problema: "Dívida técnica rápida e arquivos excessivamente longos em projetos desenvolvidos sem contratos rígidos de engenharia.",
         participacao: "Autor e mantenedor da especificação normativa v2.2.0 e da ferramenta CLI npm @lecinolucas/les.",
-        solucao: "Padrão de governança técnica que estabelece contratos claros de projeto, modularidade e testes determinísticos.",
+        solucao: "Padrão de governança técnica que estabelece contratos claros de projeto, modularidade e testes automatizados.",
       },
       regraDeNegocio: {
         comoFuncionava: "Definição de regras de arquitetura seguidas tanto por desenvolvedores quanto por agentes de IA.",

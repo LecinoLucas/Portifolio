@@ -10,7 +10,7 @@ export function AboutPage() {
     <PageContainer
       rotulo="Trajetória &amp; Perfil"
       titulo="Sobre Lecino Lucas"
-      subtitulo="Conectando processos de negócio, ERP corporativo e engenharia de software moderna para entregar sistemas seguros e escaláveis."
+      subtitulo="Conectando processos de negócio, ERP corporativo e engenharia de software para entregar sistemas seguros, organizados e sustentáveis."
     >
       {/* 1. História e Evolução Profissional */}
       <section className="tech-card space-y-6 p-6 sm:p-8">

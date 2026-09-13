@@ -20,26 +20,26 @@ const MARCOS: MarcoTrajetoria[] = [
   {
     ordem: "02",
     empresa: "I5 Sistemas",
-    foco: "Sistemas Comerciais",
-    descricaoCurta: "Sustentação N1, implantação desktop/web, rotinas de usuários e resolução de incidentes.",
+    foco: "Sistemas Desktop & Web",
+    descricaoCurta: "Implantação de sistemas desktop/web, configuração, testes, validação, suporte N1 e treinamento.",
   },
   {
     ordem: "03",
     empresa: "Pioneira Colchões",
-    foco: "Processos & Gestão",
-    descricaoCurta: "Vivência de processos internos, conferência de caixa, rotinas comerciais e gestão.",
+    foco: "Gestão & Vendas",
+    descricaoCurta: "Auxiliar administrativo a Gerente de vendas: rotinas administrativas, conferência de caixa, negociação e liderança.",
   },
   {
     ordem: "04",
     empresa: "Rede Marajó",
-    foco: "Protheus Core & TMS",
-    descricaoCurta: "Suporte N1/N2, financeiro, compras, caixas, SQL investigativo e filiais corporativas.",
+    foco: "TOTVS Protheus e TMS",
+    descricaoCurta: "Suporte N1/N2 a desenvolvimento, integrações, grupos e filiais atendidos e personalização de LPs.",
   },
   {
     ordem: "05",
     empresa: "Transição para Dev",
     foco: "Software & Integrações",
-    descricaoCurta: "~6 meses de dedicação: integrações bancárias mTLS, automação fiscal e arquitetura com IA.",
+    descricaoCurta: "~6 meses de dedicação prática: integrações bancárias mTLS, automação fiscal e testes automatizados.",
   },
 ];
 

@@ -119,7 +119,7 @@ export function SystemsDiagram() {
           </p>
 
           <div className="mt-2.5 flex flex-wrap gap-1">
-            {["OAuth2", "mTLS", "Webhooks", "REST"].map((tag) => (
+            {["OAuth2", "mTLS", "Extratos", "REST"].map((tag) => (
               <span
                 key={tag}
                 className="rounded bg-tech-magenta/5 px-1.5 py-0.5 text-[10px] font-medium text-tech-magenta border border-tech-magenta/20"

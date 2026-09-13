@@ -60,7 +60,7 @@ export function ContactPage() {
     <PageContainer
       rotulo="Canais Diretos"
       titulo="Contato &amp; Propostas"
-      subtitulo="Aberto para oportunidades como Analista de Sistemas / TOTVS Protheus e Desenvolvedor Full Stack Júnior. Fale diretamente pelo WhatsApp ou pelo formulário."
+      subtitulo="Aberto para oportunidades como Analista de Sistemas, TOTVS Protheus, Integrações e Desenvolvimento. Fale diretamente pelo WhatsApp ou pelo formulário."
     >
       <div className="grid gap-10 lg:grid-cols-[1.1fr_1.2fr] lg:items-start">
         {/* COLUNA 1: Canais Diretos & WhatsApp */}
@@ -98,10 +98,10 @@ export function ContactPage() {
           {/* Currículo Oficial */}
           <div className="tech-card p-6 space-y-2 text-xs text-muted-foreground">
             <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
-              Currículo em PDF
+              Currículo impresso / PDF
             </h3>
             <p className="leading-relaxed">
-              Currículo em PDF será disponibilizado após a publicação do endereço oficial.
+              Disponibilizado mediante solicitação ou atualizado para cada processo seletivo.
             </p>
           </div>
 

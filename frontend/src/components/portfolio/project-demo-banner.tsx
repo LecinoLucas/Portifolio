@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { classesBotao } from "@/components/ui/button-variants";
-import { links } from "@/data/links";
 
 interface PropsProjectDemoBanner {
   slug: string;
@@ -113,13 +112,13 @@ export function ProjectDemoBanner({ slug }: PropsProjectDemoBanner) {
         <div className="space-y-1">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-tech-cyan">
             <span className="size-2 rounded-full bg-tech-cyan animate-pulse" />
-            Demonstração Interativa Disponível
+            Reconstrução Parcial Simulada (2 Telas)
           </div>
           <h3 className="text-base font-bold text-foreground">
             Explore a visão da vaga e o quadro Kanban de candidatos
           </h3>
           <p className="text-xs text-muted-foreground">
-            Demonstração interativa local com dados mockados, sem necessidade de backend.
+            Reconstrução parcial com dados simulados, demonstrando o fluxo visual de recrutamento sem dependência de backend.
           </p>
         </div>
 
@@ -132,23 +131,9 @@ export function ProjectDemoBanner({ slug }: PropsProjectDemoBanner) {
               className: "gap-2 font-bold justify-center shadow-xs",
             })}
           >
-            Abrir demonstração interativa
+            Abrir reconstrução interativa
             <ArrowRight className="size-4" />
           </Link>
-
-          <a
-            href={links.portalRh.github}
-            target="_blank"
-            rel="noreferrer noopener"
-            className={classesBotao({
-              variante: "contorno",
-              tamanho: "md",
-              className: "gap-1.5 justify-center text-xs",
-            })}
-          >
-            <span>Ver código no GitHub</span>
-            <ExternalLink className="size-3.5" />
-          </a>
         </div>
       </div>
     );

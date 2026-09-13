@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Briefcase, Code2, CheckCircle2, TerminalSquare, Layers, Download } from "lucide-react";
+import { Briefcase, Code2, CheckCircle2, TerminalSquare, Layers } from "lucide-react";
 import { PageContainer } from "@/components/layout/page-container";
 import { Badge } from "@/components/ui/badge";
 import { classesBotao } from "@/components/ui/button-variants";
@@ -55,7 +55,7 @@ export function SkillsPage() {
           }`}
         >
           <Code2 className="size-3.5" />
-          Desenvolvedor Full Stack Júnior
+          Desenvolvimento &amp; Integrações
         </button>
       </div>
 
@@ -112,26 +112,14 @@ export function SkillsPage() {
             </div>
 
             <div className="border-t border-border pt-4">
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                className={classesBotao({
-                  variante: "contorno",
-                  className: "w-full justify-center gap-2 cursor-not-allowed opacity-75",
-                })}
-              >
-                <Download className="size-4 opacity-50" />
-                <span>Currículo Analista de Sistemas</span>
-                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
-                  Em breve
-                </span>
-              </button>
+              <p className="text-center text-xs text-muted-foreground">
+                Currículo impresso / PDF disponibilizado mediante solicitação.
+              </p>
             </div>
           </div>
         )}
 
-        {/* MÓDULO 2: Full Stack Developer */}
+        {/* MÓDULO 2: Desenvolvimento & Integrações */}
         {(perfilAtivo === "ambos" || perfilAtivo === "fullstack") && (
           <div className="tech-card flex flex-col justify-between p-6 sm:p-8 space-y-6">
             <div className="space-y-4">
@@ -182,21 +170,9 @@ export function SkillsPage() {
             </div>
 
             <div className="border-t border-border pt-4">
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                className={classesBotao({
-                  variante: "contorno",
-                  className: "w-full justify-center gap-2 cursor-not-allowed opacity-75",
-                })}
-              >
-                <Download className="size-4 opacity-50" />
-                <span>Currículo Full Stack</span>
-                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
-                  Em breve
-                </span>
-              </button>
+              <p className="text-center text-xs text-muted-foreground">
+                Currículo impresso / PDF disponibilizado mediante solicitação.
+              </p>
             </div>
           </div>
         )}

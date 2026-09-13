@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from "react";
-import { Download, Github, Linkedin, Mail, Send, Loader2 } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Loader2 } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
@@ -64,51 +64,14 @@ export function Contact() {
           <SectionHeading
             rotulo="Contato Direto"
             titulo="Vamos conversar sobre seu projeto ou vaga"
-            descricao="Aberto a oportunidades como Analista de Sistemas / TOTVS Protheus e Desenvolvedor Full Stack Júnior. Envie uma mensagem pelo formulário ou utilize os canais diretos."
+            descricao="Aberto a oportunidades como Analista de Sistemas, TOTVS Protheus, Integrações e Desenvolvimento. Envie uma mensagem pelo formulário ou utilize os canais diretos."
           />
 
           <Reveal className="mt-8 space-y-4">
-            {/* Currículo original preservado e futuros botões desabilitados com Em breve */}
-            <div className="flex flex-col gap-2.5 sm:flex-row">
-              <a
-                href={links.curriculo}
-                download
-                className={classesBotao({
-                  variante: "contorno",
-                  className: "flex-1 justify-between",
-                })}
-              >
-                <span>Currículo Geral (PDF)</span>
-                <Download className="size-4" />
-              </a>
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                className={classesBotao({
-                  variante: "contorno",
-                  className: "flex-1 justify-between",
-                })}
-              >
-                <span>Currículo Analista</span>
-                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
-                  Em breve
-                </span>
-              </button>
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                className={classesBotao({
-                  variante: "contorno",
-                  className: "flex-1 justify-between",
-                })}
-              >
-                <span>Currículo Full Stack</span>
-                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
-                  Em breve
-                </span>
-              </button>
+            {/* Nota discreta sobre o currículo oficial em PDF */}
+            <div className="flex items-start gap-2.5 rounded-lg border border-border/70 bg-card/50 p-3.5 text-xs text-muted-foreground">
+              <span className="font-semibold text-foreground">Currículo impresso / PDF:</span>
+              <span>Disponibilizado mediante solicitação ou atualizado para cada processo seletivo.</span>
             </div>
 
             <div className="grid gap-2.5 sm:grid-cols-2">

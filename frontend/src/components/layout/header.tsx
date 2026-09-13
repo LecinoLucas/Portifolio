@@ -33,7 +33,7 @@ export function Header() {
           <span className="flex size-2 rounded-full bg-primary transition-transform group-hover:scale-125 shrink-0" />
           <span className="text-foreground">Lecino Lucas</span>
           <span className="ml-1.5 hidden rounded border border-primary/30 bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold text-primary xl:inline">
-            Sistemas &amp; Full Stack
+            Sistemas &amp; Processos
           </span>
         </Link>
 

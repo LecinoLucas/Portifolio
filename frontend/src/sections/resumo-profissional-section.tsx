@@ -22,21 +22,21 @@ const PONTOS_RESUMO: PontoResumo[] = [
   },
   {
     icone: Database,
-    titulo: "TOTVS Protheus P12 (Core & TMS)",
+    titulo: "TOTVS Protheus e TMS",
     descricao:
-      "Domínio prático nos módulos Financeiro (SIGAFIN), Compras (SIGACOM), Fiscal (SIGAFIS), Contábil (SIGACTB) e Transporte (TMS).",
+      "Experiência prática nos módulos Financeiro (SIGAFIN), Compras (SIGACOM), Fiscal (SIGAFIS), Contábil (SIGACTB) e Transporte (TMS).",
   },
   {
     icone: Network,
-    titulo: "Filiais, Caixas & Regras Complexas",
+    titulo: "Grupos e Filiais Atendidos",
     descricao:
-      "Atendimento direto a filiais corporativas (Grupo 1: 2, Grupo 2: 51, Grupo 4: 6, Grupo 6: 6, Grupo 7: 6), conciliação, CNAB/DDA e rotinas de caixa.",
+      "Atendimento direto aos grupos e filiais atendidos: Grupo 1 (2 filiais), Grupo 2 (51 filiais), Grupo 4 (6 filiais), Grupo 6 (6 filiais) e Grupo 7 (6 filiais), conciliação, CNAB/DDA e rotinas de caixa.",
   },
   {
     icone: ShieldCheck,
-    titulo: "Arquitetura & Engenharia com IA",
+    titulo: "Engenharia de Software e Apoio de IA",
     descricao:
-      "Segurança para especificar requisitos, desenhar arquiteturas limpas, garantir governança e utilizar IA como ferramenta produtiva de desenvolvimento.",
+      "Capacidade de especificar requisitos, desenhar fluxos organizados, garantir segurança e utilizar IA como ferramenta de apoio ao desenvolvimento.",
   },
 ];
 
@@ -53,7 +53,7 @@ export function ResumoProfissionalSection() {
             Competências e Vivência Corporativa em Síntese
           </h2>
           <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl leading-relaxed">
-            Visão consolidada da atuação entre a operação de backoffice e a engenharia de software aplicada.
+            Visão consolidada da atuação entre a operação de processos e sistemas corporativos e o desenvolvimento de software.
           </p>
         </div>
 

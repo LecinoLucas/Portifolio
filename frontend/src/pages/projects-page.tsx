@@ -49,7 +49,7 @@ export function ProjectsPage() {
                 : "border border-border bg-card/70 text-muted-foreground hover:text-foreground hover:border-foreground/30"
             }`}
           >
-            Protheus &amp; Backoffice
+            Protheus &amp; Processos
           </button>
 
           <button

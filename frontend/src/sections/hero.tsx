@@ -1,4 +1,4 @@
-import { ArrowRight, Download, Github, Linkedin, Briefcase, Code2 } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Briefcase, Code2 } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { classesBotao } from "@/components/ui/button-variants";
 import { perfil } from "@/data/perfil";
@@ -44,56 +44,20 @@ export function Hero() {
               className="inline-flex items-center gap-1.5 rounded-md border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:border-primary/40 hover:bg-muted"
             >
               <Code2 className="size-3.5 text-primary" />
-              Ver perfil Desenvolvedor Full Stack Júnior
+              Ver evolução em Desenvolvimento
             </a>
           </div>
 
-          {/* Ações principais e currículos */}
+          {/* Ações principais */}
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a href="#projetos" className={classesBotao({ tamanho: "lg" })}>
               Ver estudos de caso
               <ArrowRight className="size-4" />
             </a>
 
-            {/* Currículo original preservado e futuros botões desabilitados com Em breve */}
-            <div className="flex flex-wrap items-center gap-2">
-              <a
-                href={links.curriculo}
-                download
-                title="Baixar currículo original em PDF"
-                className={classesBotao({ variante: "contorno", tamanho: "lg" })}
-              >
-                <Download className="size-4" />
-                Currículo Geral (PDF)
-              </a>
-
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                title="Currículo especializado para Analista de Sistemas em elaboração"
-                className={classesBotao({ variante: "contorno", tamanho: "lg" })}
-              >
-                <Download className="size-4 opacity-50" />
-                <span>Currículo Analista</span>
-                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
-                  Em breve
-                </span>
-              </button>
-
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                title="Currículo especializado para Full Stack em elaboração"
-                className={classesBotao({ variante: "contorno", tamanho: "lg" })}
-              >
-                <Download className="size-4 opacity-50" />
-                <span>Currículo Full Stack</span>
-                <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
-                  Em breve
-                </span>
-              </button>
+            {/* Nota discreta sobre currículo em PDF */}
+            <div className="flex items-center gap-2 rounded-lg border border-border/70 bg-card/60 px-3.5 py-2 text-xs text-muted-foreground">
+              <span><strong>Currículo impresso / PDF:</strong> Disponibilizado mediante solicitação.</span>
             </div>
 
             <a

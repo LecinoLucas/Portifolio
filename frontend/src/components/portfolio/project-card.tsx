@@ -28,7 +28,7 @@ export function ProjectCard({ projeto }: { projeto: Projeto }) {
 
   const regraDeNegocio = detalhe.regraDeNegocio || {
     comoFuncionava: detalhe.contexto,
-    areasEnvolvidas: ["Operação", "Backoffice"],
+    areasEnvolvidas: ["Operação", "Processos Corporativos"],
     relevancia: detalhe.resultado,
   };
 

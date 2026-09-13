@@ -19,7 +19,7 @@ export function Projects() {
       <SectionHeading
         rotulo="Projetos &amp; Estudos de Caso"
         titulo="Sistemas e integrações reais em produção"
-        descricao="Casos práticos demonstrando atuação completa em regras de negócio, APIs bancárias, ERP e arquiteturas escaláveis. Cada projeto abre um estudo de caso aprofundado."
+        descricao="Casos práticos demonstrando atuação completa em regras de negócio, APIs bancárias, ERP e desenvolvimento de software. Cada projeto abre um estudo de caso aprofundado."
       />
 
       {/* Filtro contextual */}

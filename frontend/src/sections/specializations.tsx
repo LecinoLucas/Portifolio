@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { CheckCircle2, Briefcase, Code2, Download, Layers } from "lucide-react";
+import { CheckCircle2, Briefcase, Code2, Layers } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Badge } from "@/components/ui/badge";
-import { classesBotao } from "@/components/ui/button-variants";
 import { perfil } from "@/data/perfil";
 
 export function Specializations() {
@@ -59,7 +58,7 @@ export function Specializations() {
           }`}
         >
           <Code2 className="size-4" />
-          Desenvolvedor Full Stack Júnior
+          Desenvolvimento &amp; Integrações
         </button>
       </div>
 
@@ -117,28 +116,16 @@ export function Specializations() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-border pt-6">
-                <button
-                  type="button"
-                  disabled
-                  aria-disabled="true"
-                  className={classesBotao({
-                    variante: "contorno",
-                    className: "w-full justify-center gap-2",
-                  })}
-                >
-                  <Download className="size-4 opacity-50" />
-                  <span>Currículo Analista de Sistemas</span>
-                  <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
-                    Em breve
-                  </span>
-                </button>
+              <div className="mt-8 border-t border-border pt-4">
+                <p className="text-center text-xs text-muted-foreground">
+                  Currículo impresso / PDF disponibilizado mediante solicitação.
+                </p>
               </div>
             </Reveal>
           </div>
         )}
 
-        {/* ÁREA 2: Desenvolvedor Full Stack Júnior */}
+        {/* ÁREA 2: Desenvolvimento & Integrações */}
         {(perfilAtivo === "ambos" || perfilAtivo === "fullstack") && (
           <div id="fullstack" className="scroll-mt-24">
             <Reveal
@@ -193,22 +180,10 @@ export function Specializations() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-border pt-6">
-                <button
-                  type="button"
-                  disabled
-                  aria-disabled="true"
-                  className={classesBotao({
-                    variante: "contorno",
-                    className: "w-full justify-center gap-2",
-                  })}
-                >
-                  <Download className="size-4 opacity-50" />
-                  <span>Currículo Full Stack</span>
-                  <span className="rounded bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase text-muted-foreground">
-                    Em breve
-                  </span>
-                </button>
+              <div className="mt-8 border-t border-border pt-4">
+                <p className="text-center text-xs text-muted-foreground">
+                  Currículo impresso / PDF disponibilizado mediante solicitação.
+                </p>
               </div>
             </Reveal>
           </div>

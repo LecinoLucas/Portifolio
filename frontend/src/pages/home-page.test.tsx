@@ -33,10 +33,18 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
   it("1. Renderiza a Home com títulos factuais, mensagem central e 3 ações principais", () => {
     renderHomePage();
 
-    // Título profissional oficial
+    // Título profissional oficial exato
     expect(
-      screen.getByText(/Analista de Sistemas & Desenvolvedor Full Stack/i)
+      screen.getByText(/Analista de Sistemas \| TOTVS Protheus \| Processos, Integrações e Desenvolvimento/i)
     ).toBeInTheDocument();
+
+    // Asserção negativa: não deve conter títulos desaprovados
+    expect(
+      screen.queryByText(/Analista de Sistemas & Desenvolvedor Full Stack/i)
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(/Desenvolvedor Full Stack Júnior/i)
+    ).not.toBeInTheDocument();
 
     // Mensagem central
     expect(
@@ -48,10 +56,15 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
       screen.getAllByText(/Da operação à arquitetura/i).length
     ).toBeGreaterThan(0);
 
-    // Papel da IA com posicionamento profissional sóbrio
+    // Papel da IA com mensagem humana, direta e sem promessa de produtividade por arquitetura
     expect(
-      screen.getByText(/A inteligência artificial amplia a produtividade de quem domina arquitetura, engenharia e regras de negócio/i)
+      screen.getByText(/Utilizo IA como ferramenta de apoio ao desenvolvimento, à revisão e aos testes\. As decisões sobre requisitos, regras de negócio, arquitetura, segurança e validação continuam sob minha responsabilidade\./i)
     ).toBeInTheDocument();
+
+    // Asserção negativa: frase antiga de IA removida
+    expect(
+      screen.queryByText(/A inteligência artificial amplia a produtividade de quem domina arquitetura/i)
+    ).not.toBeInTheDocument();
 
     // As 3 ações principais obrigatórias
     const linkTrajetoria = screen.getByRole("link", {
@@ -69,10 +82,13 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
     });
     expect(linkContato).toHaveAttribute("href", "/contato");
 
-    // Nota informativa sobre o currículo oficial em PDF (sem botão falso)
+    // Nota informativa sobre o currículo oficial em PDF (sem botão ativo de download)
     expect(
-      screen.getByText(/O currículo oficial em PDF está sendo atualizado para refletir esta nova organização profissional/i)
+      screen.getByText(/O documento formatado é disponibilizado mediante solicitação ou atualizado para cada processo seletivo/i)
     ).toBeInTheDocument();
+
+    // Asserção negativa: zero botões ativos de download de PDF
+    expect(screen.queryByRole("link", { name: /download|baixar/i })).not.toBeInTheDocument();
 
     // Pergunta principal do Mapa de Atuação
     expect(
@@ -82,17 +98,22 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
     ).toBeInTheDocument();
   });
 
-  it("2. Apresenta o Resumo Profissional Compacto com os 5 pontos-chave", () => {
+  it("2. Apresenta o Resumo Profissional Compacto com os 5 pontos-chave e linguagem precisa", () => {
     renderHomePage();
 
     expect(screen.getByText(/Sistemas & Suporte Operacional/i)).toBeInTheDocument();
     expect(screen.getByText(/~6 Meses de Desenvolvimento Prático/i)).toBeInTheDocument();
-    expect(screen.getByText(/TOTVS Protheus P12 \(Core & TMS\)/i)).toBeInTheDocument();
-    expect(screen.getByText(/Filiais, Caixas & Regras Complexas/i)).toBeInTheDocument();
-    expect(screen.getByText(/Arquitetura & Engenharia com IA/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/TOTVS Protheus e TMS/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Grupos e Filiais Atendidos/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/Engenharia de Software e Apoio de IA/i)).toBeInTheDocument();
+
+    // Asserções negativas de linguagem artificial
+    expect(screen.queryByText(/Core & TMS/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/filiais corporativas/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/rotinas de backoffice/i)).not.toBeInTheDocument();
   });
 
-  it("3. Altera o painel pelo Mapa de Atuação nos 4 eixos e sincroniza seleção com a URL", () => {
+  it("3. Altera o painel pelo Mapa de Atuação nos 4 eixos canônicos com regras fiscais e bancárias estritas", () => {
     function TestLocationDisplay() {
       const location = useLocation();
       return <div data-testid="location-display">{location.search}</div>;
@@ -107,52 +128,84 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
       </ProvedorTema>
     );
 
-    // Eixo 1: Protheus & Backoffice
+    // Eixo 1: Protheus e processos
     expect(
-      screen.getByRole("heading", { name: /organizar processos no protheus/i })
+      screen.getByRole("heading", { name: /organizar rotinas no totvs protheus/i })
     ).toBeInTheDocument();
+    expect(screen.getAllByText(/TOTVS Protheus e TMS/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/Lançamento Padrão — LP/i)).toBeInTheDocument();
 
-    // Clica no Eixo 2: Integrações & APIs
-    const tabIntegracoes = screen.getByRole("tab", {
-      name: /integrar bancos, apis e certificados/i,
-    });
-    fireEvent.click(tabIntegracoes);
-
-    expect(
-      screen.getByRole("heading", { name: /integrar bancos, apis e certificados/i })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByTestId("location-display")
-    ).toHaveTextContent("?foco=integracoes");
-
-    // Clica no Eixo 3: Automação & IA Aplicada
+    // Clica no Eixo 2: Fiscal
     const tabFiscal = screen.getByRole("tab", {
-      name: /automatizar auditoria fiscal e rotinas com ia/i,
+      name: /rotinas fiscais, notas e auditoria/i,
     });
     fireEvent.click(tabFiscal);
 
     expect(
-      screen.getByRole("heading", { name: /automatizar auditoria fiscal e rotinas com ia/i })
+      screen.getByRole("heading", { name: /rotinas fiscais, notas e auditoria/i })
     ).toBeInTheDocument();
-    expect(
-      screen.getByTestId("location-display")
-    ).toHaveTextContent("?foco=fiscal");
+    expect(screen.getByTestId("location-display")).toHaveTextContent("?foco=fiscal");
 
-    // Clica no Eixo 4: Engenharia de Software
+    // Competências fiscais solicitadas presentes
+    expect(screen.getAllByText(/Emissão de NF-e/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Nota fiscal de entrada/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/^CFOP$/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Nota de devolução/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Remessa para troca/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Análise de inconsistências/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Participação em atividades da reforma tributária/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Conhecimento de CT-e/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/LMC \(Livro de Movimentação de Combustíveis\)/i).length).toBeGreaterThan(0);
+
+    // Asserções negativas obrigatórias do eixo fiscal
+    expect(screen.queryByText(/NFC-e/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/MDF-e/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/IBS/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/CBS/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Imposto Seletivo/i)).not.toBeInTheDocument();
+
+    // Clica no Eixo 3: Integrações
+    const tabIntegracoes = screen.getByRole("tab", {
+      name: /integrar bancos, apis e certificados digitais/i,
+    });
+    fireEvent.click(tabIntegracoes);
+
+    expect(
+      screen.getByRole("heading", { name: /integrar bancos, apis e certificados digitais/i })
+    ).toBeInTheDocument();
+    expect(screen.getByTestId("location-display")).toHaveTextContent("?foco=integracoes");
+
+    // Asserções do canal bancário
+    expect(screen.getAllByText(/Central de Integrações Bancárias/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Canal mTLS e Certificados Digitais/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Autenticação OAuth 2.0/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/API de Consulta de Extratos/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Certificado para Emissão de Boletos/i).length).toBeGreaterThan(0);
+
+    // Asserções negativas da integração bancária: sem A1, PEM, CRT, KEY, webhooks
+    expect(screen.queryByText(/certificado a1/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/\.pem/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/\.crt/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/\.key/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/webhooks/i)).not.toBeInTheDocument();
+
+    // Clica no Eixo 4: Desenvolvimento
     const tabDev = screen.getByRole("tab", {
-      name: /construir software sustentável e arquitetura limpa/i,
+      name: /desenvolvimento de software e automações/i,
     });
     fireEvent.click(tabDev);
 
     expect(
-      screen.getByRole("heading", { name: /transformar requisitos em software/i })
+      screen.getByRole("heading", { name: /desenvolvimento de software e automações/i })
     ).toBeInTheDocument();
-    expect(
-      screen.getByTestId("location-display")
-    ).toHaveTextContent("?foco=desenvolvimento");
+    expect(screen.getByTestId("location-display")).toHaveTextContent("?foco=desenvolvimento");
+    expect(screen.getAllByText(/Testes Automatizados/i).length).toBeGreaterThan(0);
+
+    // Asserção negativa: sem testes determinísticos
+    expect(screen.queryByText(/testes determinísticos/i)).not.toBeInTheDocument();
   });
 
-  it("4. Apresenta a Visão Curta da Trajetória com evolução dos 5 marcos e botão para completa", () => {
+  it("4. Apresenta a Visão Curta da Trajetória com evolução factual e destaques aprovados", () => {
     renderHomePage();
 
     expect(screen.getByText("Atento")).toBeInTheDocument();
@@ -160,6 +213,10 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
     expect(screen.getByText("Pioneira Colchões")).toBeInTheDocument();
     expect(screen.getByText("Rede Marajó")).toBeInTheDocument();
     expect(screen.getByText("Transição para Dev")).toBeInTheDocument();
+
+    // Asserções negativas: I5 não tem "rotinas comerciais" e Marajó não tem "filiais corporativas"
+    const textI5 = screen.getByText(/Implantação de sistemas desktop\/web/i);
+    expect(textI5.textContent).not.toMatch(/rotinas comerciais/i);
 
     const linkTrajetoriaCompleta = screen.getByRole("link", {
       name: /ver trajetória completa/i,
@@ -181,11 +238,11 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
     renderHomePage("/?foco=fiscal");
 
     expect(
-      screen.getByRole("heading", { name: /automatizar auditoria fiscal e rotinas com ia/i })
+      screen.getByRole("heading", { name: /rotinas fiscais, notas e auditoria/i })
     ).toBeInTheDocument();
 
     const tabFiscal = screen.getByRole("tab", {
-      name: /automatizar auditoria fiscal e rotinas com ia/i,
+      name: /rotinas fiscais, notas e auditoria/i,
     });
     expect(tabFiscal).toHaveAttribute("aria-selected", "true");
   });
@@ -199,13 +256,13 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
     expect(tablist).toBeInTheDocument();
 
     const tabIntegracoes = screen.getByRole("tab", {
-      name: /integrar bancos, apis e certificados/i,
+      name: /integrar bancos, apis e certificados digitais/i,
     });
 
     fireEvent.keyDown(tabIntegracoes, { key: "Enter", code: "Enter" });
 
     expect(
-      screen.getByRole("heading", { name: /integrar bancos, apis e certificados/i })
+      screen.getByRole("heading", { name: /integrar bancos, apis e certificados digitais/i })
     ).toBeInTheDocument();
   });
 
@@ -235,9 +292,9 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
     const fetchSpy = vi.spyOn(globalThis, "fetch");
     renderHomePage();
 
-    fireEvent.click(screen.getByRole("tab", { name: /automatizar auditoria fiscal/i }));
+    fireEvent.click(screen.getByRole("tab", { name: /rotinas fiscais/i }));
     fireEvent.click(screen.getByRole("tab", { name: /integrar bancos/i }));
-    fireEvent.click(screen.getByRole("tab", { name: /construir software/i }));
+    fireEvent.click(screen.getByRole("tab", { name: /desenvolvimento de software/i }));
 
     expect(fetchSpy).not.toHaveBeenCalled();
   });

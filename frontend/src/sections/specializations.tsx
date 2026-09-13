@@ -118,7 +118,7 @@ export function Specializations() {
 
               <div className="mt-8 border-t border-border pt-4">
                 <p className="text-center text-xs text-muted-foreground">
-                  Currículo impresso / PDF disponibilizado mediante solicitação.
+                  O currículo em PDF será preparado após a publicação do endereço oficial.
                 </p>
               </div>
             </Reveal>
@@ -182,7 +182,7 @@ export function Specializations() {
 
               <div className="mt-8 border-t border-border pt-4">
                 <p className="text-center text-xs text-muted-foreground">
-                  Currículo impresso / PDF disponibilizado mediante solicitação.
+                  O currículo em PDF será preparado após a publicação do endereço oficial.
                 </p>
               </div>
             </Reveal>

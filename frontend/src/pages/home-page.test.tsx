@@ -84,11 +84,16 @@ describe("Fase 2: Currículo Digital por Evidências (Home Page)", () => {
 
     // Nota informativa sobre o currículo oficial em PDF (sem botão ativo de download)
     expect(
-      screen.getByText(/O documento formatado é disponibilizado mediante solicitação ou atualizado para cada processo seletivo/i)
+      screen.getByText(/O currículo em PDF será preparado após a publicação do endereço oficial\./i)
     ).toBeInTheDocument();
 
-    // Asserção negativa: zero botões ativos de download de PDF
+    // Asserções negativas: zero botões de download e zero termos proibidos
     expect(screen.queryByRole("link", { name: /download|baixar/i })).not.toBeInTheDocument();
+    expect(screen.queryByText(/disponível mediante solicitação|disponibilizado mediante solicitação/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/informações completas/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/informações auditadas/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/currículo atualizado/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: /em breve/i })).not.toBeInTheDocument();
 
     // Pergunta principal do Mapa de Atuação
     expect(

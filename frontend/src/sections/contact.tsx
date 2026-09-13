@@ -70,8 +70,7 @@ export function Contact() {
           <Reveal className="mt-8 space-y-4">
             {/* Nota discreta sobre o currículo oficial em PDF */}
             <div className="flex items-start gap-2.5 rounded-lg border border-border/70 bg-card/50 p-3.5 text-xs text-muted-foreground">
-              <span className="font-semibold text-foreground">Currículo impresso / PDF:</span>
-              <span>Disponibilizado mediante solicitação ou atualizado para cada processo seletivo.</span>
+              <span>O currículo em PDF será preparado após a publicação do endereço oficial.</span>
             </div>
 
             <div className="grid gap-2.5 sm:grid-cols-2">

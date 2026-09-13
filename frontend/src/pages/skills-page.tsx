@@ -113,7 +113,7 @@ export function SkillsPage() {
 
             <div className="border-t border-border pt-4">
               <p className="text-center text-xs text-muted-foreground">
-                Currículo impresso / PDF disponibilizado mediante solicitação.
+                O currículo em PDF será preparado após a publicação do endereço oficial.
               </p>
             </div>
           </div>
@@ -171,7 +171,7 @@ export function SkillsPage() {
 
             <div className="border-t border-border pt-4">
               <p className="text-center text-xs text-muted-foreground">
-                Currículo impresso / PDF disponibilizado mediante solicitação.
+                O currículo em PDF será preparado após a publicação do endereço oficial.
               </p>
             </div>
           </div>

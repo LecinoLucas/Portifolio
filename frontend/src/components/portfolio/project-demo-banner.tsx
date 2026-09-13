@@ -112,13 +112,13 @@ export function ProjectDemoBanner({ slug }: PropsProjectDemoBanner) {
         <div className="space-y-1">
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-tech-cyan">
             <span className="size-2 rounded-full bg-tech-cyan animate-pulse" />
-            Reconstrução Parcial Simulada (2 Telas)
+            Demonstração parcial com dados fictícios
           </div>
           <h3 className="text-base font-bold text-foreground">
             Explore a visão da vaga e o quadro Kanban de candidatos
           </h3>
           <p className="text-xs text-muted-foreground">
-            Reconstrução parcial com dados simulados, demonstrando o fluxo visual de recrutamento sem dependência de backend.
+            Demonstração parcial com dados fictícios, demonstrando o fluxo visual de recrutamento sem dependência de backend.
           </p>
         </div>
 

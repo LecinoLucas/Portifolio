@@ -144,7 +144,7 @@ export function CurriculoHeroSection() {
         <div className="flex items-start gap-2.5 rounded-lg border border-border/60 bg-muted/30 px-3.5 py-2 text-xs text-muted-foreground max-w-3xl">
           <Info className="size-4 shrink-0 text-primary mt-0.5" />
           <p className="leading-relaxed">
-            <strong>Currículo impresso / PDF:</strong> O documento formatado é disponibilizado mediante solicitação ou atualizado para cada processo seletivo. Este currículo digital reúne todas as informações completas e auditadas.
+            O currículo em PDF será preparado após a publicação do endereço oficial.
           </p>
         </div>
 

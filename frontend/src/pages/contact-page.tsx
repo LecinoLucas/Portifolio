@@ -98,10 +98,10 @@ export function ContactPage() {
           {/* Currículo Oficial */}
           <div className="tech-card p-6 space-y-2 text-xs text-muted-foreground">
             <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
-              Currículo impresso / PDF
+              Currículo em PDF
             </h3>
             <p className="leading-relaxed">
-              Disponibilizado mediante solicitação ou atualizado para cada processo seletivo.
+              O currículo em PDF será preparado após a publicação do endereço oficial.
             </p>
           </div>
 

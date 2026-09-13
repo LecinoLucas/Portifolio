@@ -81,7 +81,7 @@ export function MobileNav() {
             <span>Falar no WhatsApp</span>
           </a>
           <p className="text-[11px] text-center text-muted-foreground pt-1">
-            Currículo impresso / PDF disponibilizado mediante solicitação.
+            O currículo em PDF será preparado após a publicação do endereço oficial.
           </p>
         </div>
       </SheetContent>

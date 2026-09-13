@@ -201,7 +201,7 @@ export const projetos: Projeto[] = [
         demonstracao: {
           rotulo: "Abrir demonstração parcial",
           href: "/projetos/portal-rh/demo",
-          avisoFicticio: "Reconstrução parcial simulada (2 telas) com dados fictícios para demonstração do fluxo de recrutamento.",
+          avisoFicticio: "Demonstração parcial com dados fictícios para demonstração do fluxo de recrutamento.",
         },
       },
     },

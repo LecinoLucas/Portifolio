@@ -1,6 +1,5 @@
-import { ArrowRight, BookOpen, ExternalLink, Layers, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, ExternalLink, Layers } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Container } from "@/components/layout/container";
 import { classesBotao } from "@/components/ui/button-variants";
 import { projetos } from "@/data/projetos";
 
@@ -14,15 +13,15 @@ export function EvidenciasDestaqueSection() {
   const casoLes = projetos.find((p) => p.slug === "les");
 
   return (
-    <section className="py-12 sm:py-16 border-b border-border/80">
-      <Container className="space-y-8">
+    <section className="dossie-card p-5 sm:p-7">
+      <div className="space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-              <Layers className="size-3.5" />
+            <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+              <Layers className="size-3.5 text-primary" />
               <span>Evidências Práticas</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
               Casos Reais em Destaque
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl leading-relaxed">
@@ -47,22 +46,22 @@ export function EvidenciasDestaqueSection() {
           {casosPrincipais.map((caso) => (
             <article
               key={caso.slug}
-              className="flex flex-col justify-between rounded-2xl border border-border/80 bg-card/70 p-5 sm:p-6 backdrop-blur-xs transition-all hover:border-border hover:shadow-xs"
+              className="dossie-card flex flex-col justify-between p-5 sm:p-6 transition-colors hover:border-primary/40"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-2 border-b border-border/50 pb-3">
-                  <span className="rounded-full border border-primary/30 bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                     {caso.categoria}
                   </span>
                   {caso.destaque ? (
-                    <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-500">
-                      <Sparkles className="size-3" />
+                    <span className="inline-flex items-center gap-1.5 font-mono text-[10px] text-primary">
+                      <span className="size-1 rounded-full bg-primary" />
                       Evidência Real
                     </span>
                   ) : null}
                 </div>
 
-                <h3 className="text-lg font-bold tracking-tight text-foreground">
+                <h3 className="text-lg font-semibold tracking-tight text-foreground">
                   <Link
                     to={`/projetos/${caso.slug}`}
                     className="hover:text-primary transition-colors focus-visible:outline-none focus-visible:underline"
@@ -80,7 +79,7 @@ export function EvidenciasDestaqueSection() {
                   {caso.stack.slice(0, 5).map((tec) => (
                     <span
                       key={tec}
-                      className="rounded-md border border-border/70 bg-muted/40 px-2 py-0.5 text-[10px] font-medium text-muted-foreground"
+                      className="rounded border border-border bg-muted/40 px-2 py-0.5 font-mono text-[10px] font-medium text-muted-foreground"
                     >
                       {tec}
                     </span>
@@ -127,13 +126,13 @@ export function EvidenciasDestaqueSection() {
 
         {/* LES — Caso Secundário como Base Metodológica */}
         {casoLes ? (
-          <div className="rounded-xl border border-border/70 bg-card/40 p-5 sm:p-6 backdrop-blur-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="dossie-card flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 sm:p-6">
             <div className="space-y-1 max-w-2xl">
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted-foreground">
+              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
                 <BookOpen className="size-3.5 text-primary" />
                 <span>Base Metodológica Secundária</span>
               </div>
-              <h3 className="text-base font-bold text-foreground">
+              <h3 className="text-base font-semibold text-foreground">
                 {casoLes.titulo}
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
@@ -154,7 +153,7 @@ export function EvidenciasDestaqueSection() {
             </Link>
           </div>
         ) : null}
-      </Container>
+      </div>
     </section>
   );
 }

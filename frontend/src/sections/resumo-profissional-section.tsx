@@ -1,5 +1,4 @@
 import { Clock, Code2, Database, Network, ShieldCheck } from "lucide-react";
-import { Container } from "@/components/layout/container";
 
 interface PontoResumo {
   icone: typeof Clock;
@@ -42,14 +41,14 @@ const PONTOS_RESUMO: PontoResumo[] = [
 
 export function ResumoProfissionalSection() {
   return (
-    <section className="py-10 sm:py-14 border-b border-border/80 bg-card/30">
-      <Container className="space-y-6">
+    <section className="dossie-card p-5 sm:p-7">
+      <div className="space-y-6">
         <div className="space-y-1.5">
-          <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-            <ShieldCheck className="size-3.5" />
+          <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+            <ShieldCheck className="size-3.5 text-primary" />
             <span>Resumo Profissional Executivo</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground">
+          <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
             Competências e Vivência Corporativa em Síntese
           </h2>
           <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl leading-relaxed">
@@ -63,13 +62,11 @@ export function ResumoProfissionalSection() {
             return (
               <div
                 key={ponto.titulo}
-                className="rounded-xl border border-border/70 bg-card/60 p-4 sm:p-5 space-y-2 hover:border-border transition-colors backdrop-blur-xs"
+                className="rounded-md border border-border/70 bg-background/30 p-4 space-y-2 transition-colors hover:border-primary/40"
               >
-                <div className="flex items-center gap-2.5 text-primary">
-                  <div className="flex size-8 shrink-0 items-center justify-center rounded-lg border border-primary/30 bg-primary/10">
-                    <Icone className="size-4" />
-                  </div>
-                  <h3 className="font-bold text-foreground text-sm tracking-tight">
+                <div className="flex items-center gap-2 text-foreground">
+                  <Icone className="size-3.5 text-primary shrink-0" />
+                  <h3 className="font-semibold text-foreground text-sm tracking-tight">
                     {ponto.titulo}
                   </h3>
                 </div>
@@ -80,7 +77,7 @@ export function ResumoProfissionalSection() {
             );
           })}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

@@ -1,6 +1,5 @@
 import { ArrowRight, Briefcase, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Container } from "@/components/layout/container";
 import { classesBotao } from "@/components/ui/button-variants";
 
 interface MarcoTrajetoria {
@@ -45,15 +44,15 @@ const MARCOS: MarcoTrajetoria[] = [
 
 export function TrajetoriaCondensadaSection() {
   return (
-    <section className="py-12 sm:py-16 border-b border-border/80 bg-card/20">
-      <Container className="space-y-8">
+    <section className="dossie-card p-5 sm:p-7">
+      <div className="space-y-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-              <Briefcase className="size-3.5" />
+            <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+              <Briefcase className="size-3.5 text-primary" />
               <span>Visão Curta da Trajetória</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-foreground">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-foreground">
               Da Operação à Arquitetura de Software
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl leading-relaxed">
@@ -102,7 +101,7 @@ export function TrajetoriaCondensadaSection() {
             </div>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

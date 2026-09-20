@@ -22,9 +22,9 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.03 260);
 
-  /* Azul Elétrico & Acentos Tecnológicos */
-  --primary: oklch(0.55 0.22 255);
-  --primary-foreground: oklch(0.99 0 0);
+  /* Esmeralda Técnico & Acentos de Governança */
+  --primary: #059669;
+  --primary-foreground: #ffffff;
 
   --secondary: oklch(0.95 0.01 260);
   --secondary-foreground: oklch(0.25 0.03 260);
@@ -40,55 +40,56 @@
 
   --success: oklch(0.60 0.16 155);
 
-  --tech-cyan: oklch(0.62 0.16 200);
+  --tech-cyan: #0284c7;
   --tech-violet: oklch(0.52 0.22 290);
   --tech-orange: oklch(0.68 0.18 45);
   --tech-magenta: oklch(0.60 0.22 350);
 
   --border: oklch(0.89 0.01 260);
   --input: oklch(0.89 0.01 260);
-  --ring: oklch(0.55 0.22 255);
+  --ring: #059669;
 
   --radius: 0.75rem;
 }
 
 .dark {
-  /* Fundo escuro tecnológico sofisticado */
-  --background: oklch(0.125 0.022 260);
-  --foreground: oklch(0.97 0.005 260);
+  /* Dark Charcoal / Console profundo — referência GitGuard · Linear · Stripe Docs */
+  --background: #090c10;
+  --foreground: #f8fafc;
 
-  --card: oklch(0.16 0.025 260);
-  --card-foreground: oklch(0.97 0.005 260);
+  --card: #0e131b;
+  --card-foreground: #f8fafc;
 
-  --popover: oklch(0.16 0.025 260);
-  --popover-foreground: oklch(0.97 0.005 260);
+  --popover: #0e131b;
+  --popover-foreground: #f8fafc;
 
-  /* Azul Elétrico Lente Luminosa */
-  --primary: oklch(0.65 0.22 255);
-  --primary-foreground: oklch(0.11 0.02 260);
+  /* Verde Esmeralda Técnico — acento primário de status/produção */
+  --primary: #10b981;
+  --primary-foreground: #022c22;
 
-  --secondary: oklch(0.20 0.025 260);
-  --secondary-foreground: oklch(0.96 0.005 260);
+  --secondary: #10151c;
+  --secondary-foreground: #f1f5f9;
 
-  --muted: oklch(0.20 0.025 260);
-  --muted-foreground: oklch(0.68 0.015 260);
+  --muted: #10151c;
+  --muted-foreground: #94a3b8;
 
-  --accent: oklch(0.23 0.035 265);
-  --accent-foreground: oklch(0.98 0.005 260);
+  --accent: #141b24;
+  --accent-foreground: #f8fafc;
 
   --destructive: oklch(0.66 0.19 25);
   --destructive-foreground: oklch(0.96 0.003 261);
 
   --success: oklch(0.72 0.15 158);
 
-  --tech-cyan: oklch(0.78 0.16 200);
+  /* Slate Frio — acento secundário reservado a dados técnicos/links */
+  --tech-cyan: #38bdf8;
   --tech-violet: oklch(0.65 0.24 290);
   --tech-orange: oklch(0.72 0.19 50);
   --tech-magenta: oklch(0.68 0.24 350);
 
-  --border: oklch(1 0 0 / 12%);
-  --input: oklch(1 0 0 / 16%);
-  --ring: oklch(0.65 0.22 255);
+  --border: rgba(255, 255, 255, 0.07);
+  --input: rgba(255, 255, 255, 0.09);
+  --ring: #10b981;
 }
 
 @theme inline {
@@ -226,6 +227,28 @@
 
 .tech-card:hover {
   border-color: color-mix(in oklch, var(--primary) 40%, var(--border));
+}
+
+/* Painel de dossiê técnico — acabamento sóbrio (borda superior em gradiente neutro) */
+.dossie-card {
+  position: relative;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.dossie-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklch, var(--primary) 45%, transparent),
+    transparent
+  );
 }
 
 .tech-glow-primary {

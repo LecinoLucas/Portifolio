@@ -3,7 +3,9 @@ import { ArrowRight, MessageSquare } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { classesBotao } from "@/components/ui/button-variants";
 import { WhatsAppInline } from "@/components/shared/whatsapp-button";
-import { CurriculoHeroSection } from "@/sections/curriculo-hero-section";
+import { Reveal } from "@/components/shared/reveal";
+import { CurriculoSidebar } from "@/components/layout/curriculo-sidebar";
+import { PosicionamentoSection } from "@/sections/posicionamento-section";
 import { ResumoProfissionalSection } from "@/sections/resumo-profissional-section";
 import { MapaAtuacaoSection } from "@/components/portfolio/mapa-atuacao/mapa-atuacao-section";
 import { TrajetoriaCondensadaSection } from "@/sections/trajetoria-condensada-section";
@@ -11,33 +13,43 @@ import { EvidenciasDestaqueSection } from "@/sections/evidencias-destaque-sectio
 
 export function HomePage() {
   return (
-    <div className="relative overflow-hidden pb-16 space-y-4">
-      {/* 1. Apresentação & Posicionamento Oficial */}
-      <CurriculoHeroSection />
+    <div className="relative overflow-hidden pb-16">
+      <Container className="py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-6 lg:gap-8 items-start">
+          {/* Coluna Esquerda: Cabeçalho Executivo, Radar de Competências e Governança */}
+          <CurriculoSidebar />
 
-      {/* 2. Resumo Profissional Compacto */}
-      <ResumoProfissionalSection />
+          {/* Coluna Direita: Conteúdo Editorial em Scroll Fluido */}
+          <div className="min-w-0 space-y-4">
+            {/* Seção 01: Declaração de Posicionamento */}
+            <PosicionamentoSection />
 
-      {/* 3. Mapa de Atuação nos 4 Eixos */}
-      <MapaAtuacaoSection />
+            {/* Seção 02: Resumo Profissional Compacto */}
+            <Reveal><ResumoProfissionalSection /></Reveal>
 
-      {/* 4. Visão Curta da Trajetória (com botão para ver completa) */}
-      <TrajetoriaCondensadaSection />
+            {/* Seção 03: Mapa de Atuação nos 4 Eixos */}
+            <Reveal><MapaAtuacaoSection /></Reveal>
 
-      {/* 5. Evidências em Destaque (4 Casos Reais + LES Secundário) */}
-      <EvidenciasDestaqueSection />
+            {/* Seção 04: Trajetória Profissional (Timeline Visual) */}
+            <Reveal><TrajetoriaCondensadaSection /></Reveal>
 
-      {/* 6. Chamada Final para Contato Profissional */}
+            {/* Seção 05: Projetos Reais em Destaque (4 Casos + LES Secundário) */}
+            <Reveal><EvidenciasDestaqueSection /></Reveal>
+          </div>
+        </div>
+      </Container>
+
+      {/* Chamada Final para Contato Profissional */}
       <section className="py-12">
         <Container>
-          <div className="rounded-2xl border border-border/80 bg-card/60 relative overflow-hidden p-6 sm:p-10 shadow-xs backdrop-blur-xs">
+          <div className="dossie-card relative overflow-hidden p-6 sm:p-10">
             <div className="max-w-2xl space-y-3">
-              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary">
-                <MessageSquare className="size-3.5" />
+              <div className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                <MessageSquare className="size-3.5 text-primary" />
                 <span>Comunicação Direta &amp; Transparência</span>
               </div>
 
-              <h2 className="text-2xl font-black text-foreground sm:text-3xl">
+              <h2 className="text-2xl font-semibold text-foreground sm:text-3xl">
                 Vamos conversar sobre oportunidades e desafios da sua empresa?
               </h2>
 

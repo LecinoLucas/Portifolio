@@ -12,7 +12,9 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>() {
     const elemento = ref.current;
     if (!elemento) return;
 
-    const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const semMovimento =
+      typeof window.matchMedia === "function" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)")?.matches === true;
     if (semMovimento || typeof IntersectionObserver === "undefined") {
       setVisivel(true);
       return;

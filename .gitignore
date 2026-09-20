@@ -34,3 +34,5 @@ pnpm-debug.log*
 
 # LES backups
 *.bak
+*.rar
+*.zip

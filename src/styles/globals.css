@@ -13,69 +13,69 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: oklch(0.994 0 0);
-  --foreground: oklch(0.21 0.02 261);
+  --background: oklch(0.16 0.017 258);
+  --foreground: oklch(0.96 0.008 100);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.21 0.02 261);
+  --card: oklch(0.205 0.019 258);
+  --card-foreground: oklch(0.96 0.008 100);
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.21 0.02 261);
+  --popover: oklch(0.205 0.019 258);
+  --popover-foreground: oklch(0.96 0.008 100);
 
-  --primary: oklch(0.52 0.16 260);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.82 0.16 166);
+  --primary-foreground: oklch(0.14 0.02 258);
 
-  --secondary: oklch(0.968 0.004 261);
-  --secondary-foreground: oklch(0.27 0.02 261);
+  --secondary: oklch(0.26 0.019 258);
+  --secondary-foreground: oklch(0.96 0.008 100);
 
-  --muted: oklch(0.968 0.004 261);
-  --muted-foreground: oklch(0.53 0.015 261);
+  --muted: oklch(0.23 0.018 258);
+  --muted-foreground: oklch(0.72 0.02 258);
 
-  --accent: oklch(0.955 0.012 260);
-  --accent-foreground: oklch(0.27 0.02 261);
+  --accent: oklch(0.28 0.03 180);
+  --accent-foreground: oklch(0.96 0.008 100);
 
   --destructive: oklch(0.58 0.22 27);
   --destructive-foreground: oklch(0.985 0 0);
 
-  --success: oklch(0.6 0.13 155);
+  --success: oklch(0.82 0.16 166);
 
-  --border: oklch(0.922 0.004 261);
-  --input: oklch(0.922 0.004 261);
-  --ring: oklch(0.52 0.16 260);
+  --border: oklch(0.34 0.018 258);
+  --input: oklch(0.34 0.018 258);
+  --ring: oklch(0.82 0.16 166);
 
   --radius: 0.7rem;
 }
 
 .dark {
-  --background: oklch(0.19 0.014 264);
-  --foreground: oklch(0.96 0.003 261);
+  --background: oklch(0.97 0.006 100);
+  --foreground: oklch(0.18 0.018 258);
 
-  --card: oklch(0.225 0.016 264);
-  --card-foreground: oklch(0.96 0.003 261);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.018 258);
 
-  --popover: oklch(0.225 0.016 264);
-  --popover-foreground: oklch(0.96 0.003 261);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.018 258);
 
-  --primary: oklch(0.7 0.14 258);
-  --primary-foreground: oklch(0.17 0.02 264);
+  --primary: oklch(0.43 0.12 166);
+  --primary-foreground: oklch(1 0 0);
 
-  --secondary: oklch(0.27 0.017 264);
-  --secondary-foreground: oklch(0.96 0.003 261);
+  --secondary: oklch(0.93 0.012 166);
+  --secondary-foreground: oklch(0.18 0.018 258);
 
-  --muted: oklch(0.27 0.017 264);
-  --muted-foreground: oklch(0.71 0.015 261);
+  --muted: oklch(0.94 0.009 100);
+  --muted-foreground: oklch(0.47 0.02 258);
 
-  --accent: oklch(0.3 0.02 264);
-  --accent-foreground: oklch(0.96 0.003 261);
+  --accent: oklch(0.91 0.03 166);
+  --accent-foreground: oklch(0.18 0.018 258);
 
   --destructive: oklch(0.66 0.19 25);
   --destructive-foreground: oklch(0.96 0.003 261);
 
-  --success: oklch(0.72 0.14 158);
+  --success: oklch(0.47 0.13 166);
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.7 0.14 258);
+  --border: oklch(0.86 0.012 258);
+  --input: oklch(0.86 0.012 258);
+  --ring: oklch(0.43 0.12 166);
 }
 
 @theme inline {
@@ -191,5 +191,26 @@
   background-size: 56px 56px;
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
-  opacity: 0.5;
+  opacity: 0.32;
 }
+
+.signal-map::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  background: radial-gradient(circle, color-mix(in oklch, var(--primary) 15%, transparent), transparent 58%);
+  pointer-events: none;
+}
+
+.signal-line {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1.35;
+  stroke-dasharray: 4 3;
+  opacity: 0.7;
+}
+
+.signal-node-ring { fill: transparent; stroke: color-mix(in oklch, var(--primary) 45%, transparent); stroke-width: 1; }
+.signal-node-core { fill: color-mix(in oklch, var(--primary) 12%, var(--card)); stroke: var(--primary); stroke-width: 1; }
+.signal-node-title { fill: var(--foreground); font-size: 7px; font-weight: 700; letter-spacing: 0.08em; }
+.signal-node-detail { fill: var(--muted-foreground); font-size: 5.4px; }

@@ -1,0 +1,9 @@
+node_modules
+dist
+docs
+.git
+.les
+*.md
+/*.pdf
+.vscode
+coverage

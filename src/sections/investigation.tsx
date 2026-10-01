@@ -15,11 +15,16 @@ export function Investigation() {
         titulo="Como investigo uma divergência financeira no Protheus"
         descricao="O método que sigo para chegar à causa raiz sem comprometer os dados de produção."
       />
-      <Reveal className="mt-6">
-        <Badge variante="primario">Modelo ilustrativo · dados fictícios</Badge>
-      </Reveal>
+      {casoReal ? (
+        <CasoRealBloco caso={casoReal} />
+      ) : (
+        <Reveal className="mt-6">
+          <Badge variante="primario">Modelo ilustrativo · dados fictícios</Badge>
+        </Reveal>
+      )}
 
-      <ol className="mt-10 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+      <h3 className="mt-14 text-xs font-semibold uppercase tracking-[0.14em] text-primary">Método</h3>
+      <ol className="mt-6 grid gap-x-10 gap-y-8 sm:grid-cols-2">
         {etapas.map((etapa, indice) => (
           <Reveal key={etapa.titulo} atraso={(indice % 2) * 60}>
             <li className="border-l-2 border-primary/40 pl-4">
@@ -38,7 +43,7 @@ export function Investigation() {
         ))}
       </ol>
 
-      <Reveal className="mt-12">
+      {casoReal ? null : <Reveal className="mt-12">
         <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Riscos considerados</h3>
         <ul className="mt-4 grid gap-2 sm:grid-cols-2">
           {riscos.map((risco) => (
@@ -47,7 +52,7 @@ export function Investigation() {
             </li>
           ))}
         </ul>
-      </Reveal>
+      </Reveal>}
 
       <Reveal className="mt-12">
         <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Exemplo de consulta</h3>
@@ -60,7 +65,6 @@ export function Investigation() {
         <p className="mt-3 text-xs text-muted-foreground">{consultaIlustrativa.legenda}</p>
       </Reveal>
 
-      {casoReal ? <CasoRealBloco caso={casoReal} /> : null}
     </Section>
   );
 }

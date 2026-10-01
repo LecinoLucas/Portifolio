@@ -17,10 +17,12 @@ describe("<App />", () => {
     }
   });
 
-  it("não exibe relato de incidente enquanto não houver caso real confirmado", () => {
+  it("exibe o caso real sem afirmar causa raiz nem correção específicas", () => {
     render(<App />);
-    expect(screen.getByText(/modelo ilustrativo/i)).toBeInTheDocument();
-    expect(screen.queryByText(/^caso real$/i)).toBeNull();
+    expect(screen.getByText(/^caso real$/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/investigação de inconsistência financeira no totvs protheus/i),
+    ).toBeInTheDocument();
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

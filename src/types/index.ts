@@ -75,13 +75,15 @@ export interface EtapaInvestigacao {
 /** Relato de um incidente real. Só é exibido quando preenchido e confirmado. */
 export interface CasoReal {
   titulo: string;
-  sintoma: string;
-  divergencia: string;
-  investigacao: string;
-  causaRaiz: string;
-  correcao: string;
-  validacao: string;
+  contexto: string[];
+  problema: { texto: string; perguntas: string[] };
+  investigacao: { texto: string[]; tabelas: { nome: string; descricao: string }[]; objetivo: string };
+  raciocinio: string;
+  riscos: { texto: string; itens: string[] };
+  /** O que se concluiu e aprendeu; não é um desfecho técnico do incidente. */
   resultado: string;
+  aprendizado: string[];
+  competencias: string[];
 }
 
 export interface Investigacao {

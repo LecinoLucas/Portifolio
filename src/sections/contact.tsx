@@ -12,7 +12,7 @@ export function Contact() {
         <SectionHeading
           rotulo="Contato"
           titulo="Vamos conversar"
-          descricao="Aberto a oportunidades como Analista de Sistemas e Desenvolvedor Full Stack. O caminho mais rápido é o e-mail ou o LinkedIn."
+          descricao="Disponível para oportunidades como Analista de Sistemas ou Analista de Suporte Especializado (N2/N3). O caminho mais rápido é o e-mail ou o LinkedIn."
         />
 
         <Reveal className="flex flex-col gap-3">

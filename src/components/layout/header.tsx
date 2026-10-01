@@ -35,7 +35,7 @@ export function Header() {
         >
           Lecino&nbsp;Lucas
           <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">
-            Analista de Sistemas &amp; Full Stack
+            Analista de Sistemas · Sustentação N2/N3
           </span>
         </a>
 

@@ -64,3 +64,29 @@ export interface Principio {
   titulo: string;
   descricao: string;
 }
+
+export interface EtapaInvestigacao {
+  titulo: string;
+  /** O que se examina nesta etapa (método, não relato de um incidente). */
+  descricao: string;
+  itens: string[];
+}
+
+/** Relato de um incidente real. Só é exibido quando preenchido e confirmado. */
+export interface CasoReal {
+  titulo: string;
+  sintoma: string;
+  divergencia: string;
+  investigacao: string;
+  causaRaiz: string;
+  correcao: string;
+  validacao: string;
+  resultado: string;
+}
+
+export interface Investigacao {
+  etapas: EtapaInvestigacao[];
+  riscos: string[];
+  consultaIlustrativa: { legenda: string; sql: string };
+  casoReal: CasoReal | null;
+}

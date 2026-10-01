@@ -12,9 +12,15 @@ describe("<App />", () => {
 
   it("expõe as seções-âncora esperadas", () => {
     const { container } = render(<App />);
-    for (const id of ["sobre", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
+    for (const id of ["sobre", "experiencia", "investigacao", "projetos", "les", "tecnologias", "contato"]) {
       expect(container.querySelector(`#${id}`), id).not.toBeNull();
     }
+  });
+
+  it("não exibe relato de incidente enquanto não houver caso real confirmado", () => {
+    render(<App />);
+    expect(screen.getByText(/modelo ilustrativo/i)).toBeInTheDocument();
+    expect(screen.queryByText(/^caso real$/i)).toBeNull();
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

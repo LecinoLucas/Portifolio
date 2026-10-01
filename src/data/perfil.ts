@@ -11,9 +11,21 @@ export const perfil: Perfil = {
   disponibilidade: "Disponível para novas oportunidades",
 
   bio: [
-    "Sou Analista de Sistemas formado pela PUC Goiás, com experiência em sustentação de sistemas corporativos, suporte técnico e funcional e implantação de sistemas. Meu foco é investigar problemas: análise de incidentes, troubleshooting e consultas SQL (PostgreSQL e SQL Server) até chegar à causa raiz.",
-    "Atuei no ERP TOTVS Protheus nos processos financeiros, contábeis, fiscais e de compras, com parametrização, testes, homologação e documentação, e em integrações bancárias com APIs REST, CNAB, boletos, DDA, VAN, certificados digitais, OAuth2 e mTLS.",
-    "Minha trajetória começou em suporte técnico, passou por implantação de sistemas e supervisão de equipe e chegou à análise de sistemas corporativos. Em paralelo, desenvolvo sistemas reais em TypeScript, React, Node.js e PostgreSQL, com projetos em produção. Entender a regra de negócio antes de escrever código é o que orienta o meu trabalho.",
+    {
+      rotulo: "Foco",
+      texto:
+        "Analista de Sistemas formado pela PUC Goiás. Meu foco é investigar problemas: análise de incidentes, troubleshooting e consultas SQL (PostgreSQL e SQL Server) até chegar à causa raiz.",
+    },
+    {
+      rotulo: "ERP e integrações",
+      texto:
+        "TOTVS Protheus nos processos financeiros, contábeis, fiscais e de compras, e integrações bancárias com APIs REST, CNAB, boletos, DDA, VAN, certificados digitais, OAuth2 e mTLS.",
+    },
+    {
+      rotulo: "Trajetória",
+      texto:
+        "Comecei em suporte técnico, passei por implantação de sistemas e supervisão de equipe e cheguei à análise de sistemas corporativos. Em paralelo, desenvolvo sistemas reais em produção. Entender a regra de negócio antes de escrever código orienta o meu trabalho.",
+    },
   ],
 
   fatos: [

@@ -16,7 +16,7 @@ export function Projects() {
       <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {projetos.map((projeto, indice) => (
           <Reveal key={projeto.slug} atraso={(indice % 3) * 70} className="h-full">
-            <ProjectCard projeto={projeto} />
+            <ProjectCard projeto={projeto} indice={indice} />
           </Reveal>
         ))}
       </div>

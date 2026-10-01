@@ -6,7 +6,7 @@ export interface Perfil {
   headline: string;
   localizacao: string;
   disponibilidade: string;
-  bio: string[];
+  bio: { rotulo: string; texto: string }[];
   fatos: { rotulo: string; valor: string }[];
 }
 
@@ -59,6 +59,13 @@ export interface Formacao {
   instituicao: string;
   periodo: string;
   status: string;
+}
+
+export interface EtapaTecnologia {
+  numero: string;
+  etapa: string;
+  descricao: string;
+  itens: string[];
 }
 
 export interface GrupoTecnologia {

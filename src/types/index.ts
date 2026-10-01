@@ -32,6 +32,12 @@ export interface Projeto {
   resumo: string;
   stack: string[];
   destaque?: boolean;
+  /** Situação real do projeto, exibida como selo no card e no painel. */
+  situacao?: "producao" | "entregue";
+  /** Detalhe da situação (ex.: forma de uso). */
+  situacaoDetalhe?: string;
+  /** Demonstração interativa com dados fictícios. */
+  demo?: "importnfe" | "rh";
   detalhe: DetalheProjeto;
   links?: LinkExterno[];
 }

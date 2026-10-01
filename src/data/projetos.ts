@@ -12,6 +12,7 @@ export const projetos: Projeto[] = [
     titulo: "Conciliação Bancária Itaú",
     categoria: "Integração bancária · BankingProtheus",
     destaque: true,
+    situacao: "producao",
     resumo:
       "Integração bancária com as APIs do Itaú (OAuth2 + mTLS) que automatiza a conciliação de contas, extratos, recebimentos e pagamentos contra os registros internos, com controle de acesso e rastreabilidade.",
     stack: [
@@ -48,30 +49,33 @@ export const projetos: Projeto[] = [
   {
     slug: "portal-rh",
     titulo: "Portal de RH",
-    categoria: "IA aplicada · Recrutamento",
+    categoria: "ATS com IA · Recrutamento e admissão",
     destaque: true,
+    situacao: "entregue",
+    situacaoDetalhe: "Sistema entregue.",
+    demo: "rh",
     resumo:
-      "Plataforma de apoio ao recrutamento que usa IA para ler, classificar e triar currículos, reduzindo o trabalho manual da etapa inicial.",
-    stack: ["Python", "IA / LLMs", "React", "PostgreSQL"],
+      "Sistema de recrutamento e admissão: vagas, pipeline de candidatos, análise assistida por IA, pré-admissão com checklist documental e integração com o TOTVS Protheus.",
+    stack: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "IA / LLMs", "Protheus"],
     detalhe: {
       contexto:
-        "A triagem inicial de currículos consumia muito tempo do time de RH: leitura individual, comparação com a vaga e classificação manual dos candidatos.",
+        "O processo de recrutamento e admissão passava por várias etapas e ferramentas: triagem de currículos, entrevistas, decisão de contratação, coleta de documentos e cadastro no ERP.",
       problema:
-        "Volume alto de currículos em formatos heterogêneos, critérios de triagem aplicados de forma inconsistente e pouca rastreabilidade sobre por que um candidato avançou ou não.",
+        "Triagem manual e pouco consistente, histórico de etapas difícil de rastrear e retrabalho para levar os dados do candidato contratado até o Protheus.",
       participacao:
-        "Desenvolvi o pipeline de processamento de currículos e a lógica de classificação assistida por IA, além da integração com o fluxo de processos da empresa.",
+        "Desenvolvimento do sistema, com frontend, backend, banco de dados, testes automatizados e a integração com o ERP.",
       solucao:
-        "Serviço em Python que extrai o conteúdo dos currículos, estrutura as informações e usa modelos de linguagem para classificar e pontuar candidatos frente aos requisitos da vaga. O resultado alimenta a triagem, com justificativa associada a cada classificação. Integração com processos internos e, quando aplicável, com dados do TOTVS Protheus.",
+        "Gestão de vagas e pipeline (entrada, triagem, entrevistas, final, oferta e contratado), análise de candidatos assistida por IA com justificativa por critério, portal do candidato, pré-admissão com checklist documental e regras de aprovação, e envio dos dados ao Protheus com validação do payload, controle de tentativas e chave de idempotência.",
       arquitetura:
-        "Ingestão de currículos → extração e estruturação → camada de IA (classificação e scoring) → persistência em PostgreSQL → interface de triagem em React. Integração com sistemas internos via contratos definidos.",
+        "FastAPI e PostgreSQL com migrations, processamento assíncrono das análises por IA em workers, frontend React + TypeScript. Contrato versionado de payload para o Protheus, com validador, adaptador e registro de cada tentativa de integração (idempotência e correlation ID).",
       desafios: [
-        "Padronizar dados vindos de currículos com formatos e qualidade muito variados.",
-        "Manter a classificação explicável, com motivo registrado para cada decisão.",
-        "Controlar custo e latência das chamadas aos modelos de linguagem.",
-        "Respeitar as fronteiras de integração com o Protheus, sem acoplamento indevido.",
+        "Manter a etapa do pipeline separada do status da análise por IA, que é controlado só pelo worker.",
+        "Evitar análise duplicada e custo repetido com os modelos de linguagem em processamento concorrente.",
+        "Proteger dados pessoais de candidatos: portal do candidato sem expor campos internos.",
+        "Integrar com o Protheus por contrato validado, com reenvio seguro e rastreável.",
       ],
       resultado:
-        "A etapa de triagem passou a ser assistida por IA, com critérios mais consistentes e uma fila de candidatos já pré-classificada para o time de RH revisar.",
+        "O fluxo de recrutamento e admissão passou a ficar num único sistema, com histórico de etapas, análise assistida por IA e envio ao ERP com validação e rastreabilidade.",
     },
   },
   {
@@ -79,6 +83,7 @@ export const projetos: Projeto[] = [
     titulo: "Portal de Engenharia",
     categoria: "Sistema corporativo · Engenharia & Obras",
     destaque: true,
+    situacao: "producao",
     resumo:
       "Aplicação corporativa em produção para gestão de obras, chamados, fornecedores, cotações, documentos e dashboards — com autenticação, RBAC e auditoria.",
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "APIs REST"],
@@ -105,28 +110,32 @@ export const projetos: Projeto[] = [
   {
     slug: "importnfe",
     titulo: "ImportNFe",
-    categoria: "Processamento fiscal · XML NFe",
+    categoria: "Processamento fiscal · XML NF-e",
+    situacao: "producao",
+    situacaoDetalhe: "Roda em servidor local e foi vendido a uma distribuidora.",
+    demo: "importnfe",
     resumo:
-      "Ferramenta para importar XML de NFe, organizar fornecedores e empresas e gerar planilhas Excel a partir de templates.",
-    stack: ["Python", "FastAPI", "SQLAlchemy", "React", "PostgreSQL"],
+      "Importa XML de NF-e, normaliza as descrições dos produtos, permite revisão com aprendizado de aliases e gera planilhas Excel a partir de templates.",
+    stack: ["Python", "FastAPI", "SQLAlchemy", "Alembic", "React", "TypeScript", "PostgreSQL"],
     detalhe: {
       contexto:
-        "A extração de dados de notas fiscais eletrônicas para planilhas era feita manualmente, abrindo XMLs e copiando informações campo a campo.",
+        "A extração de dados de notas fiscais eletrônicas para planilhas era feita manualmente, abrindo XMLs e copiando informações campo a campo, com descrições de produto em formatos diferentes a cada fornecedor.",
       problema:
-        "Trabalho repetitivo e propenso a erro, sem cadastro estruturado de fornecedores e empresas e sem padronização das planilhas geradas.",
+        "Trabalho repetitivo e propenso a erro, descrições inconsistentes entre notas e planilhas fora de um padrão único.",
       participacao:
-        "Desenvolvi a aplicação full stack: API em FastAPI, modelagem com SQLAlchemy, migrations com Alembic, autenticação JWT e o frontend em React + TypeScript.",
+        "Desenvolvimento full stack: API em FastAPI, modelagem com SQLAlchemy e migrations com Alembic, geração de planilhas e frontend em React + TypeScript.",
       solucao:
-        "Backend em FastAPI que faz o parsing do XML da NFe, valida e persiste os dados, mantém cadastros de fornecedores e empresas e gera arquivos Excel a partir de templates configuráveis. Frontend em React para upload, conferência e download. Autenticação via JWT.",
+        "Parsing do XML da NF-e, normalização automática das descrições (remove marcas, expande abreviações, padroniza volumes), grade de revisão editável com aliases por empresa ou globais que passam a ter prioridade nas próximas importações, e geração de Excel por templates configuráveis, com logo por template.",
       arquitetura:
-        "FastAPI + SQLAlchemy sobre PostgreSQL, migrations versionadas com Alembic → parsing de XML NFe → serviço de geração de Excel por template → frontend React + TypeScript. Autenticação JWT.",
+        "FastAPI + SQLAlchemy sobre PostgreSQL, com camadas de rotas, serviços, repositórios e modelos de domínio → parser de XML NF-e → serviço de normalização → exportação para Excel por template → frontend React. Empacotado para rodar em servidor Windows local, com bundle portátil de templates e usuários.",
       desafios: [
-        "Tratar variações do layout do XML da NFe e campos opcionais.",
-        "Manter os cadastros de fornecedores e empresas consistentes ao importar em lote.",
+        "Tratar variações do layout do XML da NF-e e campos opcionais.",
+        "Definir a ordem de prioridade entre alias da empresa, alias global e normalizador automático.",
         "Templates de Excel configuráveis sem exigir alteração de código a cada ajuste.",
+        "Levar templates, usuários e logos para outro servidor com um bundle portátil.",
       ],
       resultado:
-        "A importação de NFe e a geração de planilhas passaram a ser feitas pela ferramenta, com cadastros estruturados e saída padronizada por template.",
+        "A importação de NF-e e a geração de planilhas passaram a ser feitas pela ferramenta, com descrições padronizadas e saída por template. O sistema está em produção, rodando localmente, e foi vendido a uma distribuidora.",
     },
   },
   {

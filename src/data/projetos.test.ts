@@ -38,6 +38,19 @@ describe("dados de projetos", () => {
   });
 });
 
+describe("situação e demonstrações", () => {
+  it("ImportNFe está em produção e o Portal RH está entregue, ambos com demonstração", () => {
+    expect(projetoPorSlug("importnfe")).toMatchObject({ situacao: "producao", demo: "importnfe" });
+    expect(projetoPorSlug("portal-rh")).toMatchObject({ situacao: "entregue", demo: "rh" });
+  });
+
+  it("não cita o nome de clientes nem regras de acréscimo de preço", () => {
+    const texto = JSON.stringify(projetos).toLowerCase();
+    expect(texto).not.toContain("bc distribuidora");
+    expect(texto).not.toContain("acréscimo");
+  });
+});
+
 describe("dados de apoio", () => {
   it("experiências têm destaques e tags", () => {
     expect(experiencias.length).toBeGreaterThan(0);

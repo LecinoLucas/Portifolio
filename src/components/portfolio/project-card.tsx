@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Sheet, SheetTrigger } from "@/components/ui/sheet";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { SeloSituacao } from "@/components/portfolio/selo-situacao";
 import { ProjectDetail } from "@/components/portfolio/project-detail";
 import type { Projeto } from "@/types";
 
@@ -9,10 +10,11 @@ export function ProjectCard({ projeto }: { projeto: Projeto }) {
   return (
     <Sheet>
       <Card className="flex h-full flex-col p-6 transition-colors hover:border-foreground/20">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-between gap-2">
           <span className="text-xs font-medium uppercase tracking-[0.1em] text-primary">
             {projeto.categoria}
           </span>
+          <SeloSituacao projeto={projeto} />
         </div>
 
         <h3 className="mt-3 text-lg font-semibold tracking-tight">{projeto.titulo}</h3>
@@ -30,7 +32,7 @@ export function ProjectCard({ projeto }: { projeto: Projeto }) {
         </div>
 
         <SheetTrigger className="mt-5 inline-flex items-center gap-1.5 self-start rounded-md text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-          Ver detalhes
+          {projeto.demo ? "Ver detalhes e demonstração" : "Ver detalhes"}
           <ArrowRight className="size-4" />
         </SheetTrigger>
       </Card>

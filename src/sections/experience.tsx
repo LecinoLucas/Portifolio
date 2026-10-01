@@ -21,13 +21,14 @@ export function Experience() {
             experiencia={experiencia}
             atraso={indice * 60}
             ultimo={indice === experiencias.length - 1}
+            aberto={indice === 1}
           />
         ))}
       </ol>
 
       <Reveal className="mt-14">
-        <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-          Formação
+        <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary">
+          // formação
         </h3>
         <ul className="mt-4 space-y-3">
           {formacao.map((item) => (

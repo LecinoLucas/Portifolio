@@ -25,7 +25,8 @@ export function SectionHeading({
         className,
       )}
     >
-      <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+      <span className="font-mono text-xs uppercase tracking-[0.14em] text-primary">
+        {"// "}
         {rotulo}
       </span>
       <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{titulo}</h2>

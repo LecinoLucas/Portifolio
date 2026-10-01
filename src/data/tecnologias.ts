@@ -1,48 +1,25 @@
-import type { GrupoTecnologia } from "@/types";
+import type { EtapaTecnologia, GrupoTecnologia } from "@/types";
 
 /**
- * Tecnologias organizadas por domínio. Sem barras de porcentagem —
- * proficiência não é medida de forma confiável por número.
+ * Tecnologias ligadas à etapa do fluxo de integração bancária em que entram
+ * no trabalho real (as mesmas etapas da planta do topo). Sem barras de
+ * porcentagem: proficiência não é medida de forma confiável por número.
  */
+export const fluxoTecnologias: EtapaTecnologia[] = [
+  { numero: "01", etapa: "Protheus", descricao: "ERP de origem das operações", itens: ["TOTVS Protheus P12", "Financeiro", "Contábil", "Fiscal", "Compras", "TMS"] },
+  { numero: "02", etapa: "Remessa", descricao: "Canal de comunicação com o banco", itens: ["CNAB", "APIs REST", "OAuth2", "mTLS", "Certificados digitais", "VAN bancária"] },
+  { numero: "03", etapa: "Banco", descricao: "Instituições e produtos", itens: ["Itaú", "Santander", "Sicoob", "Votorantim", "Boletos", "DDA"] },
+  { numero: "04", etapa: "Retorno", descricao: "Baixas e extratos de volta ao ERP", itens: ["Retorno CNAB", "Extratos", "Rotinas agendadas"] },
+  { numero: "05", etapa: "Conciliação", descricao: "Dados que provam que fechou", itens: ["SQL", "PostgreSQL", "SQL Server", "Modelagem relacional"] },
+  { numero: "06", etapa: "Divergências", descricao: "Investigação até a causa raiz", itens: ["Troubleshooting", "Análise de causa raiz", "Homologação", "Documentação"] },
+];
+
+/** Tecnologias de desenvolvimento de aplicações, por domínio. */
 export const tecnologias: GrupoTecnologia[] = [
-  {
-    dominio: "Frontend",
-    itens: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vite"],
-  },
-  {
-    dominio: "Backend",
-    itens: ["Node.js", "Python", "FastAPI", "REST APIs", "JWT / RBAC"],
-  },
-  {
-    dominio: "Dados",
-    itens: ["PostgreSQL", "SQL", "Prisma", "SQLAlchemy / Alembic", "Modelagem relacional"],
-  },
-  {
-    dominio: "Enterprise",
-    itens: ["TOTVS Protheus P12", "Fiscal / Contábil", "Financeiro · CNAB", "Compras", "TMS"],
-  },
-  {
-    dominio: "Integrações & Automação",
-    itens: [
-      "APIs bancárias (Itaú)",
-      "OAuth2 · mTLS",
-      "CNAB / Boletos / DDA",
-      "VAN bancária",
-      "Certificados digitais",
-      "XML NFe",
-      "Rotinas agendadas",
-    ],
-  },
-  {
-    dominio: "IA aplicada",
-    itens: ["LLMs", "RAG", "Agentes", "Triagem / classificação", "Integração provider-agnostic"],
-  },
-  {
-    dominio: "DevOps & Ferramentas",
-    itens: ["Git", "GitHub", "Docker", "CI de build", "Google Cloud Run"],
-  },
-  {
-    dominio: "Engenharia & Processo",
-    itens: ["Lecino Lucas Engineering Standard (LES)", "Modular Monolith", "ADRs", "Conventional Commits"],
-  },
+  { dominio: "Frontend", itens: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Vite"] },
+  { dominio: "Backend", itens: ["Node.js", "Python", "FastAPI", "REST APIs", "JWT / RBAC"] },
+  { dominio: "Dados", itens: ["Prisma", "SQLAlchemy / Alembic", "XML NF-e", "Excel (OpenPyXL)"] },
+  { dominio: "IA aplicada", itens: ["LLMs", "Triagem / classificação", "Integração provider-agnostic"] },
+  { dominio: "DevOps", itens: ["Git", "GitHub", "Docker", "Google Cloud Run"] },
+  { dominio: "Engenharia", itens: ["Lecino Lucas Engineering Standard (LES)", "Modular Monolith", "ADRs", "Conventional Commits"] },
 ];

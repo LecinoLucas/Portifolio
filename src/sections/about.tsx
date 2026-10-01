@@ -6,27 +6,23 @@ import { perfil } from "@/data/perfil";
 export function About() {
   return (
     <Section id="sobre">
-      <SectionHeading
-        rotulo="Sobre"
-        titulo="Da regra de negócio à solução em produção"
-      />
+      <SectionHeading rotulo="Sobre" titulo="Da regra de negócio à solução em produção" />
 
       <div className="mt-10 grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-        <Reveal className="space-y-4">
-          {perfil.bio.map((paragrafo) => (
-            <p key={paragrafo} className="text-base leading-relaxed text-muted-foreground">
-              {paragrafo}
-            </p>
+        <div className="space-y-6">
+          {perfil.bio.map((bloco, indice) => (
+            <Reveal key={bloco.rotulo} atraso={indice * 60}>
+              <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary">// {bloco.rotulo}</h3>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground">{bloco.texto}</p>
+            </Reveal>
           ))}
-        </Reveal>
+        </div>
 
         <Reveal atraso={80}>
-          <dl className="grid gap-px overflow-hidden rounded-xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-1">
+          <dl className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-2 lg:grid-cols-1">
             {perfil.fatos.map((fato) => (
               <div key={fato.rotulo} className="bg-card p-4">
-                <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
-                  {fato.rotulo}
-                </dt>
+                <dt className="font-mono text-xs uppercase tracking-[0.1em] text-muted-foreground">{fato.rotulo}</dt>
                 <dd className="mt-1 text-sm font-medium">{fato.valor}</dd>
               </div>
             ))}

@@ -6,7 +6,7 @@ export interface Perfil {
   headline: string;
   localizacao: string;
   disponibilidade: string;
-  bio: string[];
+  bio: { rotulo: string; texto: string }[];
   fatos: { rotulo: string; valor: string }[];
 }
 
@@ -32,6 +32,12 @@ export interface Projeto {
   resumo: string;
   stack: string[];
   destaque?: boolean;
+  /** Situação real do projeto, exibida como selo no card e no painel. */
+  situacao?: "producao" | "entregue";
+  /** Detalhe da situação (ex.: forma de uso). */
+  situacaoDetalhe?: string;
+  /** Demonstração interativa com dados fictícios. */
+  demo?: "importnfe" | "rh";
   detalhe: DetalheProjeto;
   links?: LinkExterno[];
 }
@@ -55,6 +61,13 @@ export interface Formacao {
   status: string;
 }
 
+export interface EtapaTecnologia {
+  numero: string;
+  etapa: string;
+  descricao: string;
+  itens: string[];
+}
+
 export interface GrupoTecnologia {
   dominio: string;
   itens: string[];
@@ -63,4 +76,32 @@ export interface GrupoTecnologia {
 export interface Principio {
   titulo: string;
   descricao: string;
+}
+
+export interface EtapaInvestigacao {
+  titulo: string;
+  /** O que se examina nesta etapa (método, não relato de um incidente). */
+  descricao: string;
+  itens: string[];
+}
+
+/** Relato de um incidente real. Só é exibido quando preenchido e confirmado. */
+export interface CasoReal {
+  titulo: string;
+  contexto: string[];
+  problema: { texto: string; perguntas: string[] };
+  investigacao: { texto: string[]; tabelas: { nome: string; descricao: string }[]; objetivo: string };
+  raciocinio: string;
+  riscos: { texto: string; itens: string[] };
+  /** O que se concluiu e aprendeu; não é um desfecho técnico do incidente. */
+  resultado: string;
+  aprendizado: string[];
+  competencias: string[];
+}
+
+export interface Investigacao {
+  etapas: EtapaInvestigacao[];
+  riscos: string[];
+  consultaIlustrativa: { legenda: string; sql: string };
+  casoReal: CasoReal | null;
 }

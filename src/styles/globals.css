@@ -3,6 +3,8 @@
 /* Inter — apenas eixo de peso (sem itálico / optical size). Os subconjuntos
    por idioma têm unicode-range: o navegador baixa só o latino para pt-BR. */
 @import "@fontsource-variable/inter/wght.css";
+/* JetBrains Mono — rótulos, código e detalhes técnicos. */
+@import "@fontsource-variable/jetbrains-mono/wght.css";
 
 /* ==========================================================================
    Design Tokens — Lecino Lucas Engineering Standard (LES)
@@ -12,70 +14,73 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Identidade "planta técnica": azul-petróleo, traço ciano e destaque âmbar. */
 :root {
-  --background: oklch(0.16 0.017 258);
-  --foreground: oklch(0.96 0.008 100);
+  --background: oklch(0.965 0.012 225);
+  --foreground: oklch(0.2 0.03 245);
 
-  --card: oklch(0.205 0.019 258);
-  --card-foreground: oklch(0.96 0.008 100);
+  --card: oklch(0.995 0.004 225);
+  --card-foreground: oklch(0.2 0.03 245);
 
-  --popover: oklch(0.205 0.019 258);
-  --popover-foreground: oklch(0.96 0.008 100);
+  --popover: oklch(0.995 0.004 225);
+  --popover-foreground: oklch(0.2 0.03 245);
 
-  --primary: oklch(0.82 0.16 166);
-  --primary-foreground: oklch(0.14 0.02 258);
+  --primary: oklch(0.44 0.13 245);
+  --primary-foreground: oklch(1 0 0);
 
-  --secondary: oklch(0.26 0.019 258);
-  --secondary-foreground: oklch(0.96 0.008 100);
+  --secondary: oklch(0.93 0.018 230);
+  --secondary-foreground: oklch(0.2 0.03 245);
 
-  --muted: oklch(0.23 0.018 258);
-  --muted-foreground: oklch(0.72 0.02 258);
+  --muted: oklch(0.94 0.014 228);
+  --muted-foreground: oklch(0.45 0.035 245);
 
-  --accent: oklch(0.28 0.03 180);
-  --accent-foreground: oklch(0.96 0.008 100);
+  --accent: oklch(0.91 0.035 225);
+  --accent-foreground: oklch(0.2 0.03 245);
 
-  --destructive: oklch(0.58 0.22 27);
-  --destructive-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.98 0.003 261);
 
-  --success: oklch(0.82 0.16 166);
+  --success: oklch(0.5 0.13 160);
+  --highlight: oklch(0.58 0.15 65);
 
-  --border: oklch(0.34 0.018 258);
-  --input: oklch(0.34 0.018 258);
-  --ring: oklch(0.82 0.16 166);
+  --border: oklch(0.85 0.022 235);
+  --input: oklch(0.85 0.022 235);
+  --ring: oklch(0.44 0.13 245);
 
-  --radius: 0.7rem;
+  --radius: 0.3rem;
 }
 
 .dark {
-  --background: oklch(0.97 0.006 100);
-  --foreground: oklch(0.18 0.018 258);
+  --background: oklch(0.155 0.03 238);
+  --foreground: oklch(0.95 0.012 220);
 
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.18 0.018 258);
+  --card: oklch(0.2 0.032 238);
+  --card-foreground: oklch(0.95 0.012 220);
 
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.18 0.018 258);
+  --popover: oklch(0.2 0.032 238);
+  --popover-foreground: oklch(0.95 0.012 220);
 
-  --primary: oklch(0.43 0.12 166);
-  --primary-foreground: oklch(1 0 0);
+  --primary: oklch(0.8 0.12 205);
+  --primary-foreground: oklch(0.15 0.03 238);
 
-  --secondary: oklch(0.93 0.012 166);
-  --secondary-foreground: oklch(0.18 0.018 258);
+  --secondary: oklch(0.27 0.035 238);
+  --secondary-foreground: oklch(0.95 0.012 220);
 
-  --muted: oklch(0.94 0.009 100);
-  --muted-foreground: oklch(0.47 0.02 258);
+  --muted: oklch(0.235 0.03 238);
+  --muted-foreground: oklch(0.73 0.03 230);
 
-  --accent: oklch(0.91 0.03 166);
-  --accent-foreground: oklch(0.18 0.018 258);
+  --accent: oklch(0.3 0.05 215);
+  --accent-foreground: oklch(0.95 0.012 220);
 
-  --destructive: oklch(0.66 0.19 25);
-  --destructive-foreground: oklch(0.96 0.003 261);
+  --destructive: oklch(0.62 0.2 27);
+  --destructive-foreground: oklch(0.985 0 0);
 
-  --success: oklch(0.47 0.13 166);
+  --success: oklch(0.82 0.15 160);
+  --highlight: oklch(0.83 0.14 80);
 
-  --border: oklch(0.86 0.012 258);
-  --input: oklch(0.86 0.012 258);
-  --ring: oklch(0.43 0.12 166);
+  --border: oklch(0.35 0.04 238);
+  --input: oklch(0.35 0.04 238);
+  --ring: oklch(0.8 0.12 205);
 }
 
 @theme inline {
@@ -96,6 +101,7 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-success: var(--success);
+  --color-highlight: var(--highlight);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -103,9 +109,12 @@
   --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo,
+    Consolas, monospace;
+
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
   --radius-xl: calc(var(--radius) + 4px);
 
   --container-8xl: 90rem;
@@ -183,34 +192,53 @@
   }
 }
 
-/* Fundo sutil do Hero — puramente decorativo, baixíssimo contraste */
-.hero-grid {
+/* Fundo "papel milimetrado" da página: linhas finas, quase invisíveis. */
+body {
   background-image:
-    linear-gradient(to right, var(--border) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 15%, transparent 75%);
-  opacity: 0.32;
+    linear-gradient(to right, color-mix(in oklch, var(--border) 38%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--border) 38%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-attachment: fixed;
 }
 
-.signal-map::before {
-  content: "";
-  position: absolute;
-  inset: -35%;
-  background: radial-gradient(circle, color-mix(in oklch, var(--primary) 15%, transparent), transparent 58%);
-  pointer-events: none;
-}
-
-.signal-line {
+/* Planta de integração (hero) */
+.planta-fluxo {
   fill: none;
   stroke: var(--primary);
-  stroke-width: 1.35;
-  stroke-dasharray: 4 3;
-  opacity: 0.7;
+  stroke-width: 1.4;
+  opacity: 0.55;
 }
+.planta-pacote {
+  fill: none;
+  stroke: var(--highlight);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 3 41;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .planta-pacote { animation: planta-pacote 3.2s linear infinite; }
+  @keyframes planta-pacote { to { stroke-dashoffset: -44; } }
+}
+.planta-no { cursor: pointer; outline: none; }
+.planta-no rect { fill: var(--card); stroke: var(--border); stroke-width: 1.2; transition: stroke 0.2s, fill 0.2s; }
+.planta-no[data-ativo="true"] rect,
+.planta-no:hover rect,
+.planta-no:focus-visible rect { stroke: var(--primary); fill: color-mix(in oklch, var(--primary) 10%, var(--card)); }
+.planta-titulo { fill: var(--foreground); font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; }
+.planta-detalhe { fill: var(--muted-foreground); font-family: var(--font-mono); font-size: 8px; }
+.planta-cota { fill: var(--muted-foreground); font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.12em; }
 
-.signal-node-ring { fill: transparent; stroke: color-mix(in oklch, var(--primary) 45%, transparent); stroke-width: 1; }
-.signal-node-core { fill: color-mix(in oklch, var(--primary) 12%, var(--card)); stroke: var(--primary); stroke-width: 1; }
-.signal-node-title { fill: var(--foreground); font-size: 7px; font-weight: 700; letter-spacing: 0.08em; }
-.signal-node-detail { fill: var(--muted-foreground); font-size: 5.4px; }
+/* Marcas de canto de planta nos cards de projeto */
+.card-planta { position: relative; }
+.card-planta::before,
+.card-planta::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 0 solid var(--primary);
+  opacity: 0.7;
+  pointer-events: none;
+}
+.card-planta::before { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: var(--radius-lg); }
+.card-planta::after { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: var(--radius-lg); }

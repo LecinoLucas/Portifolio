@@ -12,9 +12,17 @@ describe("<App />", () => {
 
   it("expõe as seções-âncora esperadas", () => {
     const { container } = render(<App />);
-    for (const id of ["sobre", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
+    for (const id of ["sobre", "experiencia", "investigacao", "projetos", "les", "tecnologias", "contato"]) {
       expect(container.querySelector(`#${id}`), id).not.toBeNull();
     }
+  });
+
+  it("exibe o caso real sem afirmar causa raiz nem correção específicas", () => {
+    render(<App />);
+    expect(screen.getByText(/^caso real$/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/investigação de inconsistência financeira no totvs protheus/i),
+    ).toBeInTheDocument();
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

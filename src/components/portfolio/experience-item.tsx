@@ -8,12 +8,15 @@ interface PropsExperienceItem {
   atraso?: number;
   /** Último item da timeline — não desenha o segmento de conector abaixo. */
   ultimo?: boolean;
+  /** Detalhes (destaques e tags) já abertos; os demais ficam recolhidos. */
+  aberto?: boolean;
 }
 
 export function ExperienceItem({
   experiencia,
   atraso = 0,
   ultimo = false,
+  aberto = false,
 }: PropsExperienceItem) {
   const ehDirecao = experiencia.tipo === "direcao";
 
@@ -57,19 +60,24 @@ export function ExperienceItem({
           {experiencia.resumo}
         </p>
 
-        <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm text-muted-foreground">
-          {experiencia.destaques.map((destaque) => (
-            <li key={destaque}>{destaque}</li>
-          ))}
-        </ul>
-
-        <div className="mt-4 flex flex-wrap gap-1.5">
-          {experiencia.tags.map((tag) => (
-            <Badge key={tag} variante="neutro">
-              {tag}
-            </Badge>
-          ))}
-        </div>
+        <details open={aberto} className="group mt-3">
+          <summary className="cursor-pointer select-none font-mono text-xs text-primary marker:content-none hover:underline">
+            <span className="group-open:hidden">+ ver detalhes</span>
+            <span className="hidden group-open:inline">− ocultar detalhes</span>
+          </summary>
+          <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm text-muted-foreground">
+            {experiencia.destaques.map((destaque) => (
+              <li key={destaque}>{destaque}</li>
+            ))}
+          </ul>
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {experiencia.tags.map((tag) => (
+              <Badge key={tag} variante="neutro" className="font-mono">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        </details>
       </Reveal>
     </li>
   );

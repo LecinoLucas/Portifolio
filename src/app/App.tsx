@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/sections/hero";
 import { About } from "@/sections/about";
 import { Experience } from "@/sections/experience";
+import { Investigation } from "@/sections/investigation";
 import { Projects } from "@/sections/projects";
 import { Les } from "@/sections/les";
 import { Principles } from "@/sections/principles";
@@ -26,6 +27,7 @@ export function App() {
         <Hero />
         <About />
         <Experience />
+        <Investigation />
         <Projects />
         <Les />
         <Principles />

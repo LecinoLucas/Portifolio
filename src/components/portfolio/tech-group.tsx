@@ -1,22 +1,30 @@
-import { Card } from "@/components/ui/card";
-import type { GrupoTecnologia } from "@/types";
+interface PropsTechGroup {
+  rotulo: string;
+  itens: string[];
+  numero?: string;
+  descricao?: string;
+}
 
-export function TechGroup({ grupo }: { grupo: GrupoTecnologia }) {
+/** Linha de tecnologia: rótulo (com etapa opcional) à esquerda, itens à direita. */
+export function TechGroup({ rotulo, itens, numero, descricao }: PropsTechGroup) {
   return (
-    <Card className="p-5">
-      <h3 className="text-sm font-semibold uppercase tracking-[0.1em] text-primary">
-        {grupo.dominio}
-      </h3>
-      <ul className="mt-3 flex flex-wrap gap-x-2 gap-y-1.5 text-sm text-muted-foreground">
-        {grupo.itens.map((item, indice) => (
-          <li key={item} className="flex items-center gap-2">
-            {indice > 0 ? (
-              <span aria-hidden="true" className="size-1 rounded-full bg-border" />
-            ) : null}
-            {item}
-          </li>
-        ))}
-      </ul>
-    </Card>
+    <div className="grid gap-2 border-b border-border py-4 sm:grid-cols-[13rem_1fr] sm:gap-6">
+      <div>
+        <dt className="font-mono text-sm font-semibold text-primary">
+          {numero ? <span className="mr-2 text-muted-foreground">{numero}</span> : null}
+          {rotulo}
+        </dt>
+        {descricao ? <p className="mt-0.5 text-xs text-muted-foreground">{descricao}</p> : null}
+      </div>
+      <dd>
+        <ul className="flex flex-wrap gap-1.5">
+          {itens.map((item) => (
+            <li key={item} className="rounded-md border border-border bg-card px-2 py-1 font-mono text-xs">
+              {item}
+            </li>
+          ))}
+        </ul>
+      </dd>
+    </div>
   );
 }

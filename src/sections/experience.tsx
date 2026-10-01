@@ -11,7 +11,7 @@ export function Experience() {
       <SectionHeading
         rotulo="Experiência"
         titulo="Trajetória profissional"
-        descricao="De suporte técnico à análise de sistemas corporativos, e agora ampliando para o desenvolvimento de aplicações usadas em produção."
+        descricao="De suporte técnico remoto à análise e sustentação de sistemas corporativos, com desenvolvimento de aplicações usadas em produção."
       />
 
       <ol className="mt-12 space-y-10">

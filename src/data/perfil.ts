@@ -2,25 +2,25 @@ import type { Perfil } from "@/types";
 
 export const perfil: Perfil = {
   nome: "Lecino Lucas",
-  titulo: "Analista de Sistemas & Desenvolvedor Full Stack",
+  titulo: "Analista de Sistemas · Sustentação N2/N3 · SQL · Integrações bancárias",
 
   headline:
-    "Base sólida em análise de sistemas corporativos e ERP, ampliada pelo desenvolvimento de aplicações reais em produção. Conecto negócio, dados e tecnologia para resolver problemas concretos.",
+    "Investigo incidentes até a causa raiz em sistemas corporativos, com SQL, TOTVS Protheus e integrações bancárias. Também desenvolvo sistemas reais em produção, o que aproxima usuários, negócio e tecnologia.",
 
-  localizacao: "Goiás · Brasil",
-  disponibilidade: "Aberto a novas oportunidades",
+  localizacao: "Goiânia · GO",
+  disponibilidade: "Disponível para novas oportunidades",
 
   bio: [
-    "Sou Analista de Sistemas com base em sistemas corporativos, TOTVS Protheus, processos de negócio, SQL e integrações. Minha principal força está na combinação de negócio + sistemas empresariais + suporte/implantação + dados + desenvolvimento.",
-    "Minha trajetória começou em suporte técnico, passou por implantação de sistemas e evoluiu para análise de sistemas corporativos. Mais recentemente, ampliei minha atuação para o desenvolvimento de software, participando da construção e entrega de aplicações corporativas utilizadas em produção.",
-    "Tenho cerca de 6 meses de experiência prática em desenvolvimento, com 2 sistemas corporativos entregues em produção. Entender a regra de negócio antes de escrever código é o que orienta o meu trabalho.",
+    "Sou Analista de Sistemas formado pela PUC Goiás, com experiência em sustentação de sistemas corporativos, suporte técnico e funcional e implantação de sistemas. Meu foco é investigar problemas: análise de incidentes, troubleshooting e consultas SQL (PostgreSQL e SQL Server) até chegar à causa raiz.",
+    "Atuei no ERP TOTVS Protheus nos processos financeiros, contábeis, fiscais e de compras, com parametrização, testes, homologação e documentação, e em integrações bancárias com APIs REST, CNAB, boletos, DDA, VAN, certificados digitais, OAuth2 e mTLS.",
+    "Minha trajetória começou em suporte técnico, passou por implantação de sistemas e supervisão de equipe e chegou à análise de sistemas corporativos. Em paralelo, desenvolvo sistemas reais em TypeScript, React, Node.js e PostgreSQL, com projetos em produção. Entender a regra de negócio antes de escrever código é o que orienta o meu trabalho.",
   ],
 
   fatos: [
-    { rotulo: "Perfil", valor: "Negócio + Sistemas corporativos + Desenvolvimento" },
-    { rotulo: "ERP", valor: "TOTVS Protheus P12 — financeiro, contábil, fiscal, compras, TMS" },
+    { rotulo: "Perfil", valor: "Sustentação N2/N3 · negócio · dados · desenvolvimento" },
+    { rotulo: "ERP", valor: "TOTVS Protheus — financeiro, contábil, fiscal, compras" },
     { rotulo: "Dados", valor: "SQL · diagnóstico de inconsistências · modelagem relacional" },
-    { rotulo: "Integrações", valor: "APIs REST · APIs bancárias Itaú · OAuth2 · mTLS · CNAB" },
+    { rotulo: "Integrações", valor: "APIs REST · CNAB · boletos · DDA · VAN · OAuth2 · mTLS" },
     { rotulo: "Desenvolvimento", valor: "React · TypeScript · Node.js · PostgreSQL · Prisma" },
     { rotulo: "Direção atual", valor: "Engenharia de software + IA aplicada (em evolução)" },
   ],

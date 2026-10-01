@@ -26,7 +26,9 @@ export const tecnologias: GrupoTecnologia[] = [
     itens: [
       "APIs bancárias (Itaú)",
       "OAuth2 · mTLS",
-      "CNAB / Boletos",
+      "CNAB / Boletos / DDA",
+      "VAN bancária",
+      "Certificados digitais",
       "XML NFe",
       "Rotinas agendadas",
     ],
@@ -37,7 +39,7 @@ export const tecnologias: GrupoTecnologia[] = [
   },
   {
     dominio: "DevOps & Ferramentas",
-    itens: ["Git", "GitHub", "Docker", "CI de build", "Cloudflare Pages"],
+    itens: ["Git", "GitHub", "Docker", "CI de build", "Google Cloud Run"],
   },
   {
     dominio: "Engenharia & Processo",

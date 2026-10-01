@@ -13,14 +13,14 @@ import {
 } from "@/app/theme-context";
 
 function lerTemaInicial(): Tema {
-  if (typeof window === "undefined") return "light";
+  if (typeof window === "undefined") return "dark";
   try {
     const armazenado = window.localStorage.getItem(CHAVE_TEMA);
     if (armazenado === "light" || armazenado === "dark") return armazenado;
   } catch {
-    /* localStorage indisponível — segue para preferência do SO */
+    /* localStorage indisponível — usa o tema padrão */
   }
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "dark"; // identidade principal; o visitante pode alternar
 }
 
 export function ProvedorTema({ children }: { children: ReactNode }) {

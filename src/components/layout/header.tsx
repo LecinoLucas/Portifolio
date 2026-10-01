@@ -31,7 +31,7 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between gap-4">
         <a
           href="#topo"
-          className="rounded-md text-sm font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="rounded-md font-mono text-sm font-semibold tracking-tight focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Lecino&nbsp;Lucas
           <span className="ml-2 hidden text-xs font-normal text-muted-foreground sm:inline">

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portifolio-475271784563.southamerica-east1.run.app/sitemap.xml
+Sitemap: https://lecinolucas.web.app/sitemap.xml

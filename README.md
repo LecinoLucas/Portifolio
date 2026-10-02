@@ -17,7 +17,7 @@ React 19 · Vite 6 · TypeScript · Tailwind CSS v4 · shadcn/ui (fundação) ·
 | `npm test` | Testes (Vitest) |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | Checagem de tipos sem emitir |
-| `npm run set-domain -- https://seudominio.com` | Define o domínio real nos metadados de SEO |
+| `npm run set-domain -- https://seudominio.com` | Troca o endereço do site (SEO e currículo) pelo novo; ver `docs/decisoes/0002-endereco-firebase-hosting.md` |
 
 ## Governança LES
 

@@ -6,7 +6,6 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/sections/hero";
 import { About } from "@/sections/about";
 import { Experience } from "@/sections/experience";
-import { Investigation } from "@/sections/investigation";
 import { Projects } from "@/sections/projects";
 import { Les } from "@/sections/les";
 import { Principles } from "@/sections/principles";
@@ -39,7 +38,6 @@ export function App() {
       <main id="conteudo">
         <Visao id="inicio" ativa={ativa}><Hero aoIr={ir} /></Visao>
         <Visao id="sobre" ativa={ativa}><About /></Visao>
-        <Visao id="investigacao" ativa={ativa}><Investigation /></Visao>
         <Visao id="experiencia" ativa={ativa}><Experience aoIr={ir} /></Visao>
         <Visao id="projetos" ativa={ativa}><Projects /></Visao>
         <Visao id="tecnologias" ativa={ativa}><TechStack /></Visao>

@@ -17,16 +17,16 @@ describe("<App />", () => {
 
   it("expõe as seções-âncora esperadas", () => {
     const { container } = render(<App />);
-    for (const id of ["inicio", "sobre", "investigacao", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
+    for (const id of ["inicio", "sobre", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
       expect(container.querySelector(`#${id}`), id).not.toBeNull();
     }
   });
 
-  it("apresenta as investigações como rotina, com FK5 entre as tabelas", () => {
-    render(<App />);
-    expect(screen.getByText(/exemplo de investigação/i)).toBeInTheDocument();
-    expect(screen.getAllByText("FK5").length).toBeGreaterThan(0);
-    expect(screen.queryByText(/causa identificada/i)).toBeNull();
+  it("a aba Investigações está desativada, mas links antigos levam à Experiência", () => {
+    window.history.replaceState(null, "", "/#investigacao");
+    const { container } = render(<App />);
+    expect(container.querySelector('[data-visao="investigacao"]')).toBeNull();
+    expect(container.querySelector<HTMLElement>('[data-visao="experiencia"]')?.hidden).toBe(false);
   });
 
   it("não cita P12 em lugar nenhum", () => {
@@ -37,7 +37,7 @@ describe("<App />", () => {
   it("tem barra de navegação fixa com um link para cada seção", () => {
     render(<App />);
     const barra = screen.getByRole("navigation", { name: "Seções" });
-    expect(barra.querySelectorAll('a[href^="#"]').length).toBe(8);
+    expect(barra.querySelectorAll('a[href^="#"]').length).toBe(7);
   });
 
   it("mostra uma seção por vez ao clicar na barra", () => {
@@ -92,7 +92,7 @@ describe("<App />", () => {
   it("o sumário 3D do Início leva às abas", () => {
     const { container } = render(<App />);
     const sumario = screen.getByRole("navigation", { name: "Sumário do portfólio" });
-    expect(sumario.querySelectorAll('a[href^="#"]').length).toBe(7);
+    expect(sumario.querySelectorAll('a[href^="#"]').length).toBe(6);
     fireEvent.click(sumario.querySelector('a[href="#experiencia"]') as HTMLElement);
     expect(container.querySelector<HTMLElement>('[data-visao="experiencia"]')?.hidden).toBe(false);
   });

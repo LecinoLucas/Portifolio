@@ -7,7 +7,7 @@ import { links } from "@/data/links";
 
 export function Hero() {
   return (
-    <section id="topo" className="relative overflow-hidden">
+    <section id="inicio" className="relative overflow-hidden">
       <Container className="py-16 sm:py-24 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16">
           <div className="max-w-3xl">

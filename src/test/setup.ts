@@ -34,3 +34,6 @@ if (!window.IntersectionObserver) {
   window.IntersectionObserver =
     IntersectionObserverFalso as unknown as typeof IntersectionObserver;
 }
+
+// jsdom não implementa scrollTo — usado ao trocar de visão na barra de navegação.
+window.scrollTo = vi.fn() as unknown as typeof window.scrollTo;

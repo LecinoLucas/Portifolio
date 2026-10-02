@@ -1,8 +1,12 @@
-import { describe, expect, it } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { beforeEach, describe, expect, it } from "vitest";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { App } from "@/app/App";
 
 describe("<App />", () => {
+  beforeEach(() => {
+    window.history.replaceState(null, "", "/");
+  });
+
   it("renderiza o nome como título principal (h1)", () => {
     render(<App />);
     expect(
@@ -12,7 +16,7 @@ describe("<App />", () => {
 
   it("expõe as seções-âncora esperadas", () => {
     const { container } = render(<App />);
-    for (const id of ["sobre", "investigacao", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
+    for (const id of ["inicio", "sobre", "investigacao", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
       expect(container.querySelector(`#${id}`), id).not.toBeNull();
     }
   });
@@ -29,10 +33,24 @@ describe("<App />", () => {
     expect(container.textContent).not.toMatch(/\bP12\b/);
   });
 
-  it("tem sumário lateral com link para cada seção", () => {
+  it("tem barra de navegação fixa com um link para cada seção", () => {
     render(<App />);
-    const sumario = screen.getByRole("navigation", { name: "Sumário" });
-    expect(sumario.querySelectorAll('a[href^="#"]').length).toBe(7);
+    const barra = screen.getByRole("navigation", { name: "Seções" });
+    expect(barra.querySelectorAll('a[href^="#"]').length).toBe(8);
+  });
+
+  it("mostra uma seção por vez ao clicar na barra", () => {
+    const { container } = render(<App />);
+    const visao = (id: string) => container.querySelector<HTMLElement>(`[data-visao="${id}"]`);
+    expect(visao("inicio")?.hidden).toBe(false);
+    expect(visao("projetos")?.hidden).toBe(true);
+
+    fireEvent.click(screen.getByRole("link", { name: "Projetos" }));
+
+    expect(visao("projetos")?.hidden).toBe(false);
+    expect(visao("inicio")?.hidden).toBe(true);
+    expect(window.location.hash).toBe("#projetos");
+    expect(screen.getByRole("link", { name: "Projetos" })).toHaveAttribute("aria-current", "page");
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

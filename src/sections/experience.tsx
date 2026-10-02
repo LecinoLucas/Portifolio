@@ -1,6 +1,7 @@
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
+import { Rotulo } from "@/components/shared/rotulo";
 import { ExperienceItem } from "@/components/portfolio/experience-item";
 import { experiencias } from "@/data/experiencias";
 import { formacao } from "@/data/formacao";
@@ -27,9 +28,7 @@ export function Experience() {
       </ol>
 
       <Reveal className="mt-14">
-        <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary">
-          // formação
-        </h3>
+        <Rotulo>formação</Rotulo>
         <ul className="mt-4 space-y-3">
           {formacao.map((item) => (
             <li

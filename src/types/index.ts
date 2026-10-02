@@ -6,8 +6,20 @@ export interface Perfil {
   headline: string;
   localizacao: string;
   disponibilidade: string;
-  bio: { rotulo: string; texto: string }[];
-  fatos: { rotulo: string; valor: string }[];
+}
+
+export interface Sobre {
+  abertura: string;
+  /** Pontos fortes, no card de resumo. */
+  resumo: string[];
+  principios: { titulo: string; texto: string }[];
+  historia: { quando: string; texto: string }[];
+  /** Como a pessoa trabalha no dia a dia (intensidade, foco). */
+  ritmo: string;
+  alemDoTrabalho: string;
+  rumo: string;
+  /** Fecho: trabalho em equipe. */
+  equipe: string;
 }
 
 export interface LinkExterno {

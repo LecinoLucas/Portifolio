@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Rotulo } from "@/components/shared/rotulo";
 import { cn } from "@/lib/utils";
 
 interface PropsSectionHeading {
@@ -25,10 +26,7 @@ export function SectionHeading({
         className,
       )}
     >
-      <span className="font-mono text-sm font-medium uppercase tracking-[0.14em] text-primary">
-        {"// "}
-        {rotulo}
-      </span>
+      <Rotulo como="span">{rotulo}</Rotulo>
       <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">{titulo}</h2>
       {descricao ? (
         <p

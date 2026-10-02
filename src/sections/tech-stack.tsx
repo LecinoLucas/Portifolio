@@ -1,6 +1,7 @@
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
+import { Rotulo } from "@/components/shared/rotulo";
 import { TechGroup } from "@/components/portfolio/tech-group";
 import { fluxoTecnologias, tecnologias } from "@/data/tecnologias";
 
@@ -22,7 +23,7 @@ export function TechStack() {
       </Reveal>
 
       <Reveal className="mt-12">
-        <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary">// desenvolvimento de aplicações</h3>
+        <Rotulo>desenvolvimento de aplicações</Rotulo>
         <dl className="mt-2 border-t border-border">
           {tecnologias.map((grupo) => (
             <TechGroup key={grupo.dominio} rotulo={grupo.dominio} itens={grupo.itens} />

@@ -1,4 +1,5 @@
 import { ArrowRight, Download, Github, Linkedin } from "lucide-react";
+import { Rotulo } from "@/components/shared/rotulo";
 import { PlantaIntegracao } from "@/components/portfolio/planta-integracao";
 import { Container } from "@/components/layout/container";
 import { classesBotao } from "@/components/ui/button-variants";
@@ -16,7 +17,7 @@ export function Hero() {
               <span className="size-1.5 rounded-full bg-success" />
               {perfil.disponibilidade} · {perfil.localizacao}
             </p>
-            <p className="mt-8 font-mono text-sm uppercase tracking-[0.22em] text-muted-foreground">// portfólio · 2026</p>
+            <Rotulo como="p" className="mt-8 text-muted-foreground">portfólio · 2026</Rotulo>
             <h1 className="texto-gradiente mt-3 text-6xl font-extrabold tracking-[-0.05em] sm:text-7xl lg:text-8xl">{perfil.nome}</h1>
             <p className="mt-5 max-w-xl font-mono text-xl font-semibold leading-snug text-primary sm:text-2xl">{perfil.titulo}</p>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-foreground/85 sm:text-xl">{perfil.headline}</p>

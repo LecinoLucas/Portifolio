@@ -53,6 +53,25 @@ describe("<App />", () => {
     expect(screen.getByRole("link", { name: "Projetos" })).toHaveAttribute("aria-current", "page");
   });
 
+  it("Sobre mim traz a regra de negócio, a história e fecha com o trabalho em equipe", () => {
+    const { container } = render(<App />);
+    const sobre = container.querySelector("#sobre");
+    const rotulos = Array.from(sobre?.querySelectorAll("h3") ?? []).map((h) => h.textContent);
+    expect(rotulos).toEqual(["como eu penso", "minha história", "meu ritmo", "além do trabalho", "para onde vou", "em equipe", "em resumo"]);
+    expect(sobre?.textContent).toContain("Regra de negócio primeiro");
+    expect(sobre?.textContent).toContain("Entender o projeto por inteiro");
+  });
+
+  it("não fala em sintaxe no Sobre mim", () => {
+    const { container } = render(<App />);
+    expect(container.querySelector("#sobre")?.textContent).not.toMatch(/sintaxe/i);
+  });
+
+  it("não usa mais as duas barras (//) como marcador de rótulo", () => {
+    const { container } = render(<App />);
+    expect(container.textContent).not.toMatch(/\/\/ [a-zà-ú]/i);
+  });
+
   it("tem link de pular para o conteúdo (acessibilidade)", () => {
     render(<App />);
     expect(

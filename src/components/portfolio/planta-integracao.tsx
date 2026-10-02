@@ -38,10 +38,10 @@ export function PlantaIntegracao() {
   return (
     <figure className="relative min-w-0 rounded-lg border border-border bg-card/80 p-4 shadow-xl shadow-black/10 backdrop-blur sm:p-6">
       <div className="flex items-center justify-between gap-3">
-        <figcaption className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-primary">
+        <figcaption className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
           Planta · integração bancária
         </figcaption>
-        <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-muted-foreground">
+        <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-muted-foreground">
           fluxo ilustrativo
         </span>
       </div>
@@ -79,7 +79,7 @@ export function PlantaIntegracao() {
         {atual.descricao}
       </p>
 
-      <pre aria-hidden="true" className="mt-3 overflow-x-auto rounded-md border border-border bg-background/70 p-3 font-mono text-[0.68rem] leading-relaxed text-muted-foreground">
+      <pre aria-hidden="true" className="mt-3 overflow-x-auto rounded-md border border-border bg-background/70 p-3 font-mono text-xs leading-relaxed text-muted-foreground">
         <code>
 {`$ conciliar --periodo exemplo
 título 000123   baixa 000123   extrato   `}<span className="text-primary">OK</span>{`
@@ -87,7 +87,7 @@ título 000124   baixa 000124   extrato   `}<span className="text-primary">OK</s
 título 000125   baixa —        extrato   `}<span className="text-highlight">DIVERGENTE</span>
         </code>
       </pre>
-      <p className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-muted-foreground">
+      <p className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-muted-foreground">
         exemplo ilustrativo · dados fictícios
       </p>
     </figure>

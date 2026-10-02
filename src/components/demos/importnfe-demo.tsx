@@ -44,9 +44,9 @@ function Revisao({
       <ul className="space-y-3">
         {itensNota.map((item) => (
           <li key={item.id} className="rounded-lg border border-border p-3">
-            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">Descrição na NF-e</p>
+            <p className="text-xs uppercase tracking-wide text-muted-foreground">Descrição na NF-e</p>
             <p className="font-mono text-xs">{item.original}</p>
-            <label htmlFor={`sug-${item.id}`} className="mt-2 block text-[11px] uppercase tracking-wide text-muted-foreground">
+            <label htmlFor={`sug-${item.id}`} className="mt-2 block text-xs uppercase tracking-wide text-muted-foreground">
               Descrição para a planilha
             </label>
             <input
@@ -127,7 +127,7 @@ function Planilha({ descricoes }: { descricoes: Record<number, string> }) {
     <div className="space-y-3">
       <div className="flex flex-wrap items-end gap-3">
         <div className="min-w-44 flex-1">
-          <label htmlFor="modelo-planilha" className="text-[11px] uppercase tracking-wide text-muted-foreground">
+          <label htmlFor="modelo-planilha" className="text-xs uppercase tracking-wide text-muted-foreground">
             Modelo
           </label>
           <select id="modelo-planilha" className={classeCampo} value={modeloId} onChange={(e) => { setModeloId(e.target.value); setGerada(false); }}>
@@ -193,7 +193,7 @@ export function ImportNfeDemo() {
         {contadoresPainel.map((c) => (
           <div key={c.rotulo} className="rounded-lg border border-border p-2.5">
             <dd className="text-lg font-semibold">{c.valor}</dd>
-            <dt className="text-[11px] text-muted-foreground">{c.rotulo}</dt>
+            <dt className="text-xs text-muted-foreground">{c.rotulo}</dt>
           </div>
         ))}
       </dl>

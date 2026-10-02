@@ -22,7 +22,7 @@ export function RhPipeline({ candidatos, aoMover }: Props) {
           const proxima = etapas[indice + 1];
           return (
             <section key={etapa.id} aria-label={etapa.rotulo} className="w-44 shrink-0 rounded-lg border border-border bg-muted/30 p-2">
-              <h4 className="mb-2 flex items-center justify-between text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
+              <h4 className="mb-2 flex items-center justify-between text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {etapa.rotulo}
                 <span>{lista.length}</span>
               </h4>

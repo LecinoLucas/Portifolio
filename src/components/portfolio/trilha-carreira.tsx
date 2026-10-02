@@ -12,6 +12,26 @@ interface PropsTrilha {
   aoIr: (id: string) => void;
 }
 
+/** Item de "o que eu fazia": o rótulo antes de ": " ganha destaque, para ler rápido. */
+function Destaque({ texto }: { texto: string }) {
+  const corte = texto.indexOf(": ");
+  const temRotulo = corte > 0 && corte <= 32;
+  return (
+    <li className="flex gap-3 rounded-lg border border-border bg-background/50 p-3.5 leading-relaxed">
+      <Check aria-hidden="true" className="mt-1 size-4 shrink-0 text-primary" />
+      <span className="text-foreground/85">
+        {temRotulo ? (
+          <>
+            <strong className="font-semibold text-foreground">{texto.slice(0, corte)}.</strong> {texto.slice(corte + 2)}
+          </>
+        ) : (
+          texto
+        )}
+      </span>
+    </li>
+  );
+}
+
 /** Trilha clicável da carreira: cada parada abre um painel detalhado. */
 export function TrilhaCarreira({ etapas, inicial = 0, aoIr }: PropsTrilha) {
   const base = useId();
@@ -68,6 +88,7 @@ export function TrilhaCarreira({ etapas, inicial = 0, aoIr }: PropsTrilha) {
                   <span className="sm:hidden">{item.trilhaCurta}</span>
                   <span className="hidden sm:inline">{item.trilha}</span>
                 </span>
+                <span className="text-[0.7rem] leading-tight text-muted-foreground sm:text-xs">{item.duracao}</span>
               </button>
             );
           })}
@@ -75,37 +96,38 @@ export function TrilhaCarreira({ etapas, inicial = 0, aoIr }: PropsTrilha) {
       </div>
 
       <div key={etapa.id} role="tabpanel" id={`${base}-painel`} aria-labelledby={`${base}-aba-${ativo}`} className="painel-entra mt-8 rounded-lg border border-primary/40 bg-card p-5 shadow-lg shadow-black/10 sm:p-8">
-        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr]">
           <div>
             <h3 className="text-2xl font-bold tracking-tight sm:text-3xl">{etapa.cargo}</h3>
             <p className="mt-1 font-mono text-sm text-primary">{etapa.organizacao}</p>
             <p className="mt-4 text-lg leading-relaxed text-foreground/85">{etapa.resumo}</p>
 
-            <Rotulo className="mt-6">o que eu fazia</Rotulo>
-            <ul className="mt-3 space-y-2.5">
+            <Rotulo className="mt-7">o que eu fazia</Rotulo>
+            <ul className="mt-4 space-y-3">
               {etapa.destaques.map((destaque) => (
-                <li key={destaque} className="flex gap-3 leading-relaxed text-foreground/85">
-                  <Check aria-hidden="true" className="mt-1 size-4 shrink-0 text-primary" />
-                  {destaque}
-                </li>
+                <Destaque key={destaque} texto={destaque} />
               ))}
             </ul>
-
-            <blockquote className="mt-6 border-l-2 border-highlight pl-4">
-              <p className="font-mono text-xs uppercase tracking-[0.14em] text-highlight">o que levei dali</p>
-              <p className="mt-1 text-lg font-medium">{etapa.levei}</p>
-            </blockquote>
           </div>
 
-          <div className="space-y-6">
-            <dl className="grid gap-3">
-              {etapa.numeros.map((n) => (
-                <div key={n.rotulo} className="rounded-lg border border-border bg-background/60 p-4">
-                  <dt className="texto-gradiente text-4xl font-extrabold tracking-tight">{n.valor}</dt>
-                  <dd className="mt-1 text-sm text-muted-foreground">{n.rotulo}</dd>
-                </div>
-              ))}
-            </dl>
+          <div className="space-y-5">
+            <div className="rounded-lg border border-primary/40 bg-background/60 p-5">
+              <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">tempo nesta etapa</p>
+              <p className="texto-gradiente mt-1 text-4xl font-extrabold leading-tight tracking-tight">{etapa.duracao}</p>
+              <p className="mt-1 font-mono text-sm text-primary">{etapa.quando}</p>
+            </div>
+
+            {etapa.numeros.length > 0 ? (
+              <dl className="grid gap-3">
+                {etapa.numeros.map((n) => (
+                  <div key={n.rotulo} className="rounded-lg border border-border bg-background/60 p-4">
+                    <dt className="texto-gradiente text-3xl font-extrabold tracking-tight">{n.valor}</dt>
+                    <dd className="mt-1 text-sm text-muted-foreground">{n.rotulo}</dd>
+                  </div>
+                ))}
+              </dl>
+            ) : null}
+
             <div>
               <Rotulo>ferramentas</Rotulo>
               <ul className="mt-3 flex flex-wrap gap-1.5">

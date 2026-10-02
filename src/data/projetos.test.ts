@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { projetos, projetoPorSlug, projetosDestaque } from "@/data/projetos";
-import { carreira } from "@/data/experiencias";
+import { carreira, formatarMeses, resumoExperiencia, totalMesesTI } from "@/data/experiencias";
 import { formacao } from "@/data/formacao";
 import { tecnologias } from "@/data/tecnologias";
 
@@ -52,20 +52,35 @@ describe("situação e demonstrações", () => {
 });
 
 describe("dados de apoio", () => {
-  it("cada etapa da carreira tem destaques, ferramentas e números", () => {
+  it("cada etapa tem destaques, ferramentas e duração", () => {
     expect(carreira.length).toBeGreaterThan(0);
     for (const etapa of carreira) {
       expect(etapa.destaques.length, etapa.id).toBeGreaterThan(0);
       expect(etapa.ferramentas.length, etapa.id).toBeGreaterThan(0);
-      expect(etapa.numeros.length, etapa.id).toBeGreaterThan(0);
-      expect(etapa.levei, etapa.id).toBeTruthy();
+      expect(etapa.duracao, etapa.id).toBeTruthy();
     }
   });
 
-  it("a carreira termina em desenvolvimento e inclui a Rede Marajó", () => {
-    expect(carreira[carreira.length - 1].id).toBe("desenvolvimento");
-    expect(carreira.some((e) => e.organizacao.includes("Rede Marajó"))).toBe(true);
-    expect(carreira.some((e) => e.id === "desenvolvimento" && (e.sistemas?.length ?? 0) > 0)).toBe(true);
+  it("a duração vem das datas e a soma de TI dá 4 anos e 2 meses (Pioneira não conta)", () => {
+    expect(formatarMeses(28)).toBe("2 anos e 4 meses");
+    expect(formatarMeses(7)).toBe("7 meses");
+    expect(formatarMeses(15)).toBe("1 ano e 3 meses");
+    expect(totalMesesTI).toBe(50);
+    expect(formatarMeses(totalMesesTI)).toBe("4 anos e 2 meses");
+    expect(resumoExperiencia.anosTI).toBe("4+");
+    expect(carreira.find((e) => e.id === "pioneira")?.ti).toBeFalsy();
+  });
+
+  it("a síntese 'levei' não é exibida enquanto o autor não aprovar", () => {
+    for (const etapa of carreira) expect(etapa.levei, etapa.id).toBeUndefined();
+  });
+
+  it("a carreira termina na Rede Marajó, com os sistemas entregues em paralelo (etapa de desenvolvimento desativada)", () => {
+    const ultima = carreira[carreira.length - 1];
+    expect(ultima.id).toBe("marajo");
+    expect(ultima.organizacao).toContain("Rede Marajó");
+    expect(ultima.sistemas?.length ?? 0).toBeGreaterThan(0);
+    expect(carreira.some((e) => e.id === "desenvolvimento")).toBe(false);
   });
 
   it("etapas têm período com ano ou marcador de hoje (sem placeholders)", () => {

@@ -1,8 +1,19 @@
 import type { EtapaCarreira } from "@/types";
 
+/** Formata meses como "2 anos e 4 meses". */
+export function formatarMeses(meses: number): string {
+  const anos = Math.floor(meses / 12);
+  const resto = meses % 12;
+  const a = anos ? `${anos} ${anos === 1 ? "ano" : "anos"}` : "";
+  const m = resto ? `${resto} ${resto === 1 ? "mês" : "meses"}` : "";
+  return [a, m].filter(Boolean).join(" e ");
+}
+
 /**
- * Carreira em ordem cronológica, terminando em desenvolvimento.
+ * Carreira em ordem cronológica, terminando na Rede Marajó.
  * Só números e fatos informados pelo autor ou presentes no currículo.
+ * Durações calculadas das datas (sem arredondar para cima).
+ * Cada destaque pode começar com "Rótulo: " para facilitar a leitura.
  */
 export const carreira: EtapaCarreira[] = [
   {
@@ -10,69 +21,67 @@ export const carreira: EtapaCarreira[] = [
     trilha: "Atento",
     trilhaCurta: "Atento",
     quando: "2016–2018",
+    meses: 28, // abr/2016 a ago/2018
+    duracao: formatarMeses(28),
+    ti: true,
     cargo: "Operador Técnico de Suporte",
-    organizacao: "Atento · Operação Vivo (call center de suporte técnico)",
+    organizacao: "Atento · Operação Vivo (call center de suporte técnico) · abr/2016 a ago/2018",
     resumo:
       "O início da trajetória em tecnologia: atendimento técnico por telefone e chat a clientes da Vivo Internet, com diagnóstico remoto de falhas.",
-    numeros: [
-      { valor: "2016", rotulo: "início na tecnologia" },
-      { valor: "Telefone + chat", rotulo: "canais de atendimento" },
-    ],
+    numeros: [],
     destaques: [
-      "Diagnóstico de falhas de conectividade, dados, modem e roteador.",
-      "Orientação passo a passo a usuários leigos na configuração de acesso e na resolução de problemas.",
+      "Diagnóstico: falhas de conectividade, dados, modem e roteador.",
+      "Atendimento: orientação passo a passo a usuários leigos na configuração de acesso e na resolução de problemas, por telefone e chat.",
     ],
-    ferramentas: ["Suporte técnico", "Diagnóstico remoto", "Atendimento ao usuário"],
-    levei: "Escutar o usuário com calma e diagnosticar o problema à distância, em linguagem simples.",
+    ferramentas: ["Suporte técnico", "Diagnóstico remoto", "Telefone e chat", "Atendimento ao usuário"],
   },
   {
     id: "i5",
     trilha: "I5 Sistemas",
     trilhaCurta: "I5",
     quando: "2022",
+    meses: 7, // abr/2022 a nov/2022
+    duracao: formatarMeses(7),
+    ti: true,
     cargo: "Analista de Suporte de TI / Implantação de Sistemas",
     organizacao: "I5 Sistemas · abr/2022 a nov/2022",
     resumo:
       "Implantação e suporte de sistemas desktop e web, acompanhando configuração, testes, validação, treinamento e entrada em operação junto aos usuários.",
-    numeros: [
-      { valor: "Go-live", rotulo: "acompanhei a entrada em operação" },
-      { valor: "Desktop + web", rotulo: "sistemas implantados" },
-    ],
+    numeros: [],
     destaques: [
-      "Implantação e configuração de sistemas junto às áreas de negócio.",
-      "Testes, validação e treinamento de usuários até a entrada em operação.",
-      "Levantamento de regras de negócio e tratamento de incidentes pós-implantação.",
+      "Implantação: configuração de sistemas desktop e web junto às áreas de negócio.",
+      "Validação: testes, validação e treinamento de usuários até a entrada em operação (go-live).",
+      "Pós-implantação: levantamento de regras de negócio e tratamento de incidentes.",
     ],
-    ferramentas: ["Implantação", "Testes funcionais", "Treinamento", "Regras de negócio"],
-    levei: "Ver um sistema entrar em operação e treinar quem vai usá-lo.",
+    ferramentas: ["Implantação", "Desktop e web", "Testes funcionais", "Treinamento", "Regras de negócio"],
   },
   {
     id: "pioneira",
     trilha: "Pioneira Colchões",
     trilhaCurta: "Pioneira",
     quando: "2022–2025",
+    duracao: "cerca de 3 anos",
     cargo: "Supervisor de Vendas e Auxiliar Administrativo",
-    organizacao: "Pioneira Colchões",
+    organizacao: "Pioneira Colchões · 2022 a 2025",
     resumo:
       "Supervisão da equipe de vendas e rotinas administrativas e financeiras, o que trouxe visão de negócio e de atendimento ao cliente para a atuação em sistemas.",
-    numeros: [
-      { valor: "3 anos", rotulo: "liderando equipe e rotinas" },
-      { valor: "CRM", rotulo: "clientes e processo de vendas" },
-    ],
+    numeros: [],
     destaques: [
-      "Supervisão da equipe de vendas, da qualidade do atendimento e treinamentos de qualidade.",
-      "Uso de CRM no acompanhamento de clientes e do processo de vendas.",
-      "Rotinas financeiras: contas a pagar, contas a receber e fluxo de caixa.",
-      "Gestão do Instagram da empresa: atendimento via direct e análise de desempenho.",
+      "Liderança: supervisão da equipe de vendas, da qualidade do atendimento e treinamentos de qualidade.",
+      "Clientes: uso de CRM no acompanhamento de clientes e do processo de vendas.",
+      "Financeiro: contas a pagar, contas a receber e fluxo de caixa.",
+      "Redes sociais: gestão do Instagram da empresa, com atendimento via direct e análise de desempenho.",
     ],
     ferramentas: ["Liderança de equipe", "CRM", "Contas a pagar e a receber", "Fluxo de caixa"],
-    levei: "O negócio visto por dentro: vendas, financeiro e liderança de equipe.",
   },
   {
     id: "marajo",
     trilha: "Rede Marajó",
     trilhaCurta: "Marajó",
     quando: "2025–2026",
+    meses: 15, // mai/2025 a ago/2026
+    duracao: formatarMeses(15),
+    ti: true,
     cargo: "Analista de Sistemas / Sistemas Corporativos",
     organizacao: "Rede Marajó · mai/2025 a ago/2026",
     resumo:
@@ -84,14 +93,13 @@ export const carreira: EtapaCarreira[] = [
       { valor: "2", rotulo: "sistemas entregues em paralelo à sustentação" },
     ],
     destaques: [
-      "TOTVS Protheus: suporte funcional nos processos financeiros (contas a pagar e a receber), contábeis, fiscais e de compras.",
-      "Consultas SQL para investigar inconsistências, validar dados e identificar a causa raiz de incidentes.",
-      "Parametrização do sistema a partir do levantamento de regras de negócio, com testes, homologação e documentação.",
-      "Integrações bancárias com CNAB de pagamento e de recebimento: Santander, Votorantim e Sicoob via VAN, e Itaú via API de extrato.",
-      "Acompanhamento das rotinas via VAN bancária, gestão de certificados digitais (extrato e boletos) e consulta e integração de extratos bancários.",
+      "Protheus: suporte funcional nos processos financeiros (contas a pagar e a receber), contábeis, fiscais e de compras.",
+      "SQL: consultas para investigar inconsistências, validar dados e identificar a causa raiz de incidentes.",
+      "Parametrização: a partir do levantamento de regras de negócio, com testes, homologação e documentação.",
+      "Integrações bancárias: CNAB de pagamento e de recebimento (Santander, Votorantim e Sicoob via VAN) e Itaú via API de extrato.",
+      "VAN e certificados: acompanhamento das rotinas via VAN bancária e gestão de certificados digitais (extrato e boletos), com consulta e integração de extratos bancários.",
     ],
     ferramentas: ["TOTVS Protheus", "SQL", "CNAB", "VAN bancária", "API de extrato", "Certificados digitais", "mTLS"],
-    levei: "Protheus, SQL e integrações bancárias, investigando cada incidente até a causa raiz.",
     tituloSistemas: "entregues em paralelo à sustentação",
     sistemas: [
       {
@@ -108,11 +116,33 @@ export const carreira: EtapaCarreira[] = [
       },
     ],
   },
-  {
+];
+
+/** Soma dos períodos de TI (Atento + I5 + Rede Marajó), a partir das datas. */
+export const totalMesesTI = carreira.reduce((soma, e) => soma + (e.ti ? (e.meses ?? 0) : 0), 0);
+
+/** Resumo do topo: números verdadeiros, calculados ou informados pelo autor. */
+export const resumoExperiencia = {
+  anosTI: `${Math.floor(totalMesesTI / 12)}+`,
+  anosTIDetalhe: `${formatarMeses(totalMesesTI)} somando Atento, I5 e Rede Marajó`,
+  destaques: [
+    { valor: "~20", rotulo: "chamados por dia no help desk" },
+    { valor: "4", rotulo: "bancos integrados" },
+    { valor: "2", rotulo: "sistemas entregues em paralelo" },
+  ],
+};
+
+/**
+ * Etapa "Hoje · Desenvolvimento": DESATIVADA na trilha (não está em `carreira`).
+ * Terminar a trilha em desenvolvimento podia sugerir que a pessoa não quer
+ * suporte, e os projetos reais já têm a própria aba. Guardada para voltar.
+ */
+export const etapaDesenvolvimento: EtapaCarreira = {
     id: "desenvolvimento",
     trilha: "Desenvolvimento",
     trilhaCurta: "Dev",
     quando: "Hoje",
+    duracao: "Em andamento",
     cargo: "Desenvolvimento de sistemas",
     organizacao: "Em transição para o desenvolvimento",
     resumo:
@@ -136,5 +166,4 @@ export const carreira: EtapaCarreira[] = [
       { titulo: "Portal de RH", situacao: "Entregue", texto: "Recrutamento e admissão, com análise por IA e integração com o Protheus." },
       { titulo: "Sistema de Gestão de Clínica", situacao: "Em construção", texto: "Agenda, financeiro e protocolos com IA, com bot de atendimento via WhatsApp." },
     ],
-  },
-];
+};

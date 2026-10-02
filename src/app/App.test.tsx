@@ -124,14 +124,23 @@ describe("<App />", () => {
     expect(texto).toContain("53 filiais");
   });
 
-  it("a Experiência diz que o BankingProtheus foi feito para a Rede Marajó e que a Clínica está em construção", () => {
+  it("a Experiência diz que o BankingProtheus foi feito para a Rede Marajó", () => {
     const { container } = render(<App />);
-    const experiencia = container.querySelector("#experiencia")?.textContent ?? "";
-    expect(experiencia).toMatch(/feito para a Rede Marajó/i);
-    const abas = Array.from(container.querySelectorAll('#experiencia [role="tab"]'));
-    fireEvent.click(abas[abas.length - 1]);
-    const dev = container.querySelector("#experiencia")?.textContent ?? "";
-    expect(dev).toMatch(/Clínica[\s\S]*Em construção/);
+    expect(container.querySelector("#experiencia")?.textContent ?? "").toMatch(/feito para a Rede Marajó/i);
+  });
+
+  it("Experiência é uma trilha clicável que termina na Rede Marajó, sem etapa Hoje/Desenvolvimento", () => {
+    const { container } = render(<App />);
+    const experiencia = container.querySelector("#experiencia") as HTMLElement;
+    const abas = Array.from(experiencia.querySelectorAll('[role="tab"]'));
+    expect(abas.length).toBe(4);
+    expect(abas[abas.length - 1].textContent).toMatch(/Marajó/);
+    expect(experiencia.textContent).toContain("~20");
+    expect(experiencia.textContent).toContain("4+ anos");
+    expect(experiencia.textContent).toContain("1 ano e 3 meses");
+    expect(experiencia.textContent).not.toMatch(/o que levei dali|Em transição para o desenvolvimento|Hoje/);
+    fireEvent.click(abas[0]);
+    expect(experiencia.textContent).toContain("Operador Técnico de Suporte");
   });
 
   it("a etapa da Marajó destaca os dois sistemas entregues em paralelo, sem citar horas extras", () => {
@@ -164,6 +173,18 @@ describe("<App />", () => {
     }
     expect(aba).toContain("evoluindo para pleno");
     expect(aba).not.toMatch(/arquitetura (do|de) protheus/i);
+  });
+
+  it("LES tem o padrão, três princípios e os links; Contato tem o e-mail como principal", () => {
+    const { container } = render(<App />);
+    const les = container.querySelector('[data-visao="les"]')?.textContent ?? "";
+    expect(les).toContain("Meu padrão de engenharia");
+    const cards = Array.from(container.querySelectorAll("#principios h3")).filter((h) => !/princípios/i.test(h.textContent ?? ""));
+    expect(cards.length).toBe(3);
+    expect(les).toContain("Ver no GitHub");
+    const contato = container.querySelector("#contato");
+    expect(contato?.querySelector('a[href^="mailto:"]')).not.toBeNull();
+    expect(contato?.textContent).toContain("Suporte Especializado (N2/N3)");
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

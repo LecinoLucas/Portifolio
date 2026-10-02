@@ -37,9 +37,9 @@ export function Sumario3D({ aoIr }: { aoIr: (id: string) => void }) {
 
   return (
     <nav aria-label="Sumário do portfólio">
-      <ul className="sumario-3d grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+      <ul className="sumario-3d grid grid-cols-2 gap-4 sm:grid-cols-3">
         {itens.map((item, indice) => (
-          <li key={item.id} className={indice === 0 ? "col-span-2 sm:col-span-1" : undefined}>
+          <li key={item.id}>
             <Cartao item={item} indice={indice} aoIr={aoIr} />
           </li>
         ))}

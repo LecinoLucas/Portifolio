@@ -9,7 +9,8 @@ export interface ItemNav {
 export const itensNav: ItemNav[] = [
   { id: "inicio", rotulo: "Início" },
   { id: "sobre", rotulo: "Sobre mim", descricao: "Quem eu sou e como penso" },
-  { id: "investigacao", rotulo: "Investigações", descricao: "O que investigo no dia a dia" },
+  // "Investigações" está desativada (repetia a Experiência). O código segue em
+  // src/sections/investigation.tsx e src/data/investigacao.ts, pronto para voltar.
   { id: "experiencia", rotulo: "Experiência", descricao: "Minha trajetória" },
   { id: "projetos", rotulo: "Projetos", descricao: "Sistemas e demonstrações" },
   { id: "tecnologias", rotulo: "Tecnologias", descricao: "O que uso e o que estou aprendendo" },
@@ -18,7 +19,7 @@ export const itensNav: ItemNav[] = [
 ];
 
 /** Âncoras antigas ou internas que apontam para uma visão existente. */
-const apelidos: Record<string, string> = { topo: "inicio", principios: "les" };
+const apelidos: Record<string, string> = { topo: "inicio", principios: "les", investigacao: "experiencia" };
 
 /** Converte um hash (#id) em id de visão; retorna null se não for uma visão. */
 export function visaoDoHash(hash: string): string | null {

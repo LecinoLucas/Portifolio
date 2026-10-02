@@ -1,10 +1,17 @@
+import { Check } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
+import { Rotulo } from "@/components/shared/rotulo";
 import { sobre } from "@/data/sobre";
 
-function Rotulo({ children }: { children: string }) {
-  return <h3 className="font-mono text-sm uppercase tracking-[0.14em] text-primary">{`// ${children}`}</h3>;
+function Paragrafo({ rotulo, texto }: { rotulo: string; texto: string }) {
+  return (
+    <Reveal>
+      <Rotulo>{rotulo}</Rotulo>
+      <p className="mt-3 text-lg leading-relaxed text-foreground/85">{texto}</p>
+    </Reveal>
+  );
 }
 
 export function About() {
@@ -16,11 +23,6 @@ export function About() {
         <div className="space-y-10">
           <Reveal>
             <p className="text-2xl font-semibold leading-snug tracking-tight sm:text-3xl">{sobre.abertura}</p>
-          </Reveal>
-
-          <Reveal>
-            <Rotulo>quem sou</Rotulo>
-            <p className="mt-3 text-lg leading-relaxed text-foreground/85">{sobre.quemSou}</p>
           </Reveal>
 
           <Reveal>
@@ -41,28 +43,30 @@ export function About() {
           </Reveal>
 
           <Reveal>
-            <Rotulo>meu ritmo</Rotulo>
-            <p className="mt-3 text-lg leading-relaxed text-foreground/85">{sobre.ritmo}</p>
+            <Rotulo>minha história</Rotulo>
+            <ol className="mt-4 space-y-4">
+              {sobre.historia.map((etapa) => (
+                <li key={etapa.quando} className="grid gap-1 sm:grid-cols-[8rem_1fr] sm:gap-4">
+                  <span className="font-mono text-sm text-primary">{etapa.quando}</span>
+                  <p className="leading-relaxed text-foreground/85">{etapa.texto}</p>
+                </li>
+              ))}
+            </ol>
           </Reveal>
 
-          <Reveal>
-            <Rotulo>para onde vou</Rotulo>
-            <p className="mt-3 text-lg leading-relaxed text-foreground/85">{sobre.rumo}</p>
-          </Reveal>
-
-          <Reveal>
-            <Rotulo>em equipe</Rotulo>
-            <p className="mt-3 text-lg leading-relaxed text-foreground/85">{sobre.equipe}</p>
-          </Reveal>
+          <Paragrafo rotulo="meu ritmo" texto={sobre.ritmo} />
+          <Paragrafo rotulo="além do trabalho" texto={sobre.alemDoTrabalho} />
+          <Paragrafo rotulo="para onde vou" texto={sobre.rumo} />
+          <Paragrafo rotulo="em equipe" texto={sobre.equipe} />
         </div>
 
         <Reveal atraso={80}>
-          <aside className="rounded-lg border border-border bg-card p-5 lg:sticky lg:top-24">
+          <aside className="rounded-lg border border-primary/40 bg-card p-6 shadow-lg shadow-black/10 lg:sticky lg:top-24">
             <Rotulo>em resumo</Rotulo>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-5 space-y-4">
               {sobre.resumo.map((item) => (
-                <li key={item} className="flex gap-3 text-base">
-                  <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
+                <li key={item} className="flex items-start gap-3 text-lg font-semibold leading-snug">
+                  <Check aria-hidden="true" className="mt-1 size-5 shrink-0 text-primary" />
                   {item}
                 </li>
               ))}

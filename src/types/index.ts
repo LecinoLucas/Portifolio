@@ -10,14 +10,16 @@ export interface Perfil {
 
 export interface Sobre {
   abertura: string;
-  quemSou: string;
+  /** Pontos fortes, no card de resumo. */
+  resumo: string[];
   principios: { titulo: string; texto: string }[];
+  historia: { quando: string; texto: string }[];
   /** Como a pessoa trabalha no dia a dia (intensidade, foco). */
   ritmo: string;
+  alemDoTrabalho: string;
   rumo: string;
   /** Fecho: trabalho em equipe. */
   equipe: string;
-  resumo: string[];
 }
 
 export interface LinkExterno {

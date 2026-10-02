@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Reveal } from "@/components/shared/reveal";
+import { Rotulo } from "@/components/shared/rotulo";
 import { Badge } from "@/components/ui/badge";
 import type { CasoReal } from "@/types";
 
@@ -26,7 +27,7 @@ function Lista({ itens }: { itens: string[] }) {
 export function ExemploInvestigacao({ caso }: { caso: CasoReal }) {
   return (
     <Reveal className="mt-14">
-      <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary">// exemplo de investigação</h3>
+      <Rotulo>exemplo de investigação</Rotulo>
       <p className="mt-3 text-lg font-semibold">{caso.titulo}</p>
       <p className="mt-1 text-xs text-muted-foreground">
         Um exemplo da rotina, para mostrar o método. Não é um incidente único.

@@ -3,10 +3,16 @@ import type { Sobre } from "@/types";
 /** Conteúdo da aba "Sobre mim". Em primeira pessoa, sem repetir ideias entre blocos. */
 export const sobre: Sobre = {
   abertura:
-    "Analista de Sistemas em Goiânia. Calmo, muito esforçado e focado em entender o que o sistema precisa fazer antes de escrever qualquer linha.",
+    "Analista de Sistemas que entende a regra de negócio antes de escrever qualquer linha. Muito focado, esforçado e de equipe.",
 
-  quemSou:
-    "Moro em Goiânia, sou casado e pai de um filho, e a família é o que me move. Sou comunicativo e paciente: foram anos atendendo usuários, e isso me ensinou a explicar um problema técnico em linguagem simples.",
+  resumo: [
+    "Regra de negócio antes do código",
+    "O básico bem feito",
+    "Muito focado e esforçado",
+    "Trabalho em equipe e comunicação",
+    "Arquitetura de sistemas, não sintaxe",
+    "Atendimento a usuários desde 2016",
+  ],
 
   principios: [
     {
@@ -29,20 +35,23 @@ export const sobre: Sobre = {
     },
   ],
 
+  historia: [
+    { quando: "2016", texto: "Atento: comecei no suporte técnico remoto da Vivo Internet, por telefone e chat, diagnosticando falhas com usuários leigos." },
+    { quando: "2022", texto: "I5 Sistemas: implantação e suporte de sistemas corporativos, com testes, go-live e treinamento de usuários." },
+    { quando: "2022–2025", texto: "Pioneira Colchões: supervisionei uma equipe de vendas e cuidei de rotinas financeiras, o que me deu o negócio visto por dentro." },
+    { quando: "2025–2026", texto: "Rede Marajó: sustentação do TOTVS Protheus e integrações bancárias, investigando incidentes até a causa raiz." },
+    { quando: "Em paralelo", texto: "Construo sistemas próprios. Um deles roda em produção e foi vendido a uma distribuidora." },
+  ],
+
   ritmo:
     "Sou muito focado e esforçado, às vezes demais: trabalho com intensidade e fico ansioso para entregar bem. Estou aprendendo a equilibrar isso com organização e prioridade, porque o esforço rende mais quando está bem direcionado.",
+
+  alemDoTrabalho:
+    "Moro em Goiânia, sou casado e pai de um filho, e a família é o que me move. Sou calmo, comunicativo e paciente, e foram os anos atendendo usuários que me ensinaram a explicar um problema técnico em linguagem simples.",
 
   rumo:
     "Analista de Sistemas ou de Suporte Especializado (N2/N3), crescendo em arquitetura, integração de sistemas e IA aplicada.",
 
   equipe:
-    "Gosto de trabalhar em equipe. Já supervisionei uma equipe de vendas, treinei usuários e atendi áreas de negócio no dia a dia. Um sistema só funciona bem quando as pessoas que o usam e o mantêm conversam entre si.",
-
-  resumo: [
-    "Goiânia · casado · pai de um filho",
-    "Calmo, esforçado, focado e paciente",
-    "Regra de negócio e arquitetura de sistemas",
-    "Trabalho em equipe e comunicação com usuários",
-    "Disponível para novas oportunidades",
-  ],
+    "Gosto de trabalhar em equipe e acredito nisso na prática: já supervisionei uma equipe de vendas, treinei usuários e atendi áreas de negócio todos os dias. Um sistema só funciona bem quando quem o usa e quem o mantém conversam entre si.",
 };

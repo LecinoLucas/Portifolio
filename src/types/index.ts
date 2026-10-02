@@ -3,7 +3,9 @@
 export interface Perfil {
   nome: string;
   titulo: string;
-  headline: string;
+  destaque: string;
+  /** Apresentação do Início, uma ideia por linha. */
+  apresentacao: string[];
   localizacao: string;
   disponibilidade: string;
 }
@@ -13,11 +15,7 @@ export interface Sobre {
   /** Pontos fortes, no card de resumo. */
   resumo: string[];
   principios: { titulo: string; texto: string }[];
-  historia: { quando: string; texto: string }[];
-  /** Como a pessoa trabalha no dia a dia (intensidade, foco). */
-  ritmo: string;
   alemDoTrabalho: string;
-  rumo: string;
   /** Fecho: trabalho em equipe. */
   equipe: string;
 }
@@ -54,16 +52,23 @@ export interface Projeto {
   links?: LinkExterno[];
 }
 
-export interface Experiencia {
+export interface EtapaCarreira {
+  id: string;
+  /** Rótulos da trilha: completo (telas largas) e curto (celular). */
+  trilha: string;
+  trilhaCurta: string;
+  quando: string;
   cargo: string;
   organizacao: string;
-  periodo: string;
-  atual?: boolean;
-  /** "direcao" = direção de evolução profissional, não um cargo. */
-  tipo?: "cargo" | "direcao";
   resumo: string;
+  /** Somente números reais, informados pelo autor. */
+  numeros: { valor: string; rotulo: string }[];
   destaques: string[];
-  tags: string[];
+  ferramentas: string[];
+  /** O que a pessoa levou desta etapa para as seguintes. */
+  levei: string;
+  /** Sistemas construídos (etapa de desenvolvimento). */
+  sistemas?: { titulo: string; situacao: string; texto: string }[];
 }
 
 export interface Formacao {

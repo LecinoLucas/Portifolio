@@ -262,3 +262,49 @@ body {
     radial-gradient(60% 55% at 85% 20%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 70%),
     radial-gradient(45% 45% at 10% 90%, color-mix(in oklab, var(--highlight) 10%, transparent), transparent 70%);
 }
+
+/* Sumário 3D do Início */
+.sumario-3d { perspective: 1100px; }
+.cartao-3d {
+  position: relative;
+  overflow: hidden;
+  min-height: 9.5rem;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.18s ease-out, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 10px 30px -12px color-mix(in oklab, var(--primary) 30%, transparent);
+}
+.cartao-3d:hover,
+.cartao-3d:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 22px 44px -14px color-mix(in oklab, var(--primary) 55%, transparent);
+}
+.cartao-3d-conteudo { transform: translateZ(34px); }
+.cartao-3d-brilho {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), color-mix(in oklab, var(--primary) 28%, transparent), transparent 65%);
+}
+.cartao-3d:hover .cartao-3d-brilho { opacity: 1; }
+
+/* Em telas de toque não há ponteiro para inclinar: os cartões flutuam suavemente. */
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  .cartao-3d { animation: cartao-flutua 5s ease-in-out infinite; }
+  @keyframes cartao-flutua {
+    0%, 100% { transform: rotateX(4deg) rotateY(-4deg) translateY(0); }
+    50% { transform: rotateX(-4deg) rotateY(4deg) translateY(-4px); }
+  }
+}
+
+/* Trilha da carreira: linha de progresso e entrada do painel */
+.trilha-progresso { transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+@media (prefers-reduced-motion: no-preference) {
+  .painel-entra { animation: painel-entra 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes painel-entra {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+}

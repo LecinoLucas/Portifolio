@@ -53,13 +53,13 @@ describe("<App />", () => {
     expect(screen.getByRole("link", { name: "Projetos" })).toHaveAttribute("aria-current", "page");
   });
 
-  it("Sobre mim traz a regra de negócio, a história e fecha com o trabalho em equipe", () => {
+  it("Sobre mim é curto, traz a regra de negócio e fecha com o trabalho em equipe", () => {
     const { container } = render(<App />);
     const sobre = container.querySelector("#sobre");
     const rotulos = Array.from(sobre?.querySelectorAll("h3") ?? []).map((h) => h.textContent);
-    expect(rotulos).toEqual(["como eu penso", "minha história", "meu ritmo", "além do trabalho", "para onde vou", "em equipe", "em resumo"]);
+    expect(rotulos).toEqual(["como eu penso", "além do trabalho", "em equipe", "em resumo"]);
     expect(sobre?.textContent).toContain("Regra de negócio primeiro");
-    expect(sobre?.textContent).toContain("Entender o projeto por inteiro");
+    expect(sobre?.textContent).toContain("Regra de negócio primeiro");
   });
 
   it("não fala em sintaxe no Sobre mim", () => {
@@ -72,6 +72,69 @@ describe("<App />", () => {
     expect(container.textContent).not.toMatch(/\/\/ [a-zà-ú]/i);
   });
 
+  it("o Início apresenta formação, transição para o desenvolvimento e o que busca", () => {
+    const { container } = render(<App />);
+    const inicio = container.querySelector("#inicio")?.textContent ?? "";
+    expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
+    expect(inicio).toContain("PUC Goiás");
+    expect(inicio).toContain("em transição para o desenvolvimento");
+    expect(inicio).toContain("suporte especializado e integração de sistemas e APIs");
+  });
+
+  it("o Início não usa etiqueta de nível (júnior / 6 meses)", () => {
+    const { container } = render(<App />);
+    const inicio = container.querySelector("#inicio")?.textContent ?? "";
+    expect(inicio).not.toMatch(/júnior/i);
+    expect(inicio).not.toMatch(/6 meses/);
+  });
+
+  it("o sumário 3D do Início leva às abas", () => {
+    const { container } = render(<App />);
+    const sumario = screen.getByRole("navigation", { name: "Sumário do portfólio" });
+    expect(sumario.querySelectorAll('a[href^="#"]').length).toBe(7);
+    fireEvent.click(sumario.querySelector('a[href="#experiencia"]') as HTMLElement);
+    expect(container.querySelector<HTMLElement>('[data-visao="experiencia"]')?.hidden).toBe(false);
+  });
+
+  it("não cita DDA e descreve o CNAB de pagamento e de recebimento", () => {
+    const { container } = render(<App />);
+    const texto = container.textContent ?? "";
+    expect(texto).not.toMatch(/\bDDA\b/);
+    expect(texto).toContain("CNAB de pagamento");
+    expect(texto).toContain("CNAB de recebimento");
+  });
+
+  it("BankingProtheus é a renovação automática de certificados do Itaú, não conciliação", () => {
+    const { container } = render(<App />);
+    const projetos = container.querySelector("#projetos")?.textContent ?? "";
+    expect(projetos).toContain("renova automaticamente os certificados do Itaú");
+    expect(projetos).not.toMatch(/concilia/i);
+  });
+
+  it("BankingProtheus e Portal de Engenharia constam em produção na Rede Marajó, com as 53 filiais", () => {
+    const { container } = render(<App />);
+    const projetos = container.querySelector("#projetos")?.textContent ?? "";
+    expect(projetos).toContain("53 filiais");
+    expect(projetos).toContain("Em produção na Rede Marajó");
+    expect(projetos).not.toContain("dezenas de filiais");
+  });
+
+  it("Experiência é uma trilha clicável que termina em Desenvolvimento", () => {
+    const { container } = render(<App />);
+    const experiencia = container.querySelector("#experiencia") as HTMLElement;
+    const abas = Array.from(experiencia.querySelectorAll('[role="tab"]'));
+    expect(abas.length).toBe(5);
+    expect(abas[abas.length - 1].textContent).toMatch(/Desenvolvimento|Dev/);
+    // abre na Rede Marajó
+    expect(experiencia.textContent).toContain("~20");
+    fireEvent.click(abas[abas.length - 1]);
+    expect(experiencia.textContent).toContain("Em transição para o desenvolvimento");
+    expect(experiencia.textContent).toContain("BankingProtheus");
+    expect(experiencia.textContent).toContain("53");
+    fireEvent.click(abas[0]);
+    expect(experiencia.textContent).toContain("Operador Técnico de Suporte");
+  });
+
   it("tem link de pular para o conteúdo (acessibilidade)", () => {
     render(<App />);
     expect(
@@ -81,7 +144,7 @@ describe("<App />", () => {
 
   it("mostra os títulos dos projetos em destaque", () => {
     render(<App />);
-    expect(screen.getByText("Conciliação Bancária Itaú")).toBeInTheDocument();
+    expect(screen.getAllByText("BankingProtheus").length).toBeGreaterThan(0);
     // Aparece no card e no cabeçalho da seção LES — basta existir.
     expect(
       screen.getAllByText(/Lecino Lucas Engineering Standard \(LES\)/).length,

@@ -33,7 +33,7 @@
 
 <h2>Resumo profissional</h2>
 <p>Analista de Sistemas formado pela PUC Goiás, com experiência em sustentação de sistemas corporativos, suporte técnico e funcional e implantação de sistemas. Especialista em investigar incidentes até a causa raiz, usando consultas SQL (PostgreSQL e SQL Server), análise de logs e conhecimento das regras de negócio.</p>
-<p>Atuação no ERP <b>TOTVS Protheus</b> nos módulos financeiro (contas a pagar e a receber), contábil, fiscal e compras, com parametrização, testes, homologação e documentação. Experiência em <b>integrações bancárias</b>: APIs REST, arquivos CNAB, boletos, DDA, VAN bancária, OAuth2, mTLS e certificados digitais.</p>
+<p>Atuação no ERP <b>TOTVS Protheus</b> nos módulos financeiro (contas a pagar e a receber), contábil, fiscal e compras, com parametrização, testes, homologação e documentação. Experiência em <b>integrações bancárias</b>: CNAB de pagamento e de recebimento, VAN bancária, API de extrato, boletos, mTLS e certificados digitais.</p>
 <p>Desenvolve sistemas reais em produção com TypeScript, React, Node.js e PostgreSQL, o que aproxima usuários, áreas de negócio, desenvolvimento e banco de dados. Experiência anterior em supervisão de equipe e rotinas financeiras.</p>
 
 <h2>Objetivo profissional</h2>
@@ -49,9 +49,9 @@
   <li>Suporte funcional no ERP <b>TOTVS Protheus</b> nos processos financeiros (contas a pagar e a receber), contábeis, fiscais e de compras.</li>
   <li>Construção de <b>consultas SQL</b> para investigar inconsistências, validar dados e identificar a causa raiz de incidentes.</li>
   <li>Parametrização do sistema a partir do levantamento de regras de negócio, com testes, homologação e documentação.</li>
-  <li>Sustentação de <b>integrações bancárias</b> via APIs e arquivos CNAB (pagamentos e recebimentos, boletos e DDA) com Itaú, Santander, Sicoob e Votorantim.</li>
-  <li>Acompanhamento de rotinas via VAN bancária, gestão de <b>certificados digitais</b> para boletos e consulta e integração de extratos bancários.</li>
-  <li>Desenvolvimento de soluções internas em paralelo à sustentação (ver Projetos em Produção).</li>
+  <li>Sustentação de <b>integrações bancárias</b> com CNAB de pagamento e de recebimento: Santander, Votorantim e Sicoob via VAN, e Itaú via API de extrato.</li>
+  <li>Acompanhamento de rotinas via VAN bancária, gestão de <b>certificados digitais</b> (extrato e boletos) e consulta e integração de extratos bancários.</li>
+  <li>Desenvolvimento, em paralelo à sustentação, de sistemas usados na própria Rede Marajó: <b>BankingProtheus</b> e <b>Portal de Engenharia</b> (ver Projetos em Produção).</li>
 </ul>
 </div>
 
@@ -87,7 +87,7 @@
 <h3>Portal de Engenharia</h3>
 <p class="tags">React · TypeScript · Node.js · PostgreSQL · Prisma · REST APIs · Vite · Tailwind</p>
 <ul>
-  <li>Sistema de gestão de engenharia e obras, <b>em produção e usado por mais de 500 usuários</b>, com módulos de EAP, medições, cotações, fornecedores, documentos, chamados, checklist, dashboards e relatórios.</li>
+  <li>Sistema de gestão de engenharia e obras, <b>em produção na Rede Marajó e usado por mais de 500 usuários</b>, com módulos de EAP, medições, cotações, fornecedores, documentos, chamados, checklist, dashboards e relatórios.</li>
   <li>Levantamento de requisitos, modelagem de dados, frontend e backend, testes, sustentação e evolução da aplicação.</li>
   <li>Autenticação, controle de acesso por papéis (RBAC), auditoria, armazenamento de arquivos, integrações e recursos de IA.</li>
 </ul>
@@ -95,10 +95,10 @@
 
 <div class="bloco">
 <h3>BankingProtheus</h3>
-<p class="tags">APIs bancárias · SQL · OAuth2 · mTLS · Certificados digitais · Protheus</p>
+<p class="tags">APIs bancárias · mTLS · Certificados digitais · SQL · Protheus · Jobs agendados</p>
 <ul>
-  <li>Solução em produção de automação e integração bancária com as APIs do Itaú, com autenticação OAuth2 e mTLS.</li>
-  <li>Consultas SQL para conciliação e rastreabilidade das operações com o ERP.</li>
+  <li>Sistema em produção que <b>renova automaticamente os certificados do Itaú</b> (API de extrato e de boletos) das <b>53 filiais</b> da Rede Marajó, com job agendado e painel de vencimentos, sobre mTLS.</li>
+  <li>Substituiu a renovação manual, certificado por certificado, por um processo automático e monitorado.</li>
 </ul>
 </div>
 
@@ -126,7 +126,7 @@
 <p class="linha-comp"><b>Sustentação e análise:</b> análise de incidentes, troubleshooting, análise de causa raiz, investigação de inconsistências, regras de negócio, testes, homologação, implantação, suporte técnico e funcional, documentação.</p>
 <p class="linha-comp"><b>Dados:</b> SQL, PostgreSQL e SQL Server para investigação, validação e auditoria de dados.</p>
 <p class="linha-comp"><b>ERP e processos:</b> TOTVS Protheus (suporte funcional, parametrização e processos), contas a pagar e a receber, processos contábeis, fiscais e de compras.</p>
-<p class="linha-comp"><b>Integrações:</b> APIs REST, integrações bancárias, CNAB, boletos, DDA, VAN bancária, OAuth2, mTLS, certificados digitais, idempotência e rastreabilidade (correlation ID).</p>
+<p class="linha-comp"><b>Integrações:</b> APIs REST, integrações bancárias, CNAB (pagamento e recebimento), boletos, VAN bancária, API de extrato, mTLS, certificados digitais, idempotência e rastreabilidade (correlation ID).</p>
 <p class="linha-comp"><b>Desenvolvimento:</b> JavaScript, TypeScript, React, Node.js, PostgreSQL, Prisma, Git/GitHub, Docker.</p>
 <p class="linha-comp"><b>Em evolução:</b> Python, ADVPL (fundamentos), arquitetura de sistemas e IA aplicada.</p>
 

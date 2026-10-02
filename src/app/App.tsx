@@ -37,10 +37,10 @@ export function App() {
       <Header ativa={ativa} aoIr={ir} />
 
       <main id="conteudo">
-        <Visao id="inicio" ativa={ativa}><Hero /></Visao>
+        <Visao id="inicio" ativa={ativa}><Hero aoIr={ir} /></Visao>
         <Visao id="sobre" ativa={ativa}><About /></Visao>
         <Visao id="investigacao" ativa={ativa}><Investigation /></Visao>
-        <Visao id="experiencia" ativa={ativa}><Experience /></Visao>
+        <Visao id="experiencia" ativa={ativa}><Experience aoIr={ir} /></Visao>
         <Visao id="projetos" ativa={ativa}><Projects /></Visao>
         <Visao id="tecnologias" ativa={ativa}><TechStack /></Visao>
         <Visao id="les" ativa={ativa}>

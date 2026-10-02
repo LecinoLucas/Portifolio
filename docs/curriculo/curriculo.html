@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <title>Lecino Lucas Miranda de Souza — Analista de Sistemas</title>
 <style>
-  @page { size: A4; margin: 14mm 15mm 14mm 15mm; }
+  @page { size: A4; margin: 12mm 14mm 12mm 14mm; }
   * { box-sizing: border-box; }
-  body { font-family: "Liberation Sans", Arial, Helvetica, sans-serif; font-size: 9.6pt; line-height: 1.38; color: #1b1f24; margin: 0; }
+  body { font-family: "Liberation Sans", Arial, Helvetica, sans-serif; font-size: 9.1pt; line-height: 1.32; color: #1b1f24; margin: 0; }
   h1 { font-size: 21pt; margin: 0; color: #12305a; letter-spacing: .2px; }
   .titulo { color: #1f5fa8; font-weight: bold; font-size: 10.4pt; margin: 2px 0 4px; }
   .contato { color: #444; font-size: 9pt; }
   a { color: #1f5fa8; text-decoration: none; }
-  h2 { font-size: 10.6pt; color: #12305a; border-bottom: 1.2px solid #12305a; padding-bottom: 2px; margin: 12px 0 6px; text-transform: uppercase; letter-spacing: .4px; }
-  h3 { font-size: 10.2pt; margin: 8px 0 0; }
+  h2 { font-size: 10.6pt; color: #12305a; border-bottom: 1.2px solid #12305a; padding-bottom: 2px; margin: 9px 0 5px; text-transform: uppercase; letter-spacing: .4px; }
+  h3 { font-size: 9.8pt; margin: 6px 0 0; }
   .meta { color: #555; margin: 0 0 2px; }
   ul { margin: 2px 0 4px; padding-left: 15px; }
   li { margin: 1.5px 0; }
@@ -51,7 +51,7 @@
   <li>Parametrização do sistema a partir do levantamento de regras de negócio, com testes, homologação e documentação.</li>
   <li>Sustentação de <b>integrações bancárias</b> com CNAB de pagamento e de recebimento: Santander, Votorantim e Sicoob via VAN, e Itaú via API de extrato.</li>
   <li>Acompanhamento de rotinas via VAN bancária, gestão de <b>certificados digitais</b> (extrato e boletos) e consulta e integração de extratos bancários.</li>
-  <li>Desenvolvimento, em paralelo à sustentação, de sistemas usados na própria Rede Marajó: <b>BankingProtheus</b> e <b>Portal de Engenharia</b> (ver Projetos em Produção).</li>
+  <li>Em paralelo à sustentação, construí o <b>Portal de Engenharia</b> (em produção na Rede Marajó) e o <b>BankingProtheus</b>, feito para a Rede Marajó renovar automaticamente os certificados do Itaú das 53 filiais.</li>
 </ul>
 </div>
 
@@ -94,21 +94,32 @@
 </div>
 
 <div class="bloco">
+<h3>ImportNFe</h3>
+<p class="tags">Python · FastAPI · PostgreSQL · React · TypeScript</p>
+<ul>
+  <li><b>Sistema em produção</b>, rodando em servidor local e vendido a uma distribuidora: importa XML de NF-e, normaliza as descrições dos produtos e gera planilhas Excel por template.</li>
+  <li>Revisão dos itens com aliases por empresa ou globais e templates configuráveis, com logo.</li>
+</ul>
+</div>
+
+<div class="bloco">
 <h3>BankingProtheus</h3>
 <p class="tags">APIs bancárias · mTLS · Certificados digitais · SQL · Protheus · Jobs agendados</p>
 <ul>
-  <li>Sistema em produção que <b>renova automaticamente os certificados do Itaú</b> (API de extrato e de boletos) das <b>53 filiais</b> da Rede Marajó, com job agendado e painel de vencimentos, sobre mTLS.</li>
+  <li><b>Sistema em produção</b> que <b>renova automaticamente os certificados do Itaú</b> (API de extrato e de boletos) de uma rede de <b>53 filiais</b>, com job agendado e painel de vencimentos, sobre mTLS.</li>
   <li>Substituiu a renovação manual, certificado por certificado, por um processo automático e monitorado.</li>
 </ul>
 </div>
+
+<h2>Outros projetos</h2>
 
 <div class="bloco">
 <h3>Sistema de Gestão de Clínica</h3>
 <p class="tags">Node.js · PostgreSQL · Google Calendar API · WhatsApp Cloud API · API Brasil · Protheus</p>
 <ul>
-  <li>Sistema <b>em produção</b> de agenda e financeiro, com bot de atendimento via WhatsApp para consulta e criação de compromissos no Google Calendar.</li>
+  <li>Sistema <b>em construção</b> de agenda, financeiro e protocolos com IA, com bot de atendimento via WhatsApp para consulta e criação de compromissos no Google Calendar.</li>
   <li>Tratamento de fusos horários com conversões em UTC; integração com API Brasil e com dados e resultados do Protheus.</li>
-  <li>Evolução para gestão clínica ampla: pacientes, profissionais, permissões, documentos e recursos de IA.</li>
+  <li>Evolução para gestão clínica ampla: pacientes, profissionais, permissões e documentos.</li>
 </ul>
 </div>
 

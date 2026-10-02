@@ -1,7 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import type { Projeto } from "@/types";
 
-const ROTULOS = { producao: "Em produção", entregue: "Entregue" } as const;
+const ROTULOS = {
+  producao: "Em produção",
+  entregue: "Entregue",
+  construido: "Construído",
+  construcao: "Em construção",
+} as const;
 
 /** Selo com a situação real do projeto (em produção / entregue). */
 export function SeloSituacao({ projeto }: { projeto: Projeto }) {

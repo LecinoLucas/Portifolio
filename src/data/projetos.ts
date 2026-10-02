@@ -13,13 +13,12 @@ export const projetos: Projeto[] = [
     categoria: "Integração bancária · Certificados Itaú",
     destaque: true,
     situacao: "producao",
-    situacaoDetalhe: "Em produção na Rede Marajó.",
     resumo:
-      "Sistema que renova automaticamente os certificados do Itaú (API de extrato e API de boletos) das 53 filiais da Rede Marajó, com job de renovação e painel de vencimento, sobre mTLS.",
+      "Sistema que renova automaticamente os certificados do Itaú (API de extrato e API de boletos) de uma rede de 53 filiais, com job de renovação e painel de vencimento, sobre mTLS.",
     stack: ["APIs bancárias", "mTLS", "Certificados digitais", "SQL", "Protheus", "Jobs agendados", "Dashboard"],
     detalhe: {
       contexto:
-        "A Rede Marajó tem 53 filiais, e cada uma usa certificados digitais para as APIs do Itaú de extrato e de boletos. Os certificados vencem, e vários vencem em épocas próximas.",
+        "Uma rede de 53 filiais, cada uma com certificados digitais para as APIs do Itaú de extrato e de boletos. Os certificados vencem, e vários vencem em épocas próximas.",
       problema:
         "Renovar os certificados das 53 filiais um por um, de forma manual, chamando a API do banco a cada vez. Um certificado vencido interrompe a integração com o banco daquela filial.",
       participacao:
@@ -34,7 +33,7 @@ export const projetos: Projeto[] = [
         "Visibilidade: saber quantos dias faltam para cada certificado vencer antes que ele expire.",
       ],
       resultado:
-        "A renovação deixou de ser feita certificado por certificado e passou a acontecer sozinha, com um painel para acompanhar os vencimentos.",
+        "O sistema substitui a renovação manual, certificado por certificado, por um processo automático, com um painel para acompanhar os vencimentos.",
     },
   },
   {

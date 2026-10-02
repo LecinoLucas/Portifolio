@@ -88,6 +88,7 @@ export const carreira: EtapaCarreira[] = [
       "Parametrização do sistema a partir do levantamento de regras de negócio, com testes, homologação e documentação.",
       "Integrações bancárias com CNAB de pagamento e de recebimento: Santander, Votorantim e Sicoob via VAN, e Itaú via API de extrato.",
       "Acompanhamento das rotinas via VAN bancária, gestão de certificados digitais (extrato e boletos) e consulta e integração de extratos bancários.",
+      "Em paralelo à sustentação, construí o Portal de Engenharia (em produção na Rede Marajó, com mais de 500 usuários) e o BankingProtheus, feito para a Rede Marajó renovar automaticamente os certificados do Itaú das 53 filiais.",
     ],
     ferramentas: ["TOTVS Protheus", "SQL", "CNAB", "VAN bancária", "API de extrato", "Certificados digitais", "mTLS"],
     levei: "Protheus, SQL e integrações bancárias, investigando cada incidente até a causa raiz.",
@@ -102,9 +103,9 @@ export const carreira: EtapaCarreira[] = [
     resumo:
       "Em paralelo à sustentação, construo os sistemas que resolvem o que vejo na operação. Estou em transição para o desenvolvimento, e já com sistemas em produção.",
     numeros: [
-      { valor: "5", rotulo: "sistemas em produção ou entregues" },
+      { valor: "5", rotulo: "sistemas construídos ou em construção" },
+      { valor: "4", rotulo: "em produção ou entregues" },
       { valor: "500+", rotulo: "usuários no Portal de Engenharia" },
-      { valor: "53", rotulo: "filiais com certificados renovados automaticamente" },
     ],
     destaques: [
       "Arquitetura e regra de negócio antes do código.",
@@ -114,11 +115,11 @@ export const carreira: EtapaCarreira[] = [
     ferramentas: ["React", "TypeScript", "Node.js", "Python", "FastAPI", "PostgreSQL", "Docker"],
     levei: "Construo sabendo como o usuário sofre: a regra de negócio vem primeiro.",
     sistemas: [
-      { titulo: "BankingProtheus", situacao: "Em produção · Rede Marajó", texto: "Renova automaticamente os certificados do Itaú das 53 filiais." },
+      { titulo: "BankingProtheus", situacao: "Em produção", texto: "Renova automaticamente os certificados do Itaú de uma rede de 53 filiais." },
       { titulo: "Portal de Engenharia", situacao: "Em produção · Rede Marajó", texto: "Gestão de obras, chamados, fornecedores e cotações, com mais de 500 usuários." },
       { titulo: "ImportNFe", situacao: "Em produção · vendido a uma distribuidora", texto: "Importa XML de NF-e, normaliza os itens e gera planilhas por template." },
       { titulo: "Portal de RH", situacao: "Entregue", texto: "Recrutamento e admissão, com análise por IA e integração com o Protheus." },
-      { titulo: "Sistema de Gestão de Clínica", situacao: "Em produção", texto: "Agenda e financeiro, com bot de atendimento via WhatsApp." },
+      { titulo: "Sistema de Gestão de Clínica", situacao: "Em construção", texto: "Agenda, financeiro e protocolos com IA, com bot de atendimento via WhatsApp." },
     ],
   },
 ];

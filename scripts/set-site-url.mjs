@@ -1,12 +1,15 @@
-// Troca o domínio placeholder por um domínio real em todos os locais de SEO.
-// Uso:  node scripts/set-site-url.mjs https://seudominio.com
+// Troca o endereço do site (SEO e currículo) por um novo, de uma vez só.
+// Detecta o endereço atual pelo <link rel="canonical"> do index.html e também
+// substitui o placeholder https://example.com.
+//
+// Uso:  node scripts/set-site-url.mjs https://lecinolucas.web.app
 // Sem dependências — apenas Node.js nativo.
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const PLACEHOLDER = "https://example.com";
-const ALVOS = ["index.html", "public/robots.txt", "public/sitemap.xml"];
+const ALVOS = ["index.html", "public/robots.txt", "public/sitemap.xml", "docs/curriculo/curriculo.html"];
 
 const bruto = process.argv[2];
 if (!bruto) {
@@ -23,12 +26,26 @@ try {
 }
 const base = `${url.protocol}//${url.host}`; // sem barra final
 
+const indice = readFileSync(resolve(process.cwd(), "index.html"), "utf8");
+const atual = indice.match(/<link rel="canonical" href="(https?:\/\/[^/"]+)\//)?.[1];
+const antigos = [...new Set([PLACEHOLDER, atual].filter((o) => o && o !== base))];
+// O currículo mostra o endereço sem o protocolo (ex.: portifolio-....run.app).
+const semProtocolo = (o) => o.replace(/^https?:\/\//, "");
+
 let total = 0;
 for (const rel of ALVOS) {
   const caminho = resolve(process.cwd(), rel);
   const antes = readFileSync(caminho, "utf8");
-  const depois = antes.split(PLACEHOLDER).join(base);
-  const n = (antes.match(new RegExp(PLACEHOLDER.replace(/[.]/g, "\\."), "g")) || []).length;
+  let depois = antes;
+  let n = 0;
+  for (const antigo of antigos) {
+    const trechos = rel.endsWith("curriculo.html") ? [antigo, semProtocolo(antigo)] : [antigo];
+    for (const trecho of trechos) {
+      const destino = trecho === antigo ? base : semProtocolo(base);
+      n += depois.split(trecho).length - 1;
+      depois = depois.split(trecho).join(destino);
+    }
+  }
   if (n > 0) {
     writeFileSync(caminho, depois);
     console.log(`  ${rel}: ${n} ocorrência(s) atualizada(s)`);
@@ -39,8 +56,8 @@ for (const rel of ALVOS) {
 }
 
 if (total === 0) {
-  console.log(`\nNenhum "${PLACEHOLDER}" encontrado. O domínio já foi definido?`);
+  console.log(`\nNada a trocar. O endereço já é ${base}?`);
 } else {
   console.log(`\nPronto: ${total} ocorrência(s) → ${base}`);
-  console.log("Revise o <lastmod> em public/sitemap.xml e rode `npm run build`.");
+  console.log("Revise o <lastmod> em public/sitemap.xml, regenere o PDF do currículo e rode `npm run build`.");
 }

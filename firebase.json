@@ -1,0 +1,12 @@
+{
+  "hosting": {
+    "public": "firebase-public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "run": { "serviceId": "portifolio", "region": "southamerica-east1" }
+      }
+    ]
+  }
+}

@@ -22,7 +22,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-40 w-full border-b transition-colors",
+        "sticky top-0 z-40 w-full border-b transition-colors lg:hidden",
         comScroll
           ? "border-border bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70"
           : "border-transparent bg-background",
@@ -38,22 +38,6 @@ export function Header() {
             Analista de Sistemas · Sustentação N2/N3
           </span>
         </a>
-
-        <nav
-          className="hidden items-center gap-1 md:flex"
-          aria-label="Navegação principal"
-        >
-          {itensNav.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              aria-current={ativo === item.id ? "true" : undefined}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground aria-[current]:text-foreground"
-            >
-              {item.rotulo}
-            </a>
-          ))}
-        </nav>
 
         <div className="flex items-center gap-2">
           <ThemeToggle />

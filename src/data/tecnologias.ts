@@ -6,7 +6,7 @@ import type { EtapaTecnologia, GrupoTecnologia } from "@/types";
  * porcentagem: proficiência não é medida de forma confiável por número.
  */
 export const fluxoTecnologias: EtapaTecnologia[] = [
-  { numero: "01", etapa: "Protheus", descricao: "ERP de origem das operações", itens: ["TOTVS Protheus P12", "Financeiro", "Contábil", "Fiscal", "Compras", "TMS"] },
+  { numero: "01", etapa: "Protheus", descricao: "ERP de origem das operações", itens: ["TOTVS Protheus", "Financeiro", "Contábil", "Fiscal", "Compras", "TMS"] },
   { numero: "02", etapa: "Remessa", descricao: "Canal de comunicação com o banco", itens: ["CNAB", "APIs REST", "OAuth2", "mTLS", "Certificados digitais", "VAN bancária"] },
   { numero: "03", etapa: "Banco", descricao: "Instituições e produtos", itens: ["Itaú", "Santander", "Sicoob", "Votorantim", "Boletos", "DDA"] },
   { numero: "04", etapa: "Retorno", descricao: "Baixas e extratos de volta ao ERP", itens: ["Retorno CNAB", "Extratos", "Rotinas agendadas"] },

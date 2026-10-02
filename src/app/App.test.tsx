@@ -12,17 +12,27 @@ describe("<App />", () => {
 
   it("expõe as seções-âncora esperadas", () => {
     const { container } = render(<App />);
-    for (const id of ["sobre", "experiencia", "investigacao", "projetos", "les", "tecnologias", "contato"]) {
+    for (const id of ["sobre", "investigacao", "experiencia", "projetos", "les", "tecnologias", "contato"]) {
       expect(container.querySelector(`#${id}`), id).not.toBeNull();
     }
   });
 
-  it("exibe o caso real sem afirmar causa raiz nem correção específicas", () => {
+  it("apresenta as investigações como rotina, com FK5 entre as tabelas", () => {
     render(<App />);
-    expect(screen.getByText(/^caso real$/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/investigação de inconsistência financeira no totvs protheus/i),
-    ).toBeInTheDocument();
+    expect(screen.getByText(/exemplo de investigação/i)).toBeInTheDocument();
+    expect(screen.getAllByText("FK5").length).toBeGreaterThan(0);
+    expect(screen.queryByText(/causa identificada/i)).toBeNull();
+  });
+
+  it("não cita P12 em lugar nenhum", () => {
+    const { container } = render(<App />);
+    expect(container.textContent).not.toMatch(/\bP12\b/);
+  });
+
+  it("tem sumário lateral com link para cada seção", () => {
+    render(<App />);
+    const sumario = screen.getByRole("navigation", { name: "Sumário" });
+    expect(sumario.querySelectorAll('a[href^="#"]').length).toBe(7);
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

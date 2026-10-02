@@ -1,70 +1,41 @@
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
-import { Badge } from "@/components/ui/badge";
-import { CasoRealBloco } from "@/components/portfolio/caso-real";
+import { ExemploInvestigacao } from "@/components/portfolio/caso-real";
 import { investigacao } from "@/data/investigacao";
 
 export function Investigation() {
-  const { etapas, riscos, consultaIlustrativa, casoReal } = investigacao;
+  const { intro, tabelas, frentes, exemplo } = investigacao;
 
   return (
     <Section id="investigacao">
-      <SectionHeading
-        rotulo="Investigação"
-        titulo="Como investigo uma divergência financeira no Protheus"
-        descricao="O método que sigo para chegar à causa raiz sem comprometer os dados de produção."
-      />
-      {casoReal ? (
-        <CasoRealBloco caso={casoReal} />
-      ) : (
-        <Reveal className="mt-6">
-          <Badge variante="primario">Modelo ilustrativo · dados fictícios</Badge>
-        </Reveal>
-      )}
+      <SectionHeading rotulo="Investigações" titulo="O que eu investigo no dia a dia" descricao={intro} />
 
-      <h3 className="mt-14 text-xs font-semibold uppercase tracking-[0.14em] text-primary">Método</h3>
-      <ol className="mt-6 grid gap-x-10 gap-y-8 sm:grid-cols-2">
-        {etapas.map((etapa, indice) => (
-          <Reveal key={etapa.titulo} atraso={(indice % 2) * 60}>
-            <li className="border-l-2 border-primary/40 pl-4">
-              <h3 className="text-sm font-semibold tracking-tight">
-                <span className="mr-2 text-primary">{String(indice + 1).padStart(2, "0")}</span>
-                {etapa.titulo}
-              </h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{etapa.descricao}</p>
-              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
-                {etapa.itens.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </li>
-          </Reveal>
-        ))}
-      </ol>
+      <Reveal className="mt-10">
+        <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary">// tabelas que cruzo</h3>
+        <dl className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-5">
+          {tabelas.map((tabela) => (
+            <div key={tabela.nome} className="rounded-lg border border-border bg-card p-3">
+              <dt className="font-mono text-sm font-semibold text-primary">{tabela.nome}</dt>
+              <dd className="mt-1 text-xs text-muted-foreground">{tabela.descricao}</dd>
+            </div>
+          ))}
+        </dl>
+      </Reveal>
 
-      {casoReal ? null : <Reveal className="mt-12">
-        <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Riscos considerados</h3>
-        <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-          {riscos.map((risco) => (
-            <li key={risco} className="rounded-lg border border-border bg-card px-4 py-3 text-sm">
-              {risco}
+      <Reveal className="mt-10">
+        <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary">// frentes de investigação</h3>
+        <ul className="mt-4 grid gap-x-10 gap-y-5 sm:grid-cols-2">
+          {frentes.map((frente) => (
+            <li key={frente.titulo} className="border-l-2 border-primary/40 pl-4">
+              <h4 className="text-sm font-semibold tracking-tight">{frente.titulo}</h4>
+              <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{frente.descricao}</p>
             </li>
           ))}
         </ul>
-      </Reveal>}
-
-      <Reveal className="mt-12">
-        <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Exemplo de consulta</h3>
-        <pre
-          tabIndex={0}
-          className="mt-4 overflow-x-auto rounded-xl border border-border bg-card p-4 text-xs leading-relaxed"
-        >
-          <code>{consultaIlustrativa.sql}</code>
-        </pre>
-        <p className="mt-3 text-xs text-muted-foreground">{consultaIlustrativa.legenda}</p>
       </Reveal>
 
+      <ExemploInvestigacao caso={exemplo} />
     </Section>
   );
 }

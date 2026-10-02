@@ -22,12 +22,15 @@ function Lista({ itens }: { itens: string[] }) {
   );
 }
 
-/** Relato de incidente real. Só é renderizado quando há fatos confirmados. */
-export function CasoRealBloco({ caso }: { caso: CasoReal }) {
+/** Exemplo de como uma investigação da rotina é conduzida. */
+export function ExemploInvestigacao({ caso }: { caso: CasoReal }) {
   return (
     <Reveal className="mt-14">
-      <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">Caso real</h3>
+      <h3 className="font-mono text-xs uppercase tracking-[0.14em] text-primary">// exemplo de investigação</h3>
       <p className="mt-3 text-lg font-semibold">{caso.titulo}</p>
+      <p className="mt-1 text-xs text-muted-foreground">
+        Um exemplo da rotina, para mostrar o método. Não é um incidente único.
+      </p>
 
       <div className="mt-6 space-y-6">
         <Bloco rotulo="Contexto">

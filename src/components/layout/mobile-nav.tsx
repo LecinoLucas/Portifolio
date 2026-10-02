@@ -26,7 +26,6 @@ export function MobileNav({ ativo }: PropsMobileNav) {
         <Button
           variante="contorno"
           tamanho="icone"
-          className="md:hidden"
           aria-label="Abrir menu de navegação"
         >
           <Menu className="size-4" />
@@ -52,6 +51,7 @@ export function MobileNav({ ativo }: PropsMobileNav) {
                 className="rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground aria-[current]:bg-accent aria-[current]:text-accent-foreground"
               >
                 {item.rotulo}
+                <span className="block text-xs font-normal text-muted-foreground">{item.descricao}</span>
               </a>
             </SheetClose>
           ))}

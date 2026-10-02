@@ -1,4 +1,5 @@
 import { ProvedorTema } from "@/app/theme-provider";
+import { SumarioLateral } from "@/components/layout/sumario-lateral";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/sections/hero";
@@ -21,13 +22,15 @@ export function App() {
         Pular para o conteúdo
       </a>
 
+      <SumarioLateral />
+      <div className="lg:pl-72">
       <Header />
 
       <main id="conteudo">
         <Hero />
         <About />
-        <Experience />
         <Investigation />
+        <Experience />
         <Projects />
         <Les />
         <Principles />
@@ -36,6 +39,7 @@ export function App() {
       </main>
 
       <Footer />
+      </div>
     </ProvedorTema>
   );
 }

@@ -128,11 +128,20 @@ describe("<App />", () => {
   it("a Experiência diz que o BankingProtheus foi feito para a Rede Marajó e que a Clínica está em construção", () => {
     const { container } = render(<App />);
     const experiencia = container.querySelector("#experiencia")?.textContent ?? "";
-    expect(experiencia).toContain("feito para a Rede Marajó");
+    expect(experiencia).toMatch(/feito para a Rede Marajó/i);
     const abas = Array.from(container.querySelectorAll('#experiencia [role="tab"]'));
     fireEvent.click(abas[abas.length - 1]);
     const dev = container.querySelector("#experiencia")?.textContent ?? "";
     expect(dev).toMatch(/Clínica[\s\S]*Em construção/);
+  });
+
+  it("a etapa da Marajó destaca os dois sistemas entregues em paralelo, sem citar horas extras", () => {
+    const { container } = render(<App />);
+    const experiencia = container.querySelector("#experiencia")?.textContent ?? "";
+    expect(experiencia).toContain("entregues em paralelo à sustentação");
+    expect(experiencia).toContain("Portal de Engenharia");
+    expect(experiencia).toContain("BankingProtheus");
+    expect(experiencia).not.toMatch(/horas extras|fins? de semana|finais de semana/i);
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

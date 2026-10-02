@@ -298,3 +298,13 @@ body {
     50% { transform: rotateX(-4deg) rotateY(4deg) translateY(-4px); }
   }
 }
+
+/* Trilha da carreira: linha de progresso e entrada do painel */
+.trilha-progresso { transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+@media (prefers-reduced-motion: no-preference) {
+  .painel-entra { animation: painel-entra 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+  @keyframes painel-entra {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+  }
+}

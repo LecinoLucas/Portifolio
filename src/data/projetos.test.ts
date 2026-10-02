@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { projetos, projetoPorSlug, projetosDestaque } from "@/data/projetos";
-import { experiencias } from "@/data/experiencias";
+import { carreira } from "@/data/experiencias";
 import { formacao } from "@/data/formacao";
 import { tecnologias } from "@/data/tecnologias";
 
@@ -52,22 +52,26 @@ describe("situação e demonstrações", () => {
 });
 
 describe("dados de apoio", () => {
-  it("experiências têm destaques e tags", () => {
-    expect(experiencias.length).toBeGreaterThan(0);
-    for (const exp of experiencias) {
-      expect(exp.destaques.length).toBeGreaterThan(0);
-      expect(exp.tags.length).toBeGreaterThan(0);
+  it("cada etapa da carreira tem destaques, ferramentas e números", () => {
+    expect(carreira.length).toBeGreaterThan(0);
+    for (const etapa of carreira) {
+      expect(etapa.destaques.length, etapa.id).toBeGreaterThan(0);
+      expect(etapa.ferramentas.length, etapa.id).toBeGreaterThan(0);
+      expect(etapa.numeros.length, etapa.id).toBeGreaterThan(0);
+      expect(etapa.levei, etapa.id).toBeTruthy();
     }
   });
 
-  it("experiências reais têm empresa e período com ano (sem placeholders)", () => {
-    const cargos = experiencias.filter((e) => e.tipo !== "direcao");
-    expect(cargos.some((e) => e.organizacao.includes("Rede Marajó"))).toBe(true);
-    for (const exp of cargos) {
-      expect(exp.periodo, exp.cargo).toMatch(/\d{4}/);
-      expect(/(placeholder|todo|ambiente corporativo)/i.test(exp.periodo + exp.organizacao)).toBe(
-        false,
-      );
+  it("a carreira termina em desenvolvimento e inclui a Rede Marajó", () => {
+    expect(carreira[carreira.length - 1].id).toBe("desenvolvimento");
+    expect(carreira.some((e) => e.organizacao.includes("Rede Marajó"))).toBe(true);
+    expect(carreira.some((e) => e.id === "desenvolvimento" && (e.sistemas?.length ?? 0) > 0)).toBe(true);
+  });
+
+  it("etapas têm período com ano ou marcador de hoje (sem placeholders)", () => {
+    for (const etapa of carreira) {
+      expect(etapa.quando, etapa.id).toMatch(/\d{4}|Hoje/);
+      expect(/(placeholder|todo|ambiente corporativo)/i.test(etapa.quando + etapa.organizacao)).toBe(false);
     }
   });
 

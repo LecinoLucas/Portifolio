@@ -119,6 +119,22 @@ describe("<App />", () => {
     expect(projetos).not.toContain("dezenas de filiais");
   });
 
+  it("Experiência é uma trilha clicável que termina em Desenvolvimento", () => {
+    const { container } = render(<App />);
+    const experiencia = container.querySelector("#experiencia") as HTMLElement;
+    const abas = Array.from(experiencia.querySelectorAll('[role="tab"]'));
+    expect(abas.length).toBe(5);
+    expect(abas[abas.length - 1].textContent).toMatch(/Desenvolvimento|Dev/);
+    // abre na Rede Marajó
+    expect(experiencia.textContent).toContain("~20");
+    fireEvent.click(abas[abas.length - 1]);
+    expect(experiencia.textContent).toContain("Em transição para o desenvolvimento");
+    expect(experiencia.textContent).toContain("BankingProtheus");
+    expect(experiencia.textContent).toContain("53");
+    fireEvent.click(abas[0]);
+    expect(experiencia.textContent).toContain("Operador Técnico de Suporte");
+  });
+
   it("tem link de pular para o conteúdo (acessibilidade)", () => {
     render(<App />);
     expect(

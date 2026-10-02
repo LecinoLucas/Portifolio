@@ -2,48 +2,38 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Rotulo } from "@/components/shared/rotulo";
-import { ExperienceItem } from "@/components/portfolio/experience-item";
-import { experiencias } from "@/data/experiencias";
+import { TrilhaCarreira } from "@/components/portfolio/trilha-carreira";
+import { carreira } from "@/data/experiencias";
 import { formacao } from "@/data/formacao";
 
-export function Experience() {
+/** Etapa aberta ao entrar: a experiência mais recente na área de sistemas. */
+const ETAPA_INICIAL = carreira.findIndex((etapa) => etapa.id === "marajo");
+
+export function Experience({ aoIr }: { aoIr: (id: string) => void }) {
   return (
-    <Section id="experiencia" alternado>
+    <Section id="experiencia">
       <SectionHeading
         rotulo="Experiência"
-        titulo="Trajetória profissional"
-        descricao="De suporte técnico remoto à análise e sustentação de sistemas corporativos, com desenvolvimento de aplicações usadas em produção."
+        titulo="Do suporte ao desenvolvimento"
+        descricao="Escolha uma etapa para ver o que eu fazia, com números, ferramentas e o que levei de cada uma."
       />
 
-      <ol className="mt-12 space-y-10">
-        {experiencias.map((experiencia, indice) => (
-          <ExperienceItem
-            key={experiencia.cargo}
-            experiencia={experiencia}
-            atraso={indice * 60}
-            ultimo={indice === experiencias.length - 1}
-            aberto={indice === 1}
-          />
-        ))}
-      </ol>
+      <div className="mt-10">
+        <TrilhaCarreira etapas={carreira} inicial={ETAPA_INICIAL} aoIr={aoIr} />
+      </div>
 
       <Reveal className="mt-14">
         <Rotulo>formação</Rotulo>
         <ul className="mt-4 space-y-3">
           {formacao.map((item) => (
-            <li
-              key={item.curso}
-              className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-l-2 border-border pl-4"
-            >
+            <li key={item.curso} className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 border-l-2 border-border pl-4">
               <span>
-                <span className="block text-sm font-semibold">{item.curso}</span>
-                <span className="block text-sm text-muted-foreground">
+                <span className="block font-semibold">{item.curso}</span>
+                <span className="block text-muted-foreground">
                   {item.instituicao} · {item.status}
                 </span>
               </span>
-              <span className="text-xs font-medium text-muted-foreground">
-                {item.periodo}
-              </span>
+              <span className="text-sm font-medium text-muted-foreground">{item.periodo}</span>
             </li>
           ))}
         </ul>

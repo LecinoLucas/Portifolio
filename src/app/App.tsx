@@ -33,22 +33,24 @@ export function App() {
         Pular para o conteúdo
       </a>
 
-      <Header ativa={ativa} aoIr={ir} />
+      <div className="flex min-h-dvh flex-col">
+        <Header ativa={ativa} aoIr={ir} />
 
-      <main id="conteudo">
-        <Visao id="inicio" ativa={ativa}><Hero aoIr={ir} /></Visao>
-        <Visao id="sobre" ativa={ativa}><About /></Visao>
-        <Visao id="experiencia" ativa={ativa}><Experience aoIr={ir} /></Visao>
-        <Visao id="projetos" ativa={ativa}><Projects /></Visao>
-        <Visao id="tecnologias" ativa={ativa}><TechStack /></Visao>
-        <Visao id="les" ativa={ativa}>
-          <Les />
-          <Principles />
-        </Visao>
-        <Visao id="contato" ativa={ativa}><Contact /></Visao>
-      </main>
+        <main id="conteudo" className="flex-1">
+          <Visao id="inicio" ativa={ativa}><Hero aoIr={ir} /></Visao>
+          <Visao id="sobre" ativa={ativa}><About /></Visao>
+          <Visao id="experiencia" ativa={ativa}><Experience aoIr={ir} /></Visao>
+          <Visao id="projetos" ativa={ativa}><Projects /></Visao>
+          <Visao id="tecnologias" ativa={ativa}><TechStack /></Visao>
+          <Visao id="les" ativa={ativa}>
+            <Les />
+            <Principles />
+          </Visao>
+          <Visao id="contato" ativa={ativa}><Contact /></Visao>
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </ProvedorTema>
   );
 }

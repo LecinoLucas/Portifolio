@@ -166,6 +166,18 @@ describe("<App />", () => {
     expect(aba).not.toMatch(/arquitetura (do|de) protheus/i);
   });
 
+  it("LES tem o padrão, três princípios e os links; Contato tem o e-mail como principal", () => {
+    const { container } = render(<App />);
+    const les = container.querySelector('[data-visao="les"]')?.textContent ?? "";
+    expect(les).toContain("Meu padrão de engenharia");
+    const cards = Array.from(container.querySelectorAll("#principios h3")).filter((h) => !/princípios/i.test(h.textContent ?? ""));
+    expect(cards.length).toBe(3);
+    expect(les).toContain("Ver no GitHub");
+    const contato = container.querySelector("#contato");
+    expect(contato?.querySelector('a[href^="mailto:"]')).not.toBeNull();
+    expect(contato?.textContent).toContain("Suporte Especializado (N2/N3)");
+  });
+
   it("tem link de pular para o conteúdo (acessibilidade)", () => {
     render(<App />);
     expect(

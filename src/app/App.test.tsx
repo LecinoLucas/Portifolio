@@ -111,6 +111,14 @@ describe("<App />", () => {
     expect(projetos).not.toMatch(/concilia/i);
   });
 
+  it("BankingProtheus e Portal de Engenharia constam em produção na Rede Marajó, com as 53 filiais", () => {
+    const { container } = render(<App />);
+    const projetos = container.querySelector("#projetos")?.textContent ?? "";
+    expect(projetos).toContain("53 filiais");
+    expect(projetos).toContain("Em produção na Rede Marajó");
+    expect(projetos).not.toContain("dezenas de filiais");
+  });
+
   it("tem link de pular para o conteúdo (acessibilidade)", () => {
     render(<App />);
     expect(

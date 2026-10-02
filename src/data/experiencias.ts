@@ -27,7 +27,7 @@ export const experiencias: Experiencia[] = [
       "Parametrização do sistema a partir do levantamento de regras de negócio, com testes, homologação e documentação.",
       "Integrações bancárias com CNAB de pagamento e de recebimento: Santander, Votorantim e Sicoob via VAN, e Itaú via API de extrato.",
       "Acompanhamento das rotinas via VAN bancária, gestão de certificados digitais (extrato e boletos) e consulta e integração de extratos bancários.",
-      "Desenvolvimento de soluções internas em paralelo à sustentação.",
+      "Desenvolvimento, em paralelo à sustentação, de sistemas usados na própria Rede Marajó: o BankingProtheus (renovação automática dos certificados do Itaú das 53 filiais) e o Portal de Engenharia.",
     ],
     tags: [
       "TOTVS Protheus",

@@ -13,14 +13,15 @@ export const projetos: Projeto[] = [
     categoria: "Integração bancária · Certificados Itaú",
     destaque: true,
     situacao: "producao",
+    situacaoDetalhe: "Em produção na Rede Marajó.",
     resumo:
-      "Sistema que renova automaticamente os certificados do Itaú (API de extrato e API de boletos), com job de renovação e painel de vencimento, sobre mTLS.",
+      "Sistema que renova automaticamente os certificados do Itaú (API de extrato e API de boletos) das 53 filiais da Rede Marajó, com job de renovação e painel de vencimento, sobre mTLS.",
     stack: ["APIs bancárias", "mTLS", "Certificados digitais", "SQL", "Protheus", "Jobs agendados", "Dashboard"],
     detalhe: {
       contexto:
-        "A empresa tinha dezenas de filiais, e cada uma usava certificados digitais para as APIs do Itaú de extrato e de boletos. Os certificados vencem, e vários vencem em épocas próximas.",
+        "A Rede Marajó tem 53 filiais, e cada uma usa certificados digitais para as APIs do Itaú de extrato e de boletos. Os certificados vencem, e vários vencem em épocas próximas.",
       problema:
-        "Renovar os certificados um por um, de forma manual, chamando a API do banco a cada vez. Um certificado vencido interrompe a integração com o banco daquela filial.",
+        "Renovar os certificados das 53 filiais um por um, de forma manual, chamando a API do banco a cada vez. Um certificado vencido interrompe a integração com o banco daquela filial.",
       participacao:
         "Criei o sistema: o job de renovação automática e o painel de acompanhamento dos certificados.",
       solucao:
@@ -28,7 +29,7 @@ export const projetos: Projeto[] = [
       arquitetura:
         "Job agendado que identifica certificados próximos do vencimento → renovação via API do Itaú sobre mTLS → painel de acompanhamento dos dias para vencer, por filial.",
       desafios: [
-        "Renovar dezenas de certificados sem intervenção manual.",
+        "Renovar os certificados das 53 filiais sem intervenção manual.",
         "Comunicação segura com o banco usando mTLS.",
         "Visibilidade: saber quantos dias faltam para cada certificado vencer antes que ele expire.",
       ],
@@ -74,6 +75,7 @@ export const projetos: Projeto[] = [
     categoria: "Sistema corporativo · Engenharia & Obras",
     destaque: true,
     situacao: "producao",
+    situacaoDetalhe: "Em produção na Rede Marajó.",
     resumo:
       "Aplicação corporativa em produção para gestão de obras, chamados, fornecedores, cotações, documentos e dashboards — com autenticação, RBAC e auditoria.",
     stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "APIs REST"],

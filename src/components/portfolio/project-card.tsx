@@ -20,6 +20,7 @@ export function ProjectCard({ projeto, indice }: PropsProjectCard) {
 
         <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-primary">{projeto.categoria}</p>
         <h3 className="mt-1.5 text-lg font-semibold tracking-tight">{projeto.titulo}</h3>
+        {projeto.situacaoDetalhe ? <p className="mt-1 text-sm font-medium text-success">{projeto.situacaoDetalhe}</p> : null}
 
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{projeto.resumo}</p>
 

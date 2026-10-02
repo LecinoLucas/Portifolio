@@ -136,7 +136,9 @@ describe("<App />", () => {
     expect(abas.length).toBe(4);
     expect(abas[abas.length - 1].textContent).toMatch(/Marajó/);
     expect(experiencia.textContent).toContain("~20");
-    expect(experiencia.textContent).not.toMatch(/Em transição para o desenvolvimento|Hoje/);
+    expect(experiencia.textContent).toContain("4+ anos");
+    expect(experiencia.textContent).toContain("1 ano e 3 meses");
+    expect(experiencia.textContent).not.toMatch(/o que levei dali|Em transição para o desenvolvimento|Hoje/);
     fireEvent.click(abas[0]);
     expect(experiencia.textContent).toContain("Operador Técnico de Suporte");
   });

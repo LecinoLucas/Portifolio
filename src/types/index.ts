@@ -64,15 +64,21 @@ export interface EtapaCarreira {
   trilha: string;
   trilhaCurta: string;
   quando: string;
+  /** Duração da etapa, em texto ("2 anos e 4 meses"). */
+  duracao: string;
+  /** Meses exatos (só quando as datas são conhecidas); entra na soma de TI. */
+  meses?: number;
+  /** Conta como experiência em TI (Pioneira, de vendas, não conta). */
+  ti?: boolean;
   cargo: string;
   organizacao: string;
   resumo: string;
-  /** Somente números reais, informados pelo autor. */
+  /** Somente números reais, informados pelo autor (pode ficar vazio). */
   numeros: { valor: string; rotulo: string }[];
   destaques: string[];
   ferramentas: string[];
-  /** O que a pessoa levou desta etapa para as seguintes. */
-  levei: string;
+  /** Síntese do que se levou da etapa. NÃO é exibida até o autor aprovar cada frase. */
+  levei?: string;
   /** Título do bloco de sistemas (padrão: "sistemas que construí"). */
   tituloSistemas?: string;
   /** Sistemas construídos na etapa. */

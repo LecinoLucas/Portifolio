@@ -53,13 +53,13 @@ describe("<App />", () => {
     expect(screen.getByRole("link", { name: "Projetos" })).toHaveAttribute("aria-current", "page");
   });
 
-  it("Sobre mim traz a regra de negócio, a história e fecha com o trabalho em equipe", () => {
+  it("Sobre mim é curto, traz a regra de negócio e fecha com o trabalho em equipe", () => {
     const { container } = render(<App />);
     const sobre = container.querySelector("#sobre");
     const rotulos = Array.from(sobre?.querySelectorAll("h3") ?? []).map((h) => h.textContent);
-    expect(rotulos).toEqual(["como eu penso", "minha história", "meu ritmo", "além do trabalho", "para onde vou", "em equipe", "em resumo"]);
+    expect(rotulos).toEqual(["como eu penso", "além do trabalho", "em equipe", "em resumo"]);
     expect(sobre?.textContent).toContain("Regra de negócio primeiro");
-    expect(sobre?.textContent).toContain("Entender o projeto por inteiro");
+    expect(sobre?.textContent).toContain("Regra de negócio primeiro");
   });
 
   it("não fala em sintaxe no Sobre mim", () => {
@@ -70,6 +70,22 @@ describe("<App />", () => {
   it("não usa mais as duas barras (//) como marcador de rótulo", () => {
     const { container } = render(<App />);
     expect(container.textContent).not.toMatch(/\/\/ [a-zà-ú]/i);
+  });
+
+  it("o Início deixa claro o nível (júnior, ~6 meses em produção real) e a formação", () => {
+    const { container } = render(<App />);
+    const inicio = container.querySelector("#inicio")?.textContent ?? "";
+    expect(inicio).toMatch(/júnior/i);
+    expect(inicio).toMatch(/6 meses/);
+    expect(inicio).toMatch(/PUC Goiás/);
+  });
+
+  it("o sumário 3D do Início leva às abas", () => {
+    const { container } = render(<App />);
+    const sumario = screen.getByRole("navigation", { name: "Sumário do portfólio" });
+    expect(sumario.querySelectorAll('a[href^="#"]').length).toBe(7);
+    fireEvent.click(sumario.querySelector('a[href="#experiencia"]') as HTMLElement);
+    expect(container.querySelector<HTMLElement>('[data-visao="experiencia"]')?.hidden).toBe(false);
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

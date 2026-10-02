@@ -2,6 +2,7 @@ import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Rotulo } from "@/components/shared/rotulo";
+import { PlantaIntegracao } from "@/components/portfolio/planta-integracao";
 import { TechGroup } from "@/components/portfolio/tech-group";
 import { fluxoTecnologias, tecnologias } from "@/data/tecnologias";
 
@@ -13,6 +14,10 @@ export function TechStack() {
         titulo="Onde cada tecnologia entra"
         descricao="Organizadas pelas etapas do fluxo de integração bancária, e não por nível de domínio."
       />
+
+      <Reveal className="mt-10 max-w-2xl">
+        <PlantaIntegracao />
+      </Reveal>
 
       <Reveal className="mt-10">
         <dl className="border-t border-border">

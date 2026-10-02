@@ -42,21 +42,7 @@ export function About() {
             </ol>
           </Reveal>
 
-          <Reveal>
-            <Rotulo>minha história</Rotulo>
-            <ol className="mt-4 space-y-4">
-              {sobre.historia.map((etapa) => (
-                <li key={etapa.quando} className="grid gap-1 sm:grid-cols-[8rem_1fr] sm:gap-4">
-                  <span className="font-mono text-sm text-primary">{etapa.quando}</span>
-                  <p className="leading-relaxed text-foreground/85">{etapa.texto}</p>
-                </li>
-              ))}
-            </ol>
-          </Reveal>
-
-          <Paragrafo rotulo="meu ritmo" texto={sobre.ritmo} />
           <Paragrafo rotulo="além do trabalho" texto={sobre.alemDoTrabalho} />
-          <Paragrafo rotulo="para onde vou" texto={sobre.rumo} />
           <Paragrafo rotulo="em equipe" texto={sobre.equipe} />
         </div>
 

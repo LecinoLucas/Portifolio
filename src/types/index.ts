@@ -3,7 +3,9 @@
 export interface Perfil {
   nome: string;
   titulo: string;
+  destaque: string;
   headline: string;
+  nivel: string;
   localizacao: string;
   disponibilidade: string;
 }
@@ -13,11 +15,7 @@ export interface Sobre {
   /** Pontos fortes, no card de resumo. */
   resumo: string[];
   principios: { titulo: string; texto: string }[];
-  historia: { quando: string; texto: string }[];
-  /** Como a pessoa trabalha no dia a dia (intensidade, foco). */
-  ritmo: string;
   alemDoTrabalho: string;
-  rumo: string;
   /** Fecho: trabalho em equipe. */
   equipe: string;
 }

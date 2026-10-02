@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { App } from "@/app/App";
-import { projetoPorSlug } from "@/data/projetos";
+import { projetoPorSlug, projetos } from "@/data/projetos";
 
 describe("<App />", () => {
   beforeEach(() => {
@@ -142,6 +142,19 @@ describe("<App />", () => {
     expect(experiencia).toContain("Portal de Engenharia");
     expect(experiencia).toContain("BankingProtheus");
     expect(experiencia).not.toMatch(/horas extras|fins? de semana|finais de semana/i);
+  });
+
+  it("Projetos abre com o Portal de Engenharia como principal, 500+ usuários e as camadas de teste", () => {
+    const { container } = render(<App />);
+    expect(projetos[0].slug).toBe("portal-engenharia");
+    expect(projetos[0].principal).toBe(true);
+    const aba = container.querySelector("#projetos")?.textContent ?? "";
+    expect(aba).toContain("Projeto principal");
+    expect(aba).toContain("500+");
+    for (const nome of ["Vitest", "Playwright", "k6", "Stryker"]) {
+      expect(aba, nome).toContain(nome);
+    }
+    expect(projetos.filter((p) => p.principal).length).toBe(1);
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

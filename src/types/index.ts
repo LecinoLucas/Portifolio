@@ -46,6 +46,12 @@ export interface Projeto {
   situacao?: "producao" | "entregue" | "construido" | "construcao";
   /** Detalhe da situação (ex.: forma de uso). */
   situacaoDetalhe?: string;
+  /** Projeto principal: ganha o card grande no topo da aba. */
+  principal?: boolean;
+  /** Números em destaque (só dados reais). */
+  numeros?: { valor: string; rotulo: string }[];
+  /** Camadas de teste do projeto, para o painel de detalhe. */
+  testes?: { nome: string; para: string }[];
   /** Demonstração interativa com dados fictícios. */
   demo?: "importnfe" | "rh";
   detalhe: DetalheProjeto;

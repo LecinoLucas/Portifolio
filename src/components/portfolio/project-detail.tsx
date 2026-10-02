@@ -102,6 +102,19 @@ function VisaoGeral({ projeto }: { projeto: Projeto }) {
 
       <Bloco titulo="Resultado">{detalhe.resultado}</Bloco>
 
+      {projeto.testes ? (
+        <Bloco titulo="Como garanto a qualidade">
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {projeto.testes.map((t) => (
+              <li key={t.nome} className="rounded-lg border border-border bg-card p-3">
+                <p className="font-mono text-sm font-semibold text-primary">{t.nome}</p>
+                <p className="mt-1 text-xs">{t.para}</p>
+              </li>
+            ))}
+          </ul>
+        </Bloco>
+      ) : null}
+
       <Separator />
 
       <div className="space-y-2">

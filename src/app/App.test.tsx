@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { App } from "@/app/App";
+import { projetoPorSlug } from "@/data/projetos";
 
 describe("<App />", () => {
   beforeEach(() => {
@@ -111,28 +112,28 @@ describe("<App />", () => {
     expect(projetos).not.toMatch(/concilia/i);
   });
 
-  it("BankingProtheus e Portal de Engenharia constam em produção na Rede Marajó, com as 53 filiais", () => {
+  it("Portal de Engenharia está em produção na Rede Marajó", () => {
     const { container } = render(<App />);
-    const projetos = container.querySelector("#projetos")?.textContent ?? "";
-    expect(projetos).toContain("53 filiais");
-    expect(projetos).toContain("Em produção na Rede Marajó");
-    expect(projetos).not.toContain("dezenas de filiais");
+    expect(container.querySelector("#projetos")?.textContent).toContain("Em produção na Rede Marajó");
   });
 
-  it("Experiência é uma trilha clicável que termina em Desenvolvimento", () => {
+  it("BankingProtheus não é dito em produção nem cita a Rede Marajó no próprio projeto", () => {
+    const banking = projetoPorSlug("bankingprotheus");
+    expect(banking?.situacao).toBe("construido");
+    const texto = JSON.stringify(banking).toLowerCase();
+    expect(texto).not.toContain("marajó");
+    expect(texto).not.toContain("em produção");
+    expect(texto).toContain("53 filiais");
+  });
+
+  it("a Experiência diz que o BankingProtheus foi feito para a Rede Marajó e que a Clínica está em construção", () => {
     const { container } = render(<App />);
-    const experiencia = container.querySelector("#experiencia") as HTMLElement;
-    const abas = Array.from(experiencia.querySelectorAll('[role="tab"]'));
-    expect(abas.length).toBe(5);
-    expect(abas[abas.length - 1].textContent).toMatch(/Desenvolvimento|Dev/);
-    // abre na Rede Marajó
-    expect(experiencia.textContent).toContain("~20");
+    const experiencia = container.querySelector("#experiencia")?.textContent ?? "";
+    expect(experiencia).toContain("feito para a Rede Marajó");
+    const abas = Array.from(container.querySelectorAll('#experiencia [role="tab"]'));
     fireEvent.click(abas[abas.length - 1]);
-    expect(experiencia.textContent).toContain("Em transição para o desenvolvimento");
-    expect(experiencia.textContent).toContain("BankingProtheus");
-    expect(experiencia.textContent).toContain("53");
-    fireEvent.click(abas[0]);
-    expect(experiencia.textContent).toContain("Operador Técnico de Suporte");
+    const dev = container.querySelector("#experiencia")?.textContent ?? "";
+    expect(dev).toMatch(/Clínica[\s\S]*Em construção/);
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

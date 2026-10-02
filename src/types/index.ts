@@ -78,14 +78,7 @@ export interface Principio {
   descricao: string;
 }
 
-export interface EtapaInvestigacao {
-  titulo: string;
-  /** O que se examina nesta etapa (método, não relato de um incidente). */
-  descricao: string;
-  itens: string[];
-}
-
-/** Relato de um incidente real. Só é exibido quando preenchido e confirmado. */
+/** Exemplo de investigação da rotina (não é um incidente único). */
 export interface CasoReal {
   titulo: string;
   contexto: string[];
@@ -100,8 +93,9 @@ export interface CasoReal {
 }
 
 export interface Investigacao {
-  etapas: EtapaInvestigacao[];
-  riscos: string[];
-  consultaIlustrativa: { legenda: string; sql: string };
-  casoReal: CasoReal | null;
+  intro: string;
+  tabelas: { nome: string; descricao: string }[];
+  frentes: { titulo: string; descricao: string }[];
+  /** Exemplo de como uma investigação da rotina é conduzida. */
+  exemplo: CasoReal;
 }

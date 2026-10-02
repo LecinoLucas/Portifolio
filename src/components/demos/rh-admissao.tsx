@@ -42,7 +42,7 @@ export function RhAdmissao() {
         </p>
       </div>
 
-      <pre tabIndex={0} className="overflow-x-auto rounded-lg border border-border bg-muted/40 p-3 text-[11px] leading-relaxed">
+      <pre tabIndex={0} className="overflow-x-auto rounded-lg border border-border bg-muted/40 p-3 text-xs leading-relaxed">
         <code>{`{
   "schema_version": "v1",
   "candidato": { "nome": "Candidato 03", "email": "candidato03@exemplo.com" },

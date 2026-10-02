@@ -25,15 +25,15 @@ export function SectionHeading({
         className,
       )}
     >
-      <span className="font-mono text-xs uppercase tracking-[0.14em] text-primary">
+      <span className="font-mono text-sm font-medium uppercase tracking-[0.14em] text-primary">
         {"// "}
         {rotulo}
       </span>
-      <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">{titulo}</h2>
+      <h2 className="text-3xl font-bold tracking-tight sm:text-5xl">{titulo}</h2>
       {descricao ? (
         <p
           className={cn(
-            "max-w-2xl text-base text-muted-foreground",
+            "max-w-2xl text-lg text-foreground/80",
             alinhamento === "centro" && "mx-auto",
           )}
         >

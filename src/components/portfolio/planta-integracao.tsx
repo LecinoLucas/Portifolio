@@ -17,7 +17,7 @@ const nos: No[] = [
   { id: "protheus", numero: "01", titulo: "PROTHEUS", detalhe: "títulos · SE1 SE2", x: 18, y: 44, descricao: "Origem: títulos a pagar e a receber gerados no ERP, com as regras de negócio já parametrizadas." },
   { id: "remessa", numero: "02", titulo: "REMESSA", detalhe: "CNAB · API", x: 176, y: 44, descricao: "Canal: arquivo CNAB ou API do banco, com OAuth2, mTLS, certificado digital e VAN bancária." },
   { id: "banco", numero: "03", titulo: "BANCO", detalhe: "boletos · DDA", x: 334, y: 44, descricao: "O banco processa pagamentos, boletos e DDA e devolve o retorno da operação." },
-  { id: "retorno", numero: "04", titulo: "RETORNO", detalhe: "baixas · SE5 FK1", x: 334, y: 164, descricao: "Retorno: baixas e movimentos voltam ao ERP e precisam bater com o título original." },
+  { id: "retorno", numero: "04", titulo: "RETORNO", detalhe: "baixas · SE5 FK1 FK5", x: 334, y: 164, descricao: "Retorno: baixas e movimentos voltam ao ERP e precisam bater com o título original." },
   { id: "conciliacao", numero: "05", titulo: "CONCILIAÇÃO", detalhe: "SQL", x: 176, y: 164, descricao: "Consultas SQL cruzam título, baixa e extrato para confirmar que cada operação fechou." },
   { id: "divergencias", numero: "06", titulo: "DIVERGÊNCIAS", detalhe: "causa raiz", x: 18, y: 164, descricao: "O que não bate vira investigação: rastrear os registros até encontrar a causa raiz." },
 ];
@@ -38,10 +38,10 @@ export function PlantaIntegracao() {
   return (
     <figure className="relative min-w-0 rounded-lg border border-border bg-card/80 p-4 shadow-xl shadow-black/10 backdrop-blur sm:p-6">
       <div className="flex items-center justify-between gap-3">
-        <figcaption className="font-mono text-[0.68rem] uppercase tracking-[0.16em] text-primary">
+        <figcaption className="font-mono text-xs uppercase tracking-[0.16em] text-primary">
           Planta · integração bancária
         </figcaption>
-        <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-muted-foreground">
+        <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-muted-foreground">
           fluxo ilustrativo
         </span>
       </div>
@@ -79,7 +79,7 @@ export function PlantaIntegracao() {
         {atual.descricao}
       </p>
 
-      <pre aria-hidden="true" className="mt-3 overflow-x-auto rounded-md border border-border bg-background/70 p-3 font-mono text-[0.68rem] leading-relaxed text-muted-foreground">
+      <pre aria-hidden="true" className="mt-3 overflow-x-auto rounded-md border border-border bg-background/70 p-3 font-mono text-xs leading-relaxed text-muted-foreground">
         <code>
 {`$ conciliar --periodo exemplo
 título 000123   baixa 000123   extrato   `}<span className="text-primary">OK</span>{`
@@ -87,7 +87,7 @@ título 000124   baixa 000124   extrato   `}<span className="text-primary">OK</s
 título 000125   baixa —        extrato   `}<span className="text-highlight">DIVERGENTE</span>
         </code>
       </pre>
-      <p className="mt-2 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-muted-foreground">
+      <p className="mt-2 font-mono text-[0.72rem] uppercase tracking-[0.12em] text-muted-foreground">
         exemplo ilustrativo · dados fictícios
       </p>
     </figure>

@@ -18,7 +18,7 @@ export function ProjectCard({ projeto, indice }: PropsProjectCard) {
           <SeloSituacao projeto={projeto} />
         </div>
 
-        <p className="mt-4 font-mono text-[0.7rem] uppercase tracking-[0.12em] text-primary">{projeto.categoria}</p>
+        <p className="mt-4 font-mono text-xs uppercase tracking-[0.12em] text-primary">{projeto.categoria}</p>
         <h3 className="mt-1.5 text-lg font-semibold tracking-tight">{projeto.titulo}</h3>
 
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{projeto.resumo}</p>
@@ -31,7 +31,7 @@ export function ProjectCard({ projeto, indice }: PropsProjectCard) {
             <ArrowRight className="size-4" />
           </SheetTrigger>
           {projeto.demo ? (
-            <span className="font-mono text-[0.7rem] uppercase tracking-[0.1em] text-highlight">▶ demo interativa</span>
+            <span className="font-mono text-xs uppercase tracking-[0.1em] text-highlight">▶ demo interativa</span>
           ) : null}
         </div>
       </article>

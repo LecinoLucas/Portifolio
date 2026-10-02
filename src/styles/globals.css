@@ -16,71 +16,71 @@
 
 /* Identidade "planta técnica": azul-petróleo, traço ciano e destaque âmbar. */
 :root {
-  --background: oklch(0.965 0.012 225);
-  --foreground: oklch(0.2 0.03 245);
+  --background: oklch(0.985 0.006 230);
+  --foreground: oklch(0.16 0.04 255);
 
-  --card: oklch(0.995 0.004 225);
-  --card-foreground: oklch(0.2 0.03 245);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.04 255);
 
-  --popover: oklch(0.995 0.004 225);
-  --popover-foreground: oklch(0.2 0.03 245);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.04 255);
 
-  --primary: oklch(0.44 0.13 245);
+  --primary: oklch(0.4 0.19 258);
   --primary-foreground: oklch(1 0 0);
 
-  --secondary: oklch(0.93 0.018 230);
-  --secondary-foreground: oklch(0.2 0.03 245);
+  --secondary: oklch(0.93 0.025 245);
+  --secondary-foreground: oklch(0.16 0.04 255);
 
-  --muted: oklch(0.94 0.014 228);
-  --muted-foreground: oklch(0.45 0.035 245);
+  --muted: oklch(0.94 0.02 240);
+  --muted-foreground: oklch(0.38 0.045 255);
 
-  --accent: oklch(0.91 0.035 225);
-  --accent-foreground: oklch(0.2 0.03 245);
+  --accent: oklch(0.9 0.05 240);
+  --accent-foreground: oklch(0.16 0.04 255);
 
-  --destructive: oklch(0.55 0.2 27);
+  --destructive: oklch(0.52 0.22 27);
   --destructive-foreground: oklch(0.98 0.003 261);
 
-  --success: oklch(0.5 0.13 160);
-  --highlight: oklch(0.58 0.15 65);
+  --success: oklch(0.48 0.15 160);
+  --highlight: oklch(0.55 0.17 55);
 
-  --border: oklch(0.85 0.022 235);
-  --input: oklch(0.85 0.022 235);
-  --ring: oklch(0.44 0.13 245);
+  --border: oklch(0.8 0.04 245);
+  --input: oklch(0.8 0.04 245);
+  --ring: oklch(0.4 0.19 258);
 
   --radius: 0.3rem;
 }
 
 .dark {
-  --background: oklch(0.155 0.03 238);
-  --foreground: oklch(0.95 0.012 220);
+  --background: oklch(0.13 0.04 255);
+  --foreground: oklch(0.98 0.005 220);
 
-  --card: oklch(0.2 0.032 238);
-  --card-foreground: oklch(0.95 0.012 220);
+  --card: oklch(0.19 0.05 255);
+  --card-foreground: oklch(0.98 0.005 220);
 
-  --popover: oklch(0.2 0.032 238);
-  --popover-foreground: oklch(0.95 0.012 220);
+  --popover: oklch(0.19 0.05 255);
+  --popover-foreground: oklch(0.98 0.005 220);
 
-  --primary: oklch(0.8 0.12 205);
-  --primary-foreground: oklch(0.15 0.03 238);
+  --primary: oklch(0.86 0.16 195);
+  --primary-foreground: oklch(0.14 0.04 255);
 
-  --secondary: oklch(0.27 0.035 238);
-  --secondary-foreground: oklch(0.95 0.012 220);
+  --secondary: oklch(0.28 0.05 250);
+  --secondary-foreground: oklch(0.98 0.005 220);
 
-  --muted: oklch(0.235 0.03 238);
-  --muted-foreground: oklch(0.73 0.03 230);
+  --muted: oklch(0.23 0.05 255);
+  --muted-foreground: oklch(0.82 0.03 240);
 
-  --accent: oklch(0.3 0.05 215);
-  --accent-foreground: oklch(0.95 0.012 220);
+  --accent: oklch(0.3 0.08 240);
+  --accent-foreground: oklch(0.98 0.005 220);
 
-  --destructive: oklch(0.62 0.2 27);
+  --destructive: oklch(0.66 0.21 27);
   --destructive-foreground: oklch(0.985 0 0);
 
-  --success: oklch(0.82 0.15 160);
-  --highlight: oklch(0.83 0.14 80);
+  --success: oklch(0.85 0.17 160);
+  --highlight: oklch(0.88 0.17 90);
 
-  --border: oklch(0.35 0.04 238);
-  --input: oklch(0.35 0.04 238);
-  --ring: oklch(0.8 0.12 205);
+  --border: oklch(0.42 0.07 250);
+  --input: oklch(0.42 0.07 250);
+  --ring: oklch(0.86 0.16 195);
 }
 
 @theme inline {
@@ -126,6 +126,7 @@
   }
 
   html {
+    font-size: 106.25%;
     -webkit-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
   }
@@ -141,7 +142,7 @@
   }
 
   ::selection {
-    background-color: color-mix(in oklch, var(--primary) 22%, transparent);
+    background-color: color-mix(in oklab, var(--primary) 22%, transparent);
     color: var(--foreground);
   }
 
@@ -156,7 +157,8 @@
   h3,
   h4 {
     text-wrap: balance;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
+    font-weight: 700;
   }
 
   p {
@@ -195,8 +197,8 @@
 /* Fundo "papel milimetrado" da página: linhas finas, quase invisíveis. */
 body {
   background-image:
-    linear-gradient(to right, color-mix(in oklch, var(--border) 38%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklch, var(--border) 38%, transparent) 1px, transparent 1px);
+    linear-gradient(to right, color-mix(in oklab, var(--border) 26%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--border) 26%, transparent) 1px, transparent 1px);
   background-size: 48px 48px;
   background-attachment: fixed;
 }
@@ -205,8 +207,8 @@ body {
 .planta-fluxo {
   fill: none;
   stroke: var(--primary);
-  stroke-width: 1.4;
-  opacity: 0.55;
+  stroke-width: 1.6;
+  opacity: 0.75;
 }
 .planta-pacote {
   fill: none;
@@ -223,10 +225,10 @@ body {
 .planta-no rect { fill: var(--card); stroke: var(--border); stroke-width: 1.2; transition: stroke 0.2s, fill 0.2s; }
 .planta-no[data-ativo="true"] rect,
 .planta-no:hover rect,
-.planta-no:focus-visible rect { stroke: var(--primary); fill: color-mix(in oklch, var(--primary) 10%, var(--card)); }
-.planta-titulo { fill: var(--foreground); font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; letter-spacing: 0.04em; }
-.planta-detalhe { fill: var(--muted-foreground); font-family: var(--font-mono); font-size: 8px; }
-.planta-cota { fill: var(--muted-foreground); font-family: var(--font-mono); font-size: 7.5px; letter-spacing: 0.12em; }
+.planta-no:focus-visible rect { stroke: var(--primary); fill: color-mix(in oklab, var(--primary) 10%, var(--card)); }
+.planta-titulo { fill: var(--foreground); font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; }
+.planta-detalhe { fill: var(--muted-foreground); font-family: var(--font-mono); font-size: 9px; }
+.planta-cota { fill: var(--muted-foreground); font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.12em; }
 
 /* Marcas de canto de planta nos cards de projeto */
 .card-planta { position: relative; }
@@ -242,3 +244,21 @@ body {
 }
 .card-planta::before { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: var(--radius-lg); }
 .card-planta::after { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: var(--radius-lg); }
+
+/* Impacto: nome em gradiente e brilho atrás do hero */
+.texto-gradiente {
+  background-image: linear-gradient(100deg, var(--foreground) 5%, var(--primary) 95%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.hero-brilho {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 55% at 85% 20%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 70%),
+    radial-gradient(45% 45% at 10% 90%, color-mix(in oklab, var(--highlight) 10%, transparent), transparent 70%);
+}

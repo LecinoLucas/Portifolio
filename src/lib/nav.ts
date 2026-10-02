@@ -1,15 +1,26 @@
-/** Itens de navegação do Header. O `id` corresponde ao ancoramento da seção. */
+/** Visões do portfólio: cada item da barra mostra uma seção por vez. */
 export interface ItemNav {
   id: string;
   rotulo: string;
 }
 
 export const itensNav: ItemNav[] = [
-  { id: "sobre", rotulo: "Sobre" },
+  { id: "inicio", rotulo: "Início" },
+  { id: "sobre", rotulo: "Sobre mim" },
+  { id: "investigacao", rotulo: "Investigações" },
   { id: "experiencia", rotulo: "Experiência" },
-  { id: "investigacao", rotulo: "Investigação" },
   { id: "projetos", rotulo: "Projetos" },
-  { id: "les", rotulo: "LES" },
   { id: "tecnologias", rotulo: "Tecnologias" },
+  { id: "les", rotulo: "LES" },
   { id: "contato", rotulo: "Contato" },
 ];
+
+/** Âncoras antigas ou internas que apontam para uma visão existente. */
+const apelidos: Record<string, string> = { topo: "inicio", principios: "les" };
+
+/** Converte um hash (#id) em id de visão; retorna null se não for uma visão. */
+export function visaoDoHash(hash: string): string | null {
+  const id = hash.replace(/^#/, "");
+  const resolvido = apelidos[id] ?? id;
+  return itensNav.some((item) => item.id === resolvido) ? resolvido : null;
+}

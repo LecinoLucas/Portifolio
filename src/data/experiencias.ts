@@ -104,7 +104,7 @@ export const carreira: EtapaCarreira[] = [
       "Em paralelo à sustentação, construo os sistemas que resolvem o que vejo na operação. Estou em transição para o desenvolvimento, e já com sistemas em produção.",
     numeros: [
       { valor: "5", rotulo: "sistemas construídos ou em construção" },
-      { valor: "3", rotulo: "em produção ou entregues" },
+      { valor: "4", rotulo: "em produção ou entregues" },
       { valor: "500+", rotulo: "usuários no Portal de Engenharia" },
     ],
     destaques: [
@@ -115,7 +115,7 @@ export const carreira: EtapaCarreira[] = [
     ferramentas: ["React", "TypeScript", "Node.js", "Python", "FastAPI", "PostgreSQL", "Docker"],
     levei: "Construo sabendo como o usuário sofre: a regra de negócio vem primeiro.",
     sistemas: [
-      { titulo: "BankingProtheus", situacao: "Construído", texto: "Renova automaticamente os certificados do Itaú de uma rede de 53 filiais." },
+      { titulo: "BankingProtheus", situacao: "Em produção", texto: "Renova automaticamente os certificados do Itaú de uma rede de 53 filiais." },
       { titulo: "Portal de Engenharia", situacao: "Em produção · Rede Marajó", texto: "Gestão de obras, chamados, fornecedores e cotações, com mais de 500 usuários." },
       { titulo: "ImportNFe", situacao: "Em produção · vendido a uma distribuidora", texto: "Importa XML de NF-e, normaliza os itens e gera planilhas por template." },
       { titulo: "Portal de RH", situacao: "Entregue", texto: "Recrutamento e admissão, com análise por IA e integração com o Protheus." },

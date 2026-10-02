@@ -12,7 +12,7 @@ export const projetos: Projeto[] = [
     titulo: "BankingProtheus",
     categoria: "Integração bancária · Certificados Itaú",
     destaque: true,
-    situacao: "construido",
+    situacao: "producao",
     resumo:
       "Sistema que renova automaticamente os certificados do Itaú (API de extrato e API de boletos) de uma rede de 53 filiais, com job de renovação e painel de vencimento, sobre mTLS.",
     stack: ["APIs bancárias", "mTLS", "Certificados digitais", "SQL", "Protheus", "Jobs agendados", "Dashboard"],

@@ -117,12 +117,11 @@ describe("<App />", () => {
     expect(container.querySelector("#projetos")?.textContent).toContain("Em produção na Rede Marajó");
   });
 
-  it("BankingProtheus não é dito em produção nem cita a Rede Marajó no próprio projeto", () => {
+  it("BankingProtheus consta em produção, sem citar a Rede Marajó no próprio projeto", () => {
     const banking = projetoPorSlug("bankingprotheus");
-    expect(banking?.situacao).toBe("construido");
+    expect(banking?.situacao).toBe("producao");
     const texto = JSON.stringify(banking).toLowerCase();
     expect(texto).not.toContain("marajó");
-    expect(texto).not.toContain("em produção");
     expect(texto).toContain("53 filiais");
   });
 

@@ -1,11 +1,19 @@
 {
   "hosting": {
+    "site": "lecinolucas",
     "public": "firebase-public",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "rewrites": [
       {
         "source": "**",
-        "run": { "serviceId": "portifolio", "region": "southamerica-east1" }
+        "run": {
+          "serviceId": "portifolio",
+          "region": "southamerica-east1"
+        }
       }
     ]
   }

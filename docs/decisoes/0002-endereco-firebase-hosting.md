@@ -1,6 +1,6 @@
 # ADR 0002 — Endereço curto com Firebase Hosting na frente do Cloud Run
 
-- **Status**: Aceita (aguardando publicação)
+- **Status**: Aceita (site `lecinolucas` criado no Firebase; aguardando a primeira publicação)
 - **Data**: 2026-10-02
 
 ## Contexto
@@ -25,7 +25,7 @@ Colocar o **Firebase Hosting** na frente do serviço `portifolio`:
    ```
    npm install -g firebase-tools
    firebase login
-   firebase use --add        # escolha o projeto
+   firebase use portfolio-509500   # projeto do Firebase
    firebase deploy --only hosting
    ```
 4. Abrir o novo endereço e conferir que o site carrega.

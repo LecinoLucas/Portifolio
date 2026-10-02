@@ -62,10 +62,12 @@ describe("dados de apoio", () => {
     }
   });
 
-  it("a carreira termina em desenvolvimento e inclui a Rede Marajó", () => {
-    expect(carreira[carreira.length - 1].id).toBe("desenvolvimento");
-    expect(carreira.some((e) => e.organizacao.includes("Rede Marajó"))).toBe(true);
-    expect(carreira.some((e) => e.id === "desenvolvimento" && (e.sistemas?.length ?? 0) > 0)).toBe(true);
+  it("a carreira termina na Rede Marajó, com os sistemas entregues em paralelo (etapa de desenvolvimento desativada)", () => {
+    const ultima = carreira[carreira.length - 1];
+    expect(ultima.id).toBe("marajo");
+    expect(ultima.organizacao).toContain("Rede Marajó");
+    expect(ultima.sistemas?.length ?? 0).toBeGreaterThan(0);
+    expect(carreira.some((e) => e.id === "desenvolvimento")).toBe(false);
   });
 
   it("etapas têm período com ano ou marcador de hoje (sem placeholders)", () => {

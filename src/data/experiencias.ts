@@ -1,7 +1,7 @@
 import type { EtapaCarreira } from "@/types";
 
 /**
- * Carreira em ordem cronológica, terminando em desenvolvimento.
+ * Carreira em ordem cronológica, terminando na Rede Marajó.
  * Só números e fatos informados pelo autor ou presentes no currículo.
  */
 export const carreira: EtapaCarreira[] = [
@@ -108,7 +108,14 @@ export const carreira: EtapaCarreira[] = [
       },
     ],
   },
-  {
+];
+
+/**
+ * Etapa "Hoje · Desenvolvimento": DESATIVADA na trilha (não está em `carreira`).
+ * Terminar a trilha em desenvolvimento podia sugerir que a pessoa não quer
+ * suporte, e os projetos reais já têm a própria aba. Guardada para voltar.
+ */
+export const etapaDesenvolvimento: EtapaCarreira = {
     id: "desenvolvimento",
     trilha: "Desenvolvimento",
     trilhaCurta: "Dev",
@@ -136,5 +143,4 @@ export const carreira: EtapaCarreira[] = [
       { titulo: "Portal de RH", situacao: "Entregue", texto: "Recrutamento e admissão, com análise por IA e integração com o Protheus." },
       { titulo: "Sistema de Gestão de Clínica", situacao: "Em construção", texto: "Agenda, financeiro e protocolos com IA, com bot de atendimento via WhatsApp." },
     ],
-  },
-];
+};

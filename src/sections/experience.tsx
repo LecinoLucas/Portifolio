@@ -14,7 +14,7 @@ export function Experience({ aoIr }: { aoIr: (id: string) => void }) {
     <Section id="experiencia">
       <SectionHeading
         rotulo="Experiência"
-        titulo="Do suporte ao desenvolvimento"
+        titulo="Minha trajetória na tecnologia"
         descricao="Escolha uma etapa para ver o que eu fazia, com números, ferramentas e o que levei de cada uma."
       />
 

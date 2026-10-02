@@ -10,7 +10,7 @@ export const perfil: Perfil = {
   /** Apresentação do Início: quem é, de onde vem e o que busca. */
   apresentacao: [
     "Analista de Sistemas, formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás.",
-    "Da regra de negócio ao sistema em produção: vim do suporte e da implantação e estou em transição para o desenvolvimento.",
+    "Da regra de negócio ao sistema em produção: vim do suporte e da implantação, atuo com suporte especializado e integrações e também construo sistemas.",
     "Busco oportunidades em suporte especializado e integração de sistemas e APIs.",
   ],
 

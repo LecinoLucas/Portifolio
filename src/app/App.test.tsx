@@ -73,12 +73,13 @@ describe("<App />", () => {
     expect(container.textContent).not.toMatch(/\/\/ [a-zà-ú]/i);
   });
 
-  it("o Início apresenta formação, transição para o desenvolvimento e o que busca", () => {
+  it("o Início apresenta formação, o caminho do suporte aos sistemas e o que busca", () => {
     const { container } = render(<App />);
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
     expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
     expect(inicio).toContain("PUC Goiás");
-    expect(inicio).toContain("em transição para o desenvolvimento");
+    expect(inicio).toContain("atuo com suporte especializado e integrações e também construo sistemas");
+    expect(inicio).not.toMatch(/em transição/i);
     expect(inicio).toContain("suporte especializado e integração de sistemas e APIs");
   });
 

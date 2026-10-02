@@ -12,7 +12,7 @@ export const itensNav: ItemNav[] = [
   { id: "investigacao", rotulo: "Investigações", descricao: "O que investigo no dia a dia" },
   { id: "experiencia", rotulo: "Experiência", descricao: "Minha trajetória" },
   { id: "projetos", rotulo: "Projetos", descricao: "Sistemas e demonstrações" },
-  { id: "tecnologias", rotulo: "Tecnologias", descricao: "Onde cada uma entra" },
+  { id: "tecnologias", rotulo: "Tecnologias", descricao: "O que uso e o que estou aprendendo" },
   { id: "les", rotulo: "LES", descricao: "Meu padrão de engenharia" },
   { id: "contato", rotulo: "Contato", descricao: "Vamos conversar" },
 ];

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { App } from "@/app/App";
-import { projetoPorSlug } from "@/data/projetos";
+import { projetoPorSlug, projetos } from "@/data/projetos";
 
 describe("<App />", () => {
   beforeEach(() => {
@@ -101,8 +101,7 @@ describe("<App />", () => {
     const { container } = render(<App />);
     const texto = container.textContent ?? "";
     expect(texto).not.toMatch(/\bDDA\b/);
-    expect(texto).toContain("CNAB de pagamento");
-    expect(texto).toContain("CNAB de recebimento");
+    expect(texto).toContain("CNAB de pagamento e de recebimento");
   });
 
   it("BankingProtheus é a renovação automática de certificados do Itaú, não conciliação", () => {
@@ -142,6 +141,29 @@ describe("<App />", () => {
     expect(experiencia).toContain("Portal de Engenharia");
     expect(experiencia).toContain("BankingProtheus");
     expect(experiencia).not.toMatch(/horas extras|fins? de semana|finais de semana/i);
+  });
+
+  it("Projetos abre com o Portal de Engenharia como principal, 500+ usuários e as camadas de teste", () => {
+    const { container } = render(<App />);
+    expect(projetos[0].slug).toBe("portal-engenharia");
+    expect(projetos[0].principal).toBe(true);
+    const aba = container.querySelector("#projetos")?.textContent ?? "";
+    expect(aba).toContain("Projeto principal");
+    expect(aba).toContain("500+");
+    for (const nome of ["Vitest", "Playwright", "k6", "Stryker"]) {
+      expect(aba, nome).toContain(nome);
+    }
+    expect(projetos.filter((p) => p.principal).length).toBe(1);
+  });
+
+  it("Tecnologias destaca Node, React, JavaScript, os testes e não cita arquitetura do Protheus", () => {
+    const { container } = render(<App />);
+    const aba = container.querySelector("#tecnologias")?.textContent ?? "";
+    for (const nome of ["Node.js", "React", "JavaScript", "Vitest", "Playwright", "k6", "Stryker"]) {
+      expect(aba, nome).toContain(nome);
+    }
+    expect(aba).toContain("evoluindo para pleno");
+    expect(aba).not.toMatch(/arquitetura (do|de) protheus/i);
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

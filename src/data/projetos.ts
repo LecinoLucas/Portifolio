@@ -8,6 +8,76 @@ import { links } from "@/data/links";
  */
 export const projetos: Projeto[] = [
   {
+    slug: "portal-engenharia",
+    titulo: "Portal de Engenharia",
+    categoria: "Sistema corporativo · Engenharia & Obras",
+    destaque: true,
+    principal: true,
+    situacao: "producao",
+    situacaoDetalhe: "Em produção na Rede Marajó.",
+    resumo:
+      "Tudo o que passa pela engenharia passa por ele: obras, chamados, fornecedores, cotações, documentos e dashboards, com controle de acesso e auditoria.",
+    numeros: [{ valor: "500+", rotulo: "usuários em produção" }],
+    stack: ["Node.js", "React", "TypeScript", "PostgreSQL", "Prisma", "APIs REST"],
+    testes: [
+      { nome: "Vitest", para: "Testes unitários das regras de negócio." },
+      { nome: "Playwright", para: "Testes de ponta a ponta dos fluxos, no navegador." },
+      { nome: "k6", para: "Testes de carga: o comportamento com muitos usuários." },
+      { nome: "Stryker", para: "Testes de mutação: verificam se os testes realmente pegam erros." },
+    ],
+    detalhe: {
+      contexto:
+        "Na Rede Marajó, tudo o que passa pela engenharia precisa de um lugar só: obras, chamados, fornecedores, cotações e documentos.",
+      problema:
+        "Reunir num único sistema o que a engenharia usa no dia a dia, com acesso controlado por papéis e histórico auditável.",
+      participacao:
+        "Projeto meu, do levantamento de requisitos à entrega: modelagem de dados, backend, frontend, testes, sustentação e evolução.",
+      solucao:
+        "Módulos de EAP, medições, cotações, fornecedores, documentos, chamados, checklist, dashboards e relatórios, com autenticação, controle de acesso por papéis (RBAC), auditoria, armazenamento de arquivos, integrações e recursos de IA.",
+      arquitetura:
+        "Node.js no backend, React com TypeScript no frontend, PostgreSQL com Prisma, expostos por APIs REST.",
+      desafios: [
+        "Atender mais de 500 usuários em produção.",
+        "Controle de acesso por papéis e auditoria das ações.",
+        "Qualidade provada por testes em várias camadas: unidade, ponta a ponta, carga e mutação.",
+      ],
+      resultado: "Em produção real na Rede Marajó, usado por mais de 500 usuários.",
+    },
+  },
+
+  {
+    slug: "importnfe",
+    titulo: "ImportNFe",
+    categoria: "Processamento fiscal · XML NF-e",
+    situacao: "producao",
+    situacaoDetalhe: "Roda em servidor local e foi vendido a uma distribuidora.",
+    demo: "importnfe",
+    resumo:
+      "Importa XML de NF-e, normaliza as descrições dos produtos, permite revisão com aprendizado de aliases e gera planilhas Excel a partir de templates.",
+    stack: ["Python", "FastAPI", "SQLAlchemy", "Alembic", "React", "TypeScript", "PostgreSQL"],
+    detalhe: {
+      contexto:
+        "A extração de dados de notas fiscais eletrônicas para planilhas era feita manualmente, abrindo XMLs e copiando informações campo a campo, com descrições de produto em formatos diferentes a cada fornecedor.",
+      problema:
+        "Trabalho repetitivo e propenso a erro, descrições inconsistentes entre notas e planilhas fora de um padrão único.",
+      participacao:
+        "Desenvolvimento full stack: API em FastAPI, modelagem com SQLAlchemy e migrations com Alembic, geração de planilhas e frontend em React + TypeScript.",
+      solucao:
+        "Parsing do XML da NF-e, normalização automática das descrições (remove marcas, expande abreviações, padroniza volumes), grade de revisão editável com aliases por empresa ou globais que passam a ter prioridade nas próximas importações, e geração de Excel por templates configuráveis, com logo por template.",
+      arquitetura:
+        "FastAPI + SQLAlchemy sobre PostgreSQL, com camadas de rotas, serviços, repositórios e modelos de domínio → parser de XML NF-e → serviço de normalização → exportação para Excel por template → frontend React. Empacotado para rodar em servidor Windows local, com bundle portátil de templates e usuários.",
+      desafios: [
+        "Tratar variações do layout do XML da NF-e e campos opcionais.",
+        "Definir a ordem de prioridade entre alias da empresa, alias global e normalizador automático.",
+        "Templates de Excel configuráveis sem exigir alteração de código a cada ajuste.",
+        "Levar templates, usuários e logos para outro servidor com um bundle portátil.",
+      ],
+      resultado:
+        "A importação de NF-e e a geração de planilhas passaram a ser feitas pela ferramenta, com descrições padronizadas e saída por template. O sistema está em produção, rodando localmente, e foi vendido a uma distribuidora.",
+    },
+  },
+
+  {
     slug: "bankingprotheus",
     titulo: "BankingProtheus",
     categoria: "Integração bancária · Certificados Itaú",
@@ -36,6 +106,7 @@ export const projetos: Projeto[] = [
         "O sistema substitui a renovação manual, certificado por certificado, por um processo automático, com um painel para acompanhar os vencimentos.",
     },
   },
+
   {
     slug: "portal-rh",
     titulo: "Portal de RH",
@@ -68,67 +139,7 @@ export const projetos: Projeto[] = [
         "O fluxo de recrutamento e admissão passou a ficar num único sistema, com histórico de etapas, análise assistida por IA e envio ao ERP com validação e rastreabilidade.",
     },
   },
-  {
-    slug: "portal-engenharia",
-    titulo: "Portal de Engenharia",
-    categoria: "Sistema corporativo · Engenharia & Obras",
-    destaque: true,
-    situacao: "producao",
-    situacaoDetalhe: "Em produção na Rede Marajó.",
-    resumo:
-      "Aplicação corporativa em produção para gestão de obras, chamados, fornecedores, cotações, documentos e dashboards — com autenticação, RBAC e auditoria.",
-    stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Prisma", "APIs REST"],
-    detalhe: {
-      contexto:
-        "A área de engenharia/obras acompanhava obras, chamados, fornecedores e cotações em planilhas e e-mail, sem visão consolidada, sem controle de acesso e sem histórico confiável.",
-      problema:
-        "Informação fragmentada e difícil de auditar, sem controle claro de quem pode ver ou fazer o quê e sem indicadores para acompanhar obras e cotações.",
-      participacao:
-        "Participei do desenvolvimento full stack: levantamento de regras de negócio, modelagem de dados com Prisma, APIs REST em Node.js, frontend em React + TypeScript, autenticação, RBAC e trilha de auditoria.",
-      solucao:
-        "Aplicação web para gerir obras, abrir e acompanhar chamados, cadastrar fornecedores, conduzir cotações, anexar documentos e acompanhar dashboards e relatórios. Autenticação com autorização baseada em papéis (RBAC), deny-by-default e auditoria das ações.",
-      arquitetura:
-        "Backend Node.js modular (obras, chamados, fornecedores, cotações) com Prisma sobre PostgreSQL → APIs REST → frontend React com dashboards. Autorização por papéis centralizada no backend; registro de auditoria das operações.",
-      desafios: [
-        "Modelar obras, cotações e fornecedores de forma flexível sem cair num formulário genérico.",
-        "RBAC aplicado de forma consistente no backend, com deny-by-default.",
-        "Dashboards e relatórios úteis à gestão sem sobrecarregar o banco.",
-      ],
-      resultado:
-        "Obras, chamados, fornecedores e cotações passaram a viver num único sistema em produção, com acesso controlado por papéis, histórico auditável e dashboards de acompanhamento.",
-    },
-  },
-  {
-    slug: "importnfe",
-    titulo: "ImportNFe",
-    categoria: "Processamento fiscal · XML NF-e",
-    situacao: "producao",
-    situacaoDetalhe: "Roda em servidor local e foi vendido a uma distribuidora.",
-    demo: "importnfe",
-    resumo:
-      "Importa XML de NF-e, normaliza as descrições dos produtos, permite revisão com aprendizado de aliases e gera planilhas Excel a partir de templates.",
-    stack: ["Python", "FastAPI", "SQLAlchemy", "Alembic", "React", "TypeScript", "PostgreSQL"],
-    detalhe: {
-      contexto:
-        "A extração de dados de notas fiscais eletrônicas para planilhas era feita manualmente, abrindo XMLs e copiando informações campo a campo, com descrições de produto em formatos diferentes a cada fornecedor.",
-      problema:
-        "Trabalho repetitivo e propenso a erro, descrições inconsistentes entre notas e planilhas fora de um padrão único.",
-      participacao:
-        "Desenvolvimento full stack: API em FastAPI, modelagem com SQLAlchemy e migrations com Alembic, geração de planilhas e frontend em React + TypeScript.",
-      solucao:
-        "Parsing do XML da NF-e, normalização automática das descrições (remove marcas, expande abreviações, padroniza volumes), grade de revisão editável com aliases por empresa ou globais que passam a ter prioridade nas próximas importações, e geração de Excel por templates configuráveis, com logo por template.",
-      arquitetura:
-        "FastAPI + SQLAlchemy sobre PostgreSQL, com camadas de rotas, serviços, repositórios e modelos de domínio → parser de XML NF-e → serviço de normalização → exportação para Excel por template → frontend React. Empacotado para rodar em servidor Windows local, com bundle portátil de templates e usuários.",
-      desafios: [
-        "Tratar variações do layout do XML da NF-e e campos opcionais.",
-        "Definir a ordem de prioridade entre alias da empresa, alias global e normalizador automático.",
-        "Templates de Excel configuráveis sem exigir alteração de código a cada ajuste.",
-        "Levar templates, usuários e logos para outro servidor com um bundle portátil.",
-      ],
-      resultado:
-        "A importação de NF-e e a geração de planilhas passaram a ser feitas pela ferramenta, com descrições padronizadas e saída por template. O sistema está em produção, rodando localmente, e foi vendido a uma distribuidora.",
-    },
-  },
+
   {
     slug: "les",
     titulo: "Lecino Lucas Engineering Standard (LES)",

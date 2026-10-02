@@ -46,6 +46,12 @@ export interface Projeto {
   situacao?: "producao" | "entregue" | "construido" | "construcao";
   /** Detalhe da situação (ex.: forma de uso). */
   situacaoDetalhe?: string;
+  /** Projeto principal: ganha o card grande no topo da aba. */
+  principal?: boolean;
+  /** Números em destaque (só dados reais). */
+  numeros?: { valor: string; rotulo: string }[];
+  /** Camadas de teste do projeto, para o painel de detalhe. */
+  testes?: { nome: string; para: string }[];
   /** Demonstração interativa com dados fictícios. */
   demo?: "importnfe" | "rh";
   detalhe: DetalheProjeto;
@@ -80,16 +86,16 @@ export interface Formacao {
   status: string;
 }
 
-export interface EtapaTecnologia {
-  numero: string;
-  etapa: string;
-  descricao: string;
-  itens: string[];
+export interface TecnologiaDiaADia {
+  nome: string;
+  nota: string;
 }
 
-export interface GrupoTecnologia {
-  dominio: string;
-  itens: string[];
+export interface Tecnologias {
+  abertura: string;
+  diaADia: TecnologiaDiaADia[];
+  /** Tecnologias já usadas, mas ainda em evolução (sem exagero de nível). */
+  emEvolucao: string[];
 }
 
 export interface Principio {

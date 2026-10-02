@@ -7,7 +7,7 @@
 O site roda no Cloud Run com o endereço padrão
 `portifolio-475271784563.southamerica-east1.run.app`, longo e pouco profissional
 para currículo e LinkedIn. O Cloud Run não oferece mapeamento de domínio em
-`southamerica-east1`. Além disso, o projeto do Firebase (`portfolio-509500`) é
+`southamerica-east1`. Além disso, o projeto do Firebase (`portifolio-509500`) é
 diferente do projeto do Cloud Run, e o Hosting só reescreve para Cloud Run do
 mesmo projeto.
 
@@ -24,7 +24,7 @@ No Cloud Shell, na raiz do repositório:
 ```
 npm ci && npm run build
 npx firebase-tools login --no-localhost
-npx firebase-tools use portfolio-509500
+npx firebase-tools use portifolio-509500
 npx firebase-tools deploy --only hosting
 ```
 Depois de abrir o novo endereço e conferir, trocar o endereço oficial:

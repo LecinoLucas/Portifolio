@@ -67,7 +67,9 @@ export interface EtapaCarreira {
   ferramentas: string[];
   /** O que a pessoa levou desta etapa para as seguintes. */
   levei: string;
-  /** Sistemas construídos (etapa de desenvolvimento). */
+  /** Título do bloco de sistemas (padrão: "sistemas que construí"). */
+  tituloSistemas?: string;
+  /** Sistemas construídos na etapa. */
   sistemas?: { titulo: string; situacao: string; texto: string }[];
 }
 

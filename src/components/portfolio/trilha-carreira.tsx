@@ -119,7 +119,7 @@ export function TrilhaCarreira({ etapas, inicial = 0, aoIr }: PropsTrilha) {
 
         {etapa.sistemas ? (
           <div className="mt-8 border-t border-border pt-6">
-            <Rotulo>sistemas que construí</Rotulo>
+            <Rotulo>{etapa.tituloSistemas ?? "sistemas que construí"}</Rotulo>
             <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {etapa.sistemas.map((sistema) => (
                 <li key={sistema.titulo} className="rounded-lg border border-border bg-background/60 p-4">

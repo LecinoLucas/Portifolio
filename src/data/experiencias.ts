@@ -81,6 +81,7 @@ export const carreira: EtapaCarreira[] = [
       { valor: "~20", rotulo: "chamados por dia (help desk N1/N2)" },
       { valor: "4", rotulo: "bancos integrados: Itaú, Santander, Sicoob e Votorantim" },
       { valor: "4", rotulo: "módulos do Protheus: financeiro, contábil, fiscal e compras" },
+      { valor: "2", rotulo: "sistemas entregues em paralelo à sustentação" },
     ],
     destaques: [
       "TOTVS Protheus: suporte funcional nos processos financeiros (contas a pagar e a receber), contábeis, fiscais e de compras.",
@@ -88,10 +89,24 @@ export const carreira: EtapaCarreira[] = [
       "Parametrização do sistema a partir do levantamento de regras de negócio, com testes, homologação e documentação.",
       "Integrações bancárias com CNAB de pagamento e de recebimento: Santander, Votorantim e Sicoob via VAN, e Itaú via API de extrato.",
       "Acompanhamento das rotinas via VAN bancária, gestão de certificados digitais (extrato e boletos) e consulta e integração de extratos bancários.",
-      "Em paralelo à sustentação, construí o Portal de Engenharia (em produção na Rede Marajó, com mais de 500 usuários) e o BankingProtheus, feito para a Rede Marajó renovar automaticamente os certificados do Itaú das 53 filiais.",
     ],
     ferramentas: ["TOTVS Protheus", "SQL", "CNAB", "VAN bancária", "API de extrato", "Certificados digitais", "mTLS"],
     levei: "Protheus, SQL e integrações bancárias, investigando cada incidente até a causa raiz.",
+    tituloSistemas: "entregues em paralelo à sustentação",
+    sistemas: [
+      {
+        titulo: "Portal de Engenharia",
+        situacao: "Em produção na Rede Marajó",
+        texto:
+          "Gestão de obras, chamados, fornecedores e cotações, com mais de 500 usuários. Construído ao mesmo tempo em que eu sustentava os sistemas e atendia os chamados.",
+      },
+      {
+        titulo: "BankingProtheus",
+        situacao: "Em produção",
+        texto:
+          "Feito para a Rede Marajó automatizar a renovação dos certificados do Itaú que sustentam a API de extrato e a de boletos nas 53 filiais, com job agendado e painel de vencimentos.",
+      },
+    ],
   },
   {
     id: "desenvolvimento",

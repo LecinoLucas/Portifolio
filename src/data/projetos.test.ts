@@ -82,9 +82,12 @@ describe("dados de apoio", () => {
     }
   });
 
-  it("grupos de tecnologia não são vazios", () => {
-    for (const grupo of tecnologias) {
-      expect(grupo.itens.length, grupo.dominio).toBeGreaterThan(0);
-    }
+  it("tecnologias têm domínio do dia a dia e evolução, sem nível exagerado", () => {
+    expect(tecnologias.diaADia.length).toBeGreaterThan(0);
+    expect(tecnologias.emEvolucao.length).toBeGreaterThan(0);
+    const nomes = tecnologias.diaADia.map((t) => t.nome);
+    for (const base of ["Node.js", "React", "JavaScript"]) expect(nomes).toContain(base);
+    // não deve listar como domínio o que está em evolução
+    for (const nome of tecnologias.emEvolucao) expect(nomes).not.toContain(nome);
   });
 });

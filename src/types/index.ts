@@ -86,16 +86,16 @@ export interface Formacao {
   status: string;
 }
 
-export interface EtapaTecnologia {
-  numero: string;
-  etapa: string;
-  descricao: string;
-  itens: string[];
+export interface TecnologiaDiaADia {
+  nome: string;
+  nota: string;
 }
 
-export interface GrupoTecnologia {
-  dominio: string;
-  itens: string[];
+export interface Tecnologias {
+  abertura: string;
+  diaADia: TecnologiaDiaADia[];
+  /** Tecnologias já usadas, mas ainda em evolução (sem exagero de nível). */
+  emEvolucao: string[];
 }
 
 export interface Principio {

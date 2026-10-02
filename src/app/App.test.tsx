@@ -101,8 +101,7 @@ describe("<App />", () => {
     const { container } = render(<App />);
     const texto = container.textContent ?? "";
     expect(texto).not.toMatch(/\bDDA\b/);
-    expect(texto).toContain("CNAB de pagamento");
-    expect(texto).toContain("CNAB de recebimento");
+    expect(texto).toContain("CNAB de pagamento e de recebimento");
   });
 
   it("BankingProtheus é a renovação automática de certificados do Itaú, não conciliação", () => {
@@ -155,6 +154,16 @@ describe("<App />", () => {
       expect(aba, nome).toContain(nome);
     }
     expect(projetos.filter((p) => p.principal).length).toBe(1);
+  });
+
+  it("Tecnologias destaca Node, React, JavaScript, os testes e não cita arquitetura do Protheus", () => {
+    const { container } = render(<App />);
+    const aba = container.querySelector("#tecnologias")?.textContent ?? "";
+    for (const nome of ["Node.js", "React", "JavaScript", "Vitest", "Playwright", "k6", "Stryker"]) {
+      expect(aba, nome).toContain(nome);
+    }
+    expect(aba).toContain("evoluindo para pleno");
+    expect(aba).not.toMatch(/arquitetura (do|de) protheus/i);
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

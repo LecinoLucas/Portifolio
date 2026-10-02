@@ -10,7 +10,7 @@ export const sobre: Sobre = {
     "O básico bem feito",
     "Muito focado e esforçado",
     "Trabalho em equipe e comunicação",
-    "Arquitetura de sistemas, não sintaxe",
+    "Arquitetura e visão do sistema inteiro",
     "Atendimento a usuários desde 2016",
   ],
 
@@ -21,9 +21,9 @@ export const sobre: Sobre = {
         "Todo comportamento de um sistema tem uma regra por trás. Entendo essa regra antes de mexer e valido antes de alterar qualquer dado.",
     },
     {
-      titulo: "Arquitetura, não sintaxe",
+      titulo: "Entender o projeto por inteiro",
       texto:
-        "Escrever código está cada vez mais assistido por ferramentas. O que continua valendo é entender o que está sendo feito: como os dados se relacionam, onde mora a regra e o que quebra se algo mudar. Por isso o meu foco é a arquitetura de sistemas.",
+        "Gosto de saber como o sistema funciona por dentro: onde mora a regra, como os dados se relacionam e o que quebra se algo mudar.",
     },
     {
       titulo: "O básico bem feito",
@@ -47,7 +47,7 @@ export const sobre: Sobre = {
     "Sou muito focado e esforçado, às vezes demais: trabalho com intensidade e fico ansioso para entregar bem. Estou aprendendo a equilibrar isso com organização e prioridade, porque o esforço rende mais quando está bem direcionado.",
 
   alemDoTrabalho:
-    "Moro em Goiânia, sou casado e pai de um filho, e a família é o que me move. Sou calmo, comunicativo e paciente, e foram os anos atendendo usuários que me ensinaram a explicar um problema técnico em linguagem simples.",
+    "Tudo o que faço começa em casa. Sou casado e sou pai, e é por eles que quero ser um pouco melhor a cada dia. Foram anos ouvindo usuários, um a um, que me ensinaram que quase todo problema melhora quando alguém escuta com calma. Levo isso para o trabalho: escuto, entendo e só então resolvo.",
 
   rumo:
     "Analista de Sistemas ou de Suporte Especializado (N2/N3), crescendo em arquitetura, integração de sistemas e IA aplicada.",

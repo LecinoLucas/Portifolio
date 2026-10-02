@@ -4,8 +4,8 @@ export interface Perfil {
   nome: string;
   titulo: string;
   destaque: string;
-  headline: string;
-  nivel: string;
+  /** Apresentação do Início, uma ideia por linha. */
+  apresentacao: string[];
   localizacao: string;
   disponibilidade: string;
 }

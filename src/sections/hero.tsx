@@ -20,10 +20,11 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
           {perfil.destaque}
         </h2>
 
-        <p className="mt-6 max-w-3xl text-lg leading-relaxed text-foreground/85 sm:text-xl">{perfil.headline}</p>
-        <p className="mt-4 inline-block rounded-md border border-highlight/50 bg-highlight/10 px-3 py-1.5 font-mono text-sm font-medium text-highlight">
-          {perfil.nivel}
-        </p>
+        <div className="mt-6 max-w-3xl space-y-2 text-lg leading-relaxed text-foreground/85 sm:text-xl">
+          {perfil.apresentacao.map((linha) => (
+            <p key={linha}>{linha}</p>
+          ))}
+        </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a href={links.curriculo} download className={classesBotao({ tamanho: "lg" })}><Download className="size-4" /> Baixar currículo</a>

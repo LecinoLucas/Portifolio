@@ -72,12 +72,20 @@ describe("<App />", () => {
     expect(container.textContent).not.toMatch(/\/\/ [a-zà-ú]/i);
   });
 
-  it("o Início deixa claro o nível (júnior, ~6 meses em produção real) e a formação", () => {
+  it("o Início apresenta formação, transição para o desenvolvimento e o que busca", () => {
     const { container } = render(<App />);
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
-    expect(inicio).toMatch(/júnior/i);
-    expect(inicio).toMatch(/6 meses/);
-    expect(inicio).toMatch(/PUC Goiás/);
+    expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
+    expect(inicio).toContain("PUC Goiás");
+    expect(inicio).toContain("em transição para o desenvolvimento");
+    expect(inicio).toContain("suporte especializado e integração de sistemas e APIs");
+  });
+
+  it("o Início não usa etiqueta de nível (júnior / 6 meses)", () => {
+    const { container } = render(<App />);
+    const inicio = container.querySelector("#inicio")?.textContent ?? "";
+    expect(inicio).not.toMatch(/júnior/i);
+    expect(inicio).not.toMatch(/6 meses/);
   });
 
   it("o sumário 3D do Início leva às abas", () => {

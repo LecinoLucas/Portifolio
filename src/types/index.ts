@@ -6,8 +6,18 @@ export interface Perfil {
   headline: string;
   localizacao: string;
   disponibilidade: string;
-  bio: { rotulo: string; texto: string }[];
-  fatos: { rotulo: string; valor: string }[];
+}
+
+export interface Sobre {
+  abertura: string;
+  quemSou: string;
+  principios: { titulo: string; texto: string }[];
+  /** Como a pessoa trabalha no dia a dia (intensidade, foco). */
+  ritmo: string;
+  rumo: string;
+  /** Fecho: trabalho em equipe. */
+  equipe: string;
+  resumo: string[];
 }
 
 export interface LinkExterno {

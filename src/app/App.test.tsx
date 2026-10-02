@@ -53,6 +53,15 @@ describe("<App />", () => {
     expect(screen.getByRole("link", { name: "Projetos" })).toHaveAttribute("aria-current", "page");
   });
 
+  it("Sobre mim traz a regra de negócio e fecha com o trabalho em equipe", () => {
+    const { container } = render(<App />);
+    const sobre = container.querySelector("#sobre");
+    const rotulos = Array.from(sobre?.querySelectorAll("h3") ?? []).map((h) => h.textContent);
+    expect(rotulos).toEqual(["// quem sou", "// como eu penso", "// meu ritmo", "// para onde vou", "// em equipe", "// em resumo"]);
+    expect(sobre?.textContent).toContain("Regra de negócio primeiro");
+    expect(sobre?.textContent).toContain("Arquitetura, não sintaxe");
+  });
+
   it("tem link de pular para o conteúdo (acessibilidade)", () => {
     render(<App />);
     expect(

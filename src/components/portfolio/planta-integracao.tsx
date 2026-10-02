@@ -15,8 +15,8 @@ const A = 52;
 
 const nos: No[] = [
   { id: "protheus", numero: "01", titulo: "PROTHEUS", detalhe: "títulos · SE1 SE2", x: 18, y: 44, descricao: "Origem: títulos a pagar e a receber gerados no ERP, com as regras de negócio já parametrizadas." },
-  { id: "remessa", numero: "02", titulo: "REMESSA", detalhe: "CNAB · API", x: 176, y: 44, descricao: "Canal: arquivo CNAB ou API do banco, com OAuth2, mTLS, certificado digital e VAN bancária." },
-  { id: "banco", numero: "03", titulo: "BANCO", detalhe: "boletos · DDA", x: 334, y: 44, descricao: "O banco processa pagamentos, boletos e DDA e devolve o retorno da operação." },
+  { id: "remessa", numero: "02", titulo: "REMESSA", detalhe: "CNAB · VAN · API", x: 176, y: 44, descricao: "Canal: CNAB de pagamento e de recebimento via VAN (Santander, Votorantim e Sicoob) e API de extrato no Itaú, com certificado digital e mTLS." },
+  { id: "banco", numero: "03", titulo: "BANCO", detalhe: "boletos · extrato", x: 334, y: 44, descricao: "O banco processa pagamentos e boletos e devolve o retorno e o extrato da operação." },
   { id: "retorno", numero: "04", titulo: "RETORNO", detalhe: "baixas · SE5 FK1 FK5", x: 334, y: 164, descricao: "Retorno: baixas e movimentos voltam ao ERP e precisam bater com o título original." },
   { id: "conciliacao", numero: "05", titulo: "CONCILIAÇÃO", detalhe: "SQL", x: 176, y: 164, descricao: "Consultas SQL cruzam título, baixa e extrato para confirmar que cada operação fechou." },
   { id: "divergencias", numero: "06", titulo: "DIVERGÊNCIAS", detalhe: "causa raiz", x: 18, y: 164, descricao: "O que não bate vira investigação: rastrear os registros até encontrar a causa raiz." },

@@ -96,6 +96,21 @@ describe("<App />", () => {
     expect(container.querySelector<HTMLElement>('[data-visao="experiencia"]')?.hidden).toBe(false);
   });
 
+  it("não cita DDA e descreve o CNAB de pagamento e de recebimento", () => {
+    const { container } = render(<App />);
+    const texto = container.textContent ?? "";
+    expect(texto).not.toMatch(/\bDDA\b/);
+    expect(texto).toContain("CNAB de pagamento");
+    expect(texto).toContain("CNAB de recebimento");
+  });
+
+  it("BankingProtheus é a renovação automática de certificados do Itaú, não conciliação", () => {
+    const { container } = render(<App />);
+    const projetos = container.querySelector("#projetos")?.textContent ?? "";
+    expect(projetos).toContain("renova automaticamente os certificados do Itaú");
+    expect(projetos).not.toMatch(/concilia/i);
+  });
+
   it("tem link de pular para o conteúdo (acessibilidade)", () => {
     render(<App />);
     expect(
@@ -105,7 +120,7 @@ describe("<App />", () => {
 
   it("mostra os títulos dos projetos em destaque", () => {
     render(<App />);
-    expect(screen.getByText("Conciliação Bancária Itaú")).toBeInTheDocument();
+    expect(screen.getAllByText("BankingProtheus").length).toBeGreaterThan(0);
     // Aparece no card e no cabeçalho da seção LES — basta existir.
     expect(
       screen.getAllByText(/Lecino Lucas Engineering Standard \(LES\)/).length,

@@ -25,8 +25,8 @@ export const experiencias: Experiencia[] = [
       "TOTVS Protheus: suporte funcional nos processos financeiros (contas a pagar e a receber), contábeis, fiscais e de compras.",
       "Consultas SQL para investigar inconsistências, validar dados e identificar a causa raiz de incidentes.",
       "Parametrização do sistema a partir do levantamento de regras de negócio, com testes, homologação e documentação.",
-      "Integrações bancárias via APIs e arquivos CNAB (pagamentos e recebimentos, boletos e DDA) com Itaú, Santander, Sicoob e Votorantim.",
-      "Rotinas via VAN bancária, gestão de certificados digitais para boletos e consulta e integração de extratos bancários.",
+      "Integrações bancárias com CNAB de pagamento e de recebimento: Santander, Votorantim e Sicoob via VAN, e Itaú via API de extrato.",
+      "Acompanhamento das rotinas via VAN bancária, gestão de certificados digitais (extrato e boletos) e consulta e integração de extratos bancários.",
       "Desenvolvimento de soluções internas em paralelo à sustentação.",
     ],
     tags: [
@@ -34,7 +34,6 @@ export const experiencias: Experiencia[] = [
       "SQL",
       "Help desk N1/N2",
       "CNAB",
-      "DDA",
       "VAN bancária",
       "Certificados digitais",
     ],

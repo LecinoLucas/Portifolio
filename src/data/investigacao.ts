@@ -18,8 +18,8 @@ export const investigacao: Investigacao = {
 
   frentes: [
     { titulo: "Títulos, baixas e movimentos", descricao: "Divergências entre o que o Protheus mostra e o que está nas tabelas SE1, SE5, FK1, FK5 e FK7." },
-    { titulo: "Remessa e retorno bancário", descricao: "CNAB, boletos e DDA com Itaú, Santander, Sicoob e Votorantim: o que foi enviado, o que o banco devolveu e o que o ERP registrou." },
-    { titulo: "Certificados e comunicação", descricao: "Certificados digitais, VAN bancária e APIs: falhas de autenticação e de comunicação com o banco." },
+    { titulo: "Remessa e retorno bancário", descricao: "CNAB de pagamento e de recebimento (Santander, Votorantim e Sicoob via VAN) e extrato do Itaú via API: o que foi enviado, o que o banco devolveu e o que o ERP registrou." },
+    { titulo: "Certificados e comunicação", descricao: "Certificados digitais com mTLS, VAN bancária e APIs: certificado vencendo, falhas de autenticação e de comunicação com o banco." },
     { titulo: "Extratos e conciliação", descricao: "Consulta e integração de extratos bancários e a conferência contra os lançamentos do ERP." },
     { titulo: "Parametrização e regra de negócio", descricao: "Quando o sistema não se comporta como o esperado: parâmetros, regras e rotinas, validados em homologação." },
   ],

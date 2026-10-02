@@ -8,42 +8,32 @@ import { links } from "@/data/links";
  */
 export const projetos: Projeto[] = [
   {
-    slug: "conciliacao-bancaria-itau",
-    titulo: "Conciliação Bancária Itaú",
-    categoria: "Integração bancária · BankingProtheus",
+    slug: "bankingprotheus",
+    titulo: "BankingProtheus",
+    categoria: "Integração bancária · Certificados Itaú",
     destaque: true,
     situacao: "producao",
     resumo:
-      "Integração bancária com as APIs do Itaú (OAuth2 + mTLS) que automatiza a conciliação de contas, extratos, recebimentos e pagamentos contra os registros internos, com controle de acesso e rastreabilidade.",
-    stack: [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "SQL",
-      "APIs Itaú",
-      "OAuth2",
-      "mTLS",
-    ],
+      "Sistema que renova automaticamente os certificados do Itaú (API de extrato e API de boletos), com job de renovação e painel de vencimento, sobre mTLS.",
+    stack: ["APIs bancárias", "mTLS", "Certificados digitais", "SQL", "Protheus", "Jobs agendados", "Dashboard"],
     detalhe: {
       contexto:
-        "A operação financeira precisava conciliar as movimentações bancárias do Itaú (contas, extratos, recebimentos e pagamentos) com os registros internos, num volume que tornava a conferência manual inviável e pouco rastreável. É um projeto que combina conhecimento financeiro, análise de sistemas, integração bancária, desenvolvimento e segurança.",
+        "A empresa tinha dezenas de filiais, e cada uma usava certificados digitais para as APIs do Itaú de extrato e de boletos. Os certificados vencem, e vários vencem em épocas próximas.",
       problema:
-        "Processo manual, lento e sujeito a erro, sem trilha clara de divergências. O acesso às APIs do Itaú exige autenticação OAuth2 (client_credentials) sobre canal mTLS, com certificados e credenciais que precisam ser guardados com segurança e renovados sem interromper a operação.",
+        "Renovar os certificados um por um, de forma manual, chamando a API do banco a cada vez. Um certificado vencido interrompe a integração com o banco daquela filial.",
       participacao:
-        "Atuei do levantamento à entrega: modelei os dados no PostgreSQL, implementei a autenticação OAuth2 client_credentials com mTLS, os adapters das APIs do Itaú, as regras de conciliação, o painel em React + TypeScript e o controle de permissões de acesso.",
+        "Criei o sistema: o job de renovação automática e o painel de acompanhamento dos certificados.",
       solucao:
-        "Serviço em Node.js que autentica via OAuth2 client_credentials sobre mTLS, coleta contas, extratos, recebimentos e pagamentos, normaliza os lançamentos e concilia contra os registros internos. Gestão de certificados e credenciais com rastreabilidade dos acessos. Painel em React + TypeScript para status, divergências e histórico, com acesso controlado por permissões.",
+        "Um job agendado identifica os certificados próximos do vencimento e os renova automaticamente pela API do Itaú, tanto na API de extrato quanto na de boletos. Um painel mostra quantos dias faltam para cada certificado vencer. A comunicação com o banco usa mTLS.",
       arquitetura:
-        "Autenticação OAuth2 client_credentials + mTLS → adapters por endpoint do Itaú → serviço de normalização e regras de conciliação → PostgreSQL como fonte de verdade dos lançamentos → API interna com permissões → frontend React. Trilha de auditoria dos acessos e das renovações de credenciais.",
+        "Job agendado que identifica certificados próximos do vencimento → renovação via API do Itaú sobre mTLS → painel de acompanhamento dos dias para vencer, por filial.",
       desafios: [
-        "Autenticação bancária com OAuth2 client_credentials sobre mTLS: gestão segura de certificados e credenciais e sua renovação.",
-        "Conciliar formatos e estados distintos de extratos, recebimentos e pagamentos.",
-        "Idempotência no processamento para reprocessar períodos sem duplicar lançamentos.",
-        "Rastreabilidade: registrar quem acessou o quê e o que a integração executou.",
+        "Renovar dezenas de certificados sem intervenção manual.",
+        "Comunicação segura com o banco usando mTLS.",
+        "Visibilidade: saber quantos dias faltam para cada certificado vencer antes que ele expire.",
       ],
       resultado:
-        "A conciliação passou de tarefa manual recorrente para um fluxo automatizado, com divergências visíveis em painel, acesso controlado por permissões e trilha de auditoria dos acessos e das credenciais.",
+        "A renovação deixou de ser feita certificado por certificado e passou a acontecer sozinha, com um painel para acompanhar os vencimentos.",
     },
   },
   {

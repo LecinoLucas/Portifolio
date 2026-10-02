@@ -7,8 +7,8 @@ import type { EtapaTecnologia, GrupoTecnologia } from "@/types";
  */
 export const fluxoTecnologias: EtapaTecnologia[] = [
   { numero: "01", etapa: "Protheus", descricao: "ERP de origem das operações", itens: ["TOTVS Protheus", "Financeiro", "Contábil", "Fiscal", "Compras", "TMS"] },
-  { numero: "02", etapa: "Remessa", descricao: "Canal de comunicação com o banco", itens: ["CNAB", "APIs REST", "OAuth2", "mTLS", "Certificados digitais", "VAN bancária"] },
-  { numero: "03", etapa: "Banco", descricao: "Instituições e produtos", itens: ["Itaú", "Santander", "Sicoob", "Votorantim", "Boletos", "DDA"] },
+  { numero: "02", etapa: "Remessa", descricao: "Canal de comunicação com o banco", itens: ["CNAB de pagamento", "CNAB de recebimento", "VAN bancária", "API de extrato", "mTLS", "Certificados digitais", "APIs REST"] },
+  { numero: "03", etapa: "Banco", descricao: "Instituições e produtos", itens: ["Itaú", "Santander", "Sicoob", "Votorantim", "Boletos"] },
   { numero: "04", etapa: "Retorno", descricao: "Baixas e extratos de volta ao ERP", itens: ["Retorno CNAB", "Extratos", "Rotinas agendadas"] },
   { numero: "05", etapa: "Conciliação", descricao: "Dados que provam que fechou", itens: ["SQL", "PostgreSQL", "SQL Server", "Modelagem relacional"] },
   { numero: "06", etapa: "Divergências", descricao: "Investigação até a causa raiz", itens: ["Troubleshooting", "Análise de causa raiz", "Homologação", "Documentação"] },

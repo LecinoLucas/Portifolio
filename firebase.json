@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "lecinolucas",
-    "public": "firebase-public",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -10,10 +10,7 @@
     "rewrites": [
       {
         "source": "**",
-        "run": {
-          "serviceId": "portifolio",
-          "region": "southamerica-east1"
-        }
+        "destination": "/index.html"
       }
     ]
   }

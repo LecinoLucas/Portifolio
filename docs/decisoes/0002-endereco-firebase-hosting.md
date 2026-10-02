@@ -1,42 +1,35 @@
-# ADR 0002 — Endereço curto com Firebase Hosting na frente do Cloud Run
+# ADR 0002 — Endereço curto com Firebase Hosting (site estático)
 
 - **Status**: Aceita (site `lecinolucas` criado no Firebase; aguardando a primeira publicação)
 - **Data**: 2026-10-02
 
 ## Contexto
-O site roda no Cloud Run, em `southamerica-east1`, com o endereço padrão
+O site roda no Cloud Run com o endereço padrão
 `portifolio-475271784563.southamerica-east1.run.app`, longo e pouco profissional
-para currículo e LinkedIn. O Cloud Run **não oferece mapeamento de domínio**
-nessa região, mas o **Firebase Hosting aceita reescrever para um serviço do
-Cloud Run em `southamerica-east1`**.
+para currículo e LinkedIn. O Cloud Run não oferece mapeamento de domínio em
+`southamerica-east1`. Além disso, o projeto do Firebase (`portfolio-509500`) é
+diferente do projeto do Cloud Run, e o Hosting só reescreve para Cloud Run do
+mesmo projeto.
 
 ## Decisão
-Colocar o **Firebase Hosting** na frente do serviço `portifolio`:
+Como o site é uma SPA estática (ver ADR 0001), publicar o build (`dist`)
+diretamente no **Firebase Hosting**, plano Spark (grátis, sem cartão):
 
-- Endereço inicial, grátis: `https://lecinolucas.web.app` (nome sujeito a disponibilidade).
-- Depois, opcionalmente, um domínio próprio (ex.: `.com.br`) anexado ao mesmo Hosting.
-- O pipeline atual (merge na `main` → Cloud Run) **não muda**: o Hosting apenas
-  encaminha todas as requisições (`**`) para o Cloud Run, via `firebase.json`.
+- Endereço: `https://lecinolucas.web.app`.
+- Depois, opcionalmente, um domínio próprio anexado ao mesmo Hosting.
+- O Cloud Run continua com o deploy automático no merge; o `run.app` segue funcionando.
 
-## Como publicar (uma vez)
-1. No Console do Firebase: **Adicionar projeto**, escolhendo o projeto do GCP que já tem o Cloud Run.
-2. No Hosting, criar o site com o nome desejado.
-3. No Cloud Shell ou no computador, na raiz do repositório:
-   ```
-   npm install -g firebase-tools
-   firebase login
-   firebase use portfolio-509500   # projeto do Firebase
-   firebase deploy --only hosting
-   ```
-4. Abrir o novo endereço e conferir que o site carrega.
-5. Só então trocar o endereço oficial: `npm run set-domain -- https://lecinolucas.web.app`,
-   regenerar o PDF do currículo e fazer o merge.
+## Como publicar
+No Cloud Shell, na raiz do repositório:
+```
+npm ci && npm run build
+npx firebase-tools login --no-localhost
+npx firebase-tools use portfolio-509500
+npx firebase-tools deploy --only hosting
+```
+Depois de abrir o novo endereço e conferir, trocar o endereço oficial:
+`npm run set-domain -- https://lecinolucas.web.app`, regenerar o PDF do currículo e fazer o merge.
 
 ## Consequências
-- **Custo**: o Hosting com reescrita para Cloud Run pode exigir o plano Blaze
-  (paga conforme o uso, com cota gratuita). Conferir no Console antes de aceitar.
-  Alternativa sem cartão: hospedar o site estático direto no Hosting (plano Spark,
-  `public: "dist"`), o que muda o fluxo de publicação.
-- O endereço antigo (`run.app`) continua funcionando.
-- Trocar o endereço oficial de SEO antes de o novo estar no ar quebraria o
-  compartilhamento do link; por isso o passo 5 vem por último.
+- A publicação no endereço curto é manual (ou futura GitHub Action); não acompanha o merge sozinha.
+- Trocar o endereço oficial de SEO só depois de o novo estar no ar.

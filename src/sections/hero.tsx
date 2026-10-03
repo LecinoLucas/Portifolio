@@ -1,5 +1,6 @@
 import { Download, Github, Linkedin } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { CacaIncidentes } from "@/components/portfolio/caca-incidentes";
 import { Sumario3D } from "@/components/portfolio/sumario-3d";
 import { classesBotao } from "@/components/ui/button-variants";
 import { links } from "@/data/links";
@@ -34,6 +35,10 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
 
         <div className="mt-12">
           <Sumario3D aoIr={aoIr} />
+        </div>
+
+        <div className="mt-10">
+          <CacaIncidentes aoIr={aoIr} />
         </div>
       </Container>
     </section>

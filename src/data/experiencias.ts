@@ -87,7 +87,6 @@ export const carreira: EtapaCarreira[] = [
     resumo:
       "Sustentação de sistemas corporativos e atendimento técnico e funcional (help desk N1/N2) a usuários e áreas de negócio. Investigação de incidentes com SQL, no ERP TOTVS Protheus e nas integrações bancárias.",
     numeros: [
-      { valor: "~20", rotulo: "chamados por dia (help desk N1/N2)" },
       { valor: "4", rotulo: "bancos integrados: Itaú, Santander, Sicoob e Votorantim" },
       { valor: "4", rotulo: "módulos do Protheus: financeiro, contábil, fiscal e compras" },
       { valor: "2", rotulo: "sistemas entregues em paralelo à sustentação" },
@@ -126,8 +125,8 @@ export const resumoExperiencia = {
   anosTI: `${Math.floor(totalMesesTI / 12)}+`,
   anosTIDetalhe: `${formatarMeses(totalMesesTI)} somando Atento, I5 e Rede Marajó`,
   destaques: [
-    { valor: "~20", rotulo: "chamados por dia no help desk" },
     { valor: "4", rotulo: "bancos integrados" },
+    { valor: "4", rotulo: "módulos do Protheus atendidos" },
     { valor: "2", rotulo: "sistemas entregues em paralelo" },
   ],
 };

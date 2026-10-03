@@ -33,3 +33,8 @@ Depois de abrir o novo endereço e conferir, trocar o endereço oficial:
 ## Consequências
 - A publicação no endereço curto é manual (ou futura GitHub Action); não acompanha o merge sozinha.
 - Trocar o endereço oficial de SEO só depois de o novo estar no ar.
+
+## Publicação automática
+`.github/workflows/firebase-hosting.yml` publica o build a cada merge na `main`,
+usando o secret `FIREBASE_SERVICE_ACCOUNT` (chave JSON de uma conta de serviço
+com o papel "Firebase Hosting Admin"). A chave nunca é commitada.

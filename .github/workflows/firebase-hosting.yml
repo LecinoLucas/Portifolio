@@ -1,0 +1,31 @@
+# Publica o site no Firebase Hosting (lecinolucas.web.app) a cada merge na main.
+# Requer o secret FIREBASE_SERVICE_ACCOUNT (chave JSON da conta de serviço). Ver ADR 0002.
+name: Publicar no Firebase Hosting
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Deploy
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          echo "$GOOGLE_APPLICATION_CREDENTIALS_JSON" > "$RUNNER_TEMP/chave.json"
+          GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/chave.json" \
+            npx firebase-tools deploy --only hosting --project portifolio-509500
+          rm -f "$RUNNER_TEMP/chave.json"

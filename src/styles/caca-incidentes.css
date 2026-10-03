@@ -1,0 +1,75 @@
+/* Caça ao incidente — mira que segue o ponteiro e alvos que flutuam.
+   Animações só rodam quando o sistema permite movimento. */
+.caca-arena {
+  position: relative;
+  min-height: 21rem;
+  overflow: hidden;
+  touch-action: manipulation;
+  background-image:
+    linear-gradient(to right, color-mix(in oklch, var(--primary) 12%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklch, var(--primary) 12%, transparent) 1px, transparent 1px);
+  background-size: 2.5rem 2.5rem;
+}
+
+@media (pointer: fine) {
+  .caca-arena { cursor: none; }
+  .caca-arena .caca-alvo { cursor: none; }
+}
+
+.caca-alvo {
+  position: absolute;
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--destructive);
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--destructive) 14%, var(--card));
+  padding: 0.5rem 0.9rem;
+  font-family: "JetBrains Mono Variable", ui-monospace, monospace;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--foreground);
+}
+.caca-alvo:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.caca-alvo[data-resolvido="true"] {
+  border-color: var(--success);
+  background: color-mix(in oklch, var(--success) 14%, var(--card));
+  text-decoration: line-through;
+}
+
+.caca-mira {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  margin: -1.5rem 0 0 -1.5rem;
+  pointer-events: none;
+  opacity: 0;
+  color: var(--primary);
+}
+.caca-arena[data-mira="true"] .caca-mira { opacity: 1; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .caca-alvo { animation: caca-flutuar 3.4s ease-in-out infinite; }
+  .caca-alvo:nth-child(2n) { animation-duration: 4.1s; animation-delay: -1.2s; }
+  .caca-alvo:nth-child(3n) { animation-duration: 3.8s; animation-delay: -2.3s; }
+  .caca-alvo[data-resolvido="true"] { animation: caca-explodir 0.45s ease-out 1; }
+  .caca-mira-tiro { animation: caca-tiro 0.28s ease-out 1; }
+}
+
+@keyframes caca-flutuar {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(0.5rem, -0.6rem); }
+}
+@keyframes caca-explodir {
+  0% { transform: scale(1.35); box-shadow: 0 0 0 0 var(--success); }
+  100% { transform: scale(1); box-shadow: 0 0 0 1.4rem transparent; }
+}
+@keyframes caca-tiro {
+  0% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}

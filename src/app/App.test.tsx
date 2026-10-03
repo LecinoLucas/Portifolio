@@ -78,9 +78,32 @@ describe("<App />", () => {
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
     expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
     expect(inicio).toContain("PUC Goiás");
-    expect(inicio).toContain("atuo com suporte especializado e integrações e também construo sistemas");
+    expect(inicio).toContain("Vim do suporte e da implantação");
+    for (const palavra of ["Determinado", "Consistente", "Resiliente"]) expect(inicio).toContain(palavra);
+    expect(inicio).toContain("1% melhor a cada dia.");
     expect(inicio).not.toMatch(/em transição/i);
-    expect(inicio).toContain("suporte especializado e integração de sistemas e APIs");
+    expect(inicio).toContain("Suporte Especializado que integra sistemas");
+    expect(inicio).toContain("desenvolvo sistemas em produção");
+    expect(inicio).toContain("Também desenvolvo, em produção");
+  });
+
+  it("o Início mostra a faixa de provas com números reais", () => {
+    const { container } = render(<App />);
+    const faixa = container.querySelector("#inicio ul[aria-label='Números do meu trabalho']")?.textContent ?? "";
+    expect(faixa).toContain("anos de TI");
+    expect(faixa).toContain("500+");
+    expect(faixa).toContain("53");
+    expect(faixa).toContain("camadas de teste");
+  });
+
+  it("o Sobre mim fala da pessoa (causa raiz, usuário, família) e não repete os cartões do Início", () => {
+    const { container } = render(<App />);
+    const sobre = container.querySelector("#sobre")?.textContent ?? "";
+    expect(sobre).toContain("Causa raiz");
+    expect(sobre).toContain("Escutar o usuário");
+    expect(sobre).toContain("pai de família");
+    expect(sobre).not.toContain("Resiliente");
+    expect(sobre).not.toMatch(/1% por dia/i);
   });
 
   it("o Início não usa etiqueta de nível (júnior / 6 meses)", () => {
@@ -136,7 +159,8 @@ describe("<App />", () => {
     const abas = Array.from(experiencia.querySelectorAll('[role="tab"]'));
     expect(abas.length).toBe(4);
     expect(abas[abas.length - 1].textContent).toMatch(/Marajó/);
-    expect(experiencia.textContent).toContain("~20");
+    expect(experiencia.textContent).not.toContain("~20");
+    expect(experiencia.textContent).not.toMatch(/chamados por dia/i);
     expect(experiencia.textContent).toContain("4+ anos");
     expect(experiencia.textContent).toContain("1 ano e 3 meses");
     expect(experiencia.textContent).not.toMatch(/o que levei dali|Em transição para o desenvolvimento|Hoje/);

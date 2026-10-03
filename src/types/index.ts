@@ -4,6 +4,10 @@ export interface Perfil {
   nome: string;
   titulo: string;
   destaque: string;
+  /** Marca pessoal do Início: cada palavra com um exemplo real. */
+  marca: { palavra: string; exemplo: string }[];
+  /** Lema curto, logo abaixo da marca. */
+  lema: string;
   /** Apresentação do Início, uma ideia por linha. */
   apresentacao: string[];
   localizacao: string;
@@ -14,7 +18,7 @@ export interface Sobre {
   abertura: string;
   /** Pontos fortes, no card de resumo. */
   resumo: string[];
-  principios: { titulo: string; texto: string }[];
+  principios: { titulo: string; frase: string; texto: string }[];
   alemDoTrabalho: string;
   /** Fecho: trabalho em equipe. */
   equipe: string;

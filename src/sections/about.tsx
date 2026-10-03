@@ -35,6 +35,7 @@ export function About() {
                   </span>
                   <div>
                     <h4 className="text-lg font-semibold tracking-tight">{principio.titulo}</h4>
+                    <p className="mt-0.5 font-mono text-sm text-primary">“{principio.frase}”</p>
                     <p className="mt-1 leading-relaxed text-foreground/80">{principio.texto}</p>
                   </div>
                 </li>

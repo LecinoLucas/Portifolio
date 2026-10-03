@@ -263,6 +263,16 @@ body {
     radial-gradient(45% 45% at 10% 90%, color-mix(in oklab, var(--highlight) 10%, transparent), transparent 70%);
 }
 
+/* Entrada da marca no Início: as três palavras surgem em sequência. */
+@media (prefers-reduced-motion: no-preference) {
+  .marca-palavra { animation: marca-entra 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  .marca-lema { animation: marca-entra 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both; }
+}
+@keyframes marca-entra {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
 /* Sumário 3D do Início */
 .sumario-3d { perspective: 1100px; }
 .cartao-3d {

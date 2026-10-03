@@ -3,25 +3,26 @@ import type { Sobre } from "@/types";
 /** Conteúdo da aba "Sobre mim": curto, em primeira pessoa. A trajetória fica em Experiência. */
 export const sobre: Sobre = {
   abertura:
-    "Analista de Sistemas que entende a regra de negócio antes de escrever qualquer linha. Muito focado, esforçado e de equipe.",
+    "Gosto de entender o problema até o fim e de ouvir o usuário com calma. Quase todo problema melhora quando alguém escuta.",
 
   resumo: [
     "Regra de negócio antes do código",
-    "O básico bem feito",
+    "Causa raiz, nos mínimos detalhes",
+    "Escuto o usuário com calma",
     "Muito focado e esforçado",
     "Trabalho em equipe",
-    "Visão do sistema inteiro",
-    "Busco: Analista de Sistemas ou Suporte N2/N3",
+    "Busco: Analista, Desenvolvedor ou Suporte que integra",
   ],
 
   principios: [
-    { titulo: "Regra de negócio primeiro", texto: "Entendo a regra antes de mexer e valido antes de alterar qualquer dado." },
-    { titulo: "O básico bem feito", texto: "Prefiro o simples bem resolvido a algo avançado feito às pressas." },
-    { titulo: "1% por dia", texto: "Competir comigo mesmo: um pouco melhor a cada dia." },
+    { titulo: "Regra de negócio primeiro", frase: "Antes de mexer: qual é a regra por trás disso?", texto: "Entendo a regra antes de mexer e valido antes de alterar qualquer dado." },
+    { titulo: "Causa raiz, nos mínimos detalhes", frase: "Quando algo quebra, minha primeira pergunta é: o que mudou?", texto: "Gosto de entender o problema até o fim. Corrigir o sintoma é rápido, mas é achar a causa que impede o problema de voltar." },
+    { titulo: "Escutar o usuário", frase: "O que o usuário pede nem sempre é o que ele precisa.", texto: "O usuário quase nunca fala a linguagem técnica. Meu trabalho é ouvir com calma, entender o que ele precisa de verdade e traduzir isso em solução." },
+    { titulo: "O básico bem feito", frase: "Simples e bem feito antes de sofisticado.", texto: "Prefiro o simples bem resolvido a algo avançado feito às pressas." },
   ],
 
   alemDoTrabalho:
-    "Tudo o que faço começa em casa. Sou casado e sou pai, e é por eles que quero ser um pouco melhor a cada dia. Foram anos ouvindo usuários que me ensinaram que quase todo problema melhora quando alguém escuta com calma. No trabalho sou muito focado, às vezes demais, e estou aprendendo a equilibrar.",
+    "Tudo o que faço começa em casa. Sou casado e sou pai de família, e é por eles que quero ser um pouco melhor a cada dia. Trabalhar com pessoas todos os dias é sempre algo novo: cada usuário e cada dúvida trazem uma situação diferente, e foram anos de atendimento que me ensinaram que quase todo problema melhora quando alguém escuta com calma. No trabalho sou muito focado, às vezes demais, e estou aprendendo a equilibrar.",
 
   equipe:
     "Gosto de trabalhar em equipe: já supervisionei vendedores, treinei usuários e atendi áreas de negócio. Um sistema funciona bem quando quem o usa e quem o mantém conversam.",

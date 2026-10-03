@@ -1,5 +1,8 @@
 import { Download, Github, Linkedin } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { DesenvolvoEmProducao } from "@/components/portfolio/desenvolvo-em-producao";
+import { CartoesMarca } from "@/components/portfolio/cartoes-marca";
+import { FaixaProvas } from "@/components/portfolio/faixa-provas";
 import { CacaIncidentes } from "@/components/portfolio/caca-incidentes";
 import { Sumario3D } from "@/components/portfolio/sumario-3d";
 import { classesBotao } from "@/components/ui/button-variants";
@@ -20,17 +23,30 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
         <h2 className="texto-gradiente mt-3 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
           {perfil.destaque}
         </h2>
+        <p className="mt-4 text-lg font-medium text-foreground/90">{perfil.titulo}</p>
 
-        <div className="mt-6 max-w-3xl space-y-2 text-lg leading-relaxed text-foreground/85 sm:text-xl">
+        <div className="mt-5 max-w-3xl space-y-2 text-lg leading-relaxed text-foreground/85 sm:text-xl">
           {perfil.apresentacao.map((linha) => (
             <p key={linha}>{linha}</p>
           ))}
+        </div>
+
+        <div className="mt-8">
+          <CartoesMarca />
         </div>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a href={links.curriculo} download className={classesBotao({ tamanho: "lg" })}><Download className="size-4" /> Baixar currículo</a>
           <a href={links.github} target="_blank" rel="noreferrer" className={classesBotao({ variante: "contorno", tamanho: "lg" })}><Github className="size-4" /> GitHub</a>
           {links.linkedin ? <a href={links.linkedin} target="_blank" rel="noreferrer" className={classesBotao({ variante: "contorno", tamanho: "lg" })}><Linkedin className="size-4" /> LinkedIn</a> : null}
+        </div>
+
+        <div className="mt-10">
+          <DesenvolvoEmProducao aoIr={aoIr} />
+        </div>
+
+        <div className="mt-6">
+          <FaixaProvas />
         </div>
 
         <div className="mt-12">

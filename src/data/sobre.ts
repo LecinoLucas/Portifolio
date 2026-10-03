@@ -3,7 +3,7 @@ import type { Sobre } from "@/types";
 /** Conteúdo da aba "Sobre mim": curto, em primeira pessoa. A trajetória fica em Experiência. */
 export const sobre: Sobre = {
   abertura:
-    "Analista de Sistemas que entende a regra de negócio antes de escrever qualquer linha, e o usuário antes de qualquer solução.",
+    "Gosto de entender o problema até o fim e de ouvir o usuário com calma. Quase todo problema melhora quando alguém escuta.",
 
   resumo: [
     "Regra de negócio antes do código",
@@ -11,14 +11,14 @@ export const sobre: Sobre = {
     "Escuto o usuário com calma",
     "Muito focado e esforçado",
     "Trabalho em equipe",
-    "Busco: Analista de Sistemas ou Suporte N2/N3",
+    "Busco: Analista, Desenvolvedor ou Suporte que integra",
   ],
 
   principios: [
-    { titulo: "Regra de negócio primeiro", texto: "Entendo a regra antes de mexer e valido antes de alterar qualquer dado." },
-    { titulo: "Causa raiz, nos mínimos detalhes", texto: "Gosto de entender o problema até o fim. Corrigir o sintoma é rápido, mas é achar a causa que impede o problema de voltar." },
-    { titulo: "Escutar o usuário", texto: "O usuário quase nunca fala a linguagem técnica. Meu trabalho é ouvir com calma, entender o que ele precisa de verdade e traduzir isso em solução." },
-    { titulo: "O básico bem feito", texto: "Prefiro o simples bem resolvido a algo avançado feito às pressas." },
+    { titulo: "Regra de negócio primeiro", frase: "Antes de mexer: qual é a regra por trás disso?", texto: "Entendo a regra antes de mexer e valido antes de alterar qualquer dado." },
+    { titulo: "Causa raiz, nos mínimos detalhes", frase: "Quando algo quebra, minha primeira pergunta é: o que mudou?", texto: "Gosto de entender o problema até o fim. Corrigir o sintoma é rápido, mas é achar a causa que impede o problema de voltar." },
+    { titulo: "Escutar o usuário", frase: "O que o usuário pede nem sempre é o que ele precisa.", texto: "O usuário quase nunca fala a linguagem técnica. Meu trabalho é ouvir com calma, entender o que ele precisa de verdade e traduzir isso em solução." },
+    { titulo: "O básico bem feito", frase: "Simples e bem feito antes de sofisticado.", texto: "Prefiro o simples bem resolvido a algo avançado feito às pressas." },
   ],
 
   alemDoTrabalho:

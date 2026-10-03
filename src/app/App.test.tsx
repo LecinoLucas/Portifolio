@@ -78,11 +78,13 @@ describe("<App />", () => {
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
     expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
     expect(inicio).toContain("PUC Goiás");
-    expect(inicio).toContain("Vim do suporte e da implantação e também construo sistemas");
+    expect(inicio).toContain("Vim do suporte e da implantação");
     for (const palavra of ["Determinado", "Consistente", "Resiliente"]) expect(inicio).toContain(palavra);
     expect(inicio).toContain("1% melhor a cada dia.");
     expect(inicio).not.toMatch(/em transição/i);
-    expect(inicio).toContain("suporte especializado e integração de sistemas e APIs");
+    expect(inicio).toContain("Suporte Especializado que integra sistemas");
+    expect(inicio).toContain("desenvolvo sistemas em produção");
+    expect(inicio).toContain("Também desenvolvo, em produção");
   });
 
   it("o Início mostra a faixa de provas com números reais", () => {

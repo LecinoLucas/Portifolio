@@ -1,5 +1,6 @@
 import { Download, Github, Linkedin } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { DesenvolvoEmProducao } from "@/components/portfolio/desenvolvo-em-producao";
 import { CartoesMarca } from "@/components/portfolio/cartoes-marca";
 import { FaixaProvas } from "@/components/portfolio/faixa-provas";
 import { CacaIncidentes } from "@/components/portfolio/caca-incidentes";
@@ -30,6 +31,10 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
           ))}
         </div>
 
+        <div className="mt-8">
+          <CartoesMarca />
+        </div>
+
         <div className="mt-8 flex flex-wrap items-center gap-3">
           <a href={links.curriculo} download className={classesBotao({ tamanho: "lg" })}><Download className="size-4" /> Baixar currículo</a>
           <a href={links.github} target="_blank" rel="noreferrer" className={classesBotao({ variante: "contorno", tamanho: "lg" })}><Github className="size-4" /> GitHub</a>
@@ -37,7 +42,7 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
         </div>
 
         <div className="mt-10">
-          <CartoesMarca />
+          <DesenvolvoEmProducao aoIr={aoIr} />
         </div>
 
         <div className="mt-6">

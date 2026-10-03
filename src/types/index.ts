@@ -18,7 +18,7 @@ export interface Sobre {
   abertura: string;
   /** Pontos fortes, no card de resumo. */
   resumo: string[];
-  principios: { titulo: string; texto: string }[];
+  principios: { titulo: string; frase: string; texto: string }[];
   alemDoTrabalho: string;
   /** Fecho: trabalho em equipe. */
   equipe: string;

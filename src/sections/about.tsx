@@ -26,6 +26,17 @@ export function About() {
           </Reveal>
 
           <Reveal>
+            <ul className="grid gap-3 sm:grid-cols-3">
+              {sobre.marca.map((item) => (
+                <li key={item.palavra} className="rounded-lg border border-primary/40 bg-card p-4">
+                  <h4 className="texto-gradiente text-2xl font-extrabold tracking-tight">{item.palavra}</h4>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/85">{item.exemplo}</p>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          <Reveal>
             <Rotulo>como eu penso</Rotulo>
             <ol className="mt-4 space-y-5">
               {sobre.principios.map((principio, indice) => (

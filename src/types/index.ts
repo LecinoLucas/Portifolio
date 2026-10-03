@@ -4,6 +4,10 @@ export interface Perfil {
   nome: string;
   titulo: string;
   destaque: string;
+  /** Marca pessoal: as três palavras que abrem o Início. */
+  marca: string[];
+  /** Lema curto, logo abaixo da marca. */
+  lema: string;
   /** Apresentação do Início, uma ideia por linha. */
   apresentacao: string[];
   localizacao: string;
@@ -12,6 +16,8 @@ export interface Perfil {
 
 export interface Sobre {
   abertura: string;
+  /** Cada palavra da marca com um exemplo real. */
+  marca: { palavra: string; exemplo: string }[];
   /** Pontos fortes, no card de resumo. */
   resumo: string[];
   principios: { titulo: string; texto: string }[];

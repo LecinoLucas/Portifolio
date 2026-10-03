@@ -2,8 +2,13 @@ import type { Sobre } from "@/types";
 
 /** Conteúdo da aba "Sobre mim": curto, em primeira pessoa. A trajetória fica em Experiência. */
 export const sobre: Sobre = {
-  abertura:
-    "Analista de Sistemas que entende a regra de negócio antes de escrever qualquer linha. Muito focado, esforçado e de equipe.",
+  abertura: "Determinado, consistente e resiliente. Busco ser 1% melhor a cada dia.",
+
+  marca: [
+    { palavra: "Determinado", exemplo: "Saí do suporte técnico por telefone e me formei em Análise e Desenvolvimento de Sistemas na PUC Goiás." },
+    { palavra: "Consistente", exemplo: "Entre um chamado e outro, construí o Portal de Engenharia, hoje em produção com mais de 500 usuários." },
+    { palavra: "Resiliente", exemplo: "Passei por suporte, vendas, implantação e sistemas corporativos, e a cada etapa aprendi o que faltava." },
+  ],
 
   resumo: [
     "Regra de negócio antes do código",

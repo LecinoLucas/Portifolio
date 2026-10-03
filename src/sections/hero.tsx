@@ -1,5 +1,6 @@
 import { Download, Github, Linkedin } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { CartoesMarca } from "@/components/portfolio/cartoes-marca";
 import { FaixaProvas } from "@/components/portfolio/faixa-provas";
 import { CacaIncidentes } from "@/components/portfolio/caca-incidentes";
 import { Sumario3D } from "@/components/portfolio/sumario-3d";
@@ -18,18 +19,12 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
         </p>
 
         <h1 className="mt-6 font-mono text-lg font-semibold uppercase tracking-[0.2em] text-muted-foreground">{perfil.nome}</h1>
-        <h2 className="mt-3 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
-          {perfil.marca.map((palavra, indice) => (
-            <span key={palavra} className="marca-palavra texto-gradiente block" style={{ animationDelay: `${indice * 0.18}s` }}>
-              {palavra}
-            </span>
-          ))}
+        <h2 className="texto-gradiente mt-3 max-w-4xl text-5xl font-extrabold leading-[1.05] tracking-[-0.04em] sm:text-6xl lg:text-7xl">
+          {perfil.destaque}
         </h2>
-        <p className="marca-lema mt-4 font-mono text-xl font-semibold text-primary sm:text-2xl">{perfil.lema}</p>
-        <p className="mt-2 text-lg font-medium text-foreground/90">{perfil.titulo}</p>
+        <p className="mt-4 text-lg font-medium text-foreground/90">{perfil.titulo}</p>
 
-        <div className="mt-6 max-w-3xl space-y-2 text-lg leading-relaxed text-foreground/85 sm:text-xl">
-          <p className="font-semibold text-foreground">{perfil.destaque}</p>
+        <div className="mt-5 max-w-3xl space-y-2 text-lg leading-relaxed text-foreground/85 sm:text-xl">
           {perfil.apresentacao.map((linha) => (
             <p key={linha}>{linha}</p>
           ))}
@@ -42,6 +37,10 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
         </div>
 
         <div className="mt-10">
+          <CartoesMarca />
+        </div>
+
+        <div className="mt-6">
           <FaixaProvas />
         </div>
 

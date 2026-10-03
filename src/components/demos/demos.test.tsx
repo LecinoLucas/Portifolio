@@ -41,3 +41,23 @@ describe("<RhDemo />", () => {
     expect(screen.getByText(/tentativa 1/i)).toBeInTheDocument();
   });
 });
+
+describe("<PortalDemo />", () => {
+  it("navega entre as telas e abre a IA com resposta que leva à tela certa", async () => {
+    const { PortalDemo } = await import("@/components/demos/portal-demo");
+    render(<PortalDemo />);
+    expect(screen.getByText("Dados fictícios")).toBeInTheDocument();
+    expect(screen.getAllByText(/Mapa de calor/).length).toBeGreaterThan(0);
+    fireEvent.click(screen.getByRole("button", { name: "Abrir IA de Engenharia" }));
+    fireEvent.click(screen.getByRole("button", { name: "Onde vejo a economia das cotações?" }));
+    fireEvent.click(screen.getByRole("button", { name: "Abrir Cotações" }));
+    expect(screen.getByText("Economia líquida por obra")).toBeInTheDocument();
+  });
+
+  it("mostra o detalhe da célula do mapa de calor", async () => {
+    const { PortalDemo } = await import("@/components/demos/portal-demo");
+    render(<PortalDemo />);
+    fireEvent.click(screen.getByRole("button", { name: /2.0 — Superestrutura, Jun\/26: 104%/ }));
+    expect(screen.getByText(/104% do orçamento consumido/)).toBeInTheDocument();
+  });
+});

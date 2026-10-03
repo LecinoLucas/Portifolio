@@ -1,0 +1,68 @@
+/* Demonstração do Portal de Engenharia — réplica visual do sistema real, sempre
+   em tema claro com a identidade vinho. Escopo: .portal. */
+.portal {
+  --p-vinho: #7a0f12;
+  --p-vinho-claro: #f6e6e6;
+  --p-fundo: #f3f3f4;
+  --p-card: #fff;
+  --p-borda: #e4e4e7;
+  --p-texto: #1c1c1f;
+  --p-suave: #6b6b73;
+  --p-verde: #16a34a;
+  --p-laranja: #d97706;
+  display: flex;
+  min-height: 34rem;
+  container-type: inline-size;
+  color: var(--p-texto);
+  background: var(--p-fundo);
+  font-size: 0.875rem;
+}
+.portal button { font: inherit; }
+.portal-lateral { display: none; width: 12rem; flex-shrink: 0; flex-direction: column; gap: 0.15rem; border-right: 1px solid var(--p-borda); background: var(--p-card); padding: 0.75rem 0.5rem; }
+@container (min-width: 42rem) { .portal-lateral { display: flex; } .portal-nav-topo { display: none !important; } }
+.portal-marca { padding: 0.25rem 0.5rem 0.75rem; font-weight: 800; letter-spacing: 0.05em; color: var(--p-vinho); }
+.portal-grupo { margin: 0.6rem 0.5rem 0.2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--p-suave); }
+.portal-item { display: flex; align-items: center; gap: 0.5rem; border-radius: 0.4rem; padding: 0.45rem 0.55rem; text-align: left; background: none; border: 0; color: var(--p-texto); cursor: pointer; }
+.portal-item[aria-current="page"] { background: var(--p-vinho-claro); color: var(--p-vinho); font-weight: 700; }
+.portal-item[disabled] { color: var(--p-suave); cursor: default; }
+.portal-nav-topo { display: flex; gap: 0.25rem; overflow-x: auto; border-bottom: 1px solid var(--p-borda); background: var(--p-card); padding: 0.4rem; }
+.portal-nav-topo .portal-item { white-space: nowrap; }
+.portal-principal { display: flex; min-width: 0; flex: 1; flex-direction: column; }
+.portal-topo { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; border-bottom: 1px solid var(--p-borda); background: var(--p-card); padding: 0.6rem 0.9rem; }
+.portal-topo h4 { margin: 0; font-size: 1.05rem; font-weight: 700; }
+.portal-topo p { margin: 0; color: var(--p-suave); font-size: 0.75rem; }
+.portal-corpo { display: flex; min-height: 0; flex: 1; }
+.portal-conteudo { min-width: 0; flex: 1; overflow-x: auto; padding: 0.9rem; }
+.portal-botao { display: inline-flex; align-items: center; gap: 0.4rem; border: 0; border-radius: 0.4rem; background: var(--p-vinho); color: #fff; padding: 0.5rem 0.8rem; font-weight: 600; cursor: pointer; }
+.portal-botao-ia { border: 1px solid var(--p-borda); background: var(--p-card); color: var(--p-vinho); padding: 0.4rem; }
+.portal-card { border: 1px solid var(--p-borda); border-radius: 0.6rem; background: var(--p-card); padding: 0.9rem; }
+.portal-grade { display: grid; gap: 0.75rem; }
+.portal-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@container (min-width: 42rem) { .portal-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); } .portal-duas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.portal-kpi-valor { white-space: nowrap; font-size: 1.35rem; font-weight: 700; }
+.portal-verde { color: var(--p-verde); }
+.portal-suave { white-space: normal; color: var(--p-suave); font-size: 0.75rem; }
+.portal-titulo-card { margin: 0 0 0.6rem; font-weight: 700; }
+.portal-barra-linha { display: grid; grid-template-columns: 8rem 1fr; align-items: center; gap: 0.5rem; margin: 0.3rem 0; font-size: 0.75rem; }
+.portal-barra { height: 0.9rem; border-radius: 0.2rem; background: var(--p-vinho); min-width: 2px; }
+.portal-abas { display: flex; gap: 0.25rem; overflow-x: auto; border-bottom: 1px solid var(--p-borda); margin-bottom: 0.75rem; }
+.portal-aba { border: 0; border-bottom: 2px solid transparent; background: none; padding: 0.5rem 0.7rem; color: var(--p-suave); white-space: nowrap; cursor: pointer; }
+.portal-aba[aria-selected="true"] { border-bottom-color: var(--p-vinho); color: var(--p-texto); font-weight: 700; }
+.portal-tabela { width: 100%; border-collapse: collapse; }
+.portal-tabela th, .portal-tabela td { border-bottom: 1px solid var(--p-borda); padding: 0.45rem 0.4rem; text-align: left; }
+.portal-tabela th { font-size: 0.7rem; letter-spacing: 0.08em; color: var(--p-suave); }
+.portal-celula { min-width: 3.2rem; border: 0; border-radius: 0.3rem; padding: 0.5rem 0.2rem; text-align: center; cursor: pointer; font-weight: 600; }
+.portal-celula[data-faixa="vazio"] { background: #ececee; color: var(--p-suave); }
+.portal-celula[data-faixa="normal"] { background: #f4d9dc; }
+.portal-celula[data-faixa="atencao"] { background: #fbe9a8; }
+.portal-celula[data-faixa="critico"] { background: #fcd9a0; }
+.portal-celula[data-faixa="estourado"] { background: #f2a7ad; }
+.portal-celula[aria-pressed="true"] { outline: 2px solid var(--p-vinho); }
+.portal-legenda { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; font-size: 0.7rem; color: var(--p-suave); }
+.portal-ia { width: 100%; max-width: 17rem; flex-shrink: 0; border-left: 1px solid var(--p-borda); background: var(--p-card); padding: 0.9rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.portal-ia-bolha { align-self: flex-end; border-radius: 1rem; background: var(--p-vinho); color: #fff; padding: 0.45rem 0.8rem; }
+.portal-ia-resposta { border: 1px solid var(--p-borda); border-radius: 0.8rem; padding: 0.6rem; }
+.portal-chip { border: 1px solid var(--p-borda); border-radius: 0.4rem; background: var(--p-card); padding: 0.4rem 0.6rem; color: var(--p-vinho); cursor: pointer; text-align: left; }
+.portal-pill { display: inline-block; border-radius: 99px; background: #ececee; padding: 0.1rem 0.6rem; font-size: 0.75rem; }
+.portal-progresso { height: 0.5rem; border-radius: 99px; background: #ececee; overflow: hidden; }
+.portal-progresso > span { display: block; height: 100%; background: var(--p-vinho); }

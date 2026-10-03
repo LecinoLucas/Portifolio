@@ -15,6 +15,7 @@ export const projetos: Projeto[] = [
     principal: true,
     situacao: "producao",
     situacaoDetalhe: "Em produção na Rede Marajó.",
+    demo: "portal",
     resumo:
       "Tudo o que passa pela engenharia passa por ele: obras, chamados, fornecedores, cotações, documentos e dashboards, com controle de acesso e auditoria.",
     numeros: [{ valor: "500+", rotulo: "usuários em produção" }],

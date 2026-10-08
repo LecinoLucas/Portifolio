@@ -43,6 +43,7 @@ export function About() {
             </ol>
           </Reveal>
 
+          <Paragrafo rotulo="meu caminho" texto={sobre.caminho} />
           <Paragrafo rotulo="além do trabalho" texto={sobre.alemDoTrabalho} />
           <Paragrafo rotulo="em equipe" texto={sobre.equipe} />
         </div>

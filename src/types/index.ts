@@ -19,6 +19,8 @@ export interface Sobre {
   /** Pontos fortes, no card de resumo. */
   resumo: string[];
   principios: { titulo: string; frase: string; texto: string }[];
+  /** Trajetória em poucas linhas (a versão completa fica em Experiência). */
+  caminho: string;
   alemDoTrabalho: string;
   /** Fecho: trabalho em equipe. */
   equipe: string;

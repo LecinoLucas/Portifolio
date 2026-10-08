@@ -2,7 +2,7 @@ import type { Perfil } from "@/types";
 
 export const perfil: Perfil = {
   nome: "Lecino Lucas",
-  titulo: "Analista de Sistemas · Desenvolvimento · Suporte N2/N3 · Integrações",
+  titulo: "Analista de Sistemas · Desenvolvimento · Suporte N1/N2 · Integrações",
 
   /** As três palavras do Início, cada uma com um exemplo real. */
   marca: [
@@ -17,7 +17,7 @@ export const perfil: Perfil = {
 
   /** Apresentação do Início: curta, uma ideia por linha. */
   apresentacao: [
-    "Formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás. Vim do suporte e da implantação e hoje também desenvolvo sistemas em produção, com integrações ao ERP Protheus.",
+    "Mais de 4 anos em TI: comecei no suporte técnico, passei pela supervisão de vendas e pela implantação de sistemas, e hoje atuo com sistemas corporativos e também desenvolvo sistemas em produção, com integrações ao ERP Protheus. Formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás.",
     "Busco oportunidades como Analista de Sistemas, Desenvolvedor ou Suporte Especializado que integra sistemas.",
   ],
 

@@ -94,9 +94,9 @@ export const carreira: EtapaCarreira[] = [
     destaques: [
       "Protheus: suporte funcional nos processos financeiros (contas a pagar e a receber), contábeis, fiscais e de compras.",
       "SQL: consultas para investigar inconsistências, validar dados e identificar a causa raiz de incidentes.",
-      "Parametrização: a partir do levantamento de regras de negócio, com testes, homologação e documentação.",
-      "Integrações bancárias: CNAB de pagamento e de recebimento (Santander, Votorantim e Sicoob via VAN) e Itaú via API de extrato.",
-      "VAN e certificados: acompanhamento das rotinas via VAN bancária e gestão de certificados digitais (extrato e boletos), com consulta e integração de extratos bancários.",
+      "Parametrização bancária no Protheus, feita por mim: CNAB de pagamento e de recebimento, DDA e boletos dos bancos (Itaú, Santander, entre outros), do levantamento da regra ao teste e à homologação.",
+      "Integrações: Santander, Votorantim e Sicoob via VAN bancária, e extrato do Itaú via API.",
+      "Certificados digitais: gestão dos certificados de extrato e boletos, com consulta e integração dos extratos bancários.",
     ],
     ferramentas: ["TOTVS Protheus", "SQL", "CNAB", "VAN bancária", "API de extrato", "Certificados digitais", "mTLS"],
     tituloSistemas: "entregues em paralelo à sustentação",

@@ -58,7 +58,7 @@ describe("<App />", () => {
     const { container } = render(<App />);
     const sobre = container.querySelector("#sobre");
     const rotulos = Array.from(sobre?.querySelectorAll("h3") ?? []).map((h) => h.textContent);
-    expect(rotulos).toEqual(["como eu penso", "além do trabalho", "em equipe", "em resumo"]);
+    expect(rotulos).toEqual(["como eu penso", "meu caminho", "além do trabalho", "em equipe", "em resumo"]);
     expect(sobre?.textContent).toContain("Regra de negócio primeiro");
     expect(sobre?.textContent).toContain("Regra de negócio primeiro");
   });
@@ -78,7 +78,8 @@ describe("<App />", () => {
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
     expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
     expect(inicio).toContain("PUC Goiás");
-    expect(inicio).toContain("Vim do suporte e da implantação");
+    expect(inicio).toContain("Mais de 4 anos em TI");
+    expect(inicio).toContain("comecei no suporte técnico");
     for (const palavra of ["Determinado", "Consistente", "Resiliente"]) expect(inicio).toContain(palavra);
     expect(inicio).toContain("1% melhor a cada dia.");
     expect(inicio).not.toMatch(/em transição/i);
@@ -121,11 +122,19 @@ describe("<App />", () => {
     expect(container.querySelector<HTMLElement>('[data-visao="experiencia"]')?.hidden).toBe(false);
   });
 
-  it("não cita DDA e descreve o CNAB de pagamento e de recebimento", () => {
+  it("a Experiência diz que a parametrização bancária (CNAB, DDA, boletos) foi feita por mim", () => {
+    const { container } = render(<App />);
+    const texto = container.querySelector("#experiencia")?.textContent ?? "";
+    expect(texto).toContain("Parametrização bancária no Protheus, feita por mim");
+    expect(texto).toContain("CNAB de pagamento e de recebimento");
+    expect(texto).toMatch(/\bDDA\b/);
+  });
+
+  it("não usa N3 em lugar nenhum e fala em N1/N2", () => {
     const { container } = render(<App />);
     const texto = container.textContent ?? "";
-    expect(texto).not.toMatch(/\bDDA\b/);
-    expect(texto).toContain("CNAB de pagamento e de recebimento");
+    expect(texto).not.toMatch(/\bN3\b/);
+    expect(texto).toContain("N1/N2");
   });
 
   it("BankingProtheus é a renovação automática de certificados do Itaú, não conciliação", () => {
@@ -209,7 +218,7 @@ describe("<App />", () => {
     expect(les).toContain("Ver no GitHub");
     const contato = container.querySelector("#contato");
     expect(contato?.querySelector('a[href^="mailto:"]')).not.toBeNull();
-    expect(contato?.textContent).toContain("Suporte Especializado (N2/N3)");
+    expect(contato?.textContent).toContain("Suporte Especializado (N1/N2)");
   });
 
   it("tem link de pular para o conteúdo (acessibilidade)", () => {

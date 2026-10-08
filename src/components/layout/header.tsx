@@ -26,7 +26,7 @@ export function Header({ ativa, aoIr }: PropsHeader) {
         >
           Lecino&nbsp;Lucas
           <span className="ml-2 hidden whitespace-nowrap text-xs font-normal text-muted-foreground 2xl:inline">
-            Analista de Sistemas · N2/N3
+            Analista de Sistemas · N1/N2
           </span>
         </a>
 

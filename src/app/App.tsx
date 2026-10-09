@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { useVisao } from "@/hooks/use-visao";
 import { ProvedorTema } from "@/app/theme-provider";
 import { Header } from "@/components/layout/header";
+import { BarraInferior } from "@/components/layout/barra-inferior";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/sections/hero";
 import { About } from "@/sections/about";
@@ -33,7 +34,7 @@ export function App() {
         Pular para o conteúdo
       </a>
 
-      <div className="flex min-h-dvh flex-col">
+      <div className="flex min-h-dvh flex-col pb-16 sm:pb-0">
         <Header ativa={ativa} aoIr={ir} />
 
         <main id="conteudo" className="flex-1">
@@ -51,6 +52,7 @@ export function App() {
 
         <Footer />
       </div>
+      <BarraInferior ativa={ativa} aoIr={ir} />
     </ProvedorTema>
   );
 }

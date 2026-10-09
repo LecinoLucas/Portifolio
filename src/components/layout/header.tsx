@@ -15,7 +15,7 @@ interface PropsHeader {
 export function Header({ ativa, aoIr }: PropsHeader) {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/75">
-      <Container className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 pt-2 lg:h-16 lg:flex-nowrap lg:py-0">
+      <Container className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-2 sm:pb-0 sm:pt-2 lg:h-16 lg:flex-nowrap lg:py-0">
         <a
           href="#inicio"
           onClick={(e) => {
@@ -32,7 +32,7 @@ export function Header({ ativa, aoIr }: PropsHeader) {
 
         <nav
           aria-label="Seções"
-          className="order-last -mx-4 w-[calc(100%+2rem)] overflow-x-auto px-4 lg:order-none lg:mx-0 lg:w-auto lg:overflow-visible lg:px-0"
+          className="order-last -mx-4 hidden w-[calc(100%+2rem)] sm:block overflow-x-auto px-4 lg:order-none lg:mx-0 lg:w-auto lg:overflow-visible lg:px-0"
         >
           <ul className="flex min-w-max items-center gap-1">
             {itensNav.map((item) => (

@@ -205,7 +205,9 @@ describe("<App />", () => {
     for (const nome of ["Node.js", "React", "JavaScript", "Vitest", "Playwright", "k6", "Stryker"]) {
       expect(aba, nome).toContain(nome);
     }
-    expect(aba).toContain("evoluindo para pleno");
+    expect(aba).toContain("Ainda estou evoluindo");
+    expect(aba).toContain("reviso e entendo o que entrego");
+    expect(aba).not.toMatch(/pleno|avançado|expert/i);
     expect(aba).not.toMatch(/arquitetura (do|de) protheus/i);
   });
 

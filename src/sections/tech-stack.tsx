@@ -16,7 +16,7 @@ export function TechStack() {
       <SectionHeading rotulo="Tecnologias" titulo="O que eu uso, e onde estou evoluindo" descricao={abertura} />
 
       <Reveal className="mt-10">
-        <Rotulo>no dia a dia</Rotulo>
+        <Rotulo>uso na prática</Rotulo>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {diaADia.map((t) => (
             <li key={t.nome} className="rounded-lg border border-border bg-card p-4">

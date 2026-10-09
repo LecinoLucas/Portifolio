@@ -147,7 +147,7 @@ export const etapaDesenvolvimento: EtapaCarreira = {
     resumo:
       "Em paralelo à sustentação, construo os sistemas que resolvem o que vejo na operação. Estou em transição para o desenvolvimento, e já com sistemas em produção.",
     numeros: [
-      { valor: "5", rotulo: "sistemas construídos ou em construção" },
+      { valor: "5", rotulo: "sistemas construídos" },
       { valor: "4", rotulo: "em produção ou entregues" },
       { valor: "500+", rotulo: "usuários no Portal de Engenharia" },
     ],
@@ -163,6 +163,6 @@ export const etapaDesenvolvimento: EtapaCarreira = {
       { titulo: "Portal de Engenharia", situacao: "Em produção · Rede Marajó", texto: "Gestão de obras, chamados, fornecedores e cotações, com mais de 500 usuários." },
       { titulo: "ImportNFe", situacao: "Em produção · vendido a uma distribuidora", texto: "Importa XML de NF-e, normaliza os itens e gera planilhas por template." },
       { titulo: "Portal de RH", situacao: "Entregue", texto: "Recrutamento e admissão, com análise por IA e integração com o Protheus." },
-      { titulo: "Sistema de Gestão de Clínica", situacao: "Em construção", texto: "Agenda, financeiro e protocolos com IA, com bot de atendimento via WhatsApp." },
+      { titulo: "Sistema de Gestão de Clínica", situacao: "Pronto, ainda sem deploy", texto: "Agenda, financeiro e protocolos com IA, com bot de atendimento via WhatsApp." },
     ],
 };

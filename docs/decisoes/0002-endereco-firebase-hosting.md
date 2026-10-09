@@ -35,6 +35,9 @@ Depois de abrir o novo endereço e conferir, trocar o endereço oficial:
 - Trocar o endereço oficial de SEO só depois de o novo estar no ar.
 
 ## Publicação automática
-`.github/workflows/firebase-hosting.yml` publica o build a cada merge na `main`,
-usando o secret `FIREBASE_SERVICE_ACCOUNT` (chave JSON de uma conta de serviço
-com o papel "Firebase Hosting Admin"). A chave nunca é commitada.
+`.github/workflows/firebase-hosting.yml` publica o build a cada merge na `main`.
+O projeto tem a política `iam.disableServiceAccountKeyCreation`, então **não há
+chave JSON**: a autenticação usa Workload Identity Federation (OIDC do GitHub),
+restrita ao repositório `LecinoLucas/Portifolio`, com uma conta de serviço
+(`deploy-hosting`) que tem apenas os papéis de Hosting. Nada sensível fica no
+repositório. Os identificadores no workflow não são segredos.

@@ -20,7 +20,7 @@ diretamente no **Firebase Hosting**, plano Spark (grátis, sem cartão):
 - O Cloud Run continua com o deploy automático no merge; o `run.app` segue funcionando.
 
 ## Como publicar
-No Cloud Shell, na raiz do repositório:
+No Cloud Shell, na raiz do repositório (atalho: `npm run deploy:firebase`, que compila e publica):
 ```
 npm ci && npm run build
 npx firebase-tools login --no-localhost

@@ -94,9 +94,9 @@ export const carreira: EtapaCarreira[] = [
     destaques: [
       "Protheus: suporte funcional nos processos financeiros (contas a pagar e a receber), contábeis, fiscais e de compras.",
       "SQL: consultas para investigar inconsistências, validar dados e identificar a causa raiz de incidentes.",
-      "Parametrização: a partir do levantamento de regras de negócio, com testes, homologação e documentação.",
-      "Integrações bancárias: CNAB de pagamento e de recebimento (Santander, Votorantim e Sicoob via VAN) e Itaú via API de extrato.",
-      "VAN e certificados: acompanhamento das rotinas via VAN bancária e gestão de certificados digitais (extrato e boletos), com consulta e integração de extratos bancários.",
+      "Parametrização bancária no Protheus, feita por mim: CNAB de pagamento e de recebimento, DDA e boletos dos bancos (Itaú, Santander, entre outros), do levantamento da regra ao teste e à homologação.",
+      "Integrações: Santander, Votorantim e Sicoob via VAN bancária, e extrato do Itaú via API.",
+      "Certificados digitais: gestão dos certificados de extrato e boletos, com consulta e integração dos extratos bancários.",
     ],
     ferramentas: ["TOTVS Protheus", "SQL", "CNAB", "VAN bancária", "API de extrato", "Certificados digitais", "mTLS"],
     tituloSistemas: "entregues em paralelo à sustentação",
@@ -147,7 +147,7 @@ export const etapaDesenvolvimento: EtapaCarreira = {
     resumo:
       "Em paralelo à sustentação, construo os sistemas que resolvem o que vejo na operação. Estou em transição para o desenvolvimento, e já com sistemas em produção.",
     numeros: [
-      { valor: "5", rotulo: "sistemas construídos ou em construção" },
+      { valor: "5", rotulo: "sistemas construídos" },
       { valor: "4", rotulo: "em produção ou entregues" },
       { valor: "500+", rotulo: "usuários no Portal de Engenharia" },
     ],
@@ -163,6 +163,6 @@ export const etapaDesenvolvimento: EtapaCarreira = {
       { titulo: "Portal de Engenharia", situacao: "Em produção · Rede Marajó", texto: "Gestão de obras, chamados, fornecedores e cotações, com mais de 500 usuários." },
       { titulo: "ImportNFe", situacao: "Em produção · vendido a uma distribuidora", texto: "Importa XML de NF-e, normaliza os itens e gera planilhas por template." },
       { titulo: "Portal de RH", situacao: "Entregue", texto: "Recrutamento e admissão, com análise por IA e integração com o Protheus." },
-      { titulo: "Sistema de Gestão de Clínica", situacao: "Em construção", texto: "Agenda, financeiro e protocolos com IA, com bot de atendimento via WhatsApp." },
+      { titulo: "Sistema de Gestão de Clínica", situacao: "Pronto, ainda sem deploy", texto: "Agenda, financeiro e protocolos com IA, com bot de atendimento via WhatsApp." },
     ],
 };

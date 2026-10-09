@@ -12,7 +12,7 @@ export function Contact() {
       <SectionHeading
         rotulo="Contato"
         titulo="Vamos conversar"
-        descricao="Disponível para oportunidades como Analista de Sistemas ou Analista de Suporte Especializado (N2/N3), com integração de sistemas e APIs."
+        descricao="Disponível para oportunidades como Analista de Sistemas ou Analista de Suporte Especializado (N1/N2), com integração de sistemas e APIs."
       />
 
       <Reveal className="mt-10 max-w-3xl space-y-4">

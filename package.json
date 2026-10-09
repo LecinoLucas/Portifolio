@@ -12,7 +12,8 @@
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "set-domain": "node scripts/set-site-url.mjs"
+    "set-domain": "node scripts/set-site-url.mjs",
+    "deploy:firebase": "npm run build && npx firebase-tools deploy --only hosting --project portifolio-509500"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.1.1",

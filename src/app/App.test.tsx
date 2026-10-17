@@ -76,7 +76,7 @@ describe("<App />", () => {
   it("o Início apresenta formação, o caminho do suporte aos sistemas e o que busca", () => {
     const { container } = render(<App />);
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
-    expect(inicio).toContain("Desenvolvedor Backend e Analista de Sistemas");
+    expect(inicio).toContain("Desenvolvedor Full Stack e Analista de Sistemas");
     expect(inicio).toContain("Node.js · Integrações Empresariais · Automação e IA");
     expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
     expect(inicio).toContain("PUC Goiás");
@@ -91,7 +91,7 @@ describe("<App />", () => {
     const { container } = render(<App />);
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
     for (const palavra of ["Determinado", "Consistente", "Resiliente"]) expect(inicio).not.toContain(palavra);
-    for (const titulo of ["Do suporte ao ERP", "Integrações empresariais", "Backend em produção", "IA e automação"]) {
+    for (const titulo of ["Do suporte ao ERP", "Integrações empresariais", "Sistemas completos, do backend ao frontend", "IA e automação"]) {
       expect(inicio, titulo).toContain(titulo);
     }
     // a ponte com o Protheus está em homologação e o assistente em desenvolvimento: o texto diz isso

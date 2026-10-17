@@ -1,0 +1,53 @@
+# Portão de qualidade do portfólio: ESLint, Vitest e build de produção.
+#
+# Roda em dois cenários, sem duplicar execuções:
+#   1. Pull request para a main (validação antes do merge).
+#   2. Chamado pelo workflow de publicação (firebase-hosting.yml), no push para a
+#      main: o deploy só começa depois que estas verificações passam. Nesse caso o
+#      build testado é guardado como artefato e reaproveitado na publicação.
+# Um push em branch sem pull request não dispara nada. Ver ADR 0003.
+name: Verificações de qualidade
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_call:
+    inputs:
+      guardar_dist:
+        description: Guarda o build (dist) testado para o job de publicação reaproveitar.
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Em pull request, uma nova versão cancela a execução anterior da mesma PR.
+    concurrency:
+      group: verificacoes-${{ github.event_name }}-${{ github.ref }}
+      cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Instalar dependências
+        run: npm ci
+      - name: ESLint
+        run: npm run lint
+      - name: Testes (Vitest)
+        run: npm test
+      - name: Build de produção
+        run: npm run build
+      - name: Guardar o build testado
+        if: ${{ inputs.guardar_dist }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 1
+          if-no-files-found: error

@@ -47,7 +47,8 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
             </h2>
             <p className="mt-3 text-base font-medium text-foreground/90 sm:mt-4 sm:text-lg">{perfil.titulo}</p>
 
-            <div className="mt-4 sm:mt-5 lg:text-lg">
+            <p className="mt-4 text-lg font-semibold text-foreground sm:mt-5 lg:text-xl">{perfil.frase}</p>
+            <div className="mt-2 lg:text-lg">
               <TextoRecolhivel linhas={perfil.apresentacao} />
             </div>
 

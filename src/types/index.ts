@@ -4,6 +4,8 @@ export interface Perfil {
   nome: string;
   titulo: string;
   destaque: string;
+  /** Frase de apoio, logo abaixo do título e da função. */
+  frase: string;
   /** Marca pessoal do Início: cada palavra com um exemplo real. */
   marca: { palavra: string; exemplo: string }[];
   /** Lema curto, logo abaixo da marca. */

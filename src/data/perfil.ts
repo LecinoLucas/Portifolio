@@ -2,7 +2,7 @@ import type { Perfil } from "@/types";
 
 export const perfil: Perfil = {
   nome: "Lecino Lucas",
-  titulo: "Analista de Sistemas · Desenvolvimento · Suporte N1/N2 · Integrações",
+  titulo: "Desenvolvedor Backend · Node.js e NestJS · Testes · Integrações",
 
   /** As três palavras do Início, cada uma com um exemplo real. */
   marca: [
@@ -13,12 +13,15 @@ export const perfil: Perfil = {
   lema: "1% melhor a cada dia.",
 
   /** Frase de apoio do Início. */
-  destaque: "Entendo a regra de negócio. Integro sistemas.",
+  destaque: "Backend com Node.js. Testado em camadas.",
+
+  /** Frase de apoio, logo abaixo do título. */
+  frase: "Entendo a regra de negócio. Integro sistemas.",
 
   /** Apresentação do Início: curta, uma ideia por linha. */
   apresentacao: [
     "Mais de 4 anos em TI: comecei no suporte técnico, passei pela supervisão de vendas e pela implantação de sistemas, e hoje atuo com sistemas corporativos e também desenvolvo sistemas em produção, com integrações ao ERP Protheus. Formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás.",
-    "Busco oportunidades como Analista de Sistemas, Desenvolvedor ou Suporte Especializado que integra sistemas.",
+    "Busco oportunidades como Desenvolvedor Backend, Analista de Sistemas ou Suporte Especializado que integra sistemas.",
   ],
 
 

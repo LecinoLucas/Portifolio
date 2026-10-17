@@ -97,17 +97,29 @@ function VisaoGeral({ projeto }: { projeto: Projeto }) {
       <Bloco titulo="Problema">{detalhe.problema}</Bloco>
       <Bloco titulo="Minha participação">{detalhe.participacao}</Bloco>
       <Bloco titulo="Solução">{detalhe.solucao}</Bloco>
-      <Bloco titulo="Arquitetura">{detalhe.arquitetura}</Bloco>
+      {detalhe.arquitetura ? <Bloco titulo="Arquitetura">{detalhe.arquitetura}</Bloco> : null}
 
-      <Bloco titulo="Desafios técnicos">
-        <ul className="list-disc space-y-1.5 pl-4">
-          {detalhe.desafios.map((desafio) => (
-            <li key={desafio}>{desafio}</li>
-          ))}
-        </ul>
-      </Bloco>
+      {detalhe.decisoes && detalhe.decisoes.length > 0 ? (
+        <Bloco titulo="Decisões de engenharia">
+          <ul className="list-disc space-y-1.5 pl-4">
+            {detalhe.decisoes.map((decisao) => (
+              <li key={decisao}>{decisao}</li>
+            ))}
+          </ul>
+        </Bloco>
+      ) : null}
 
-      <Bloco titulo="Resultado">{detalhe.resultado}</Bloco>
+      {detalhe.desafios && detalhe.desafios.length > 0 ? (
+        <Bloco titulo="Desafios técnicos">
+          <ul className="list-disc space-y-1.5 pl-4">
+            {detalhe.desafios.map((desafio) => (
+              <li key={desafio}>{desafio}</li>
+            ))}
+          </ul>
+        </Bloco>
+      ) : null}
+
+      <Bloco titulo="Resultado e estado atual">{detalhe.resultado}</Bloco>
 
       {projeto.testes ? (
         <Bloco titulo="Como garanto a qualidade">

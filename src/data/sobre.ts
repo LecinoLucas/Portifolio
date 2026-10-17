@@ -18,6 +18,7 @@ export const sobre: Sobre = {
     { titulo: "Regra de negócio primeiro", frase: "Antes de mexer: qual é a regra por trás disso?", texto: "Entendo a regra antes de mexer e valido antes de alterar qualquer dado." },
     { titulo: "Causa raiz, nos mínimos detalhes", frase: "Quando algo quebra, minha primeira pergunta é: o que mudou?", texto: "Gosto de entender o problema até o fim. Corrigir o sintoma é rápido, mas é achar a causa que impede o problema de voltar." },
     { titulo: "Escutar o usuário", frase: "O que o usuário pede nem sempre é o que ele precisa.", texto: "O usuário quase nunca fala a linguagem técnica. Meu trabalho é ouvir com calma, entender o que ele precisa de verdade e traduzir isso em solução." },
+    { titulo: "1% por dia", frase: "Um pouco melhor a cada dia.", texto: "Competir comigo mesmo: aprender e melhorar um pouco a cada dia, sem pressa e sem parar." },
     { titulo: "O básico bem feito", frase: "Simples e bem feito antes de sofisticado.", texto: "Prefiro o simples bem resolvido a algo avançado feito às pressas." },
   ],
 

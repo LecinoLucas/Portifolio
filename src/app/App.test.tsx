@@ -246,13 +246,16 @@ describe("<App />", () => {
     for (const nome of ["Node.js", "React", "JavaScript", "Vitest", "Playwright", "k6", "Stryker"]) {
       expect(aba, nome).toContain(nome);
     }
-    expect(aba).toContain("reviso e entendo o que entrego");
-    for (const estado of ["Uso profissional", "Projeto próprio entregue", "Em desenvolvimento", "Estudo"]) {
+    expect(aba).toContain("valido cada entrega");
+    for (const estado of ["Usado em sistema real", "Projeto próprio entregue", "Em desenvolvimento", "Estudo"]) {
       expect(aba, estado).toContain(estado);
     }
     for (const categoria of ["Backend e APIs", "Cloud e DevOps", "Integrações empresariais", "Conhecimentos aplicados"]) {
       expect(aba, categoria).toContain(categoria);
     }
+    expect(aba).toContain("Estou em transição de carreira");
+    expect(aba).toContain("Meu foco é a arquitetura");
+    expect(aba).not.toContain("Uso profissional");
     expect(aba.match(/apoio de IA/gi)?.length ?? 0).toBe(0);
     expect(aba).not.toMatch(/pleno|avançado|expert/i);
     expect(aba).not.toMatch(/arquitetura (do|de) protheus/i);

@@ -11,7 +11,7 @@ import { ROTULO_ESTADO } from "@/lib/estados";
 import type { EstadoCompetencia } from "@/types";
 
 const DEFINICAO: Record<EstadoCompetencia, string> = {
-  profissional: "usado no trabalho, em sistema real",
+  profissional: "usado em sistema que roda para usuários reais",
   entregue: "usado em projeto meu já entregue",
   desenvolvimento: "usado em projeto que ainda está sendo construído",
   estudo: "aprendendo, sem projeto ainda",

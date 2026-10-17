@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { App } from "@/app/App";
 import { projetoPorSlug, projetos } from "@/data/projetos";
 
@@ -76,16 +76,42 @@ describe("<App />", () => {
   it("o Início apresenta formação, o caminho do suporte aos sistemas e o que busca", () => {
     const { container } = render(<App />);
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
+    expect(inicio).toContain("Desenvolvedor Backend e Analista de Sistemas");
+    expect(inicio).toContain("Node.js · Integrações Empresariais · Automação e IA");
     expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
     expect(inicio).toContain("PUC Goiás");
     expect(inicio).toContain("Mais de 4 anos em TI");
-    expect(inicio).toContain("comecei no suporte técnico");
-    for (const palavra of ["Determinado", "Consistente", "Resiliente"]) expect(inicio).toContain(palavra);
-    expect(inicio).toContain("1% melhor a cada dia.");
+    expect(inicio).toContain("Comecei no suporte técnico N1/N2");
+    expect(inicio).toContain("ERP TOTVS Protheus");
     expect(inicio).not.toMatch(/em transição/i);
     expect(inicio).toContain("Suporte Especializado que integra sistemas");
-    expect(inicio).toContain("desenvolvo sistemas em produção");
-    expect(inicio).toContain("Também desenvolvo, em produção");
+  });
+
+  it("o Início troca as palavras soltas por evidências concretas", () => {
+    const { container } = render(<App />);
+    const inicio = container.querySelector("#inicio")?.textContent ?? "";
+    for (const palavra of ["Determinado", "Consistente", "Resiliente"]) expect(inicio).not.toContain(palavra);
+    for (const titulo of ["Do suporte ao ERP", "Integrações empresariais", "Backend em produção", "IA e automação"]) {
+      expect(inicio, titulo).toContain(titulo);
+    }
+    // a ponte com o Protheus está em homologação e o assistente em desenvolvimento: o texto diz isso
+    expect(inicio).toContain("em homologação");
+    expect(inicio).toContain("em desenvolvimento");
+    expect(inicio).not.toMatch(/\bN3\b/);
+  });
+
+  it("os projetos incluem Alphamen Barbearia e Portal Fiscal, cada um com o estado honesto", async () => {
+    const { container } = render(<App />);
+    const projetos = container.querySelector("#projetos")?.textContent ?? "";
+    expect(projetos).toContain("Alphamen Barbearia");
+    expect(projetos).toContain("Portal Fiscal");
+    expect(projetos).toContain("Projeto freelance, em fase de entrega.");
+    expect(projetos).toContain("Pronto, ainda sem uso em produção.");
+    // as decisões de engenharia ficam no painel de detalhe, que abre ao clicar
+    const cartao = screen.getByRole("heading", { name: "Alphamen Barbearia", hidden: true }).closest("article") as HTMLElement;
+    fireEvent.click(within(cartao).getByText("Ver detalhes"));
+    expect(await screen.findByText("Decisões de engenharia")).toBeInTheDocument();
+    expect(screen.getByText(/Datas guardadas em UTC/)).toBeInTheDocument();
   });
 
   it("o Início mostra a faixa de provas com números reais", () => {
@@ -104,7 +130,8 @@ describe("<App />", () => {
     expect(sobre).toContain("Escutar o usuário");
     expect(sobre).toContain("pai de família");
     expect(sobre).not.toContain("Resiliente");
-    expect(sobre).not.toMatch(/1% por dia/i);
+    // o lema "1% por dia" saiu do Início e vive aqui, no Sobre mim
+    expect(sobre).toMatch(/1% por dia/i);
   });
 
   it("o Início não usa etiqueta de nível (júnior / 6 meses)", () => {
@@ -210,8 +237,14 @@ describe("<App />", () => {
     for (const nome of ["Node.js", "React", "JavaScript", "Vitest", "Playwright", "k6", "Stryker"]) {
       expect(aba, nome).toContain(nome);
     }
-    expect(aba).toContain("Ainda estou evoluindo");
     expect(aba).toContain("reviso e entendo o que entrego");
+    for (const estado of ["Uso profissional", "Projeto próprio entregue", "Em desenvolvimento", "Estudo"]) {
+      expect(aba, estado).toContain(estado);
+    }
+    for (const categoria of ["Backend e APIs", "Cloud e DevOps", "Integrações empresariais", "Conhecimentos aplicados"]) {
+      expect(aba, categoria).toContain(categoria);
+    }
+    expect(aba.match(/apoio de IA/gi)?.length ?? 0).toBe(0);
     expect(aba).not.toMatch(/pleno|avançado|expert/i);
     expect(aba).not.toMatch(/arquitetura (do|de) protheus/i);
   });

@@ -1,8 +1,7 @@
 import { Download, Github, Linkedin } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { DesenvolvoEmProducao } from "@/components/portfolio/desenvolvo-em-producao";
 import { TextoRecolhivel } from "@/components/portfolio/texto-recolhivel";
-import { CartoesMarca } from "@/components/portfolio/cartoes-marca";
+import { CartoesEvidencias } from "@/components/portfolio/cartoes-evidencias";
 import { PainelProvas } from "@/components/portfolio/painel-provas";
 import { FaixaProvas } from "@/components/portfolio/faixa-provas";
 import { CacaIncidentes } from "@/components/portfolio/caca-incidentes";
@@ -63,11 +62,7 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
         </div>
 
         <div className="mt-8 sm:mt-10">
-          <CartoesMarca />
-        </div>
-
-        <div className="mt-10">
-          <DesenvolvoEmProducao aoIr={aoIr} />
+          <CartoesEvidencias />
         </div>
 
         <div className="mt-6 lg:hidden">

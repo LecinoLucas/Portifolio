@@ -20,10 +20,37 @@ describe("dados de projetos", () => {
       expect(detalhe.problema, `problema de ${slug}`).toBeTruthy();
       expect(detalhe.participacao, `participacao de ${slug}`).toBeTruthy();
       expect(detalhe.solucao, `solucao de ${slug}`).toBeTruthy();
-      expect(detalhe.arquitetura, `arquitetura de ${slug}`).toBeTruthy();
       expect(detalhe.resultado, `resultado de ${slug}`).toBeTruthy();
-      expect(detalhe.desafios.length, `desafios de ${slug}`).toBeGreaterThan(0);
     }
+  });
+
+  it("os estudos de caso principais trazem decisões de engenharia", () => {
+    for (const slug of ["portal-engenharia", "portal-rh", "alphamen-barbearia", "importnfe", "bankingprotheus"]) {
+      const decisoes = projetoPorSlug(slug)?.detalhe.decisoes ?? [];
+      expect(decisoes.length, `decisões de ${slug}`).toBeGreaterThan(1);
+    }
+  });
+
+  it("os seis estudos de caso pedidos existem, com o estado honesto de cada um", () => {
+    expect(projetoPorSlug("portal-engenharia")?.situacao).toBe("producao");
+    expect(projetoPorSlug("importnfe")?.situacao).toBe("producao");
+    expect(projetoPorSlug("bankingprotheus")?.situacao).toBe("producao");
+    expect(projetoPorSlug("portal-rh")?.situacao).toBe("entregue");
+    // Barbearia está em fase de entrega e o Portal Fiscal está pronto, mas ainda sem uso.
+    expect(projetoPorSlug("alphamen-barbearia")?.situacao).toBe("construcao");
+    expect(projetoPorSlug("portal-fiscal")?.situacao).toBe("construido");
+  });
+
+  it("a Barbearia só cita o que o código do backend comprova (sem NestJS, WhatsApp ou Google Calendar)", () => {
+    const texto = JSON.stringify(projetoPorSlug("alphamen-barbearia")).toLowerCase();
+    for (const termo of ["nestjs", "whatsapp", "calendar", "instagram"]) expect(texto).not.toContain(termo);
+    expect(texto).toContain("utc");
+  });
+
+  it("o Portal de RH não afirma envio real ao Protheus (execução em homologação)", () => {
+    const texto = JSON.stringify(projetoPorSlug("portal-rh")).toLowerCase();
+    expect(texto).toContain("homologação");
+    expect(texto).not.toContain("envio dos dados ao protheus");
   });
 
   it("não há slugs duplicados", () => {
@@ -97,12 +124,44 @@ describe("dados de apoio", () => {
     }
   });
 
-  it("tecnologias têm domínio do dia a dia e evolução, sem nível exagerado", () => {
-    expect(tecnologias.diaADia.length).toBeGreaterThan(0);
-    expect(tecnologias.emEvolucao.length).toBeGreaterThan(0);
-    const nomes = tecnologias.diaADia.map((t) => t.nome);
-    for (const base of ["Node.js", "React", "JavaScript"]) expect(nomes).toContain(base);
-    // não deve listar como domínio o que está em evolução
-    for (const nome of tecnologias.emEvolucao) expect(nomes).not.toContain(nome);
+  it("tecnologias estão em categorias e cada competência tem um estado", () => {
+    const titulos = tecnologias.grupos.map((g) => g.titulo);
+    for (const esperado of [
+      "Backend e APIs",
+      "Banco de dados e arquitetura",
+      "Cloud e DevOps",
+      "Inteligência artificial e automação",
+      "Integrações empresariais",
+      "Qualidade e testes",
+      "Frontend",
+    ]) expect(titulos).toContain(esperado);
+    const todas = [...tecnologias.grupos.flatMap((g) => g.itens), ...tecnologias.aplicados];
+    for (const item of todas) expect(["profissional", "entregue", "desenvolvimento", "estudo"], item.nome).toContain(item.estado);
+  });
+
+  it("competência em estudo não tem projeto; o resto diz onde foi usada; sem nomes repetidos", () => {
+    const todas = [...tecnologias.grupos.flatMap((g) => g.itens), ...tecnologias.aplicados];
+    for (const item of todas) {
+      if (item.estado === "estudo") expect(item.onde, item.nome).toBeUndefined();
+      else expect(item.onde, item.nome).toBeTruthy();
+    }
+    const nomes = todas.map((t) => t.nome);
+    expect(new Set(nomes).size).toBe(nomes.length);
+  });
+
+  it("o que o código não comprova não aparece como uso profissional por engano", () => {
+    const todas = [...tecnologias.grupos.flatMap((g) => g.itens), ...tecnologias.aplicados];
+    const estado = (nome: string) => todas.find((t) => t.nome === nome)?.estado;
+    // sem projeto conhecido: estudo
+    for (const nome of ["BullMQ", "Cloudflare", "Open Finance", "BrasilAPI", "Instagram", "Jest"]) expect(estado(nome), nome).toBe("estudo");
+    // ExecAuto está em contrato, dry-run e homologação: nunca profissional nem entregue
+    expect(estado("ExecAuto")).toBe("desenvolvimento");
+    // base profissional de verdade
+    for (const nome of ["TOTVS Protheus", "SQL", "Node.js", "React"]) expect(estado(nome), nome).toBe("profissional");
+  });
+
+  it("a página de tecnologias não repete 'com apoio de IA' nos itens", () => {
+    const todas = [...tecnologias.grupos.flatMap((g) => g.itens), ...tecnologias.aplicados];
+    for (const item of todas) expect(`${item.nome} ${item.onde ?? ""}`.toLowerCase(), item.nome).not.toContain("apoio de ia");
   });
 });

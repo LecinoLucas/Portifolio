@@ -6,10 +6,8 @@ export interface Perfil {
   destaque: string;
   /** Frase de apoio, logo abaixo do título e da função. */
   frase: string;
-  /** Marca pessoal do Início: cada palavra com um exemplo real. */
-  marca: { palavra: string; exemplo: string }[];
-  /** Lema curto, logo abaixo da marca. */
-  lema: string;
+  /** Evidências concretas do Início: cada cartão cita o que foi feito e onde. */
+  evidencias: { titulo: string; texto: string; tags: string[] }[];
   /** Apresentação do Início, uma ideia por linha. */
   apresentacao: string[];
   localizacao: string;
@@ -38,8 +36,10 @@ export interface DetalheProjeto {
   problema: string;
   participacao: string;
   solucao: string;
-  arquitetura: string;
-  desafios: string[];
+  arquitetura?: string;
+  /** Decisões de engenharia (por quê), só o que o código ou a documentação comprova. */
+  decisoes?: string[];
+  desafios?: string[];
   resultado: string;
 }
 
@@ -105,11 +105,28 @@ export interface TecnologiaDiaADia {
   nota: string;
 }
 
+/** Como a competência foi usada. Nada entra como uso profissional só por ser conhecido. */
+export type EstadoCompetencia = "profissional" | "entregue" | "desenvolvimento" | "estudo";
+
+export interface Competencia {
+  nome: string;
+  estado: EstadoCompetencia;
+  /** Projetos ou contextos onde foi usada. Competência em estudo não tem projeto. */
+  onde?: string;
+  /** true quando o código dos repositórios lidos comprova; false quando é declarado pelo autor. */
+  comprovada: boolean;
+}
+
+export interface GrupoTecnologias {
+  titulo: string;
+  itens: Competencia[];
+}
+
 export interface Tecnologias {
   abertura: string;
-  diaADia: TecnologiaDiaADia[];
-  /** Tecnologias já usadas, mas ainda em evolução (sem exagero de nível). */
-  emEvolucao: string[];
+  grupos: GrupoTecnologias[];
+  /** Conhecimentos aplicados em projetos (não são ferramentas). */
+  aplicados: Competencia[];
 }
 
 export interface Principio {

@@ -7,7 +7,65 @@ import type { Tecnologias } from "@/types";
  */
 export const tecnologias: Tecnologias = {
   abertura:
-    "Cada competência mostra onde foi usada e em que estado está. Uso IA para aprender e construir mais rápido, e reviso e entendo o que entrego.",
+    "O que já entreguei vem primeiro. Cada competência abaixo mostra onde foi usada e em que estado está.",
+
+  entregas: [
+    {
+      titulo: "Integração bancária",
+      texto: "CNAB de pagamento e de recebimento, bancos via VAN e API de extrato, com certificados mTLS renovados sozinhos em 53 filiais.",
+      estado: "profissional",
+      onde: "Rede Marajó",
+      tags: ["CNAB", "VAN", "API Itaú", "mTLS"],
+    },
+    {
+      titulo: "TOTVS Protheus e SQL",
+      texto: "Parametrização bancária feita por mim e investigação de incidentes financeiros direto nas tabelas.",
+      estado: "profissional",
+      onde: "Rede Marajó",
+      tags: ["Protheus", "SQL Server"],
+    },
+    {
+      titulo: "Portal de Engenharia",
+      texto: "Sistema completo, backend e frontend, com mais de 500 usuários, controle de acesso por papéis e testes em camadas.",
+      estado: "profissional",
+      onde: "Rede Marajó",
+      tags: ["Node.js", "TypeScript", "React", "PostgreSQL"],
+    },
+    {
+      titulo: "ImportNFe",
+      texto: "Leitura de NF-e em XML e geração de planilhas, em uso por uma distribuidora.",
+      estado: "entregue",
+      onde: "Projeto próprio, em produção",
+      tags: ["Python", "FastAPI", "React", "NF-e"],
+    },
+    {
+      titulo: "Portal de RH com IA",
+      texto: "Análise de currículos por LLMs em workers assíncronos, com Google Calendar e ponte de admissão com o Protheus em homologação.",
+      estado: "entregue",
+      onde: "Projeto próprio",
+      tags: ["Python", "Celery", "Redis", "LLMs"],
+    },
+    {
+      titulo: "Integração com a SEFAZ",
+      texto: "Busca de notas fiscais na SEFAZ no Portal Fiscal. Pronto, ainda sem uso em produção.",
+      estado: "entregue",
+      onde: "Portal Fiscal",
+      tags: ["Node.js", "NestJS", "SEFAZ"],
+    },
+  ],
+
+  orquestracao: {
+    titulo: "Como eu construo: orquestro tudo com IA",
+    texto:
+      "Os sistemas e as integrações acima foram construídos orquestrando IA. Eu defino a regra de negócio, a arquitetura e os testes, delego a escrita a agentes e reviso e entendo o que entrego.",
+    itens: [
+      { nome: "Várias LLMs e agentes de código", texto: "Claude, Codex, Gemini e Antigravity: escolho a ferramenta pela tarefa." },
+      { nome: "Skills criadas por mim", texto: "Skills com meus padrões de engenharia (o LES), para a IA seguir sempre as mesmas regras." },
+      { nome: "MCP", texto: "Conecto agentes a sistemas e ferramentas por MCP." },
+      { nome: "CI", texto: "Lint, testes e build automáticos barram qualquer entrega com erro antes do deploy." },
+      { nome: "Revisão humana", texto: "Nada vai para produção sem eu ler, entender e testar." },
+    ],
+  },
 
   grupos: [
     {
@@ -15,7 +73,7 @@ export const tecnologias: Tecnologias = {
       itens: [
         { nome: "Node.js", estado: "profissional", onde: "Portal de Engenharia, BankingProtheus", comprovada: true },
         { nome: "JavaScript", estado: "profissional", onde: "Portal de Engenharia", comprovada: true },
-        { nome: "TypeScript", estado: "profissional", onde: "Portal de Engenharia", comprovada: true },
+        { nome: "TypeScript", estado: "profissional", onde: "Portal de Engenharia (back e front), este portfólio", comprovada: true },
         { nome: "NestJS", estado: "profissional", onde: "BankingProtheus", comprovada: false },
         { nome: "Express", estado: "desenvolvimento", onde: "Alphamen Barbearia", comprovada: true },
         { nome: "Python", estado: "entregue", onde: "ImportNFe, Portal de RH", comprovada: true },

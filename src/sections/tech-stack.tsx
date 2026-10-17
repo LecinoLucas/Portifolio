@@ -3,6 +3,8 @@ import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Rotulo } from "@/components/shared/rotulo";
 import { GrupoCompetencias, SeloEstado } from "@/components/portfolio/grupo-competencias";
+import { BlocoEntregas } from "@/components/portfolio/bloco-entregas";
+import { BlocoOrquestracao } from "@/components/portfolio/bloco-orquestracao";
 import { PlantaIntegracao } from "@/components/portfolio/planta-integracao";
 import { tecnologias } from "@/data/tecnologias";
 import { ROTULO_ESTADO } from "@/lib/estados";
@@ -16,7 +18,7 @@ const DEFINICAO: Record<EstadoCompetencia, string> = {
 };
 
 export function TechStack() {
-  const { abertura, grupos, aplicados } = tecnologias;
+  const { abertura, entregas, orquestracao, grupos, aplicados } = tecnologias;
   const estados = Object.keys(ROTULO_ESTADO) as EstadoCompetencia[];
 
   return (
@@ -24,6 +26,17 @@ export function TechStack() {
       <SectionHeading rotulo="Tecnologias" titulo="O que uso, onde usei e em que estado" descricao={abertura} />
 
       <Reveal className="mt-8">
+        <Rotulo>já entreguei em sistema real</Rotulo>
+        <div className="mt-4">
+          <BlocoEntregas entregas={entregas} />
+        </div>
+      </Reveal>
+
+      <Reveal className="mt-10">
+        <BlocoOrquestracao dados={orquestracao} />
+      </Reveal>
+
+      <Reveal className="mt-12">
         <ul aria-label="Legenda dos estados" className="grid grid-cols-2 gap-2 lg:grid-cols-4">
           {estados.map((estado) => (
             <li key={estado} className="flex flex-col items-start gap-1.5 rounded-lg border border-border bg-card p-3">

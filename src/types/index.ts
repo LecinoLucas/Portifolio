@@ -122,8 +122,28 @@ export interface GrupoTecnologias {
   itens: Competencia[];
 }
 
+/** Algo que já entreguei em sistema real, em destaque no topo de Tecnologias. */
+export interface EntregaReal {
+  titulo: string;
+  texto: string;
+  estado: EstadoCompetencia;
+  /** Onde foi entregue (empresa ou projeto). */
+  onde: string;
+  tags: string[];
+}
+
+export interface OrquestracaoIA {
+  titulo: string;
+  texto: string;
+  itens: { nome: string; texto: string }[];
+}
+
 export interface Tecnologias {
   abertura: string;
+  /** O que já foi entregue em sistema real: a primeira coisa que o leitor vê. */
+  entregas: EntregaReal[];
+  /** Como construo com IA: orquestração de LLMs, skills, MCP e CI. */
+  orquestracao: OrquestracaoIA;
   grupos: GrupoTecnologias[];
   /** Conhecimentos aplicados em projetos (não são ferramentas). */
   aplicados: Competencia[];

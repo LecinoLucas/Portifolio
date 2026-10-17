@@ -258,6 +258,21 @@ describe("<App />", () => {
     expect(aba).not.toMatch(/arquitetura (do|de) protheus/i);
   });
 
+  it("Tecnologias abre com o que já foi entregue e explica a orquestração com IA", () => {
+    const { container } = render(<App />);
+    const aba = container.querySelector("#tecnologias")?.textContent ?? "";
+    expect(aba.indexOf("já entreguei em sistema real")).toBeLessThan(aba.indexOf("Backend e APIs"));
+    for (const entrega of ["Integração bancária", "Portal de Engenharia", "ImportNFe", "Integração com a SEFAZ"]) {
+      expect(aba, entrega).toContain(entrega);
+    }
+    expect(aba).toContain("ainda sem uso em produção");
+    expect(aba).toContain("orquestro tudo com IA");
+    for (const item of ["Claude", "Codex", "Antigravity", "Skills criadas por mim", "MCP", "CI"]) {
+      expect(aba, item).toContain(item);
+    }
+    expect(aba).toContain("TypeScript");
+  });
+
   it("LES tem o padrão, três princípios e os links; Contato tem o e-mail como principal", () => {
     const { container } = render(<App />);
     const les = container.querySelector('[data-visao="les"]')?.textContent ?? "";

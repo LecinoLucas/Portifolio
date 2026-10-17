@@ -86,7 +86,7 @@ export const projetos: Projeto[] = [
     situacao: "producao",
     resumo:
       "Sistema que renova automaticamente os certificados do Itaú (API de extrato e API de boletos) de uma rede de 53 filiais, com job de renovação e painel de vencimento, sobre mTLS.",
-    stack: ["APIs bancárias", "mTLS", "Certificados digitais", "SQL", "Protheus", "Jobs agendados", "Dashboard"],
+    stack: ["Node.js", "NestJS", "APIs bancárias", "mTLS", "Certificados digitais", "SQL", "Protheus", "Jobs agendados", "Dashboard"],
     detalhe: {
       contexto:
         "Uma rede de 53 filiais, cada uma com certificados digitais para as APIs do Itaú de extrato e de boletos. Os certificados vencem, e vários vencem em épocas próximas.",
@@ -97,7 +97,7 @@ export const projetos: Projeto[] = [
       solucao:
         "Um job agendado identifica os certificados próximos do vencimento e os renova automaticamente pela API do Itaú, tanto na API de extrato quanto na de boletos. Um painel mostra quantos dias faltam para cada certificado vencer. A comunicação com o banco usa mTLS.",
       arquitetura:
-        "Job agendado que identifica certificados próximos do vencimento → renovação via API do Itaú sobre mTLS → painel de acompanhamento dos dias para vencer, por filial.",
+        "Backend em Node.js com NestJS: job agendado que identifica certificados próximos do vencimento → renovação via API do Itaú sobre mTLS → painel de acompanhamento dos dias para vencer, por filial.",
       desafios: [
         "Renovar os certificados das 53 filiais sem intervenção manual.",
         "Comunicação segura com o banco usando mTLS.",

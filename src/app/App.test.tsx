@@ -130,6 +130,11 @@ describe("<App />", () => {
     expect(texto).toMatch(/\bDDA\b/);
   });
 
+  it("não usa a palavra \"esforçado\" (soa como nível júnior)", () => {
+    const { container } = render(<App />);
+    expect(container.textContent ?? "").not.toMatch(/esfor[çc]/i);
+  });
+
   it("não usa N3 em lugar nenhum e fala em N1/N2", () => {
     const { container } = render(<App />);
     const texto = container.textContent ?? "";

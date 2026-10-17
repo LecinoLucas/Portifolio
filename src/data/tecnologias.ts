@@ -7,12 +7,13 @@ import type { Tecnologias } from "@/types";
  */
 export const tecnologias: Tecnologias = {
   abertura:
-    "Nos meus projetos uso Node.js, React, JavaScript e Python, e no trabalho SQL e Protheus. Ainda estou evoluindo: uso IA para aprender e construir mais rápido, e reviso e entendo o que entrego.",
+    "Nos meus projetos uso Node.js com NestJS, React, JavaScript e Python, e no trabalho SQL e Protheus. Ainda estou evoluindo: uso IA para aprender e construir mais rápido, e reviso e entendo o que entrego.",
 
   diaADia: [
     { nome: "Node.js", nota: "Backend dos sistemas que construo, com apoio de IA" },
     { nome: "React", nota: "Frontend dos sistemas que construo, com apoio de IA" },
     { nome: "JavaScript", nota: "A base do que construo na web" },
+    { nome: "NestJS", nota: "BankingProtheus, busca de notas na Sefaz no Portal Fiscal e módulo de notificação por WhatsApp da Barbearia, em módulos" },
     { nome: "Python", nota: "Usei no ImportNFe e no Portal de RH, com apoio de IA" },
     { nome: "SQL", nota: "SELECT com JOIN, INSERT e UPDATE para investigar e validar dados" },
     { nome: "TOTVS Protheus", nota: "Suporte funcional: financeiro, contábil, fiscal e compras" },

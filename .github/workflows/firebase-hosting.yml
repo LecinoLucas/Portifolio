@@ -1,6 +1,7 @@
-# Publica o site no Firebase Hosting (lecinolucas.web.app) a cada merge na main.
+# Publica o site no Firebase Hosting (lecinolucas.web.app) a cada merge na main,
+# mas só depois que as verificações de qualidade (ci.yml) passarem.
 # Autenticação sem chave: o GitHub se identifica ao Google por Workload Identity
-# Federation (OIDC). Nenhum segredo é guardado no repositório. Ver ADR 0002.
+# Federation (OIDC). Nenhum segredo é guardado no repositório. Ver ADR 0002 e 0003.
 name: Publicar no Firebase Hosting
 
 on:
@@ -10,19 +11,39 @@ on:
 
 permissions:
   contents: read
-  id-token: write
+
+# Nunca duas publicações ao mesmo tempo; a segunda espera a primeira terminar.
+concurrency:
+  group: publicar-firebase
+  cancel-in-progress: false
 
 jobs:
+  verificar:
+    uses: ./.github/workflows/ci.yml
+    with:
+      guardar_dist: true
+
   publicar:
+    # Sem sucesso em "verificar", este job não executa.
+    needs: verificar
+    # Só a main publica. Uma execução manual a partir de outra branch roda as
+    # verificações, mas não publica.
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build
+      - name: Baixar o build que passou nas verificações
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
       - name: Autenticar no Google (sem chave)
         uses: google-github-actions/auth@v2
         with:

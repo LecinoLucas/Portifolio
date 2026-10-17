@@ -9,7 +9,7 @@ export const sobre: Sobre = {
     "Regra de negócio antes do código",
     "Causa raiz, nos mínimos detalhes",
     "Escuto o usuário com calma",
-    "Muito focado e esforçado",
+    "Foco e consistência na entrega",
     "Trabalho em equipe",
     "Busco: Analista, Desenvolvedor ou Suporte que integra",
   ],

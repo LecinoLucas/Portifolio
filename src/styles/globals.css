@@ -273,6 +273,11 @@ body {
   to { opacity: 1; transform: none; }
 }
 
+/* Linhas do painel de provas: aparecem em sequência. */
+@media (prefers-reduced-motion: no-preference) {
+  .painel-linha { animation: marca-entra 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+}
+
 /* Sumário 3D do Início */
 .sumario-3d { perspective: 1100px; }
 .cartao-3d {

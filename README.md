@@ -1,6 +1,6 @@
 # Portfólio — Lecino Lucas
 
-Portfólio profissional de **Lecino Lucas** — Analista de Sistemas & Desenvolvedor Full Stack.
+Portfólio profissional de **Lecino Lucas** — Analista de Sistemas ERP e Integrações Corporativas.
 SPA estática em React + Vite + TypeScript, seguindo o **Lecino Lucas Engineering Standard (LES)**.
 
 ## Stack

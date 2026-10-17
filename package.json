@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.2.0",
   "type": "module",
-  "description": "Portfolio profissional de Lecino Lucas - Analista de Sistemas & Desenvolvedor Full Stack. Segue o Lecino Lucas Engineering Standard (LES).",
+  "description": "Portfolio profissional de Lecino Lucas - Analista de Sistemas ERP e Integrações Corporativas. Segue o Lecino Lucas Engineering Standard (LES).",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

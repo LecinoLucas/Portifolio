@@ -4,10 +4,10 @@ export const perfil: Perfil = {
   nome: "Lecino Lucas",
 
   /** Título do Início. */
-  destaque: "Desenvolvedor Full Stack e Analista de Sistemas",
+  destaque: "Analista de Sistemas ERP e Integrações Corporativas",
 
   /** Especialidades, logo abaixo do título. */
-  titulo: "Foco em Backend · Node.js · Integrações Empresariais · Automação e IA",
+  titulo: "TOTVS Protheus · SQL · Integração Bancária · Evoluindo para o Desenvolvimento",
 
   /** Frase de apoio, logo abaixo das especialidades. */
   frase: "Entendo a regra de negócio. Integro sistemas.",
@@ -27,9 +27,9 @@ export const perfil: Perfil = {
       tags: ["CNAB", "mTLS", "ExecAuto"],
     },
     {
-      titulo: "Sistemas completos, do backend ao frontend",
+      titulo: "Desenvolvimento de sistemas",
       texto:
-        "Entrego API e interface de ponta a ponta: Portal de Engenharia com mais de 500 usuários e ImportNFe em uso por uma distribuidora, com testes automatizados.",
+        "Construí sistemas com API e interface: Portal de Engenharia com mais de 500 usuários e ImportNFe em uso por uma distribuidora, com testes automatizados.",
       tags: ["Node.js", "React", "PostgreSQL"],
     },
     {
@@ -42,9 +42,9 @@ export const perfil: Perfil = {
 
   /** Apresentação do Início: objetiva, uma ideia por parágrafo. */
   apresentacao: [
-    "Comecei no suporte técnico N1/N2, evoluí para análise de sistemas e desenvolvimento e hoje entrego sistemas completos, do backend ao frontend, com foco em backend, integrações empresariais, automações e aplicações com IA.",
-    "Minha base é a análise de sistemas e as regras de negócio, no ERP TOTVS Protheus e em processos financeiros, fiscais e operacionais. Desenvolvo APIs, bancos de dados e as interfaces que os usam, com testes e entrega em produção.",
-    "Mais de 4 anos em TI, formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás. Busco oportunidades como Desenvolvedor Full Stack, Desenvolvedor Backend, Analista de Sistemas ou Suporte Especializado que integra sistemas.",
+    "Comecei no suporte técnico N1/N2, evoluí para a análise de sistemas, no ERP TOTVS Protheus e em integrações bancárias. Hoje também desenvolvo sistemas e automações com IA, e estou crescendo na direção do desenvolvimento.",
+    "Minha base é a análise de sistemas e as regras de negócio, no ERP TOTVS Protheus e em processos financeiros, fiscais e operacionais. Nos meus projetos construo APIs, bancos de dados e as interfaces que os usam, com testes.",
+    "Mais de 4 anos em TI, formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás. Busco oportunidades como Analista de Sistemas ou Suporte Especializado que integra sistemas.",
   ],
 
   localizacao: "Goiânia · GO",

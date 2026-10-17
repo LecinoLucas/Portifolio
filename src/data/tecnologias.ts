@@ -7,7 +7,7 @@ import type { Tecnologias } from "@/types";
  */
 export const tecnologias: Tecnologias = {
   abertura:
-    "O que já entreguei vem primeiro. Cada competência abaixo mostra onde foi usada e em que estado está.",
+    "Estou em transição de carreira, do suporte e da análise de sistemas para o desenvolvimento, com foco em arquitetura e na orquestração de IA. O que tem projeto ao lado eu já usei e validei em sistema real. O que entreguei vem primeiro, e cada competência mostra onde foi usada e em que estado está.",
 
   entregas: [
     {
@@ -57,7 +57,7 @@ export const tecnologias: Tecnologias = {
   orquestracao: {
     titulo: "Como eu construo: orquestro tudo com IA",
     texto:
-      "Os sistemas e as integrações acima foram construídos orquestrando IA. Eu defino a regra de negócio, a arquitetura e os testes, delego a escrita a agentes e reviso e entendo o que entrego.",
+      "Os sistemas e as integrações acima foram construídos orquestrando IA. Meu foco é a arquitetura: eu defino a regra de negócio, a estrutura e os testes, oriento a IA na escrita e valido cada entrega.",
     itens: [
       { nome: "Várias LLMs e agentes de código", texto: "Claude, Codex, Gemini e Antigravity: escolho a ferramenta pela tarefa." },
       { nome: "Skills criadas por mim", texto: "Skills com meus padrões de engenharia (o LES), para a IA seguir sempre as mesmas regras." },

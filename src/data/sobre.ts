@@ -11,7 +11,7 @@ export const sobre: Sobre = {
     "Escuto o usuário com calma",
     "Foco e consistência na entrega",
     "Trabalho em equipe",
-    "Busco: Desenvolvedor Full Stack, Backend ou Analista de Sistemas",
+    "Busco: Analista de Sistemas ERP, com espaço para desenvolver",
   ],
 
   principios: [

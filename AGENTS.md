@@ -10,7 +10,7 @@ Este documento estabelece as diretrizes normativas de engenharia, arquitetura, s
 ---
 
 ## 1. Projeto
-- **Nome**: Portifolio — Portfolio profissional de Lecino Lucas (Analista de Sistemas & Desenvolvedor Full Stack).
+- **Nome**: Portifolio — Portfolio profissional de Lecino Lucas (Analista de Sistemas ERP e Integrações Corporativas).
 - **Tipo**: Novo Sistema (Greenfield).
 - **Objetivo**: Aplicacao web estatica, leve e profissional, para uso em curriculo, LinkedIn, GitHub e processos seletivos. Aparencia de produto SaaS / engenharia de software — o conteudo tecnico e mais importante que o efeito visual.
 - **Escopo H1**: Frontend estatico, sem backend, sem banco, sem autenticacao. Conteudo tipado em `src/data/*`. Build estatico (Vite) empacotado em imagem Docker (Nginx nao-root) para deploy no Google Cloud Run.

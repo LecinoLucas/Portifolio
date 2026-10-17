@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Briefcase, FolderKanban, Home, MoreHorizontal, User } from "lucide-react";
+import { Briefcase, FolderKanban, Home, MoreHorizontal } from "lucide-react";
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { itensNav } from "@/lib/nav";
 import { cn } from "@/lib/utils";
 
 const PRINCIPAIS = [
   { id: "inicio", Icone: Home },
-  { id: "sobre", Icone: User },
   { id: "experiencia", Icone: Briefcase },
   { id: "projetos", Icone: FolderKanban },
 ] as const;

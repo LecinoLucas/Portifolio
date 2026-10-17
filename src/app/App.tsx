@@ -38,8 +38,7 @@ export function App() {
         <Header ativa={ativa} aoIr={ir} />
 
         <main id="conteudo" className="flex-1">
-          <Visao id="inicio" ativa={ativa}><Hero aoIr={ir} /></Visao>
-          <Visao id="sobre" ativa={ativa}><About /></Visao>
+          <Visao id="inicio" ativa={ativa}><Hero aoIr={ir}><About /></Hero></Visao>
           <Visao id="experiencia" ativa={ativa}><Experience aoIr={ir} /></Visao>
           <Visao id="projetos" ativa={ativa}><Projects /></Visao>
           <Visao id="tecnologias" ativa={ativa}><TechStack /></Visao>

@@ -11,7 +11,7 @@ export const sobre: Sobre = {
     "Escuto o usuário com calma",
     "Foco e consistência na entrega",
     "Trabalho em equipe",
-    "Busco: Analista, Desenvolvedor ou Suporte que integra",
+    "Busco: Desenvolvedor Full Stack, Backend ou Analista de Sistemas",
   ],
 
   principios: [
@@ -23,7 +23,7 @@ export const sobre: Sobre = {
   ],
 
   caminho:
-    "Mais de 4 anos em TI. Comecei no suporte técnico, atendendo por telefone e chat. Passei pela supervisão de vendas, onde aprendi a trabalhar com pessoas e a cuidar do atendimento, e depois pela implantação de sistemas, até os sistemas corporativos e o desenvolvimento. Cada etapa me ensinou a ouvir o usuário.",
+    "Mais de 4 anos em TI, formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás. Comecei no suporte técnico, atendendo por telefone e chat. Passei pela supervisão de vendas, onde aprendi a trabalhar com pessoas e a cuidar do atendimento, e depois pela implantação de sistemas, até os sistemas corporativos e o desenvolvimento. Cada etapa me ensinou a ouvir o usuário.",
 
   alemDoTrabalho:
     "Tudo o que faço começa em casa. Sou casado e sou pai de família, e é por eles que quero ser um pouco melhor a cada dia. Trabalhar com pessoas todos os dias é sempre algo novo: cada usuário e cada dúvida trazem uma situação diferente, e foram anos de atendimento que me ensinaram que quase todo problema melhora quando alguém escuta com calma. No trabalho sou muito focado, às vezes demais, e estou aprendendo a equilibrar.",

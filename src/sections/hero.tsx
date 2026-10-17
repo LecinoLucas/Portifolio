@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Download, Github, Linkedin } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { TextoRecolhivel } from "@/components/portfolio/texto-recolhivel";
@@ -28,7 +29,8 @@ function Botoes() {
   );
 }
 
-export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
+/** `children` entra entre os cartões de evidências e o sumário (o Sobre mim). */
+export function Hero({ aoIr, children }: { aoIr: (id: string) => void; children?: ReactNode }) {
   return (
     <section id="inicio" className="relative overflow-hidden">
       <div aria-hidden="true" className="hero-brilho" />
@@ -48,7 +50,7 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
 
             <p className="mt-4 text-lg font-semibold text-foreground sm:mt-5 lg:text-xl">{perfil.frase}</p>
             <div className="mt-2 lg:text-lg">
-              <TextoRecolhivel linhas={perfil.apresentacao} />
+              <TextoRecolhivel linhas={perfil.apresentacao.slice(0, 1)} />
             </div>
 
             <div className="mt-5 sm:mt-7">
@@ -68,6 +70,8 @@ export function Hero({ aoIr }: { aoIr: (id: string) => void }) {
         <div className="mt-6 lg:hidden">
           <FaixaProvas />
         </div>
+
+        {children}
 
         <div className="mt-12">
           <Sumario3D aoIr={aoIr} />

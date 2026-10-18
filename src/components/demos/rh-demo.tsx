@@ -4,12 +4,15 @@ import { MolduraDemo } from "@/components/demos/moldura-demo";
 import { RhAdmissao } from "@/components/demos/rh-admissao";
 import { RhAnalise } from "@/components/demos/rh-analise";
 import { RhPipeline } from "@/components/demos/rh-pipeline";
+import { SistemaCorpo } from "@/components/demos/sistema-demo";
+import { rhTelas } from "@/data/demos/rh-telas";
 import { candidatosIniciais, type EtapaId } from "@/data/demos/rh";
 
 const ABAS = [
   { id: "pipeline", rotulo: "Pipeline" },
   { id: "analise", rotulo: "Análise por IA" },
   { id: "admissao", rotulo: "Pré-admissão → Protheus" },
+  { id: "telas", rotulo: "Telas do sistema" },
 ];
 
 export function RhDemo() {
@@ -26,6 +29,7 @@ export function RhDemo() {
         {aba === "pipeline" ? <RhPipeline candidatos={candidatos} aoMover={mover} /> : null}
         {aba === "analise" ? <RhAnalise candidato={candidatos[2]} /> : null}
         {aba === "admissao" ? <RhAdmissao /> : null}
+        {aba === "telas" ? <SistemaCorpo definicao={rhTelas} /> : null}
       </Abas>
     </MolduraDemo>
   );

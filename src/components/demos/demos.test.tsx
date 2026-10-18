@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, within } from "@testing-library/react";
 import { ImportNfeDemo } from "@/components/demos/importnfe-demo";
 import { RhDemo } from "@/components/demos/rh-demo";
 
@@ -161,6 +161,19 @@ describe("<SistemaDemo /> Aluguel de Motos", () => {
     for (const tela of aluguel.telas) {
       fireEvent.click(screen.getByRole("tab", { name: tela.rotulo }));
       expect(screen.getByRole("heading", { level: 4, name: tela.titulo })).toBeInTheDocument();
+    }
+  });
+});
+
+describe("<RhDemo /> telas do sistema", () => {
+  it("abre as telas visuais do Portal RH", async () => {
+    const { rhTelas } = await import("@/data/demos/rh-telas");
+    render(<RhDemo />);
+    fireEvent.click(screen.getByRole("tab", { name: "Telas do sistema" }));
+    const sistema = within(screen.getByTestId("sistema-demo"));
+    for (const tela of rhTelas.telas) {
+      fireEvent.click(sistema.getByRole("tab", { name: tela.rotulo }));
+      expect(sistema.getByRole("heading", { level: 4, name: tela.titulo })).toBeInTheDocument();
     }
   });
 });

@@ -7,7 +7,7 @@ export const perfil: Perfil = {
   destaque: "Analista de Sistemas ERP e Integrações Corporativas",
 
   /** Especialidades, logo abaixo do título. */
-  titulo: "Do suporte N1/N2 ao ERP: investigo a causa raiz e integro sistemas",
+  titulo: "Do suporte N1/N2 ao ERP · TOTVS Protheus · SQL · Integração Bancária",
 
   /** Frase de apoio, logo abaixo das especialidades. */
   frase: "Entendo a regra de negócio. Integro sistemas.",

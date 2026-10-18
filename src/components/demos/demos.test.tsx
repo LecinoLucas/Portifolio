@@ -101,3 +101,16 @@ describe("<PortalDemo /> telas visuais", () => {
     expect(screen.getByText("Detalhe da obra", { selector: "p" })).toBeInTheDocument();
   });
 });
+
+describe("<FiscalDemo />", () => {
+  it("sinaliza dados fictícios e navega por todas as telas do menu", async () => {
+    const { FiscalDemo } = await import("@/components/demos/fiscal-demo");
+    render(<FiscalDemo />);
+    expect(screen.getByText("Dados fictícios")).toBeInTheDocument();
+    for (const nome of ["Certificados Digitais", "Conferência fiscal", "Regularidade Fiscal", "Documentos fiscais", "Catálogo e Tributação", "Controle de Combustíveis", "Obrigações Acessórias", "Atividades", "Configurações", "Visão geral"]) {
+      fireEvent.click(screen.getByRole("tab", { name: nome }));
+      expect(screen.getByRole("tab", { name: nome })).toHaveAttribute("aria-selected", "true");
+      expect(screen.getByRole("heading", { level: 4, name: nome })).toBeInTheDocument();
+    }
+  });
+});

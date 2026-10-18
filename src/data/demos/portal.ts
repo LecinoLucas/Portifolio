@@ -102,9 +102,18 @@ export interface PerguntaIA {
   fontes: string[];
 }
 
-export type TelaPortal = "analise" | "cotacoes" | "obra";
+export type TelaPortal =
+  | "dashboard" | "analise" | "obras" | "obra" | "cotacoes" | "diarias" | "aprovacoes"
+  | "imoveis" | "checklist" | "manutencao" | "documentos" | "config";
 
 export const perguntasIA: PerguntaIA[] = [
+  {
+    pergunta: "Quem pode aprovar uma medição?",
+    resposta: "Depende da alçada: limite, escopo e vigência. Veja e simule na tela \"Alçadas de Aprovação\".",
+    destino: "aprovacoes",
+    rotuloDestino: "Abrir Alçadas de Aprovação",
+    fontes: ["Guia de Alçadas de Aprovação", "Mapa de telas do portal"],
+  },
   {
     pergunta: "Onde vejo obras?",
     resposta: "Para isso, acesse a tela \"Detalhe da Obra\".",

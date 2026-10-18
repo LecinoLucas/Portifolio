@@ -31,6 +31,8 @@ export const portalEngenharia: Projeto = {
     { nome: "Playwright", para: "Testes de ponta a ponta dos fluxos, no navegador." },
     { nome: "Testing Library", para: "Testes dos componentes e telas do frontend." },
     { nome: "PostgreSQL real no CI", para: "Testes de integração contra um banco efêmero, com migrations e seeds." },
+    { nome: "k6", para: "Testes de carga: o comportamento com muitos usuários." },
+    { nome: "Stryker", para: "Testes de mutação: verificam se os testes realmente pegam erros." },
   ],
   detalhe: {
     contexto:

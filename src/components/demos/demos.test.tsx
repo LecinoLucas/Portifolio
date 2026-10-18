@@ -114,3 +114,29 @@ describe("<FiscalDemo />", () => {
     }
   });
 });
+
+describe("<SistemaDemo /> (freelances)", () => {
+  it("abre todas as telas da barbearia e da clínica e sinaliza dados fictícios", async () => {
+    const { SistemaDemo } = await import("@/components/demos/sistema-demo");
+    const { barbearia } = await import("@/data/demos/barbearia");
+    const { clinica } = await import("@/data/demos/clinica");
+    for (const definicao of [barbearia, clinica]) {
+      const { unmount } = render(<SistemaDemo definicao={definicao} />);
+      expect(screen.getByText("Dados fictícios")).toBeInTheDocument();
+      for (const tela of definicao.telas) {
+        fireEvent.click(screen.getByRole("tab", { name: tela.rotulo }));
+        expect(screen.getByRole("heading", { level: 4, name: tela.titulo })).toBeInTheDocument();
+      }
+      unmount();
+    }
+  });
+});
+
+describe("<Projects /> separa os freelances", () => {
+  it("mostra a seção Projetos freelance com a clínica, a barbearia e o ImportNFe", async () => {
+    const { projetos } = await import("@/data/projetos");
+    const freelances = projetos.filter((p) => p.freelance).map((p) => p.slug);
+    expect(freelances).toEqual(["clinica", "alphamen-barbearia", "importnfe"]);
+    expect(projetos.filter((p) => !p.freelance).map((p) => p.slug)).not.toContain("clinica");
+  });
+});

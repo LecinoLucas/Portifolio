@@ -1,5 +1,6 @@
 import type { Projeto } from "@/types";
 import { alphamenBarbearia } from "@/data/projetos/alphamen-barbearia";
+import { clinica } from "@/data/projetos/clinica";
 import { bankingprotheus } from "@/data/projetos/bankingprotheus";
 import { importnfe } from "@/data/projetos/importnfe";
 import { les } from "@/data/projetos/les";
@@ -14,11 +15,12 @@ import { portalRh } from "@/data/projetos/portal-rh";
 export const projetos: Projeto[] = [
   portalEngenharia,
   portalRh,
-  alphamenBarbearia,
-  importnfe,
   bankingprotheus,
   portalFiscal,
   les,
+  clinica,
+  alphamenBarbearia,
+  importnfe,
 ];
 
 export const projetosDestaque = projetos.filter((p) => p.destaque);

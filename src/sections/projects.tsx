@@ -7,7 +7,8 @@ import { projetos } from "@/data/projetos";
 
 export function Projects() {
   const principal = projetos.find((p) => p.principal);
-  const demais = projetos.filter((p) => !p.principal);
+  const corporativos = projetos.filter((p) => !p.principal && !p.freelance);
+  const freelances = projetos.filter((p) => p.freelance);
 
   return (
     <Section id="projetos">
@@ -24,12 +25,31 @@ export function Projects() {
       ) : null}
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {demais.map((projeto, indice) => (
+        {corporativos.map((projeto, indice) => (
           <Reveal key={projeto.slug} atraso={(indice % 3) * 70} className="h-full">
             <ProjectCard projeto={projeto} indice={indice + 1} />
           </Reveal>
         ))}
       </div>
+
+      {freelances.length > 0 ? (
+        <div id="freelances" className="mt-16" aria-labelledby="titulo-freelances">
+          <p className="font-mono text-xs uppercase tracking-[0.12em] text-primary">Freelances</p>
+          <h3 id="titulo-freelances" className="mt-1.5 text-2xl font-semibold tracking-tight">
+            Projetos freelance
+          </h3>
+          <p className="mt-2 max-w-2xl text-muted-foreground">
+            Sistemas que construí para clientes e que estão em uso real por pessoas de verdade.
+          </p>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {freelances.map((projeto, indice) => (
+              <Reveal key={projeto.slug} atraso={(indice % 3) * 70} className="h-full">
+                <ProjectCard projeto={projeto} indice={corporativos.length + indice + 1} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </Section>
   );
 }

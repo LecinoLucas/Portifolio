@@ -8,6 +8,9 @@ import {
 } from "@/components/ui/sheet";
 import { Abas } from "@/components/demos/abas";
 import { ImportNfeDemo } from "@/components/demos/importnfe-demo";
+import { SistemaDemo } from "@/components/demos/sistema-demo";
+import { barbearia } from "@/data/demos/barbearia";
+import { clinica } from "@/data/demos/clinica";
 import { FiscalDemo } from "@/components/demos/fiscal-demo";
 import { PortalDemo } from "@/components/demos/portal-demo";
 import { RhDemo } from "@/components/demos/rh-demo";
@@ -40,7 +43,7 @@ export function ProjectDetail({ projeto }: { projeto: Projeto }) {
   return (
     <SheetContent
       lado="right"
-      className={projeto.demo === "portal" || projeto.demo === "fiscal" ? "w-full gap-0 sm:max-w-5xl" : "w-full gap-0 sm:max-w-xl"}
+      className={projeto.demo === "portal" || projeto.demo === "fiscal" || projeto.demo === "barbearia" || projeto.demo === "clinica" ? "w-full gap-0 sm:max-w-5xl" : "w-full gap-0 sm:max-w-xl"}
       rotuloFechar="Fechar detalhes do projeto"
     >
       <SheetHeader>
@@ -88,6 +91,8 @@ function Demo({ tipo }: { tipo: NonNullable<Projeto["demo"]> }) {
   if (tipo === "importnfe") return <ImportNfeDemo />;
   if (tipo === "portal") return <PortalDemo />;
   if (tipo === "fiscal") return <FiscalDemo />;
+  if (tipo === "barbearia") return <SistemaDemo definicao={barbearia} />;
+  if (tipo === "clinica") return <SistemaDemo definicao={clinica} />;
   return <RhDemo />;
 }
 

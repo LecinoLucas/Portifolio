@@ -3,7 +3,8 @@ import type { Projeto } from "@/types";
 export const importnfe: Projeto = {
   slug: "importnfe",
   titulo: "ImportNFe",
-  categoria: "Processamento fiscal · XML NF-e",
+  categoria: "Processamento fiscal · XML NF-e · Freelance",
+  freelance: true,
   situacao: "producao",
   situacaoDetalhe: "Roda em servidor local e foi vendido a uma distribuidora.",
   demo: "importnfe",

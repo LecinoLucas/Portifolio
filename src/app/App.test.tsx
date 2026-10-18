@@ -116,7 +116,7 @@ describe("<App />", () => {
     const projetos = container.querySelector("#projetos")?.textContent ?? "";
     expect(projetos).toContain("Alphamen Barbearia");
     expect(projetos).toContain("Portal Fiscal");
-    expect(projetos).toContain("Projeto freelance, em fase de entrega.");
+    expect(projetos).toContain("Freelance em uso real pela barbearia.");
     expect(projetos).toContain("Pronto, ainda sem uso em produção.");
     // as decisões de engenharia ficam no painel de detalhe, que abre ao clicar
     const cartao = screen.getByRole("heading", { name: "Alphamen Barbearia", hidden: true }).closest("article") as HTMLElement;

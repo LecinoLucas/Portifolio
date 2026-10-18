@@ -36,15 +36,21 @@ describe("dados de projetos", () => {
     expect(projetoPorSlug("importnfe")?.situacao).toBe("producao");
     expect(projetoPorSlug("bankingprotheus")?.situacao).toBe("producao");
     expect(projetoPorSlug("portal-rh")?.situacao).toBe("entregue");
-    // Barbearia está em fase de entrega e o Portal Fiscal está pronto, mas ainda sem uso.
-    expect(projetoPorSlug("alphamen-barbearia")?.situacao).toBe("construcao");
+    // Barbearia e Clínica são freelances em uso real; o Portal Fiscal está pronto, mas ainda sem uso.
+    expect(projetoPorSlug("alphamen-barbearia")?.situacao).toBe("producao");
+    expect(projetoPorSlug("clinica")?.situacao).toBe("producao");
     expect(projetoPorSlug("portal-fiscal")?.situacao).toBe("construido");
   });
 
-  it("a Barbearia só cita o que o código do backend comprova (sem NestJS, WhatsApp ou Google Calendar)", () => {
+  it("a Barbearia só cita o que o código do backend comprova (WhatsApp e Google Agenda existem; NestJS e Instagram não)", () => {
     const texto = JSON.stringify(projetoPorSlug("alphamen-barbearia")).toLowerCase();
-    for (const termo of ["nestjs", "whatsapp", "calendar", "instagram"]) expect(texto).not.toContain(termo);
-    expect(texto).toContain("utc");
+    for (const termo of ["nestjs", "instagram"]) expect(texto).not.toContain(termo);
+    for (const termo of ["whatsapp", "google agenda", "utc"]) expect(texto).toContain(termo);
+  });
+
+  it("os freelances ficam marcados e a clínica não cita dado clínico real", () => {
+    for (const slug of ["clinica", "alphamen-barbearia", "importnfe"]) expect(projetoPorSlug(slug)?.freelance).toBe(true);
+    expect(projetoPorSlug("clinica")?.demo).toBe("clinica");
   });
 
   it("o Portal de RH não afirma envio real ao Protheus (execução em homologação)", () => {

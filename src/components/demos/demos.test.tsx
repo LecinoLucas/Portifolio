@@ -47,6 +47,7 @@ describe("<PortalDemo />", () => {
     const { PortalDemo } = await import("@/components/demos/portal-demo");
     render(<PortalDemo />);
     expect(screen.getByText("Dados fictícios")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("tab", { name: "Análise de Obras" }));
     expect(screen.getAllByText(/Mapa de calor/).length).toBeGreaterThan(0);
     fireEvent.click(screen.getByRole("button", { name: "Abrir IA de Engenharia" }));
     fireEvent.click(screen.getByRole("button", { name: "Onde vejo a economia das cotações?" }));
@@ -57,6 +58,7 @@ describe("<PortalDemo />", () => {
   it("mostra o detalhe da célula do mapa de calor", async () => {
     const { PortalDemo } = await import("@/components/demos/portal-demo");
     render(<PortalDemo />);
+    fireEvent.click(screen.getByRole("tab", { name: "Análise de Obras" }));
     fireEvent.click(screen.getByRole("button", { name: /2.0 — Superestrutura, Jun\/26: 104%/ }));
     expect(screen.getByText(/104% do orçamento consumido/)).toBeInTheDocument();
   });
@@ -77,11 +79,25 @@ describe("<PortalAprovacoes />", () => {
   it("registra a decisão na auditoria e aprova quando elegível", async () => {
     const { PortalDemo } = await import("@/components/demos/portal-demo");
     render(<PortalDemo />);
-    fireEvent.click(screen.getByRole("tab", { name: "Alçadas de Aprovação" }));
+    fireEvent.click(screen.getByRole("tab", { name: "Aprovações" }));
     fireEvent.change(screen.getByLabelText("Aprovador"), { target: { value: "bruno" } });
     expect(screen.getByRole("status")).toHaveTextContent("Aprovação permitida");
     fireEvent.click(screen.getByRole("button", { name: "Tentar aprovar" }));
     expect(screen.getByRole("button", { name: "Medição já aprovada" })).toBeDisabled();
     expect(screen.getByText(/Bruno Lima · Medição 05.*concedida/)).toBeInTheDocument();
+  });
+});
+
+describe("<PortalDemo /> telas visuais", () => {
+  it("abre cada tela do menu e a obra a partir da lista", async () => {
+    const { PortalDemo } = await import("@/components/demos/portal-demo");
+    render(<PortalDemo />);
+    for (const nome of ["Dashboard", "Obras", "Controle de Diárias", "Imóveis", "Checklist", "Manutenção", "Documentos", "Configurações"]) {
+      fireEvent.click(screen.getByRole("tab", { name: nome }));
+      expect(screen.getByRole("tab", { name: nome })).toHaveAttribute("aria-selected", "true");
+    }
+    fireEvent.click(screen.getByRole("tab", { name: "Obras" }));
+    fireEvent.click(screen.getByRole("button", { name: "Abrir Residencial Alfa" }));
+    expect(screen.getByText("Detalhe da obra", { selector: "p" })).toBeInTheDocument();
   });
 });

@@ -102,7 +102,9 @@ export interface PerguntaIA {
   fontes: string[];
 }
 
-export type TelaPortal = "analise" | "cotacoes" | "obra" | "aprovacoes";
+export type TelaPortal =
+  | "dashboard" | "analise" | "obras" | "obra" | "cotacoes" | "diarias" | "aprovacoes"
+  | "imoveis" | "checklist" | "manutencao" | "documentos" | "config";
 
 export const perguntasIA: PerguntaIA[] = [
   {

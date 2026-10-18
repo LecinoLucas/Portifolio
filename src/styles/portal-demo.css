@@ -1,9 +1,9 @@
 /* Demonstração do Portal de Engenharia — réplica visual do sistema real, sempre
    em tema claro com a identidade vinho. Escopo: .portal. */
 .portal {
-  --p-vinho: #7a0f12;
-  --p-vinho-claro: #f6e6e6;
-  --p-fundo: #f3f3f4;
+  --p-vinho: #5c0b0e;
+  --p-vinho-claro: #fbeeec;
+  --p-fundo: #f6f6f6;
   --p-card: #fff;
   --p-borda: #e4e4e7;
   --p-texto: #1c1c1f;
@@ -35,7 +35,7 @@
 .portal-conteudo { min-width: 0; flex: 1; overflow-x: auto; padding: 0.9rem; }
 .portal-botao { display: inline-flex; align-items: center; gap: 0.4rem; border: 0; border-radius: 0.4rem; background: var(--p-vinho); color: #fff; padding: 0.5rem 0.8rem; font-weight: 600; cursor: pointer; }
 .portal-botao-ia { border: 1px solid var(--p-borda); background: var(--p-card); color: var(--p-vinho); padding: 0.4rem; }
-.portal-card { border: 1px solid var(--p-borda); border-radius: 0.6rem; background: var(--p-card); padding: 0.9rem; }
+.portal-card { border: 1px solid var(--p-borda); border-radius: 0.9rem; box-shadow: 0 1px 2px rgb(0 0 0 / 0.04); background: var(--p-card); padding: 0.9rem; }
 .portal-grade { display: grid; gap: 0.75rem; }
 .portal-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @container (min-width: 42rem) { .portal-kpis { grid-template-columns: repeat(4, minmax(0, 1fr)); } .portal-duas { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -66,6 +66,33 @@
 .portal-pill { display: inline-block; border-radius: 99px; background: #ececee; padding: 0.1rem 0.6rem; font-size: 0.75rem; }
 .portal-progresso { height: 0.5rem; border-radius: 99px; background: #ececee; overflow: hidden; }
 .portal-progresso > span { display: block; height: 100%; background: var(--p-vinho); }
+
+.portal-lateral { overflow-y: auto; }
+.portal-contador { margin-left: auto; border-radius: 99px; background: #d97706; color: #fff; padding: 0 0.45rem; font-size: 0.65rem; font-weight: 700; }
+.portal-usuario { display: flex; align-items: center; gap: 0.5rem; margin-top: auto; border-top: 1px solid var(--p-borda); padding: 0.6rem 0.4rem 0; font-size: 0.75rem; }
+.portal-avatar { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; flex-shrink: 0; border-radius: 99px; background: var(--p-vinho); color: #fff; font-size: 0.7rem; font-weight: 700; }
+.portal-topo-acoes { display: flex; align-items: center; gap: 0.5rem; }
+.portal-seletor { display: none; align-items: center; gap: 0.4rem; border: 1px solid var(--p-borda); border-radius: 0.5rem; padding: 0.35rem 0.6rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; }
+@container (min-width: 42rem) { .portal-seletor { display: inline-flex; } }
+.portal-icone-topo { color: var(--p-suave); }
+.portal-cartoes { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); }
+.portal-card-botao { display: flex; flex-direction: column; gap: 0.5rem; text-align: left; cursor: pointer; font: inherit; color: inherit; }
+.portal-card-botao:hover { border-color: var(--p-vinho); }
+.portal-selo { display: inline-block; border-radius: 0.3rem; padding: 0.1rem 0.5rem; font-size: 0.7rem; font-weight: 700; white-space: nowrap; background: #ececee; color: var(--p-suave); }
+.portal-selo[data-tom="azul"] { background: #dbeafe; color: #1d4ed8; }
+.portal-selo[data-tom="verde"] { background: #dcfce7; color: #166534; }
+.portal-selo[data-tom="laranja"] { background: #fef3c7; color: #92400e; }
+.portal-selo[data-tom="vinho"] { background: var(--p-vinho-claro); color: var(--p-vinho); }
+.portal-kpi-valor[data-tom="azul"] { color: #1d4ed8; }
+.portal-kpi-valor[data-tom="laranja"] { color: var(--p-laranja); }
+.portal-kpi-valor[data-tom="verde"] { color: var(--p-verde); }
+.portal-kpi-valor[data-tom="vinho"] { color: var(--p-vinho); }
+.portal-abas-botao { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.portal-abas-botao button { border: 1px solid var(--p-borda); border-radius: 0.5rem; background: var(--p-card); padding: 0.45rem 0.8rem; color: var(--p-suave); font-weight: 600; cursor: pointer; }
+.portal-abas-botao button[aria-selected="true"] { background: var(--p-vinho); border-color: var(--p-vinho); color: #fff; }
+.portal-linha-doc { display: flex; align-items: center; gap: 0.6rem; border-bottom: 1px solid var(--p-borda); padding: 0.6rem 0; }
+.portal-cadastro { display: flex; flex-direction: column; gap: 0.3rem; }
+.portal-icone { display: inline-grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 99px; background: var(--p-vinho-claro); color: var(--p-vinho); }
 .portal-eyebrow { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em; color: var(--p-vinho); }
 .portal-pill[data-ativa="true"] { background: #dcfce7; color: #166534; }
 .portal-campos { display: grid; gap: 0.6rem; margin-bottom: 0.4rem; }

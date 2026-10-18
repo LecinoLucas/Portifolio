@@ -84,11 +84,13 @@ describe("<App />", () => {
     const { container } = render(<App />);
     const inicio = container.querySelector("#inicio")?.textContent ?? "";
     expect(inicio).toContain("Analista de Sistemas ERP e Integrações Corporativas");
-    expect(inicio).toContain("TOTVS Protheus · SQL · Integração Bancária · Evoluindo para o Desenvolvimento");
+    expect(inicio).toContain("Do suporte N1/N2 ao ERP: investigo a causa raiz e integro sistemas");
     expect(inicio).toContain("Entendo a regra de negócio. Integro sistemas.");
     expect(inicio).toContain("PUC Goiás");
     expect(inicio).toContain("Mais de 4 anos em TI");
-    expect(inicio).toContain("Comecei no suporte técnico N1/N2");
+    expect(inicio).toContain("do suporte técnico N1/N2 à implantação");
+    expect(inicio).toContain("convivência em compras");
+    expect(inicio).not.toMatch(/evoluindo para o desenvolvimento/i);
     expect(inicio).toContain("Protheus");
     expect(inicio).not.toMatch(/em transição/i);
     expect(inicio).toContain("Analista de Sistemas ERP, com espaço para desenvolver");

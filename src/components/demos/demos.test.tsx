@@ -140,3 +140,15 @@ describe("<Projects /> separa os freelances", () => {
     expect(projetos.filter((p) => !p.freelance).map((p) => p.slug)).not.toContain("clinica");
   });
 });
+
+describe("<SistemaDemo /> BankingProtheus", () => {
+  it("abre todas as telas do painel bancário", async () => {
+    const { SistemaDemo } = await import("@/components/demos/sistema-demo");
+    const { banking } = await import("@/data/demos/banking");
+    render(<SistemaDemo definicao={banking} />);
+    for (const tela of banking.telas) {
+      fireEvent.click(screen.getByRole("tab", { name: tela.rotulo }));
+      expect(screen.getByRole("heading", { level: 4, name: tela.titulo })).toBeInTheDocument();
+    }
+  });
+});

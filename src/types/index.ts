@@ -63,7 +63,7 @@ export interface Projeto {
   /** Camadas de teste do projeto, para o painel de detalhe. */
   testes?: { nome: string; para: string }[];
   /** Demonstração interativa com dados fictícios. */
-  demo?: "importnfe" | "rh" | "portal" | "fiscal" | "barbearia" | "clinica";
+  demo?: "importnfe" | "rh" | "portal" | "fiscal" | "barbearia" | "clinica" | "banking";
   detalhe: DetalheProjeto;
   links?: LinkExterno[];
 }

@@ -10,6 +10,7 @@ import { Abas } from "@/components/demos/abas";
 import { ImportNfeDemo } from "@/components/demos/importnfe-demo";
 import { SistemaDemo } from "@/components/demos/sistema-demo";
 import { barbearia } from "@/data/demos/barbearia";
+import { erpDemo } from "@/data/demos/erp-colchoes";
 import { aluguel } from "@/data/demos/aluguel";
 import { banking } from "@/data/demos/banking";
 import { clinica } from "@/data/demos/clinica";
@@ -45,7 +46,7 @@ export function ProjectDetail({ projeto }: { projeto: Projeto }) {
   return (
     <SheetContent
       lado="right"
-      className={projeto.demo === "portal" || projeto.demo === "fiscal" || projeto.demo === "barbearia" || projeto.demo === "clinica" || projeto.demo === "banking" || projeto.demo === "aluguel" ? "w-full gap-0 sm:max-w-5xl" : "w-full gap-0 sm:max-w-xl"}
+      className={projeto.demo === "portal" || projeto.demo === "fiscal" || projeto.demo === "barbearia" || projeto.demo === "clinica" || projeto.demo === "banking" || projeto.demo === "aluguel" || projeto.demo === "erp" ? "w-full gap-0 sm:max-w-5xl" : "w-full gap-0 sm:max-w-xl"}
       rotuloFechar="Fechar detalhes do projeto"
     >
       <SheetHeader>
@@ -97,6 +98,7 @@ function Demo({ tipo }: { tipo: NonNullable<Projeto["demo"]> }) {
   if (tipo === "clinica") return <SistemaDemo definicao={clinica} />;
   if (tipo === "banking") return <SistemaDemo definicao={banking} />;
   if (tipo === "aluguel") return <SistemaDemo definicao={aluguel} />;
+  if (tipo === "erp") return <SistemaDemo definicao={erpDemo} />;
   return <RhDemo />;
 }
 

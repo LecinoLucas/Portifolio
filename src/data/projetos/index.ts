@@ -1,6 +1,7 @@
 import type { Projeto } from "@/types";
 import { alphamenBarbearia } from "@/data/projetos/alphamen-barbearia";
 import { aluguelMotos } from "@/data/projetos/aluguel-motos";
+import { erpColchoes } from "@/data/projetos/erp-colchoes";
 import { clinica } from "@/data/projetos/clinica";
 import { bankingprotheus } from "@/data/projetos/bankingprotheus";
 import { importnfe } from "@/data/projetos/importnfe";
@@ -20,6 +21,7 @@ export const projetos: Projeto[] = [
   portalFiscal,
   aluguelMotos,
   les,
+  erpColchoes,
   clinica,
   alphamenBarbearia,
   importnfe,

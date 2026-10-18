@@ -5,7 +5,7 @@ export function TextoRecolhivel({ linhas }: { linhas: string[] }) {
   const [aberto, setAberto] = useState(false);
 
   return (
-    <div className="max-w-3xl text-base leading-relaxed text-foreground/85 sm:text-xl">
+    <div className="max-w-3xl text-sm leading-relaxed text-foreground/85 sm:text-base">
       {linhas.map((linha, indice) => (
         <p
           key={linha}

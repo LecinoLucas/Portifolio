@@ -24,7 +24,7 @@ function Cartao({ item, indice, aoIr }: { item: ItemNav; indice: number; aoIr: (
           {String(indice + 1).padStart(2, "0")}
           <ArrowUpRight aria-hidden="true" className="size-5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </span>
-        <span className="mt-4 block text-xl font-bold tracking-tight">{item.rotulo}</span>
+        <span className="mt-4 block text-lg font-bold tracking-tight">{item.rotulo}</span>
         <span className="mt-1 block text-sm text-muted-foreground">{item.descricao}</span>
       </span>
     </a>

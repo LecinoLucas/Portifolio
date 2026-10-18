@@ -6,7 +6,7 @@ function Numero({ prova, ativo }: { prova: Prova; ativo: boolean }) {
   const valor = useContador(prova.valor, ativo);
   return (
     <div className="rounded-lg border border-border bg-card/80 p-4">
-      <p className="texto-gradiente font-mono text-4xl font-extrabold tracking-tight sm:text-5xl">
+      <p className="texto-gradiente font-mono text-3xl font-extrabold tracking-tight sm:text-4xl">
         <span aria-hidden="true">{valor}{prova.sufixo}</span>
         <span className="sr-only">{prova.valor}{prova.sufixo}</span>
       </p>

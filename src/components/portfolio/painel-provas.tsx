@@ -7,7 +7,7 @@ function Linha({ prova, ativo, indice }: { prova: Prova; ativo: boolean; indice:
   return (
     <li className="painel-linha flex items-baseline gap-4 border-t border-border/70 py-3 first:border-t-0" style={{ animationDelay: `${0.25 + indice * 0.15}s` }}>
       <span aria-hidden="true" className="font-mono text-sm text-success">✓</span>
-      <span className="texto-gradiente min-w-[5.5rem] font-mono text-4xl font-extrabold tracking-tight">
+      <span className="texto-gradiente min-w-[5.5rem] font-mono text-3xl font-extrabold tracking-tight">
         <span aria-hidden="true">{valor}{prova.sufixo}</span>
         <span className="sr-only">{prova.valor}{prova.sufixo}</span>
       </span>

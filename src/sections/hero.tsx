@@ -42,14 +42,14 @@ export function Hero({ aoIr, children }: { aoIr: (id: string) => void; children?
               {perfil.disponibilidade} · {perfil.localizacao}
             </p>
 
-            <h1 className="mt-4 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:mt-6 sm:text-lg">{perfil.nome}</h1>
-            <h2 className="texto-gradiente mt-2 max-w-3xl text-[2.1rem] font-extrabold leading-[1.1] tracking-[-0.035em] sm:mt-3 sm:text-5xl lg:text-[3.1rem]">
+            <h1 className="mt-4 font-mono text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground sm:mt-6 sm:text-base">{perfil.nome}</h1>
+            <h2 className="texto-gradiente mt-2 max-w-3xl text-[1.75rem] font-extrabold leading-[1.15] tracking-[-0.03em] sm:mt-3 sm:text-4xl lg:text-[2.5rem]">
               {perfil.destaque}
             </h2>
-            <p className="mt-3 text-base font-medium text-foreground/90 sm:mt-4 sm:text-lg">{perfil.titulo}</p>
+            <p className="mt-3 text-sm font-medium text-foreground/90 sm:mt-4 sm:text-base">{perfil.titulo}</p>
 
-            <p className="mt-4 text-lg font-semibold text-foreground sm:mt-5 lg:text-xl">{perfil.frase}</p>
-            <div className="mt-2 lg:text-lg">
+            <p className="mt-4 text-base font-semibold text-foreground sm:mt-5 lg:text-lg">{perfil.frase}</p>
+            <div className="mt-2 lg:text-base">
               <TextoRecolhivel linhas={perfil.apresentacao.slice(0, 1)} />
             </div>
 

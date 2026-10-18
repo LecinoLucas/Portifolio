@@ -58,7 +58,7 @@ export function CartoesEvidencias() {
             className="marca-palavra flex min-w-[85%] snap-center flex-col rounded-lg border border-primary/40 bg-card/80 p-5 shadow-lg shadow-black/10 sm:min-w-0"
             style={{ animationDelay: `${indice * 0.15}s` }}
           >
-            <h3 className="texto-gradiente text-xl font-extrabold tracking-tight">{item.titulo}</h3>
+            <h3 className="texto-gradiente text-lg font-extrabold tracking-tight">{item.titulo}</h3>
             <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/85">{item.texto}</p>
             <p className="mt-3 font-mono text-xs text-primary">{item.tags.join(" · ")}</p>
           </li>

@@ -66,3 +66,14 @@
 .portal-pill { display: inline-block; border-radius: 99px; background: #ececee; padding: 0.1rem 0.6rem; font-size: 0.75rem; }
 .portal-progresso { height: 0.5rem; border-radius: 99px; background: #ececee; overflow: hidden; }
 .portal-progresso > span { display: block; height: 100%; background: var(--p-vinho); }
+.portal-eyebrow { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em; color: var(--p-vinho); }
+.portal-pill[data-ativa="true"] { background: #dcfce7; color: #166534; }
+.portal-campos { display: grid; gap: 0.6rem; margin-bottom: 0.4rem; }
+@container (min-width: 42rem) { .portal-campos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.portal-campos label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.75rem; font-weight: 600; color: var(--p-suave); }
+.portal-campos select { border: 1px solid var(--p-borda); border-radius: 0.4rem; background: var(--p-card); padding: 0.45rem; color: var(--p-texto); font: inherit; }
+.portal-decisao { display: flex; gap: 0.6rem; border: 1px solid var(--p-borda); border-left-width: 4px; border-radius: 0.5rem; padding: 0.6rem 0.75rem; }
+.portal-decisao[data-motivo="PERMITIDA"] { border-left-color: var(--p-verde); background: #f0fdf4; }
+.portal-decisao[data-motivo="LIMITE_EXCEDIDO"] { border-left-color: var(--p-laranja); background: #fffbeb; }
+.portal-decisao[data-motivo="ALCADA_NAO_ENCONTRADA"], .portal-decisao[data-motivo="SEGREGACAO_DE_FUNCOES"] { border-left-color: var(--p-vinho); background: var(--p-vinho-claro); }
+.portal-botao[disabled] { opacity: 0.5; cursor: default; }

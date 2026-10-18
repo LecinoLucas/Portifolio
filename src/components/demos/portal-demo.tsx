@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Bot, Building2, FileText, FolderOpen, LayoutGrid, LineChart, Plus, Settings } from "lucide-react";
+import { Bot, Building2, FileText, FolderOpen, LayoutGrid, LineChart, Plus, Settings, ShieldCheck } from "lucide-react";
 import { MolduraDemo } from "@/components/demos/moldura-demo";
+import { PortalAprovacoes } from "@/components/demos/portal-aprovacoes";
 import { PortalAnalise } from "@/components/demos/portal-analise";
 import { PortalCotacoes } from "@/components/demos/portal-cotacoes";
 import { PortalIA } from "@/components/demos/portal-ia";
@@ -12,6 +13,7 @@ const TELAS: { id: TelaPortal; rotulo: string; subtitulo: string; Icone: typeof 
   { id: "analise", rotulo: "Análise de Obras", subtitulo: "Orçado x Medido e desvios, todos os blocos obedecem aos mesmos filtros.", Icone: LineChart },
   { id: "obra", rotulo: "Obras", subtitulo: "Detalhe da obra", Icone: Building2 },
   { id: "cotacoes", rotulo: "Cotações", subtitulo: "Visão consolidada das cotações", Icone: FileText },
+  { id: "aprovacoes", rotulo: "Alçadas de Aprovação", subtitulo: "Quem aprova, até qual valor e em qual escopo.", Icone: ShieldCheck },
 ];
 
 const OUTROS = [
@@ -71,6 +73,7 @@ export function PortalDemo() {
               {tela === "analise" ? <PortalAnalise /> : null}
               {tela === "cotacoes" ? <PortalCotacoes /> : null}
               {tela === "obra" ? <PortalObra /> : null}
+              {tela === "aprovacoes" ? <PortalAprovacoes /> : null}
             </div>
             {iaAberta ? <PortalIA aoAbrir={setTela} /> : null}
           </div>

@@ -61,3 +61,27 @@ describe("<PortalDemo />", () => {
     expect(screen.getByText(/104% do orçamento consumido/)).toBeInTheDocument();
   });
 });
+
+describe("<PortalAprovacoes />", () => {
+  it("decide a alçada: limite, segregação de funções e ausência de regra", async () => {
+    const { decidirAlcada, medicoesParaAprovar, pessoas } = await import("@/data/demos/aprovacoes");
+    const [m5] = medicoesParaAprovar;
+    const quem = (id: string) => pessoas.find((p) => p.id === id)!;
+    expect(decidirAlcada(m5, quem("ana")).motivo).toBe("LIMITE_EXCEDIDO");
+    expect(decidirAlcada(m5, quem("bruno")).motivo).toBe("PERMITIDA");
+    expect(decidirAlcada(m5, quem("carla")).motivo).toBe("SEGREGACAO_DE_FUNCOES");
+    expect(decidirAlcada(m5, quem("diego")).motivo).toBe("ALCADA_NAO_ENCONTRADA");
+    expect(decidirAlcada(m5, quem("elisa")).alcada?.limite).toBeNull();
+  });
+
+  it("registra a decisão na auditoria e aprova quando elegível", async () => {
+    const { PortalDemo } = await import("@/components/demos/portal-demo");
+    render(<PortalDemo />);
+    fireEvent.click(screen.getByRole("tab", { name: "Alçadas de Aprovação" }));
+    fireEvent.change(screen.getByLabelText("Aprovador"), { target: { value: "bruno" } });
+    expect(screen.getByRole("status")).toHaveTextContent("Aprovação permitida");
+    fireEvent.click(screen.getByRole("button", { name: "Tentar aprovar" }));
+    expect(screen.getByRole("button", { name: "Medição já aprovada" })).toBeDisabled();
+    expect(screen.getByText(/Bruno Lima · Medição 05.*concedida/)).toBeInTheDocument();
+  });
+});

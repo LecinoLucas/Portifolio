@@ -1,0 +1,70 @@
+/* Demonstração do Portal Fiscal — aproximação visual do sistema real, sempre em tema claro. Escopo: .fiscal. */
+.fiscal {
+  --f-azul: #1e3a6e;
+  --f-azul-claro: #e8eef8;
+  --f-fundo: #f6f5f2;
+  --f-card: #fff;
+  --f-borda: #e4e2dc;
+  --f-texto: #16202e;
+  --f-suave: #6b7280;
+  --f-verde: #247a51;
+  --f-laranja: #c97b09;
+  --f-vermelho: #ba2121;
+  display: flex;
+  min-height: 34rem;
+  container-type: inline-size;
+  color: var(--f-texto);
+  background: var(--f-fundo);
+  font-size: 0.875rem;
+}
+.fiscal button { font: inherit; }
+.fiscal-lateral { display: none; width: 13rem; flex-shrink: 0; flex-direction: column; gap: 0.1rem; border-right: 1px solid var(--f-borda); background: #fdfcfa; padding: 0.75rem 0.5rem; overflow-y: auto; }
+@container (min-width: 42rem) { .fiscal-lateral { display: flex; } .fiscal-nav-topo { display: none !important; } }
+.fiscal-marca { display: flex; align-items: center; gap: 0.5rem; padding: 0.2rem 0.4rem 0.8rem; font-size: 0.8rem; }
+.fiscal-marca small { color: var(--f-azul); font-weight: 700; letter-spacing: 0.08em; font-size: 0.6rem; }
+.fiscal-logo { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 0.5rem; background: var(--f-azul); color: #fff; font-weight: 800; }
+.fiscal-grupo { margin: 0.4rem 0.5rem 0.2rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; color: var(--f-suave); }
+.fiscal-item { border: 0; border-radius: 0.5rem; background: none; padding: 0.5rem 0.6rem; text-align: left; color: var(--f-texto); cursor: pointer; }
+.fiscal-item[aria-current="page"] { background: #ebeaf0; font-weight: 700; }
+.fiscal-usuario { display: flex; align-items: center; gap: 0.5rem; margin-top: auto; border-top: 1px solid var(--f-borda); padding: 0.6rem 0.3rem 0; font-size: 0.75rem; }
+.fiscal-usuario small { color: var(--f-suave); }
+.fiscal-avatar { display: inline-grid; place-items: center; width: 1.8rem; height: 1.8rem; flex-shrink: 0; border-radius: 99px; background: #ebeaf0; font-size: 0.65rem; font-weight: 700; }
+.fiscal-nav-topo { display: flex; gap: 0.25rem; overflow-x: auto; border-bottom: 1px solid var(--f-borda); background: #fdfcfa; padding: 0.4rem; }
+.fiscal-nav-topo .fiscal-item { white-space: nowrap; }
+.fiscal-principal { display: flex; min-width: 0; flex: 1; flex-direction: column; }
+.fiscal-topo { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; border-bottom: 1px solid var(--f-borda); background: #fdfcfa; padding: 0.6rem 0.9rem; }
+.fiscal-topo-esq, .fiscal-topo-dir { display: flex; align-items: center; gap: 0.6rem; }
+.fiscal-assistente { display: none; align-items: center; gap: 0.3rem; color: var(--f-azul); font-weight: 600; }
+.fiscal-seletor { display: inline-flex; align-items: center; gap: 0.4rem; border: 1px solid var(--f-borda); border-radius: 0.5rem; background: var(--f-card); padding: 0.35rem 0.6rem; font-weight: 600; }
+@container (min-width: 42rem) { .fiscal-assistente { display: inline-flex; } }
+.fiscal-conteudo { min-width: 0; flex: 1; overflow-x: auto; padding: 1rem; }
+.fiscal-titulo { margin: 0.1rem 0; font-size: 1.4rem; font-weight: 700; }
+.fiscal-eyebrow { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em; color: #0f6e5a; }
+.fiscal-suave { color: var(--f-suave); font-size: 0.75rem; }
+.fiscal-h5 { margin: 0.2rem 0 0.6rem; font-size: 1.1rem; font-weight: 700; }
+.fiscal-card { border: 1px solid var(--f-borda); border-radius: 0.8rem; background: var(--f-card); padding: 0.9rem; box-shadow: 0 1px 2px rgb(0 0 0 / 0.04); }
+.fiscal-grade { display: grid; gap: 0.75rem; }
+.fiscal-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fiscal-cartoes { grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); }
+@container (min-width: 42rem) { .fiscal-kpis { grid-template-columns: repeat(5, minmax(0, 1fr)); } .fiscal-duas { grid-template-columns: 1.5fr 1fr; } .fiscal .fiscal-kanban { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.fiscal-rotulo { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; color: var(--f-suave); }
+.fiscal-numero { margin: 0.3rem 0; font-size: 2rem; font-weight: 700; line-height: 1; }
+.fiscal-alerta { display: flex; gap: 0.6rem; border: 1px solid; border-radius: 0.6rem; padding: 0.7rem 0.8rem; }
+.fiscal-alerta[data-tom="verde"] { border-color: #b7e4cc; background: #f0fbf5; color: #0f5132; }
+.fiscal-alerta[data-tom="laranja"] { border-color: #f1d59c; background: #fffaf0; color: #7a4b05; }
+.fiscal-atalhos { display: grid; gap: 0.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fiscal-atalho { display: flex; align-items: center; gap: 0.4rem; border: 1px solid var(--f-borda); border-radius: 0.6rem; padding: 0.55rem; font-weight: 600; }
+.fiscal-tabela { width: 100%; border-collapse: collapse; }
+.fiscal-tabela th, .fiscal-tabela td { border-bottom: 1px solid var(--f-borda); padding: 0.6rem 0.7rem; text-align: left; }
+.fiscal-tabela th { font-size: 0.75rem; font-weight: 600; color: var(--f-suave); }
+.fiscal-selo { display: inline-block; align-self: flex-start; line-height: 1.4; border: 1px solid; border-radius: 99px; padding: 0.05rem 0.55rem; font-size: 0.7rem; font-weight: 600; white-space: nowrap; }
+.fiscal-selo[data-tom="azul"] { border-color: #bcd0ee; background: #e8f0fb; color: #1e62b0; }
+.fiscal-selo[data-tom="verde"] { border-color: #b7e4cc; background: #ecf8f1; color: #1f6f48; }
+.fiscal-selo[data-tom="laranja"] { border-color: #f1d59c; background: #fdf3de; color: #a86407; }
+.fiscal-selo[data-tom="vermelho"] { border-color: #f0b9b9; background: #fdeeee; color: #ba2121; }
+.fiscal-selo[data-tom="cinza"] { border-color: var(--f-borda); background: #f3f2ee; color: var(--f-suave); }
+.fiscal-barra { height: 0.5rem; border-radius: 99px; background: #ebeaf0; overflow: hidden; margin-bottom: 0.3rem; }
+.fiscal-barra > span { display: block; height: 100%; background: var(--f-azul); }
+.fiscal-kanban { grid-template-columns: 1fr; }
+.fiscal-coluna { display: flex; flex-direction: column; gap: 0.5rem; border-radius: 0.8rem; background: #efede8; padding: 0.6rem; }
+.fiscal-codigo { white-space: nowrap; font-family: ui-monospace, monospace; font-size: 0.7rem; color: var(--f-suave); }

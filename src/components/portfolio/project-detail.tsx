@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/sheet";
 import { Abas } from "@/components/demos/abas";
 import { ImportNfeDemo } from "@/components/demos/importnfe-demo";
+import { FiscalDemo } from "@/components/demos/fiscal-demo";
 import { PortalDemo } from "@/components/demos/portal-demo";
 import { RhDemo } from "@/components/demos/rh-demo";
 import { SeloSituacao } from "@/components/portfolio/selo-situacao";
@@ -39,7 +40,7 @@ export function ProjectDetail({ projeto }: { projeto: Projeto }) {
   return (
     <SheetContent
       lado="right"
-      className={projeto.demo === "portal" ? "w-full gap-0 sm:max-w-5xl" : "w-full gap-0 sm:max-w-xl"}
+      className={projeto.demo === "portal" || projeto.demo === "fiscal" ? "w-full gap-0 sm:max-w-5xl" : "w-full gap-0 sm:max-w-xl"}
       rotuloFechar="Fechar detalhes do projeto"
     >
       <SheetHeader>
@@ -86,6 +87,7 @@ export function ProjectDetail({ projeto }: { projeto: Projeto }) {
 function Demo({ tipo }: { tipo: NonNullable<Projeto["demo"]> }) {
   if (tipo === "importnfe") return <ImportNfeDemo />;
   if (tipo === "portal") return <PortalDemo />;
+  if (tipo === "fiscal") return <FiscalDemo />;
   return <RhDemo />;
 }
 

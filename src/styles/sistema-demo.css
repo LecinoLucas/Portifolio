@@ -27,6 +27,12 @@
 }
 .sis[data-tema="rh"] .sis-item[aria-current="page"] { color: #b3142f; }
 .sis[data-tema="rh"] .sis-marca { color: var(--s-destaque); }
+.sis[data-tema="erp"] {
+  --s-fundo: #f8fbff; --s-borda: #e5e7eb; --s-texto: #0f172a; --s-suave: #64748b; --s-destaque: #3b82f6; --s-destaque-claro: #dbeafe; --s-destaque-texto: #fff;
+  --s-lateral: #fff; --s-lateral-texto: #0f172a; --s-lateral-ativo: #dbeafe; --s-raio: 0.9rem;
+}
+.sis[data-tema="erp"] .sis-item[aria-current="page"] { color: #1e40af; }
+.sis[data-tema="erp"] .sis-marca { color: #2563eb; }
 .sis button { font: inherit; }
 .sis-lateral { display: none; width: 12.5rem; flex-shrink: 0; flex-direction: column; gap: 0.15rem; background: var(--s-lateral); color: var(--s-lateral-texto); padding: 0.9rem 0.6rem; overflow-y: auto; }
 @container (min-width: 42rem) { .sis-lateral { display: flex; } .sis-nav-topo { display: none !important; } }

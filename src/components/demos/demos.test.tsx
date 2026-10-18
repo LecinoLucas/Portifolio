@@ -136,7 +136,7 @@ describe("<Projects /> separa os freelances", () => {
   it("mostra a seção Projetos freelance com a clínica, a barbearia e o ImportNFe", async () => {
     const { projetos } = await import("@/data/projetos");
     const freelances = projetos.filter((p) => p.freelance).map((p) => p.slug);
-    expect(freelances).toEqual(["clinica", "alphamen-barbearia", "importnfe"]);
+    expect(freelances).toEqual(["erp-loja-colchoes", "clinica", "alphamen-barbearia", "importnfe"]);
     expect(projetos.filter((p) => !p.freelance).map((p) => p.slug)).not.toContain("clinica");
   });
 });
@@ -174,6 +174,18 @@ describe("<RhDemo /> telas do sistema", () => {
     for (const tela of rhTelas.telas) {
       fireEvent.click(sistema.getByRole("tab", { name: tela.rotulo }));
       expect(sistema.getByRole("heading", { level: 4, name: tela.titulo })).toBeInTheDocument();
+    }
+  });
+});
+
+describe("<SistemaDemo /> ERP da loja de colchões", () => {
+  it("abre todas as telas do ERP", async () => {
+    const { SistemaDemo } = await import("@/components/demos/sistema-demo");
+    const { erpDemo } = await import("@/data/demos/erp-colchoes");
+    render(<SistemaDemo definicao={erpDemo} />);
+    for (const tela of erpDemo.telas) {
+      fireEvent.click(screen.getByRole("tab", { name: tela.rotulo }));
+      expect(screen.getByRole("heading", { level: 4, name: tela.titulo })).toBeInTheDocument();
     }
   });
 });

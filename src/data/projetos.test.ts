@@ -49,7 +49,7 @@ describe("dados de projetos", () => {
   });
 
   it("os freelances ficam marcados e a clínica não cita dado clínico real", () => {
-    for (const slug of ["clinica", "alphamen-barbearia", "importnfe"]) expect(projetoPorSlug(slug)?.freelance).toBe(true);
+    for (const slug of ["erp-loja-colchoes", "clinica", "alphamen-barbearia", "importnfe"]) expect(projetoPorSlug(slug)?.freelance).toBe(true);
     expect(projetoPorSlug("clinica")?.demo).toBe("clinica");
   });
 

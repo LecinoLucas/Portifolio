@@ -31,7 +31,7 @@ export interface TelaSistema {
 
 export interface DefinicaoSistema {
   /** Seleciona o tema visual em `sistema-demo.css`. */
-  tema: "barbearia" | "clinica" | "banking";
+  tema: "barbearia" | "clinica" | "banking" | "aluguel";
   titulo: string;
   marca: string;
   submarca: string;

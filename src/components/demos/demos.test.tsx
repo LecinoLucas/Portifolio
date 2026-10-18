@@ -152,3 +152,15 @@ describe("<SistemaDemo /> BankingProtheus", () => {
     }
   });
 });
+
+describe("<SistemaDemo /> Aluguel de Motos", () => {
+  it("abre todas as telas do sistema de aluguel", async () => {
+    const { SistemaDemo } = await import("@/components/demos/sistema-demo");
+    const { aluguel } = await import("@/data/demos/aluguel");
+    render(<SistemaDemo definicao={aluguel} />);
+    for (const tela of aluguel.telas) {
+      fireEvent.click(screen.getByRole("tab", { name: tela.rotulo }));
+      expect(screen.getByRole("heading", { level: 4, name: tela.titulo })).toBeInTheDocument();
+    }
+  });
+});

@@ -7,7 +7,7 @@ export const perfil: Perfil = {
   destaque: "Analista de Sistemas ERP e Integrações Corporativas",
 
   /** Especialidades, logo abaixo do título. */
-  titulo: "TOTVS Protheus · SQL · Integração Bancária · Evoluindo para o Desenvolvimento",
+  titulo: "Do suporte N1/N2 ao ERP · TOTVS Protheus · SQL · Integração Bancária",
 
   /** Frase de apoio, logo abaixo das especialidades. */
   frase: "Entendo a regra de negócio. Integro sistemas.",
@@ -42,7 +42,7 @@ export const perfil: Perfil = {
 
   /** Apresentação do Início: objetiva, uma ideia por parágrafo. */
   apresentacao: [
-    "Comecei no suporte técnico N1/N2 e fui crescendo para a análise e a implantação de sistemas. Trabalho com o ERP TOTVS Protheus, SQL e integrações bancárias e, em paralelo, construo sistemas e automações com IA. Busco vagas de Analista de Sistemas e de Suporte Especializado, e também oportunidades para desenvolver.",
+    "Mais de 4 anos em TI, do suporte técnico N1/N2 à implantação e aos sistemas corporativos. Atuo no ERP TOTVS Protheus (financeiro, contábil e fiscal, com convivência em compras), investigo incidentes com SQL até a causa raiz e integro bancos por VAN, API de extrato e mTLS. Também desenvolvo sistemas e automações com IA, alguns já em produção. Busco vagas de Analista de Sistemas ou de Suporte Especializado (N1/N2) que integra sistemas.",
     "Minha base é a análise de sistemas e as regras de negócio, no ERP TOTVS Protheus e em processos financeiros, fiscais e operacionais. Nos meus projetos construo APIs, bancos de dados e as interfaces que os usam, com testes.",
     "Mais de 4 anos em TI, formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás. Busco oportunidades como Analista de Sistemas ou Suporte Especializado que integra sistemas.",
   ],

@@ -99,6 +99,9 @@ describe("<PortalDemo /> telas visuais", () => {
     fireEvent.click(screen.getByRole("tab", { name: "Obras" }));
     fireEvent.click(screen.getByRole("button", { name: "Abrir Residencial Alfa" }));
     expect(screen.getByText("Detalhe da obra", { selector: "p" })).toBeInTheDocument();
+  });
+});
+
 describe("<FiscalDemo />", () => {
   it("sinaliza dados fictícios e navega por todas as telas do menu", async () => {
     const { FiscalDemo } = await import("@/components/demos/fiscal-demo");

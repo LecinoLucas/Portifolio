@@ -42,7 +42,7 @@ export const perfil: Perfil = {
 
   /** Apresentação do Início: objetiva, uma ideia por parágrafo. */
   apresentacao: [
-    "Comecei no suporte técnico N1/N2, evoluí para a análise de sistemas, no ERP TOTVS Protheus e em integrações bancárias. Hoje também desenvolvo sistemas e automações com IA, e estou crescendo na direção do desenvolvimento.",
+    "Comecei no suporte técnico N1/N2 e fui crescendo para a análise e a implantação de sistemas. Trabalho com o ERP TOTVS Protheus, SQL e integrações bancárias e, em paralelo, construo sistemas e automações com IA. Busco vagas de Analista de Sistemas e de Suporte Especializado, e também oportunidades para desenvolver.",
     "Minha base é a análise de sistemas e as regras de negócio, no ERP TOTVS Protheus e em processos financeiros, fiscais e operacionais. Nos meus projetos construo APIs, bancos de dados e as interfaces que os usam, com testes.",
     "Mais de 4 anos em TI, formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás. Busco oportunidades como Analista de Sistemas ou Suporte Especializado que integra sistemas.",
   ],

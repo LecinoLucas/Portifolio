@@ -42,7 +42,7 @@ export const perfil: Perfil = {
 
   /** Apresentação do Início: objetiva, uma ideia por parágrafo. */
   apresentacao: [
-    "Mais de 4 anos em TI, do suporte técnico N1/N2 à implantação e aos sistemas corporativos. Atuo no ERP TOTVS Protheus (financeiro, contábil e fiscal, com convivência em compras), investigo incidentes com SQL até a causa raiz e integro bancos por VAN, API de extrato e mTLS. Também desenvolvo sistemas e automações com IA, alguns já em produção. Busco vagas de Analista de Sistemas ou de Suporte Especializado (N1/N2) que integra sistemas.",
+    "Mais de 4 anos em TI, do suporte técnico N1/N2 à implantação e aos sistemas corporativos. Atuo no ERP TOTVS Protheus (faturamento, financeiro, GPE, livros fiscais e eSocial, nos chamados que atendo), investigo incidentes com SQL até a causa raiz e integro bancos por VAN, API de extrato e mTLS. Também desenvolvo sistemas e automações com IA, alguns já em produção. Busco vagas de Analista de Sistemas ou de Suporte Especializado (N1/N2) que integra sistemas.",
     "Minha base é a análise de sistemas e as regras de negócio, no ERP TOTVS Protheus e em processos financeiros, fiscais e operacionais. Nos meus projetos construo APIs, bancos de dados e as interfaces que os usam, com testes.",
     "Mais de 4 anos em TI, formado em Análise e Desenvolvimento de Sistemas pela PUC Goiás. Busco oportunidades como Analista de Sistemas ou Suporte Especializado que integra sistemas.",
   ],

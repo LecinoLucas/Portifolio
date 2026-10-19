@@ -89,7 +89,7 @@ describe("<App />", () => {
     expect(inicio).toContain("PUC Goiás");
     expect(inicio).toContain("Mais de 4 anos em TI");
     expect(inicio).toContain("do suporte técnico N1/N2 à implantação");
-    expect(inicio).toContain("convivência em compras");
+    expect(inicio).toContain("faturamento, financeiro, GPE, livros fiscais e eSocial");
     expect(inicio).not.toMatch(/evoluindo para o desenvolvimento/i);
     expect(inicio).toContain("Protheus");
     expect(inicio).not.toMatch(/em transição/i);

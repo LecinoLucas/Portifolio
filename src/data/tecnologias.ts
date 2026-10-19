@@ -121,6 +121,7 @@ export const tecnologias: Tecnologias = {
       titulo: "Integrações empresariais",
       itens: [
         { nome: "TOTVS Protheus", estado: "profissional", onde: "Rede Marajó", comprovada: true },
+        { nome: "Protheus: faturamento, GPE, eSocial e livros fiscais", estado: "profissional", onde: "Rede Marajó (suporte funcional, chamados)", comprovada: false },
         { nome: "CNAB e APIs bancárias", estado: "profissional", onde: "Rede Marajó, BankingProtheus", comprovada: true },
         { nome: "NF-e (XML)", estado: "entregue", onde: "ImportNFe", comprovada: true },
         { nome: "ExecAuto", estado: "desenvolvimento", onde: "Ponte RH e Protheus (dry-run, homologação pendente)", comprovada: true },

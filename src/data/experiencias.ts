@@ -88,11 +88,11 @@ export const carreira: EtapaCarreira[] = [
       "Sustentação de sistemas corporativos e atendimento técnico e funcional (help desk N1/N2) a usuários e áreas de negócio. Investigação de incidentes com SQL, no ERP TOTVS Protheus e nas integrações bancárias.",
     numeros: [
       { valor: "4", rotulo: "bancos integrados: Itaú, Santander, Sicoob e Votorantim" },
-      { valor: "4", rotulo: "módulos do Protheus: financeiro, contábil, fiscal e compras" },
+      { valor: "6", rotulo: "módulos do Protheus nos chamados: faturamento, financeiro, GPE, livros fiscais, contábil e compras" },
       { valor: "2", rotulo: "sistemas entregues em paralelo à sustentação" },
     ],
     destaques: [
-      "Protheus: suporte funcional nos processos financeiros (contas a pagar e a receber), contábeis, fiscais e de compras.",
+      "Protheus: suporte funcional, atendendo os chamados de faturamento (o módulo em que mais atuei), financeiro (contas a pagar e a receber), GPE e eSocial, livros fiscais, contábil e compras.",
       "SQL: consultas para investigar inconsistências, validar dados e identificar a causa raiz de incidentes.",
       "Parametrização bancária no Protheus, feita por mim: CNAB de pagamento e de recebimento, DDA e boletos dos bancos (Itaú, Santander, entre outros), do levantamento da regra ao teste e à homologação.",
       "Integrações: Santander, Votorantim e Sicoob via VAN bancária, e extrato do Itaú via API.",
@@ -126,7 +126,7 @@ export const resumoExperiencia = {
   anosTIDetalhe: `${formatarMeses(totalMesesTI)} somando Atento, I5 e Rede Marajó`,
   destaques: [
     { valor: "4", rotulo: "bancos integrados" },
-    { valor: "4", rotulo: "módulos do Protheus atendidos" },
+    { valor: "6", rotulo: "módulos do Protheus atendidos" },
     { valor: "2", rotulo: "sistemas entregues em paralelo" },
   ],
 };
